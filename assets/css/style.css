@@ -867,17 +867,23 @@ main {
   border-radius: inherit;
 }
 
-/* NEW SKILL SECTION */
+/*-----------------------------------*\ 
+  #SKILLS
+\*-----------------------------------*/
 
+/* Ensure consistency with the root variables */
 .skills {
-  font-family: 'Arial', sans-serif;
+  font-family: var(--ff-poppins), sans-serif;
   margin: 20px;
+  color: var(--white-2); /* Ensuring text color is consistent with other sections */
 }
 
 .skills-title {
   text-align: center;
-  font-size: 2em;
+  font-size: var(--fs-2);
   margin-bottom: 20px;
+  font-weight: var(--fw-600); /* Consistent font weight */
+  color: var(--white-2); /* Ensure it matches the color of headings */
 }
 
 .skills-group {
@@ -885,9 +891,10 @@ main {
 }
 
 .skills-group-title {
-  font-size: 1.5em;
+  font-size: var(--fs-3);
   margin-bottom: 10px;
-  color: #333;
+  color: var(--vegas-gold); /* Consistent with the timeline color */
+  font-weight: var(--fw-500); /* Matching font weight */
 }
 
 .skills-list {
@@ -901,27 +908,47 @@ main {
 .skills-item-container {
   display: flex;
   align-items: center;
-  background-color: #f4f4f4;
+  background-color: var(--light-gray); /* Consistent with overall design */
   padding: 10px 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: var(--shadow-1); /* Light shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-item-container:hover {
+  transform: translateY(-5px); /* Slight elevation effect on hover */
+  box-shadow: var(--shadow-2); /* Darker shadow on hover */
 }
 
 .skill-icon {
   font-size: 1.5em;
   margin-right: 15px;
-  color: #5a5a5a;
+  color: var(--jet); /* Matching color */
 }
 
 .skill-name {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #333;
+  font-size: var(--fs-4);
+  font-weight: var(--fw-500); /* Consistent font weight */
+  color: var(--jet); /* Darker text for readability */
 }
 
+/* Style for skill categories */
+.skills-group-title {
+  font-weight: var(--fw-500); /* Consistent weight */
+  color: var(--vegas-gold); /* Color matching the theme */
+}
 
+.skills-item-container {
+  display: flex;
+  justify-content: flex-start;
+  background-color: var(--light-gray); /* Lighter background for better contrast */
+}
 
-
+.skill-name {
+  font-size: var(--fs-4); /* Consistent font size */
+  font-weight: var(--fw-500); /* Matching the weight of other sections */
+  color: var(--jet); /* Darker text for readability */
+}
 
 
 /*-----------------------------------*\
