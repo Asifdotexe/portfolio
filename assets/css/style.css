@@ -867,6 +867,59 @@ main {
   border-radius: inherit;
 }
 
+/* NEW SKILL SECTION */
+
+.skills {
+  font-family: 'Arial', sans-serif;
+  margin: 20px;
+}
+
+.skills-title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.skills-group {
+  margin-bottom: 40px;
+}
+
+.skills-group-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.skills-item-container {
+  display: flex;
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.skill-icon {
+  font-size: 1.5em;
+  margin-right: 15px;
+  color: #5a5a5a;
+}
+
+.skill-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+
 
 
 
