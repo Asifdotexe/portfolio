@@ -304,8 +304,23 @@
         -->
 
         <section class="testimonials">
+          <div class="testimonials-header">
+            <h3 class="h3 testimonials-title">Testimonials</h3>
+            <a id="recommendMeButton" target="_blank" rel="noopener noreferrer" class="form-btn">
+              <ion-icon name="ribbon"></ion-icon>
+              Recommend Me on LinkedIn
+            </a>
+          </div>
+          
+          <script>
+            // Your LinkedIn Profile URL
+            const linkedInProfileURL = "https://www.linkedin.com/in/sayyedasif/";
+          
+            // Adding Dynamic Redirection to Recommendations Section
+            document.getElementById("recommendMeButton").href =
+              linkedInProfileURL + "details/recommendations/";
+          </script>            
 
-          <h3 class="h3 testimonials-title">Testimonials</h3>
 
           <ul class="testimonials-list has-scrollbar">
 
@@ -397,7 +412,6 @@
           </ul>
 
         </section>
-
 
         <!--
           - testimonials modal
@@ -921,11 +935,15 @@
             </li>
 
             <li class="filter-item">
+              <button data-filter-btn>Deep Learning</button>
+            </li>
+
+            <li class="filter-item">
               <button data-filter-btn>Data Visualization</button>
             </li>
 
             <li class="filter-item">
-              <button data-filter-btn>Miscellaneous</button>
+              <button data-filter-btn>Tools</button>
             </li>
 
           </ul>
@@ -961,6 +979,10 @@
               </li>
 
               <li class="select-item">
+                <button data-select-item>Deep Learning</button>
+              </li>
+
+              <li class="select-item">
                 <button data-select-item>Data Visualization</button>
               </li>
 
@@ -976,7 +998,25 @@
 
             <!-- Example Project Items with New Categories -->
 
-            <li class="project-item active" data-filter-item data-category="data analysis">
+            <li class="project-item active" data-filter-item data-category="deep learning">
+              <a href="https://github.com/Asifdotexe/MNISTify" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/mnistify.png" alt="mnistify" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">MNISTify: Digit Recognition App</h3>
+
+                <p class="project-category">Deep Learning</p>
+
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="tools">
               <a href="https://github.com/Asifdotexe/QuickVU" target="_blank">
 
                 <figure class="project-img">
@@ -987,15 +1027,15 @@
                   <img src="./assets/images/quickvu.png" alt="quickvu" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">QuickVU - No code data science tool</h3>
+                <h3 class="project-title">QuickVU: No-code data science tool</h3>
 
-                <p class="project-category">Data Analysis</p>
+                <p class="project-category">Python Tool</p>
 
               </a>
             </li>
 
 
-            <li class="project-item active" data-filter-item data-category="data analysis">
+            <li class="project-item active" data-filter-item data-category="tools">
               <a href="https://github.com/Asifdotexe/DORA" target="_blank">
 
                 <figure class="project-img">
@@ -1006,9 +1046,9 @@
                   <img src="./assets/images/dora.png" alt="data oriented report automator" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">DORA - Data Oriented Report Automator</h3>
+                <h3 class="project-title">DORA: Data Oriented Report Automator</h3>
 
-                <p class="project-category">Data Analysis</p>
+                <p class="project-category">Python Tool</p>
 
               </a>
             </li>
@@ -1024,15 +1064,15 @@
                   <img src="./assets/images/animate.png" alt="animate recommendation engine" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">AniMate - Anime Recommendation Engine</h3>
+                <h3 class="project-title">AniMate: Anime Recommendation Engine</h3>
 
                 <p class="project-category">Natural Language Processing</p>
 
               </a>
             </li>
 
-            <li class="project-item active" data-filter-item data-category="machine learning">
-              <a href="https://github.com/Asifdotexe/PlatePaparazzi" target="_blank">
+            <li class="project-item active" data-filter-item data-category="deep learning">
+              <a href="https://github.com/Asifdotexe/PlateScribe" target="_blank">
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
@@ -1042,9 +1082,9 @@
                   <img src="./assets/images/platescribe.png" alt="platescribe license plate detection" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Plate Paparazzi</h3>
+                <h3 class="project-title">PlateScribe: License Plate Detection and OCR Tool</h3>
 
-                <p class="project-category">Machine Learning</p>
+                <p class="project-category">Deep Learning</p>
 
               </a>
             </li>
@@ -1060,7 +1100,7 @@
                   <img src="./assets/images/StoDir.png" alt="stock direction forecasting model" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">StoDir - Stock Direction Forecasting Model</h3>
+                <h3 class="project-title">StoDir: Stock Direction Forecasting Model</h3>
 
                 <p class="project-category">Machine Learning</p>
 
@@ -1114,7 +1154,7 @@
                   <img src="./assets/images/aqa-air-quality-study.png" alt="Air quality analysis" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">AQA - Air Quality Analysis</h3>
+                <h3 class="project-title">AQA: Air Quality Analysis</h3>
 
                 <p class="project-category">Data Analysis</p>
 
@@ -1152,7 +1192,7 @@
 
                 <h3 class="project-title">VBA: Pathology Lab Application</h3>
 
-                <p class="project-category">Miscellaneous</p>
+                <p class="project-category">Visual Basic for Application</p>
 
               </a>
             </li>
