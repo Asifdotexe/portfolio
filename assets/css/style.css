@@ -1193,6 +1193,102 @@ main {
   background-color: #5a6268; /* Slightly darker muted gray on hover */
 }
 
+/* Custom CSS for Events */
+.events-posts { 
+  margin-bottom: 20px; 
+}
+
+.events-posts-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.events-post-item > a {
+  position: relative;
+  background: var(--border-gradient-onyx);
+  height: 100%;
+  box-shadow: var(--shadow-4);
+  border-radius: 16px;
+  z-index: 1;
+  padding: 10px;
+}
+
+.events-post-item > a::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: var(--eerie-black-1);
+  z-index: -1;
+}
+
+.event-banner-box {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.event-banner-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-1);
+}
+
+.events-post-item > a:hover .event-banner-box img { 
+  transform: scale(1.1); 
+}
+
+.events-content {
+  padding: 20px;
+}
+
+.events-meta {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 12px;
+}
+
+.events-meta :is(.event-category, time) {
+  color: var(--light-gray-70);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+}
+
+.events-meta .dot {
+  background: var(--light-gray-70);
+  width: 4px;
+  height: 4px;
+  border-radius: 4px;
+}
+
+.events-item-title {
+  margin-bottom: 15px;
+  line-height: 1.4;
+  transition: var(--transition-1);
+}
+
+.events-post-item > a:hover .events-item-title { 
+  color: var(--orange-yellow-crayola); 
+}
+
+.events-text {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  line-height: 1.6;
+}
+
+/* Optional: Add a specific hover effect for events */
+.events-post-item > a:hover {
+  background: var(--hover-gradient); /* Add a new gradient for hover effect */
+}
+
+
 
 /*-----------------------------------*\
   #BLOG
