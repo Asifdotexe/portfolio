@@ -1072,6 +1072,7 @@ main {
   border-radius: 8px;
 }
 
+
 .select-item button:hover { --eerie-black-2: hsl(240, 2%, 20%); }
 
 .project-list {
@@ -1168,8 +1169,29 @@ main {
   font-weight: var(--fw-300);
 }
 
+/* CSS for the tags */
 
+.project-tags {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
 
+.tag {
+  background-color: #6c757d; /* Muted gray for background */
+  color: #ffffff; /* White text for contrast */
+  font-size: 0.75rem; /* Slightly smaller font size */
+  padding: 2px 6px; /* Reduced padding for subtlety */
+  border-radius: 10px; /* Rounded for a polished look */
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: 400; /* Normal weight */
+}
+
+.tag:hover {
+  background-color: #5a6268; /* Slightly darker muted gray on hover */
+}
 
 
 /*-----------------------------------*\
