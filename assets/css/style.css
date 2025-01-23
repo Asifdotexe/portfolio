@@ -1179,8 +1179,8 @@ main {
 }
 
 .tag {
-  background-color: #6c757d; /* Muted gray for background */
-  color: #ffffff; /* White text for contrast */
+  background-color: #2b2b2c; /* Muted gray for background */
+  color: #ffdb70; /* White text for contrast */
   font-size: 0.75rem; /* Slightly smaller font size */
   padding: 2px 6px; /* Reduced padding for subtlety */
   border-radius: 10px; /* Rounded for a polished look */
