@@ -1169,6 +1169,59 @@ main {
   font-weight: var(--fw-300);
 }
 
+/* Certificates */
+/* Certificates Section Styles */
+.certificates-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  padding: 20px 0;
+}
+
+.certificate-item {
+  background: var(--border-gradient-onyx);
+  padding: 15px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-2);
+  transition: transform 0.3s ease;
+}
+
+.certificate-item:hover {
+  transform: translateY(-5px);
+}
+
+.certificate-item img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.certificate-content {
+  padding: 10px;
+}
+
+.certificate-title {
+  color: var(--white-2);
+  margin-bottom: 5px;
+}
+
+.certificate-issuer {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  margin-bottom: 5px;
+}
+
+.certificate-date {
+  color: var(--light-gray-70);
+  font-size: var(--fs-7);
+}
+
+@media (min-width: 1024px) {
+  .certificates-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 /* CSS for the tags */
 
 .project-tags {
