@@ -1,43 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <title>Asif Sayyed - Portfolio Website</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <title>Asif Sayyed - Portfolio Website</title>
 
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./assets/images/icon-briefcase.svg" type="image/x-icon">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./assets/images/icon-briefcase.svg" type="image/x-icon">
 
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- custom css link -->
+    <link rel="stylesheet" href="./assets/css/style.css">
 
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
+    <!-- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  </head>
 
-<body>
+  <body>
 
-  <!--
-    - #MAIN
-  -->
-
+  <!-- MAIN -->
   <main>
 
-    <!--
-      - #SIDEBAR
-    -->
-
+    <!-- SIDEBAR -->
     <aside class="sidebar" data-sidebar>
 
       <div class="sidebar-info">
@@ -48,13 +36,11 @@
 
         <div class="info-content">
           <h1 class="name" title="Asif Sayyed">Asif Sayyed</h1>
-
-          <p class="title">Data Science Student</p>
+          <p class="title">Data Scientist</p>
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
           <span>Show Contacts</span>
-
           <ion-icon name="chevron-down"></ion-icon>
         </button>
 
@@ -67,59 +53,45 @@
         <ul class="contacts-list">
 
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="mail-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
               <p class="contact-title">Email</p>
-
-              <a href="mailto:richard@example.com" class="contact-link">asifdotexe@gmail.com</a>
+              <a href="mailto:asif@example.com" class="contact-link">asifdotexe@gmail.com</a>
             </div>
-
           </li>
-<!-- 
-          <li class="contact-item">
 
+          <!-- OPTIONAL: Uncomment if you want to add a phone number
+          <li class="contact-item">
             <div class="icon-box">
               <ion-icon name="phone-portrait-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
               <p class="contact-title">Phone</p>
-
               <a href="tel:+12133522795" class="contact-link">+1 (213) 352-2795</a>
             </div>
-
-          </li> -->
+          </li>
+          -->
 
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="calendar-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
               <p class="contact-title">Birthday</p>
-
               <time datetime="1982-06-23">March 02, 2004</time>
             </div>
-
           </li>
 
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="location-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
               <p class="contact-title">Location</p>
-
               <address>Mumbai, Maharashtra, India</address>
             </div>
-
           </li>
 
         </ul>
@@ -139,12 +111,14 @@
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
           </li>
-<!-- 
+
+          <!-- #FIXME: Uncomment if you want to add Instagram
           <li class="social-item">
             <a href="" class="social-link">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
-          </li> -->
+          </li>
+          -->
 
         </ul>
 
@@ -152,59 +126,44 @@
 
     </aside>
 
-
-
-
-
-    <!--
-      - #main-content
-    -->
+    <!-- #main-content -->
 
     <div class="main-content">
 
-      <!--
-        - #NAVBAR
-      -->
-
+      <!-- #NAVBAR -->
       <nav class="navbar">
 
-        <ul class="navbar-list">
+      <ul class="navbar-list">
 
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
-          </li>
+        <li class="navbar-item">
+          <button class="navbar-link active" data-nav-link>About</button>
+        </li>
 
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
+        <li class="navbar-item">
+          <button class="navbar-link" data-nav-link>Resume</button>
+        </li>
 
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
+        <li class="navbar-item">
+          <button class="navbar-link" data-nav-link>Portfolio</button>
+        </li>
 
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Certificates</button>
-          </li>
+        <li class="navbar-item">
+          <button class="navbar-link" data-nav-link>Certificates</button>
+        </li>
 
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Events</button>
-          </li>
+        <li class="navbar-item">
+          <button class="navbar-link" data-nav-link>Events</button>
+        </li>
 
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
-          </li>
+        <li class="navbar-item">
+          <button class="navbar-link" data-nav-link>Contact</button>
+        </li>
 
-        </ul>
+      </ul>
 
       </nav>
 
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
+      <!-- ABOUT -->
 
       <article class="about  active" data-page="about">
 
@@ -215,12 +174,12 @@
         <section class="about-text">
           <p>
             I am a Data Engineer Intern and a Bachelor's student in Data Science.
-My          work revolves around turning data into simple and useful solutions.
+            My work revolves around turning data into simple and useful solutions.
           </p>
 
           <p>
-            I have one year of experience working in the insurance industry, focusing on cyber risk. I have also
-            worked on projects in data analysis, machine learning, deep learning, and artificial intelligence.
+            I have one year of experience working in the insurance industry, focusing on cyber risk.
+            I have also worked on projects in data analysis, machine learning, deep learning, and artificial intelligence.
             Many of my projects are deployed online for people to use.
           </p>
 
@@ -229,7 +188,6 @@ My          work revolves around turning data into simple and useful solutions.
             I am also an IBM-certified data scientist.
           </p>
         </section>
-
 
         <!--
           - service
@@ -242,36 +200,32 @@ My          work revolves around turning data into simple and useful solutions.
           <ul class="service-list">
 
             <li class="service-item">
-
               <div class="service-icon-box">
-                <img src="./assets/images/icon-job.svg
-                " alt="design icon" width="40">
+                <img src="./assets/images/icon-job.svg" alt="design icon" width="40">
               </div>
-
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Graduate Traineeship</h4>
-
                 <p class="service-item-text">
                   Graduate Trainee Data Engineer @ Marsh McLennan at the Cyber Risk and Intelligence Center (CRIC)
                 </p>
               </div>
-
             </li>
-            <li class="service-item">
 
+            <li class="service-item">
               <div class="service-icon-box">
                 <img src="./assets/images/icon-graduate.svg" alt="College Degree" width="40">
               </div>
-
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Bachelors Degree</h4>
-
                 <p class="service-item-text">
                   Pursuing BSc. in Data Science and Business Intelligence @SDBI.
                 </p>
               </div>
-
             </li>
+
+          </ul>
+
+        </section>
 <!-- 
             <li class="service-item">
 
@@ -322,15 +276,15 @@ My          work revolves around turning data into simple and useful solutions.
               Recommend Me on LinkedIn
             </a>
           </div>
-          
+
           <script>
             // Your LinkedIn Profile URL
             const linkedInProfileURL = "https://www.linkedin.com/in/sayyedasif/";
-          
+
             // Adding Dynamic Redirection to Recommendations Section
             document.getElementById("recommendMeButton").href =
               linkedInProfileURL + "details/recommendations/";
-          </script>            
+          </script>
 
 
           <ul class="testimonials-list has-scrollbar">
