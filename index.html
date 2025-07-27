@@ -9,7 +9,7 @@
     <title>Asif Sayyed - Portfolio Website</title>
 
     <!-- favicon -->
-    <link rel="shortcut icon" href="./assets/images/icon-briefcase.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/images/icons/icon-briefcase.svg" type="image/x-icon">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
@@ -156,9 +156,10 @@
           <button class="navbar-link" data-nav-link>Events</button>
         </li>
 
-        <li class="navbar-item">
+        <!-- FIXME: Removed the contact section for now as it doesn't work.
+         <li class="navbar-item">
           <button class="navbar-link" data-nav-link>Contact</button>
-        </li>
+        </li> -->
 
       </ul>
 
@@ -209,7 +210,7 @@
 
             <li class="service-item">
               <div class="service-icon-box">
-                <img src="./assets/images/icon-job.svg" alt="design icon" width="40">
+                <img src="./assets/images/icons/icon-job.svg" alt="design icon" width="40">
               </div>
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Corporate Overview</h4>
@@ -221,7 +222,7 @@
 
             <li class="service-item">
               <div class="service-icon-box">
-                <img src="./assets/images/icon-graduate.svg" alt="College Degree" width="40">
+                <img src="./assets/images/icons/icon-graduate.svg" alt="College Degree" width="40">
               </div>
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Academic Overview</h4>
@@ -285,7 +286,7 @@
               <div class="content-card" data-testimonials-item>
 
                 <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/icon-linkedin.svg" alt="Prof. Awesh Bhornya" width="60" data-testimonials-avatar>
+                  <img src="./assets/images/icons/icon-linkedin.svg" alt="Prof. Awesh Bhornya" width="60" data-testimonials-avatar>
                 </figure>
 
                 <h4 class="h4 testimonials-item-title" data-testimonials-title>Prof. Awesh Bhornya @SDBI</h4>
@@ -369,7 +370,7 @@
                 <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
               </figure>
 
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+              <img src="./assets/images/icons/icon-quote.svg" alt="quote icon">
             </div>
 
             <div class="modal-content">
@@ -1041,49 +1042,335 @@
 
       </article>
 
-      <!-- 
-      - Certificates Section 
-      -->
+      <!-- Certificates Section -->
       <article class="certificates" data-page="certificates">
         <header>
           <h2 class="h2 article-title">Certificates</h2>
         </header>
 
-        <!-- <section class="certificates-grid">
+        <section class="certificates-grid">
+
           <div class="certificate-item">
-            <img src="./assets/images/cert-1.jpg" alt="Certificate Title" loading="lazy">
+            <a href="https://coursera.org/verify/professional-cert/MJD36RK7GYSD" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/dsspecialization.png"
+                alt="IBM Data Science Specialization"
+                loading="lazy"
+              >
+            </a>
             <div class="certificate-content">
-              <h3 class="h4 certificate-title">Certificate Title</h3>
-              <p class="certificate-issuer">Issuing Organization</p>
-              <time class="certificate-date">Issue Date</time>
+              <h3 class="h4 certificate-title">IBM Data Science Specialization</h3>
+              <p class="certificate-issuer">IBM | Coursera</p>
+              <time class="certificate-date">26 November 2023</time>
+            </div>
+          </div>
+
+          <div class="certificate-item">
+            <a href="https://coursera.org/verify/8QQCB2ZW7HCJ" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/appcaptstone.png"
+                alt="Applied Data Science Capstone"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">Applied Data Science Capstone</h3>
+              <p class="certificate-issuer">IBM | Coursera</p>
+              <time class="certificate-date">26 November 2023</time>
+            </div>
+          </div>
+
+          <div class="certificate-item">
+            <a href="https://coursera.org/verify/GWPQEUHRCBFU" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/mlwpython.png"
+                alt="Machine Learning with Python"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">Machine Learning with Python</h3>
+              <p class="certificate-issuer">IBM | Coursera</p>
+              <time class="certificate-date">14 November 2023</time>
+            </div>
+          </div>
+
+          <div class="certificate-item">
+            <a href="https://coursera.org/verify/RHHC3MT8KPYF" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/datavisualizationwpython.png"
+                alt="Data Visualization with Python"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">Data Visualization with Python</h3>
+              <p class="certificate-issuer">IBM | Coursera</p>
+              <time class="certificate-date">20 September 2023</time>
+            </div>
+          </div>
+
+          <div class="certificate-item">
+            <a href="https://coursera.org/verify/ZTETUZ4Z4T4Z" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/dsmethod.png"
+                alt="Data Science Methodology"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">Data Science Methodology</h3>
+              <p class="certificate-issuer">IBM | Coursera</p>
+              <time class="certificate-date">24 August 2023</time>
+            </div>
+          </div>
+
+          <div class="certificate-item">
+            <a href="https://coursera.org/verify/ZGANPYT4Z2N2" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/tools4ds.png"
+                alt="Tools for Data Science"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">Tools for Data Science</h3>
+              <p class="certificate-issuer">IBM | Coursera</p>
+              <time class="certificate-date">28 July 2023</time>
+            </div>
+          </div>
+
+          <div class="certificate-item">
+            <a href="https://coursera.org/verify/JKRUYFGA72KC" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/datanalysiswpython.png"
+                alt="Data Analysis with Python"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">Data Analysis with Python</h3>
+              <p class="certificate-issuer">IBM | Coursera</p>
+              <time class="certificate-date">26 July 2023</time>
+            </div>
+          </div>
+
+          <div class="certificate-item">
+            <a href="https://coursera.org/verify/JDS7T33Y56AX" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/pyproject4ds.png"
+                alt="Python Projects for Data Science"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">Python Project for Data Science</h3>
+              <p class="certificate-issuer">IBM | Coursera</p>
+              <time class="certificate-date">26 July 2023</time>
+            </div>
+          </div>
+
+          <div class="certificate-item">
+            <a href="https://coursera.org/verify/55F56XHLEHYM" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/py4dsaidev.png"
+                alt="Python for Data Science, AI and Development"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">Python for Data Science, AI and Development</h3>
+              <p class="certificate-issuer">IBM | Coursera</p>
+              <time class="certificate-date">20 July 2023</time>
+            </div>
+          </div>
+
+          <div class="certificate-item">
+            <a href="https://coursera.org/verify/65M23MSX9A5J" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/whatisds.png"
+                alt="What is Data Science?"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">What is Data Science?</h3>
+              <p class="certificate-issuer">IBM | Coursera</p>
+              <time class="certificate-date">20 July 2023</time>
+            </div>
+          </div>
+
+          <div class="certificate-item">
+            <a href="https://coursera.org/verify/8WUMVP9EXJAG" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/dbsqlwpython.png"
+                alt="Databases and SQL for Data Science with Python"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">Databases and SQL for Data Science with Python</h3>
+              <p class="certificate-issuer">IBM | Coursera</p>
+              <time class="certificate-date">24 July 2023</time>
+            </div>
+          </div>
+
+          <div class="certificate-item">
+            <a href="https://www.linkedin.com/learning/certificates/b88fde906daa0f50f8301bf50b8bee72318e78f791292097daf0525b071b18df" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/pdessential.png"
+                alt="Pandas Essential Training"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">Pandas Essential Training</h3>
+              <p class="certificate-issuer">LinkedIn Learning</p>
+              <time class="certificate-date">03 May 2023</time>
+            </div>
+          </div>
+
+          <div class="certificate-item">
+            <a href="https://www.linkedin.com/learning/certificates/c440b48bd67da7cf0e8327592f8377cb7b0343a9d44963cfc2122e2c859389eb" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/githubfords.png"
+                alt="Github for Data Scientists"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">Github for Data Scientists</h3>
+              <p class="certificate-issuer">LinkedIn Learning</p>
+              <time class="certificate-date">01 May 2023</time>
+            </div>
+          </div>
+
+          <div class="certificate-item">
+            <a href="https://www.linkedin.com/learning/certificates/2b4b33b71bd7071f734f33334987c7ce1db9c375b2eeb6c2331e17de830b0a97" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/15mistakestoavoidds.png"
+                alt="15 Mistakes to Avoid in Data Science"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">15 Mistakes to Avoid in Data Science</h3>
+              <p class="certificate-issuer">LinkedIn Learning</p>
+              <time class="certificate-date">01 May 2023</time>
+            </div>
+          </div>
+
+          <div class="certificate-item">
+            <a href="https://www.linkedin.com/learning/certificates/d84ecfb77aa3b4d4ff381153cdcaa7dcbd2ba9fcf71f233f6b2d999fb977c731" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/intro2businessanalytics.png"
+                alt="Introduction to Business Analytics"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">Introduction to Business Analytics</h3>
+              <p class="certificate-issuer">LinkedIn Learning</p>
+              <time class="certificate-date">22 February 2023</time>
+            </div>
+          </div>
+
+          <div class="certificate-item">
+            <a href="https://www.linkedin.com/learning/certificates/e6fa1d2bad07da0a1f7ba4c67c2db9b11e87c0b0c43e57cbe5295a0f4736ca6a" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/sqlessential.png"
+                alt="SQL Essential Training"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">SQL Essential Training</h3>
+              <p class="certificate-issuer">LinkedIn Learning</p>
+              <time class="certificate-date">18 February 2023</time>
+            </div>
+          </div>
+
+          <div class="certificate-item">
+            <a href="https://www.linkedin.com/learning/certificates/d954941ba980526ac2faee580c3b7c8f6b8aaa920d8206290062012b33be9b15" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/statsfoundation1.png"
+                alt="Statistics Foundations 1: The Basics"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">Statistics Foundations 1: The Basics</h3>
+              <p class="certificate-issuer">LinkedIn Learning</p>
+              <time class="certificate-date">18 February 2023</time>
+            </div>
+          </div>
+
+          <div class="certificate-item">
+            <a href="https://www.linkedin.com/learning/certificates/29ff4fbf07fe7d6b3ba7e9e0abf2358aee0b7e425103cae1aae27d9823500159" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/timemanagementfunda.png"
+                alt="Time Management Fundamentals"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">Time Management Fundamentals</h3>
+              <p class="certificate-issuer">LinkedIn Learning</p>
+              <time class="certificate-date">25 November 2022</time>
+            </div>
+          </div>
+
+          <!-- Uncomment the following section to add more certificates
+           <div class="certificate-item">
+            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/British%20Airways/NjynCWzGSaWXQCxSX_British%20Airways_FwfgP2ABWgdaSjJkD_1729342300556_completion_certificate.pdf" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/britairwaydsjobsim.png"
+                alt="Data Science Job Simulation"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">British Airway - Data Science Job Simulation</h3>
+              <p class="certificate-issuer">British Airway | Forage</p>
+              <time class="certificate-date">19 October 2024</time>
+            </div>
+          </div>
+
+          <div class="certificate-item">
+            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Commonwealth%20Bank/smwfytX3mcLboA9bf_Commonwealth%20Bank_FwfgP2ABWgdaSjJkD_1729344065407_completion_certificate.pdf" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/commonwlthjobsim.png"
+                alt="Data Science Job Simulation"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">Commonwealth Bank - Data Science Job Simulation</h3>
+              <p class="certificate-issuer">Commonwealth Bank | Forage</p>
+              <time class="certificate-date">19 October 2024</time>
+            </div>
+          </div>
+
+          <div class="certificate-item">
+            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Quantium/NkaC7knWtjSbi6aYv_Quantium_FwfgP2ABWgdaSjJkD_1729341363657_completion_certificate.pdf" target="_blank" rel="noopener noreferrer">
+              <img
+                src="./assets/images/certificates/quatiumjobsim.png"
+                alt="Data Science Job Simulation"
+                loading="lazy"
+              >
+            </a>
+            <div class="certificate-content">
+              <h3 class="h4 certificate-title">Quantium - Data Science Job Simulation</h3>
+              <p class="certificate-issuer">Quantium | Forage</p>
+              <time class="certificate-date">19 October 2024</time>
             </div>
           </div> -->
 
-          <!-- Add more certificates here -->
-
-          <section class="certificates-grid">
-
-            <div class="certificate-item">
-              <img src="./assets/images/certificates/datavisualizationwpython.png" alt="Data Visualization with Python" loading="lazy">
-              <div class="certificate-content">
-                <h3 class="h4 certificate-title">IBM Data Science Specialization</h3>
-                <p class="certificate-issuer">IBM</p>
-                <time class="certificate-date">26 November 2023</time>
-              </div>
-            </div>
-
-            <div class="certificate-item">
-              <img src="./assets/images/certificates/datavisualizationwpython.png" alt="Data Visualization with Python" loading="lazy">
-              <div class="certificate-content">
-                <h3 class="h4 certificate-title">Data Visualization with Python</h3>
-                <p class="certificate-issuer">IBM</p>
-                <time class="certificate-date">20 Sept 2023</time>
-              </div>
-            </div>
+          <!-- Add more certificates here as needed -->
 
         </section>
       </article>
-      
+
       <!--
         - #BLOG
       -->
@@ -1100,113 +1387,77 @@
 
             <li class="blog-post-item">
               <a href="https://www.linkedin.com/posts/sayyedasif_linkedin-orientation-resumebuilding-activity-7251611339939295232-gbFp?utm_source=share&utm_medium=member_desktop" target="_blank">
-
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/events/linkedin-orientation-2024.jpeg" alt="tech jam 2024" loading="lazy">
+                  <img src="./assets/images/events/linkedin-orientation-2024.jpeg" alt="LinkedIn Orientation 2024" loading="lazy">
                 </figure>
-
                 <div class="blog-content">
-
                   <div class="blog-meta">
                     <p class="blog-category">SDBI</p>
-
                     <span class="dot"></span>
-
                     <time datetime="2024-10-14">October 14, 2024</time>
                   </div>
-
                   <h3 class="h3 blog-item-title">LinkedIn Orientation 2024</h3>
-
                   <p class="blog-text">
-                    Led a LinkedIn Orientation at the School of Data Science & Business Intelligence for first-year bachelor’s and master’s students, focusing on LinkedIn basics, resume building, and ATS tips for career development.  
+                    Led a LinkedIn Orientation at the School of Data Science & Business Intelligence for first-year bachelor’s and master’s students, focusing on LinkedIn basics, resume building, and ATS tips for career development.
                   </p>
-
                 </div>
-
               </a>
             </li>
 
             <li class="blog-post-item">
               <a href="https://www.linkedin.com/posts/sayyedasif_linkedin-publicspeaking-orientation-activity-7099046970144530432-Z9Lz?utm_source=share&utm_medium=member_desktop" target="_blank">
-
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/events/linkedin-orientation-2023.jpeg" alt="linkedin orientation 2023 at SDBI" loading="lazy">
+                  <img src="./assets/images/events/linkedin-orientation-2023.jpeg" alt="LinkedIn Orientation 2023 at SDBI" loading="lazy">
                 </figure>
-
                 <div class="blog-content">
-
                   <div class="blog-meta">
                     <p class="blog-category">SDBI</p>
-
                     <span class="dot"></span>
-
-                    <time datetime="2023-08-19">August, 19th 2023</time>
+                    <time datetime="2023-08-19">August 19, 2023</time>
                   </div>
-
                   <h3 class="h3 blog-item-title">LinkedIn Orientation 2023</h3>
-
                   <p class="blog-text">
                     Seminar for Bachelor's Freshers: Highlighting the Importance of LinkedIn and Effective Strategies for Leveraging It
                   </p>
-
                 </div>
-
               </a>
             </li>
 
             <li class="blog-post-item">
               <a href="https://www.linkedin.com/posts/sayyedasif_team-building-ai-activity-7021465512798793728-wUUP?utm_source=share&utm_medium=member_desktop" target="_blank">
-
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/events/techjam-2023.jpeg" alt="tech jam 2023" loading="lazy">
+                  <img src="./assets/images/events/techjam-2023.jpeg" alt="Tech Jam 2023" loading="lazy">
                 </figure>
-
                 <div class="blog-content">
-
                   <div class="blog-meta">
                     <p class="blog-category">SDBI</p>
-
                     <span class="dot"></span>
-
-                    <time datetime="2022-02-23">January 16, 2023</time>
+                    <time datetime="2023-01-16">January 16, 2023</time>
                   </div>
-
                   <h3 class="h3 blog-item-title">Tech Jam 2023</h3>
-
                   <p class="blog-text">
                     Led the hospitality team for TechJam, our college's annual tech event, with the responsibility of participant outreach. Successfully secured over 75 attendees for the event.
                   </p>
-
                 </div>
-
               </a>
             </li>
 
             <li class="blog-post-item">
               <a href="https://www.linkedin.com/posts/sayyedasif_publicrelations-communication-learning-activity-6980827716287696896-k1pe?utm_source=share&utm_medium=member_desktop" target="_blank">
-
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/events/utsav-2020.jpeg" alt="utsav 2020 public relations" loading="lazy">
+                  <img src="./assets/images/events/utsav-2020.jpeg" alt="UTSAV 2020 Public Relations" loading="lazy">
                 </figure>
-
                 <div class="blog-content">
-
                   <div class="blog-meta">
                     <p class="blog-category">SLRTC</p>
-
                     <span class="dot"></span>
-
                     <time datetime="2020-02-13">February 13, 2020</time>
                   </div>
-
                   <h3 class="h3 blog-item-title">UTSAV FEST: 2020</h3>
-
                   <p class="blog-text">
                     Served as a key member of the public relations team for the fest at Shree L.R. Tiwari College, responsible for promoting the event at over 12 colleges across Mumbai.
                   </p>
-
                 </div>
-
               </a>
             </li>
 
@@ -1308,6 +1559,7 @@
         - #CONTACT
       -->
 
+      <!-- FIXME: Uncomment the contact section when ready
       <article class="contact" data-page="contact">
 
         <header>
@@ -1316,33 +1568,57 @@
 
         <section class="mapbox" data-mapbox>
           <figure>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.03900799053!2d72.88118615!3d19.082250749999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1721486767184!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.03900799053!2d72.88118615!3d19.082250749999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1721486767184!5m2!1sen!2sin"
+              width="100%" height="350" style="border:0; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              title="Mumbai, Maharashtra, India Map"></iframe>
+          </figure>
         </section>
 
         <section class="contact-form">
-
-          <h3 class="h3 form-title">Contact Form</h3>
-
-          <form action="#" class="form" data-form>
-
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+          <h3 class="h3 form-title">Contact Me</h3>
+          <p style="margin-bottom: 1.5em; color: #666;">
+            Have a question, collaboration idea, or just want to say hello? Fill out the form below and I'll get back to you soon!
+          </p>
+          <form action="#" class="form" data-form autocomplete="off">
+            <div class="input-wrapper" style="display: flex; gap: 1em; flex-wrap: wrap;">
+              <input
+                type="text"
+                name="fullname"
+                class="form-input"
+                placeholder="Full name"
+                required
+                data-form-input
+                style="flex:1 1 200px; min-width: 180px;"
+              >
+              <input
+                type="email"
+                name="email"
+                class="form-input"
+                placeholder="Email address"
+                required
+                data-form-input
+                style="flex:1 1 200px; min-width: 180px;"
+              >
             </div>
-
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-
-            <button class="form-btn" type="submit" disabled data-form-btn>
+            <textarea
+              name="message"
+              class="form-input"
+              placeholder="Your message"
+              required
+              data-form-input
+              rows="5"
+              style="margin-top: 1em; resize: vertical;"
+            ></textarea>
+            <button class="form-btn" type="submit" disabled data-form-btn style="margin-top: 1em;">
               <ion-icon name="paper-plane"></ion-icon>
               <span>Send Message</span>
             </button>
-
           </form>
-
         </section>
 
-      </article>
+      </article> -->
 
     </div>
 
