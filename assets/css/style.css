@@ -885,6 +885,22 @@ main {
   line-height: 1.6;
 }
 
+/*-----------------------------------*\
+  #GITHUB-CONTRIBUTIONS
+\*-----------------------------------*/
+
+.contribution-chart {
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-2);
+  margin-top: 25px;
+  background: var(--eerie-black-1);
+}
+
+.contribution-chart img {
+  width: 100%;
+}
+
 
 /**
  * skills 
