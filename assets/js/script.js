@@ -157,3 +157,26 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// Dynamically populate experience section
+document.addEventListener('DOMContentLoaded', () => {
+  const experienceList = document.getElementById('experience-list');
+
+  fetch('./assets/data/experience.json')
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(exp => {
+        const listItem = document.createElement('li');
+        listItem.className = 'timeline-item';
+
+        listItem.innerHTML = `
+          <h4 class="h4 timeline-item-title">${exp.role}</h4>
+          <span>${exp.date}</span>
+          <p class="timeline-text">${exp.description}</p>
+        `;
+
+        experienceList.appendChild(listItem);
+      });
+    })
+    .catch(error => console.error('Error fetching experience data:', error));
+});
