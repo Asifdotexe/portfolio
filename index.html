@@ -627,362 +627,45 @@
     - #PROJECTS
     - This section contains the projects of the portfolio.
   -->
+	<article class="projects" data-page="projects">
+		<header>
+			<h2 class="h2 article-title">Projects</h2>
+		</header>
 
-      <article class="projects" data-page="projects">
+		<section class="projects">
+			<ul class="filter-list">
+			<li class="filter-item"><button class="active" data-filter-btn>All</button></li>
+			<li class="filter-item"><button data-filter-btn>Data Analysis</button></li>
+			<li class="filter-item"><button data-filter-btn>Machine Learning</button></li>
+			<li class="filter-item"><button data-filter-btn>Natural Language Processing</button></li>
+			<li class="filter-item"><button data-filter-btn>Deep Learning</button></li>
+			<li class="filter-item"><button data-filter-btn>Data Visualization</button></li>
+			<li class="filter-item"><button data-filter-btn>Tools</button></li>
+			</ul>
 
-        <header>
-          <h2 class="h2 article-title">Projects</h2>
-        </header>
+			<div class="filter-select-box">
+			<button class="filter-select" data-select>
+				<div class="select-value" data-selecct-value>Select category</div>
+				<div class="select-icon">
+				<ion-icon name="chevron-down"></ion-icon>
+				</div>
+			</button>
+			<ul class="select-list">
+				<li class="select-item"><button data-select-item>All</button></li>
+				<li class="select-item"><button data-select-item>Data Analysis</button></li>
+				<li class="select-item"><button data-select-item>Machine Learning</button></li>
+				<li class="select-item"><button data-select-item>Natural Language Processing</button></li>
+				<li class="select-item"><button data-select-item>Deep Learning</button></li>
+				<li class="select-item"><button data-select-item>Data Visualization</button></li>
+				<li class="select-item"><button data-select-item>Miscellaneous</button></li>
+			</ul>
+			</div>
 
-        <section class="projects">
-
-          <!-- Filter Buttons -->
-          <ul class="filter-list">
-            <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
-            <li class="filter-item"><button data-filter-btn>Data Analysis</button></li>
-            <li class="filter-item"><button data-filter-btn>Machine Learning</button></li>
-            <li class="filter-item"><button data-filter-btn>Natural Language Processing</button></li>
-            <li class="filter-item"><button data-filter-btn>Deep Learning</button></li>
-            <li class="filter-item"><button data-filter-btn>Data Visualization</button></li>
-            <li class="filter-item"><button data-filter-btn>Tools</button></li>
-          </ul>
-
-          <!-- Filter Dropdown (for mobile) -->
-          <div class="filter-select-box">
-            <button class="filter-select" data-select>
-              <div class="select-value" data-selecct-value>Select category</div>
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-            </button>
-            <ul class="select-list">
-              <li class="select-item"><button data-select-item>All</button></li>
-              <li class="select-item"><button data-select-item>Data Analysis</button></li>
-              <li class="select-item"><button data-select-item>Machine Learning</button></li>
-              <li class="select-item"><button data-select-item>Natural Language Processing</button></li>
-              <li class="select-item"><button data-select-item>Deep Learning</button></li>
-              <li class="select-item"><button data-select-item>Data Visualization</button></li>
-              <li class="select-item"><button data-select-item>Miscellaneous</button></li>
-            </ul>
-          </div>
-
-          <!-- Projects Grid -->
-          <div class="projects-grid">
-            <ul class="project-list">
-
-              <!-- Project Card -->
-
-            <li class="project-item active" data-filter-item data-category="data analysis">
-                <a href="https://github.com/Asifdotexe/playground-repo/issues/9" target="_blank">
-                  <figure class="project-img">
-                    <img src="./assets/images/projects/python-v-cython.png" alt="Python vs Cython Benchmarking" loading="lazy">
-                  </figure>
-                  <div class="project-info">
-                    <h3 class="project-title">Python vs Cython Benchmarking</h3>
-                    <p class="project-category">Benchmarking Analysis</p>
-                    <div class="project-tags">
-                      <span class="tag">Python</span>
-                      <span class="tag">Cython</span>
-                      <span class="tag">NumPy</span>
-                      <span class="tag">Seaborn</span>
-                      <span class="tag">Matplotlib</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-
-              <li class="project-item active" data-filter-item data-category="tools">
-                <a href="https://github.com/Asifdotexe/SERPENT" target="_blank">
-                  <figure class="project-img">
-                    <img src="./assets/images/projects/serpent.png" alt="SERPENT" loading="lazy">
-                  </figure>
-                  <div class="project-info">
-                    <h3 class="project-title">SERPENT: Code to flowchart application</h3>
-                    <p class="project-category">Tools</p>
-                    <div class="project-tags">
-                      <span class="tag">Python</span>
-                      <span class="tag">Streamlit</span>
-                      <span class="tag">Graphviz</span>
-                      <span class="tag">AST</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-
-              <li class="project-item active" data-filter-item data-category="deep learning">
-                <a href="https://github.com/Asifdotexe/MNISTify" target="_blank">
-                  <figure class="project-img">
-                    <img src="./assets/images/projects/mnistify.png" alt="MNISTify" loading="lazy">
-                  </figure>
-                  <div class="project-info">
-                    <h3 class="project-title">MNISTify: Digit Recognition App</h3>
-                    <p class="project-category">Deep Learning</p>
-                    <div class="project-tags">
-                      <span class="tag">Python</span>
-                      <span class="tag">Streamlit</span>
-                      <span class="tag">TensorFlow</span>
-                      <span class="tag">OpenCV</span>
-                      <span class="tag">CNN</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-
-              <li class="project-item active" data-filter-item data-category="tools">
-                <a href="https://github.com/Asifdotexe/QuickVU" target="_blank">
-                  <figure class="project-img">
-                    <img src="./assets/images/projects/quickvu.png" alt="QuickVU" loading="lazy">
-                  </figure>
-                  <div class="project-info">
-                    <h3 class="project-title">QuickVU: No-code data tool</h3>
-                    <p class="project-category">Python Tool</p>
-                    <div class="project-tags">
-                      <span class="tag">Python</span>
-                      <span class="tag">Streamlit</span>
-                      <span class="tag">Pandas</span>
-                      <span class="tag">Numpy</span>
-                      <span class="tag">Matplotlib + Seaborn</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-
-              <li class="project-item active" data-filter-item data-category="tools">
-                <a href="https://github.com/Asifdotexe/DORA" target="_blank">
-                  <figure class="project-img">
-                    <img src="./assets/images/projects/dora.png" alt="DORA" loading="lazy">
-                  </figure>
-                  <div class="project-info">
-                    <h3 class="project-title">DORA: Report Automator</h3>
-                    <p class="project-category">Python Tool</p>
-                    <div class="project-tags">
-                      <span class="tag">Python</span>
-                      <span class="tag">Pandas</span>
-                      <span class="tag">Python PPTX</span>
-                      <span class="tag">Matplotlib + Seaborn</span>
-                      <span class="tag">Microsoft Office</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-
-              <li class="project-item active" data-filter-item data-category="natural language processing">
-                <a href="https://github.com/Asifdotexe/AniMate" target="_blank">
-                  <figure class="project-img">
-                    <img src="./assets/images/projects/animate.png" alt="AniMate" loading="lazy">
-                  </figure>
-                  <div class="project-info">
-                    <h3 class="project-title">AniMate: Anime Recommendation Engine</h3>
-                    <p class="project-category">Natural Language Processing</p>
-                    <div class="project-tags">
-                      <span class="tag">Python</span>
-                      <span class="tag">Streamlit</span>
-                      <span class="tag">NLTK</span>
-                      <span class="tag">Spacy</span>
-                      <span class="tag">Sci-kit Learn</span>
-                      <span class="tag">BeautifulSoup</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-
-              <li class="project-item active" data-filter-item data-category="machine learning">
-                <a href="https://github.com/Asifdotexe/StoDir" target="_blank">
-                  <figure class="project-img">
-                    <img src="./assets/images/projects/StoDir.png" alt="StoDir" loading="lazy">
-                  </figure>
-                  <div class="project-info">
-                    <h3 class="project-title">StoDir: Stock Direction Forecasting Model</h3>
-                    <p class="project-category">Machine Learning</p>
-                    <div class="project-tags">
-                      <span class="tag">Python</span>
-                      <span class="tag">Streamlit</span>
-                      <span class="tag">Pandas</span>
-                      <span class="tag">Scikit-learn</span>
-                      <span class="tag">Matplotlib + Seaborn</span>
-                      <span class="tag">YFinance</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-
-              <li class="project-item active" data-filter-item data-category="natural language processing">
-                <a href="https://github.com/Asifdotexe/Natural-LangWiz" target="_blank">
-                  <figure class="project-img">
-                    <img src="./assets/images/projects/natural-langwiz.png" alt="Natural LangWiz" loading="lazy">
-                  </figure>
-                  <div class="project-info">
-                    <h3 class="project-title">Natural LangWiz: NLP Learning Repository</h3>
-                    <p class="project-category">Natural Language Processing</p>
-                    <div class="project-tags">
-                      <span class="tag">Python</span>
-                      <span class="tag">Pandas</span>
-                      <span class="tag">NLTK</span>
-                      <span class="tag">Spacy</span>
-                      <span class="tag">Gensim</span>
-                      <span class="tag">Transformers</span>
-                      <span class="tag">Google Gemini</span>
-                      <span class="tag">Sci-Kit Learn</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-
-              <li class="project-item active" data-filter-item data-category="deep learning">
-                <a href="https://github.com/Asifdotexe/open-see-wee" target="_blank">
-                  <figure class="project-img">
-                    <img src="./assets/images/projects/open-cv.png" alt="Open See Wee" loading="lazy">
-                  </figure>
-                  <div class="project-info">
-                    <h3 class="project-title">Open See Wee: Computer Vision Learning Repository</h3>
-                    <p class="project-category">Deep Learning</p>
-                    <div class="project-tags">
-                      <span class="tag">Python</span>
-                      <span class="tag">Numpy</span>
-                      <span class="tag">OpenCV</span>
-                      <span class="tag">Matplotlib</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-
-              <li class="project-item active" data-filter-item data-category="deep learning">
-                <a href="https://github.com/Asifdotexe/PlateScribe" target="_blank">
-                  <figure class="project-img">
-                    <img src="./assets/images/projects/platescribe.png" alt="PlateScribe" loading="lazy">
-                  </figure>
-                  <div class="project-info">
-                    <h3 class="project-title">PlateScribe: License Plate Detection and OCR Tool</h3>
-                    <p class="project-category">Deep Learning</p>
-                    <div class="project-tags">
-                      <span class="tag">Python</span>
-                      <span class="tag">TensorFlow</span>
-                      <span class="tag">OpenCV</span>
-                      <span class="tag">Streamlit</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-
-              <li class="project-item active" data-filter-item data-category="natural language processing">
-                <a href="https://github.com/Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews" target="_blank">
-                  <figure class="project-img">
-                    <img src="./assets/images/projects/nlp-amazon-sentiment-scoring-model.png" alt="Amazon Sentiment Analysis" loading="lazy">
-                  </figure>
-                  <div class="project-info">
-                    <h3 class="project-title">Sentimental Scoring Model on Amazon Reviews</h3>
-                    <p class="project-category">Natural Language Processing</p>
-                    <div class="project-tags">
-                      <span class="tag">Python</span>
-                      <span class="tag">Pandas</span>
-                      <span class="tag">NLTK</span>
-                      <span class="tag">Scikit-Learn</span>
-                      <span class="tag">Scipy</span>
-                      <span class="tag">Matplotlib + Seaborn</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-
-              <li class="project-item active" data-filter-item data-category="machine learning">
-                <a href="https://github.com/Asifdotexe/real-estate-price-prediction" target="_blank">
-                  <figure class="project-img">
-                    <img src="./assets/images/projects/real-estate-price-prediction-model.png" alt="Real Estate Price Prediction" loading="lazy">
-                  </figure>
-                  <div class="project-info">
-                    <h3 class="project-title">Real Estate Price Prediction Model</h3>
-                    <p class="project-category">Machine Learning</p>
-                    <div class="project-tags">
-                      <span class="tag">Python</span>
-                      <span class="tag">Streamlit</span>
-                      <span class="tag">Pandas</span>
-                      <span class="tag">Scikit-Learn</span>
-                      <span class="tag">Matplotlib + Seaborn</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-
-              <li class="project-item active" data-filter-item data-category="data analysis">
-                <a href="https://github.com/Asifdotexe/Air-Quality-Analysis-AQA" target="_blank">
-                  <figure class="project-img">
-                    <img src="./assets/images/projects/aqa-air-quality-study.png" alt="AQA Air Quality Analysis" loading="lazy">
-                  </figure>
-                  <div class="project-info">
-                    <h3 class="project-title">AQA: Air Quality Analysis Case Study</h3>
-                    <p class="project-category">Data Analysis</p>
-                    <div class="project-tags">
-                      <span class="tag">Python</span>
-                      <span class="tag">Pandas</span>
-                      <span class="tag">Numpy</span>
-                      <span class="tag">Matplotlib + Seaborn</span>
-                      <span class="tag">Presentation</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-
-              <li class="project-item active" data-filter-item data-category="data analysis">
-                <a href="https://github.com/Asifdotexe/flipkart-electric-scooter-data-analysis" target="_blank">
-                  <figure class="project-img">
-                    <img src="./assets/images/projects/ev-scooter-analysis.png" alt="Flipkart Electric Scooter Analysis" loading="lazy">
-                  </figure>
-                  <div class="project-info">
-                    <h3 class="project-title">Flipkart Electric Scooter Data Analysis</h3>
-                    <p class="project-category">Data Analysis</p>
-                    <div class="project-tags">
-                      <span class="tag">Python</span>
-                      <span class="tag">Pandas</span>
-                      <span class="tag">Numpy</span>
-                      <span class="tag">Matplotlib + Seaborn</span>
-                      <span class="tag">BeautifulSoup</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-
-              <li class="project-item active" data-filter-item data-category="tools">
-                <a href="https://medium.com/@asifdotexe/how-we-used-vba-to-make-a-pathology-lab-application-45acb35e6abf" target="_blank">
-                  <figure class="project-img">
-                    <img src="./assets/images/projects/vba-pathology-lab-application.png" alt="VBA Pathology Lab Application" loading="lazy">
-                  </figure>
-                  <div class="project-info">
-                    <h3 class="project-title">VBA: Pathology Lab Application</h3>
-                    <p class="project-category">Visual Basic for Application Tool</p>
-                    <div class="project-tags">
-                      <span class="tag">Microsoft Excel</span>
-                      <span class="tag">Macros</span>
-                      <span class="tag">Visual Basic for Application</span>
-                      <span class="tag">Userforms</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-
-              <li class="project-item active" data-filter-item data-category="data visualization">
-                <a href="https://public.tableau.com/app/profile/sayyed.asif/viz/Covid19Dashboard_16783477991420/Dashboard1" target="_blank">
-                  <figure class="project-img">
-                    <img src="./assets/images/projects/covid-19-tableau-dashboard.png" alt="Covid-19 Dashboard" loading="lazy">
-                  </figure>
-                  <div class="project-info">
-                    <h3 class="project-title">Covid-19 Dashboard</h3>
-                    <p class="project-category">Data Visualization</p>
-                    <div class="project-tags">
-                      <span class="tag">SQL</span>
-                      <span class="tag">Tableau</span>
-                      <span class="tag">Microsoft Excel</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-
-            </ul>
-          </div>
-          <!-- End Projects Grid -->
-
-        </section>
-
-      </article>
+			<div class="projects-grid">
+			<ul class="project-list" id="project-list"></ul>
+			</div>
+		</section>
+		</article>
 
       <!-- Certificates Section -->
       <article class="certificates" data-page="certificates">

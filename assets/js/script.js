@@ -186,10 +186,98 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(error => console.error('Error fetching certificates data:', error));
   };
 
+  const populateProjects = () => {
+    const projectList = document.getElementById('project-list');
+    if (!projectList) return;
+
+    fetch('./assets/data/projects.json')
+      .then(response => response.json())
+      .then(data => {
+        // Step 1: Create and append all project items
+        data.forEach(project => {
+          const projectItem = document.createElement('li');
+          // Add classes and data attributes for filtering
+          projectItem.className = 'project-item active';
+          projectItem.dataset.filterItem = '';
+          projectItem.dataset.category = project.category;
+
+          // Generate HTML for tags from the array
+          const tagsHtml = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+
+          projectItem.innerHTML = `
+            <a href="${project.url}" target="_blank">
+              <figure class="project-img">
+                <img src="${project.image}" alt="${project.alt}" loading="lazy">
+              </figure>
+              <div class="project-info">
+                <h3 class="project-title">${project.title}</h3>
+                <p class="project-category">${project.category_desc}</p>
+                <div class="project-tags">${tagsHtml}</div>
+              </div>
+            </a>
+          `;
+          projectList.appendChild(projectItem);
+        });
+
+        // Step 2: Initialize the filter functionality AFTER projects are loaded
+        initializeProjectFilter();
+      })
+      .catch(error => console.error('Error fetching projects data:', error));
+  };
+
+  // Function to set up the project filtering event listeners
+  const initializeProjectFilter = () => {
+    const select = document.querySelector("[data-select]");
+    const selectItems = document.querySelectorAll("[data-select-item]");
+    const selectValue = document.querySelector("[data-selecct-value]");
+    const filterBtn = document.querySelectorAll("[data-filter-btn]");
+
+    // IMPORTANT: Select filterable items *after* they have been created
+    const filterItems = document.querySelectorAll("[data-filter-item]");
+
+    const filterFunc = function (selectedValue) {
+      filterItems.forEach(item => {
+        if (selectedValue === "all" || selectedValue === item.dataset.category) {
+          item.classList.add("active");
+        } else {
+          item.classList.remove("active");
+        }
+      });
+    }
+
+    if (select) {
+        select.addEventListener("click", function () { elementToggleFunc(this); });
+    }
+
+    selectItems.forEach(item => {
+      item.addEventListener("click", function () {
+        let selectedValue = this.innerText.toLowerCase();
+        selectValue.innerText = this.innerText;
+        elementToggleFunc(select);
+        filterFunc(selectedValue);
+      });
+    });
+
+    if (filterBtn.length > 0) {
+      let lastClickedBtn = filterBtn[0];
+      filterBtn.forEach(btn => {
+        btn.addEventListener("click", function () {
+          let selectedValue = this.innerText.toLowerCase();
+          selectValue.innerText = this.innerText;
+          filterFunc(selectedValue);
+          lastClickedBtn.classList.remove("active");
+          this.classList.add("active");
+          lastClickedBtn = this;
+        });
+      });
+    }
+  };
+
   // Call all the functions to load your dynamic content
   populateEducation();
   populateExperience();
   populateEvents();
   populateCertificates();
+  populateProjects();
 
 });
