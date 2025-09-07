@@ -203,3 +203,37 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(error => console.error('Error fetching education data:', error));
 });
+
+// Dynamically populate events section
+document.addEventListener('DOMContentLoaded', () => {
+  const eventsList = document.getElementById('events-list');
+
+  fetch('./assets/data/events.json')
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(event => {
+        const listItem = document.createElement('li');
+        listItem.className = 'blog-post-item';
+
+        listItem.innerHTML = `
+          <a href="${event.url}" target="_blank">
+            <figure class="blog-banner-box">
+              <img src="${event.image}" alt="${event.title}" loading="lazy">
+            </figure>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <p class="blog-category">${event.category}</p>
+                <span class="dot"></span>
+                <time datetime="${event.date}">${event.formattedDate}</time>
+              </div>
+              <h3 class="h3 blog-item-title">${event.title}</h3>
+              <p class="blog-text">${event.description}</p>
+            </div>
+          </a>
+        `;
+
+        eventsList.appendChild(listItem);
+      });
+    })
+    .catch(error => console.error('Error fetching events data:', error));
+});
