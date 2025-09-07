@@ -273,44 +273,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-const populateSkills = () => {
-  const skillsContainer = document.getElementById('skills-container');
-  if (!skillsContainer) return;
-
-  fetch('./assets/data/skills.json')
-    .then(response => response.json())
-    .then(data => {
-      data.forEach(group => {
-        // Create a div for the skill group
-        const groupDiv = document.createElement('div');
-        groupDiv.className = 'skills-group';
-
-        // Generate the HTML for the list of skills
-        const skillsListHtml = group.skills
-          .map(skill => `<li class="skills-item">${skill}</li>`)
-          .join('');
-
-        // Set the complete inner HTML for the group
-        groupDiv.innerHTML = `
-          <h4 class="h4 skills-group-title">${group.groupTitle}</h4>
-          <ul class="skills-list">
-            ${skillsListHtml}
-          </ul>
-        `;
-
-        // Append the new group to the main container
-        skillsContainer.appendChild(groupDiv);
-      });
-    })
-    .catch(error => console.error('Error fetching skills data:', error));
-};
-
   // Call all the functions to load your dynamic content
   populateEducation();
   populateExperience();
   populateEvents();
   populateCertificates();
   populateProjects();
-  populateSkills();
 
 });
