@@ -180,3 +180,26 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(error => console.error('Error fetching experience data:', error));
 });
+
+// Dynamically populate education section
+document.addEventListener('DOMContentLoaded', () => {
+  const educationList = document.getElementById('education-list');
+
+  fetch('./assets/data/education.json')
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(edu => {
+        const listItem = document.createElement('li');
+        listItem.className = 'timeline-item';
+
+        listItem.innerHTML = `
+          <h4 class="h4 timeline-item-title">${edu.institution}</h4>
+          <span>${edu.duration}</span>
+          <p class="timeline-text">${edu.description}</p>
+        `;
+
+        educationList.appendChild(listItem);
+      });
+    })
+    .catch(error => console.error('Error fetching education data:', error));
+});
