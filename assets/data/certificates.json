@@ -1,0 +1,149 @@
+[
+  {
+    "title": "IBM Data Science Specialization",
+    "issuer": "IBM | Coursera",
+    "date": "26 November 2023",
+    "image": "./assets/images/certificates/dsspecialization.png",
+    "url": "https://coursera.org/verify/professional-cert/MJD36RK7GYSD"
+  },
+  {
+    "title": "Applied Data Science Capstone",
+    "issuer": "IBM | Coursera",
+    "date": "26 November 2023",
+    "image": "./assets/images/certificates/appcaptstone.png",
+    "url": "https://coursera.org/verify/8QQCB2ZW7HCJ"
+  },
+  {
+    "title": "Machine Learning with Python",
+    "issuer": "IBM | Coursera",
+    "date": "14 November 2023",
+    "image": "./assets/images/certificates/mlwpython.png",
+    "url": "https://coursera.org/verify/GWPQEUHRCBFU"
+  },
+  {
+    "title": "Data Visualization with Python",
+    "issuer": "IBM | Coursera",
+    "date": "20 September 2023",
+    "image": "./assets/images/certificates/datavisualizationwpython.png",
+    "url": "https://coursera.org/verify/RHHC3MT8KPYF"
+  },
+  {
+    "title": "Data Science Methodology",
+    "issuer": "IBM | Coursera",
+    "date": "24 August 2023",
+    "image": "./assets/images/certificates/dsmethod.png",
+    "url": "https://coursera.org/verify/ZTETUZ4Z4T4Z"
+  },
+  {
+    "title": "Tools for Data Science",
+    "issuer": "IBM | Coursera",
+    "date": "28 July 2023",
+    "image": "./assets/images/certificates/tools4ds.png",
+    "url": "https://coursera.org/verify/ZGANPYT4Z2N2"
+  },
+  {
+    "title": "Data Analysis with Python",
+    "issuer": "IBM | Coursera",
+    "date": "26 July 2023",
+    "image": "./assets/images/certificates/datanalysiswpython.png",
+    "url": "https://coursera.org/verify/JKRUYFGA72KC"
+  },
+  {
+    "title": "Python Project for Data Science",
+    "issuer": "IBM | Coursera",
+    "date": "26 July 2023",
+    "image": "./assets/images/certificates/pyproject4ds.png",
+    "url": "https://coursera.org/verify/JDS7T33Y56AX"
+  },
+  {
+    "title": "Python for Data Science, AI and Development",
+    "issuer": "IBM | Coursera",
+    "date": "20 July 2023",
+    "image": "./assets/images/certificates/py4dsaidev.png",
+    "url": "https://coursera.org/verify/55F56XHLEHYM"
+  },
+  {
+    "title": "What is Data Science?",
+    "issuer": "IBM | Coursera",
+    "date": "20 July 2023",
+    "image": "./assets/images/certificates/whatisds.png",
+    "url": "https://coursera.org/verify/65M23MSX9A5J"
+  },
+  {
+    "title": "Databases and SQL for Data Science with Python",
+    "issuer": "IBM | Coursera",
+    "date": "24 July 2023",
+    "image": "./assets/images/certificates/dbsqlwpython.png",
+    "url": "https://coursera.org/verify/8WUMVP9EXJAG"
+  },
+  {
+    "title": "Pandas Essential Training",
+    "issuer": "LinkedIn Learning",
+    "date": "03 May 2023",
+    "image": "./assets/images/certificates/pdessential.png",
+    "url": "https://www.linkedin.com/learning/certificates/b88fde906daa0f50f8301bf50b8bee72318e78f791292097daf0525b071b18df"
+  },
+  {
+    "title": "Github for Data Scientists",
+    "issuer": "LinkedIn Learning",
+    "date": "01 May 2023",
+    "image": "./assets/images/certificates/githubfords.png",
+    "url": "https://www.linkedin.com/learning/certificates/c440b48bd67da7cf0e8327592f8377cb7b0343a9d44963cfc2122e2c859389eb"
+  },
+  {
+    "title": "15 Mistakes to Avoid in Data Science",
+    "issuer": "LinkedIn Learning",
+    "date": "01 May 2023",
+    "image": "./assets/images/certificates/15mistakestoavoidds.png",
+    "url": "https://www.linkedin.com/learning/certificates/2b4b33b71bd7071f734f33334987c7ce1db9c375b2eeb6c2331e17de830b0a97"
+  },
+  {
+    "title": "Introduction to Business Analytics",
+    "issuer": "LinkedIn Learning",
+    "date": "22 February 2023",
+    "image": "./assets/images/certificates/intro2businessanalytics.png",
+    "url": "https://www.linkedin.com/learning/certificates/d84ecfb77aa3b4d4ff381153cdcaa7dcbd2ba9fcf71f233f6b2d999fb977c731"
+  },
+  {
+    "title": "SQL Essential Training",
+    "issuer": "LinkedIn Learning",
+    "date": "18 February 2023",
+    "image": "./assets/images/certificates/sqlessential.png",
+    "url": "https://www.linkedin.com/learning/certificates/e6fa1d2bad07da0a1f7ba4c67c2db9b11e87c0b0c43e57cbe5295a0f4736ca6a"
+  },
+  {
+    "title": "Statistics Foundations 1: The Basics",
+    "issuer": "LinkedIn Learning",
+    "date": "18 February 2023",
+    "image": "./assets/images/certificates/statsfoundation1.png",
+    "url": "https://www.linkedin.com/learning/certificates/d954941ba980526ac2faee580c3b7c8f6b8aaa920d8206290062012b33be9b15"
+  },
+  {
+    "title": "Time Management Fundamentals",
+    "issuer": "LinkedIn Learning",
+    "date": "25 November 2022",
+    "image": "./assets/images/certificates/timemanagementfunda.png",
+    "url": "https://www.linkedin.com/learning/certificates/29ff4fbf07fe7d6b3ba7e9e0abf2358aee0b7e425103cae1aae27d9823500159"
+  },
+  {
+    "title": "British Airway - Data Science Job Simulation",
+    "issuer": "British Airway | Forage",
+    "date": "19 October 2024",
+    "image": "./assets/images/certificates/britairwaydsjobsim.png",
+    "url": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/British%20Airways/NjynCWzGSaWXQCxSX_British%20Airways_FwfgP2ABWgdaSjJkD_1729342300556_completion_certificate.pdf"
+  },
+  {
+    "title": "Commonwealth Bank - Data Science Job Simulation",
+    "issuer": "Commonwealth Bank | Forage",
+    "date": "19 October 2024",
+    "image": "./assets/images/certificates/commonwlthjobsim.png",
+    "url": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Commonwealth%20Bank/smwfytX3mcLboA9bf_Commonwealth%20Bank_FwfgP2ABWgdaSjJkD_1729344065407_completion_certificate.pdf"
+  },
+  {
+    "title": "Quantium - Data Science Job Simulation",
+    "issuer": "Quantium | Forage",
+    "date": "19 October 2024",
+    "image": "./assets/images/certificates/quatiumjobsim.png",
+    "url": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Quantium/NkaC7knWtjSbi6aYv_Quantium_FwfgP2ABWgdaSjJkD_1729341363657_completion_certificate.pdf"
+  }
+]
