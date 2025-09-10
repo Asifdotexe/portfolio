@@ -51,7 +51,7 @@
     "title": "AniMate: Anime Recommendation Engine",
     "category_desc": "Natural Language Processing",
     "category": "natural language processing",
-    "tags": ["Python", "Streamlit", "NLTK", "Spacy", "Sci-kit Learn", "BeautifulSoup"]
+    "tags": ["Python", "Streamlit", "NLTK", "spaCy", "scikit-learn", "BeautifulSoup"]
   },
   {
     "url": "https://github.com/Asifdotexe/StoDir",
@@ -69,7 +69,7 @@
     "title": "Natural LangWiz: NLP Learning Repository",
     "category_desc": "Natural Language Processing",
     "category": "natural language processing",
-    "tags": ["Python", "Pandas", "NLTK", "Spacy", "Gensim", "Transformers", "Google Gemini", "Sci-Kit Learn"]
+    "tags": ["Python", "Pandas", "NLTK", "spaCy", "Gensim", "Transformers", "Google Gemini", "scikit-learn"]
   },
   {
     "url": "https://github.com/Asifdotexe/open-see-wee",

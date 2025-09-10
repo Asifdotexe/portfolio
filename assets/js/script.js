@@ -108,7 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const educationList = document.getElementById('education-list');
     if (!educationList) return;
     fetch('./assets/data/education.json')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching education.json`);
+        return response.json();
+      })
       .then(data => {
         data.forEach(edu => {
           const item = document.createElement('li');
@@ -125,7 +128,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const experienceList = document.getElementById('experience-list');
     if (!experienceList) return;
     fetch('./assets/data/experience.json')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching experience.json`);
+        return response.json();
+      })
       .then(data => {
         data.forEach(exp => {
           const item = document.createElement('li');
@@ -142,7 +148,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const eventsList = document.getElementById('events-list');
     if (!eventsList) return;
     fetch('./assets/data/events.json')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching events.json`);
+        return response.json();
+      })
       .then(data => {
         data.forEach(event => {
           const item = document.createElement('li');
@@ -159,7 +168,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const certificatesGrid = document.getElementById('certificates-grid');
     if (!certificatesGrid) return; // Good practice to add this check
     fetch('./assets/data/certificates.json')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching certificates.json`);
+        return response.json();
+      })
       .then(data => {
         data.forEach(cert => {
           const certificateItem = document.createElement('div');
@@ -191,7 +203,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!projectList) return;
 
     fetch('./assets/data/projects.json')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching projects.json`);
+        return response.json();
+      })
       .then(data => {
         // Step 1: Create and append all project items
         data.forEach(project => {
