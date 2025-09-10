@@ -1,0 +1,56 @@
+[
+    {
+        "title": "LinkedIn Orientation 2025",
+        "image": "./assets/images/events/linkedin-orientation-2025.png",
+        "category": "SDBI",
+        "date": "2025-07-26",
+        "formattedDate": "July 26, 2025",
+        "description": "Hosted the LinkedIn Orientation 2025 at the School of Data Science & Business Intelligence, guiding first-year students on LinkedIn basics and how to leverage the platform for career growth as data science students.",
+        "url": "https://www.linkedin.com/posts/sdbiofficial_from-student-to-mentor-thank-you-asif-activity-7358509655049842688-6Ers/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADxhJ5ABuTlyYeVDU_DdfGgBugPsosgPbLY"
+    },
+    {
+        "title": "SDBI 2025 Batch Orientation",
+        "image": "./assets/images/events/sdbi-orientation-2025.png",
+        "category": "SDBI",
+        "date": "2025-07-15",
+        "formattedDate": "July 15, 2025",
+        "description": "I was invited as a guest speaker for the SDBI 2025 Batch Orientation, where I shared my journey and experiences with SDBI, providing insights and guidance to the new batch of students.",
+        "url": "https://www.linkedin.com/posts/sdbiofficial_sdbi-orientationday-bscdatascience-activity-7357063791919976448-bF8T?utm_source=share&utm_medium=member_desktop&rcm=ACoAADxhJ5ABuTlyYeVDU_DdfGgBugPsosgPbLY"
+    },
+    {
+        "title": "LinkedIn Orientation 2024",
+        "image": "./assets/images/events/linkedin-orientation-2024.jpeg",
+        "category": "SDBI",
+        "date": "2024-10-14",
+        "formattedDate": "October 14, 2024",
+        "description": "Led a LinkedIn Orientation at the School of Data Science & Business Intelligence for first-year bachelor’s and master’s students, focusing on LinkedIn basics, resume building, and ATS tips for career development.",
+        "url": "https://www.linkedin.com/posts/sayyedasif_linkedin-orientation-resumebuilding-activity-7251611339939295232-gbFp?utm_source=share&utm_medium=member_desktop"
+    },
+    {
+        "title": "LinkedIn Orientation 2023",
+        "image": "./assets/images/events/linkedin-orientation-2023.jpeg",
+        "category": "SDBI",
+        "date": "2023-08-19",
+        "formattedDate": "August 19, 2023",
+        "description": "Seminar for Bachelor's Freshers: Highlighting the Importance of LinkedIn and Effective Strategies for Leveraging It.",
+        "url": "https://www.linkedin.com/posts/sayyedasif_linkedin-publicspeaking-orientation-activity-7099046970144530432-Z9Lz?utm_source=share&utm_medium=member_desktop"
+    },
+    {
+        "title": "Tech Jam 2023",
+        "image": "./assets/images/events/techjam-2023.jpeg",
+        "category": "SDBI",
+        "date": "2023-01-16",
+        "formattedDate": "January 16, 2023",
+        "description": "Led the hospitality team for TechJam, our college's annual tech event, with the responsibility of participant outreach. Successfully secured over 75 attendees for the event.",
+        "url": "https://www.linkedin.com/posts/sayyedasif_team-building-ai-activity-7021465512798793728-wUUP?utm_source=share&utm_medium=member_desktop"
+    },
+    {
+        "title": "UTSAV FEST: 2020",
+        "image": "./assets/images/events/utsav-2020.jpeg",
+        "category": "SLRTC",
+        "date": "2020-02-13",
+        "formattedDate": "February 13, 2020",
+        "description": "Served as a key member of the public relations team for the fest at Shree L.R. Tiwari College, responsible for promoting the event at over 12 colleges across Mumbai.",
+        "url": "https://www.linkedin.com/posts/sayyedasif_publicrelations-communication-learning-activity-6980827716287696896-k1pe?utm_source=share&utm_medium=member_desktop"
+    }
+]
