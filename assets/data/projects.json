@@ -1,5 +1,6 @@
 [
   {
+    "github": "Asifdotexe/playground-repo",
     "url": "https://github.com/Asifdotexe/playground-repo/issues/9",
     "image": "./assets/images/projects/python-v-cython.png",
     "alt": "Python vs Cython Benchmarking",
@@ -9,105 +10,117 @@
     "tags": ["Python", "Cython", "NumPy", "Seaborn", "Matplotlib"]
   },
   {
+    "github": "Asifdotexe/SERPENT",
     "url": "https://github.com/Asifdotexe/SERPENT",
     "image": "./assets/images/projects/serpent.png",
     "alt": "SERPENT",
     "title": "SERPENT: Code to flowchart application",
-    "category_desc": "Tools",
+    "category_desc": "Code Documentation Tools",
     "category": "tools",
     "tags": ["Python", "Streamlit", "Graphviz", "AST"]
   },
   {
+    "github": "Asifdotexe/MNISTify",
     "url": "https://github.com/Asifdotexe/MNISTify",
     "image": "./assets/images/projects/mnistify.png",
     "alt": "MNISTify",
     "title": "MNISTify: Digit Recognition App",
     "category_desc": "Deep Learning",
-    "category": "deep learning",
+    "category": "ai/ml",
     "tags": ["Python", "Streamlit", "TensorFlow", "OpenCV", "CNN"]
   },
   {
+    "github": "Asifdotexe/QuickVU",
     "url": "https://github.com/Asifdotexe/QuickVU",
     "image": "./assets/images/projects/quickvu.png",
     "alt": "QuickVU",
     "title": "QuickVU: No-code data tool",
-    "category_desc": "Python Tool",
-    "category": "tools",
+    "category_desc": "Data Cleaning and Analysis tool",
+    "category": "data analysis",
     "tags": ["Python", "Streamlit", "Pandas", "Numpy", "Matplotlib + Seaborn"]
   },
   {
+    "github": "Asifdotexe/DORA",
     "url": "https://github.com/Asifdotexe/DORA",
     "image": "./assets/images/projects/dora.png",
     "alt": "DORA",
     "title": "DORA: Report Automator",
-    "category_desc": "Python Tool",
-    "category": "tools",
+    "category_desc": "Data Analysis Tool",
+    "category": "data analysis",
     "tags": ["Python", "Pandas", "Python PPTX", "Matplotlib + Seaborn", "Microsoft Office"]
   },
   {
+    "github": "Asifdotexe/AniMate",
     "url": "https://github.com/Asifdotexe/AniMate",
     "image": "./assets/images/projects/animate.png",
     "alt": "AniMate",
     "title": "AniMate: Anime Recommendation Engine",
     "category_desc": "Natural Language Processing",
-    "category": "natural language processing",
+    "category": "nlp",
     "tags": ["Python", "Streamlit", "NLTK", "spaCy", "scikit-learn", "BeautifulSoup"]
   },
   {
+    "github": "Asifdotexe/StoDir",
     "url": "https://github.com/Asifdotexe/StoDir",
     "image": "./assets/images/projects/StoDir.png",
     "alt": "StoDir",
     "title": "StoDir: Stock Direction Forecasting Model",
     "category_desc": "Machine Learning",
-    "category": "machine learning",
+    "category": "ai/ml",
     "tags": ["Python", "Streamlit", "Pandas", "Scikit-learn", "Matplotlib + Seaborn", "YFinance"]
   },
   {
+    "github": "Asifdotexe/Natural-LangWiz",
     "url": "https://github.com/Asifdotexe/Natural-LangWiz",
     "image": "./assets/images/projects/natural-langwiz.png",
     "alt": "Natural LangWiz",
     "title": "Natural LangWiz: NLP Learning Repository",
     "category_desc": "Natural Language Processing",
-    "category": "natural language processing",
+    "category": "nlp",
     "tags": ["Python", "Pandas", "NLTK", "spaCy", "Gensim", "Transformers", "Google Gemini", "scikit-learn"]
   },
   {
+    "github": "Asifdotexe/open-see-wee",
     "url": "https://github.com/Asifdotexe/open-see-wee",
     "image": "./assets/images/projects/open-cv.png",
     "alt": "Open See Wee",
     "title": "Open See Wee: Computer Vision Learning Repository",
     "category_desc": "Deep Learning",
-    "category": "deep learning",
+    "category": "ai/ml",
     "tags": ["Python", "Numpy", "OpenCV", "Matplotlib"]
   },
   {
+    "github": "Asifdotexe/PlateScribe",
     "url": "https://github.com/Asifdotexe/PlateScribe",
     "image": "./assets/images/projects/platescribe.png",
     "alt": "PlateScribe",
     "title": "PlateScribe: License Plate Detection and OCR Tool",
     "category_desc": "Deep Learning",
-    "category": "deep learning",
+    "category": "ai/ml",
     "tags": ["Python", "TensorFlow", "OpenCV", "Streamlit"]
   },
   {
+    "github": "Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews",
     "url": "https://github.com/Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews",
     "image": "./assets/images/projects/nlp-amazon-sentiment-scoring-model.png",
     "alt": "Amazon Sentiment Analysis",
     "title": "Sentimental Scoring Model on Amazon Reviews",
     "category_desc": "Natural Language Processing",
-    "category": "natural language processing",
+    "category": "nlp",
     "tags": ["Python", "Pandas", "NLTK", "Scikit-Learn", "Scipy", "Matplotlib + Seaborn"]
   },
   {
+    "github": "Asifdotexe/real-estate-price-prediction",
     "url": "https://github.com/Asifdotexe/real-estate-price-prediction",
     "image": "./assets/images/projects/real-estate-price-prediction-model.png",
     "alt": "Real Estate Price Prediction",
     "title": "Real Estate Price Prediction Model",
     "category_desc": "Machine Learning",
-    "category": "machine learning",
+    "category": "ai/ml",
     "tags": ["Python", "Streamlit", "Pandas", "Scikit-Learn", "Matplotlib + Seaborn"]
   },
   {
+    "github": "Asifdotexe/Air-Quality-Analysis-AQA",
     "url": "https://github.com/Asifdotexe/Air-Quality-Analysis-AQA",
     "image": "./assets/images/projects/aqa-air-quality-study.png",
     "alt": "AQA Air Quality Analysis",
@@ -117,6 +130,7 @@
     "tags": ["Python", "Pandas", "Numpy", "Matplotlib + Seaborn", "Presentation"]
   },
   {
+    "github": "Asifdotexe/flipkart-electric-scooter-data-analysis",
     "url": "https://github.com/Asifdotexe/flipkart-electric-scooter-data-analysis",
     "image": "./assets/images/projects/ev-scooter-analysis.png",
     "alt": "Flipkart Electric Scooter Analysis",
@@ -139,8 +153,8 @@
     "image": "./assets/images/projects/covid-19-tableau-dashboard.png",
     "alt": "Covid-19 Dashboard",
     "title": "Covid-19 Dashboard",
-    "category_desc": "Data Visualization",
-    "category": "data visualization",
+    "category_desc": "Data Analysis",
+    "category": "data analysis",
     "tags": ["SQL", "Tableau", "Microsoft Excel"]
   }
 ]
