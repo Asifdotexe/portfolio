@@ -609,7 +609,7 @@
           <div class="skills-group">
             <h4 class="h4 skills-group-title">Cloud & MLOps</h4>
             <ul class="skills-list">
-              <li class="skills-item">AWS (S3, SageMaker</li>
+              <li class="skills-item">AWS (S3, SageMaker)</li>
               <!-- <li class="skills-item">GCP (BigQuery, AI Platform)</li>
               <li class="skills-item">Azure (Machine Learning)</li>
               <li class="skills-item">Docker</li> -->
@@ -628,44 +628,43 @@
     - This section contains the projects of the portfolio.
   -->
 	<article class="projects" data-page="projects">
-		<header>
-			<h2 class="h2 article-title">Projects</h2>
-		</header>
+        <header>
+            <h2 class="h2 article-title">Projects</h2>
+        </header>
 
-		<section class="projects">
-			<ul class="filter-list">
-			<li class="filter-item"><button class="active" data-filter-btn>All</button></li>
-			<li class="filter-item"><button data-filter-btn>Data Analysis</button></li>
-			<li class="filter-item"><button data-filter-btn>Machine Learning</button></li>
-			<li class="filter-item"><button data-filter-btn>Natural Language Processing</button></li>
-			<li class="filter-item"><button data-filter-btn>Deep Learning</button></li>
-			<li class="filter-item"><button data-filter-btn>Data Visualization</button></li>
-			<li class="filter-item"><button data-filter-btn>Tools</button></li>
-			</ul>
+        <section class="projects">
+            <ul class="filter-list">
+                <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
+                <li class="filter-item"><button data-filter-btn>Data Analysis</button></li>
+                <li class="filter-item"><button data-filter-btn>AI/ML</button></li>
+                <li class="filter-item"><button data-filter-btn>NLP</button></li>
+                <li class="filter-item"><button data-filter-btn>Tools</button></li>
+            </ul>
 
-			<div class="filter-select-box">
-			<button class="filter-select" data-select>
-				<div class="select-value" data-selecct-value>Select category</div>
-				<div class="select-icon">
-				<ion-icon name="chevron-down"></ion-icon>
-				</div>
-			</button>
-			<ul class="select-list">
-				<li class="select-item"><button data-select-item>All</button></li>
-				<li class="select-item"><button data-select-item>Data Analysis</button></li>
-				<li class="select-item"><button data-select-item>Machine Learning</button></li>
-				<li class="select-item"><button data-select-item>Natural Language Processing</button></li>
-				<li class="select-item"><button data-select-item>Deep Learning</button></li>
-				<li class="select-item"><button data-select-item>Data Visualization</button></li>
-				<li class="select-item"><button data-select-item>Miscellaneous</button></li>
-			</ul>
-			</div>
+            <!-- The select box is kept in HTML but can be hidden with CSS if not needed on desktop -->
+            <div class="filter-select-box">
+                <button class="filter-select" data-select>
+                    <div class="select-value" data-selecct-value>Select category</div>
+                    <div class="select-icon">
+                        <!-- Ionicon would require an external script, using text as fallback -->
+                        <span>▼</span>
+                    </div>
+                </button>
+                <ul class="select-list">
+                    <li class="select-item"><button data-select-item>All</button></li>
+                    <li class="select-item"><button data-select-item>Data Analysis</button></li>
+                    <li class="select-item"><button data-select-item>AI/ML</button></li>
+                    <li class="select-item"><button data-select-item>NLP</button></li>
+                    <li class="select-item"><button data-select-item>Tools</button></li>
+                </ul>
+            </div>
 
-			<div class="projects-grid">
-			<ul class="project-list" id="project-list"></ul>
-			</div>
-		</section>
-		</article>
+            <div class="projects-grid">
+                <!-- Project list will be dynamically populated here -->
+                <ul class="project-list" id="project-list"></ul>
+            </div>
+        </section>
+    </article>
 
       <!-- Certificates Section -->
       <article class="certificates" data-page="certificates">
