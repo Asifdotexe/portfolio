@@ -2,14 +2,7 @@
   #style.css
 \*-----------------------------------*/
 
-
-/**
- * copyright 2022 @codewithsadee
- */
-
-
-
-
+/* copyright 2022 @codewithsadee */
 
 /*-----------------------------------*\
   #CUSTOM PROPERTY
@@ -17,41 +10,39 @@
 
 :root {
 
-  /**
-   * colors
-   */
+  /* colors */
 
   /* gradient */
 
   --bg-gradient-onyx: linear-gradient(
-    to bottom right, 
-    hsl(240, 1%, 25%) 3%, 
+    to bottom right,
+    hsl(240, 1%, 25%) 3%,
     hsl(0, 0%, 19%) 97%
   );
   --bg-gradient-jet: linear-gradient(
-    to bottom right, 
-    hsla(240, 1%, 18%, 0.251) 0%, 
+    to bottom right,
+    hsla(240, 1%, 18%, 0.251) 0%,
     hsla(240, 2%, 11%, 0) 100%
   ), hsl(240, 2%, 13%);
-  --bg-gradient-yellow-1: linear-gradient(
-    to bottom right, 
-    hsl(45, 100%, 71%) 0%, 
-    hsla(36, 100%, 69%, 0) 50%
+  --bg-gradient-green-1: linear-gradient(
+    to bottom right,
+    hsl(99, 76%, 56%) 0%,
+    hsla(99, 70%, 52%, 0) 50%
   );
-  --bg-gradient-yellow-2: linear-gradient(
-    135deg, 
-    hsla(45, 100%, 71%, 0.251) 0%, 
-    hsla(35, 100%, 68%, 0) 59.86%
+  --bg-gradient-green-2: linear-gradient(
+    135deg,
+    hsla(99, 76%, 56%, 0.251) 0%,
+    hsla(99, 70%, 52%, 0) 59.86%
   ), hsl(240, 2%, 13%);
   --border-gradient-onyx: linear-gradient(
-    to bottom right, 
-    hsl(0, 0%, 25%) 0%, 
+    to bottom right,
+    hsl(0, 0%, 25%) 0%,
     hsla(0, 0%, 25%, 0) 50%
   );
-  --text-gradient-yellow: linear-gradient(
-    to right, 
-    hsl(45, 100%, 72%), 
-    hsl(35, 100%, 68%)
+  --text-gradient-green: linear-gradient(
+    to right,
+    hsl(99, 76%, 56%),
+    hsl(99, 70%, 52%)
   );
 
   /* solid */
@@ -63,8 +54,8 @@
   --smoky-black: hsl(0, 0%, 7%);
   --white-1: hsl(0, 0%, 100%);
   --white-2: hsl(0, 0%, 98%);
-  --orange-yellow-crayola: hsl(45, 100%, 72%);
-  --vegas-gold: hsl(45, 54%, 58%);
+  --vibrant-green: hsl(99, 76%, 56%); /* was --orange-yellow-crayola */
+  --forest-glade: hsl(99, 70%, 52%); /* was --vegas-gold */
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
@@ -147,11 +138,11 @@ input, textarea {
 }
 
 ::selection {
-  background: var(--orange-yellow-crayola);
+  background: var(--vibrant-green);
   color: var(--smoky-black);
 }
 
-:focus { outline-color: var(--orange-yellow-crayola); }
+:focus { outline-color: var(--vibrant-green); }
 
 html { font-family: var(--ff-poppins); }
 
@@ -192,7 +183,7 @@ article {
   justify-content: center;
   align-items: center;
   font-size: 16px;
-  color: var(--orange-yellow-crayola);
+  color: var(--vibrant-green);
   box-shadow: var(--shadow-1);
   z-index: 1;
 }
@@ -251,7 +242,7 @@ article.active {
   left: 0;
   width: 30px;
   height: 3px;
-  background: var(--text-gradient-yellow);
+  background: var(--text-gradient-green);
   border-radius: 3px;
 }
 
@@ -266,7 +257,7 @@ article.active {
 }
 
 .has-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--orange-yellow-crayola);
+  background: var(--vibrant-green);
   border-radius: 5px;
 }
 
@@ -345,7 +336,7 @@ main {
 }
 
 .info-content .title {
-  color: var(--white-1);
+  color: var(--vibrant-green);
   background: var(--onyx);
   font-size: var(--fs-8);
   font-weight: var(--fw-300);
@@ -360,7 +351,7 @@ main {
   right: -15px;
   border-radius: 0 15px;
   font-size: 13px;
-  color: var(--orange-yellow-crayola);
+  color: var(--vibrant-green);
   background: var(--border-gradient-onyx);
   padding: 10px;
   box-shadow: var(--shadow-2);
@@ -379,10 +370,10 @@ main {
 }
 
 .info_more-btn:hover,
-.info_more-btn:focus { background: var(--bg-gradient-yellow-1); }
+.info_more-btn:focus { background: var(--bg-gradient-green-1); }
 
 .info_more-btn:hover::before,
-.info_more-btn:focus::before { background: var(--bg-gradient-yellow-2); }
+.info_more-btn:focus::before { background: var(--bg-gradient-green-2); }
 
 .info_more-btn span { display: none; }
 
@@ -485,7 +476,7 @@ main {
 .navbar-link:hover,
 .navbar-link:focus { color: var(--light-gray-70); }
 
-.navbar-link.active { color: var(--orange-yellow-crayola); }
+.navbar-link.active { color: var(--vibrant-green); }
 
 
 
@@ -718,11 +709,11 @@ main {
 }
 
 .form-btn:hover {
-  background: var(--bg-gradient-yellow-1);
+  background: var(--bg-gradient-green-1);
 }
 
 .form-btn:hover::before {
-  background: var(--bg-gradient-yellow-2);
+  background: var(--bg-gradient-green-2);
 }
 
 .modal-container.active .testimonials-modal {
@@ -852,7 +843,7 @@ main {
 }
 
 .timeline-list span {
-  color: var(--vegas-gold);
+  color: var(--forest-glade);
   font-weight: var(--fw-400);
   line-height: 1.6;
 }
@@ -874,7 +865,7 @@ main {
   left: -33px;
   height: 6px;
   width: 6px;
-  background: var(--text-gradient-yellow);
+  background: var(--text-gradient-green);
   border-radius: 50%;
   box-shadow: 0 0 0 4px var(--jet);
 }
@@ -943,15 +934,15 @@ main {
   border-radius: 8px;
   font-size: var(--fs-7);
   font-weight: 500;
-  background: hsla(45, 100%, 72%, 0.1); /* Semi-transparent yellow background */
-  color: var(--orange-yellow-crayola); /* Your main accent color */
+  background: hsla(99, 76%, 56%, 0.1); /* Semi-transparent yellow background */
+  color: var(--vibrant-green); /* Your main accent color */
   transition: var(--transition-1);
   cursor: default;
 }
 
 .skills-item:hover {
   transform: translateY(-2px);
-  background: hsla(45, 100%, 72%, 0.15); /* Slightly brighter on hover */
+  background: hsla(99, 76%, 56%, 0.15); /* Slightly brighter on hover */
 }
 
 /*-----------------------------------*\
@@ -1064,7 +1055,7 @@ main {
   --scale: 0.8;
 
   background: var(--jet);
-  color: var(--orange-yellow-crayola);
+  color: var(--vibrant-green);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1174,7 +1165,7 @@ main {
 
 .tag {
   background-color: #2b2b2c; /* Muted gray for background */
-  color: #ffdb70; /* White text for contrast */
+  color:#76E340; /* White text for contrast */
   font-size: 0.75rem; /* Slightly smaller font size */
   padding: 2px 6px; /* Reduced padding for subtlety */
   border-radius: 10px; /* Rounded for a polished look */
@@ -1267,7 +1258,7 @@ main {
 }
 
 .events-post-item > a:hover .events-item-title { 
-  color: var(--orange-yellow-crayola); 
+  color: var(--vibrant-green); 
 }
 
 .events-text {
@@ -1359,7 +1350,7 @@ main {
   transition: var(--transition-1);
 }
 
-.blog-post-item > a:hover .blog-item-title { color: var(--orange-yellow-crayola); }
+.blog-post-item > a:hover .blog-item-title { color: var(--vibrant-green); }
 
 .blog-text {
   color: var(--light-gray);
@@ -1434,7 +1425,7 @@ main {
 
 .form-input::placeholder { font-weight: var(--fw-500); }
 
-.form-input:focus { border-color: var(--orange-yellow-crayola); }
+.form-input:focus { border-color: var(--vibrant-green); }
 
 textarea.form-input {
   min-height: 100px;
@@ -1452,7 +1443,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   position: relative;
   width: 100%;
   background: var(--border-gradient-onyx);
-  color: var(--orange-yellow-crayola);
+  color: var(--vibrant-green);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1478,9 +1469,9 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .form-btn ion-icon { font-size: 16px; }
 
-.form-btn:hover { background: var(--bg-gradient-yellow-1); }
+.form-btn:hover { background: var(--bg-gradient-green-1); }
 
-.form-btn:hover::before { background: var(--bg-gradient-yellow-2); }
+.form-btn:hover::before { background: var(--bg-gradient-green-2); }
 
 .form-btn:disabled {
   opacity: 0.7;
@@ -1890,7 +1881,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .filter-item button:hover { color: var(--light-gray-70); }
 
-  .filter-item button.active { color: var(--orange-yellow-crayola); }
+  .filter-item button.active { color: var(--vibrant-green); }
 
   /* portfolio and blog grid */
 
