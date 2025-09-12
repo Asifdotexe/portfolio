@@ -233,78 +233,111 @@ const timeAgo = (dateString) => {
     return `just now`;
 };
 
-// Helper function to toggle active class (was missing from original script)
+// Helper function to toggle active class
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
 /**
- * Populates the project list from a JSON file, fetches GitHub data,
- * sorts by update date, and then renders the projects.
+ * Populates the project list, using a cache for GitHub data to avoid excessive API calls.
  */
 const populateProjects = async () => {
     const projectList = document.getElementById("project-list");
     if (!projectList) return;
 
+    // --- Caching Logic ---
+    const CACHE_KEY = 'github_repo_data';
+    const CACHE_DURATION_MS = 1 * 60 * 60 * 1000; // 1 hours
+
+    const getCache = () => {
+        try {
+            const cachedData = localStorage.getItem(CACHE_KEY);
+            if (!cachedData) return {};
+            return JSON.parse(cachedData);
+        } catch (e) {
+            console.error("Error reading from cache", e);
+            return {};
+        }
+    };
+
+    const setCache = (cache) => {
+        try {
+            localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
+        } catch (e) {
+            console.error("Error writing to cache", e);
+        }
+    };
+    // --- End Caching Logic ---
+
     try {
-        // Step 1: Fetch project data from JSON file
         const response = await fetch("./assets/data/projects.json");
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const projects = await response.json();
+        const cache = getCache();
 
-        // Step 2: Fetch last updated info from GitHub for each project
         const projectsWithUpdates = await Promise.all(
             projects.map(async (project) => {
-                // Use the 'github' field for a more direct API call
-                if (project.github) {
+                if (!project.github) {
+                    project.updated_at = null;
+                    return project;
+                }
+
+                const repoKey = project.github;
+                const cachedRepo = cache[repoKey];
+                const isCacheValid = cachedRepo && (new Date() - new Date(cachedRepo.fetched_at)) < CACHE_DURATION_MS;
+
+                if (isCacheValid) {
+                    // Use cached data
+                    project.updated_at = cachedRepo.updated_at;
+                } else {
+                    // Fetch fresh data
                     try {
-                        const apiUrl = `https://api.github.com/repos/${project.github}`;
+                        const apiUrl = `https://api.github.com/repos/${repoKey}`;
                         const res = await fetch(apiUrl);
                         if (res.ok) {
                             const repoData = await res.json();
-                            project.updated_at = repoData.updated_at; // Add updated_at to the project object
+                            project.updated_at = repoData.updated_at;
+                            // Update cache with new data
+                            cache[repoKey] = {
+                                updated_at: repoData.updated_at,
+                                fetched_at: new Date().toISOString()
+                            };
                         } else {
-                            console.warn(`Could not fetch GitHub data for ${project.github}. Status: ${res.status}`);
-                            project.updated_at = null;
+                            project.updated_at = null; // API call failed
                         }
                     } catch (err) {
-                        console.error(`Error fetching GitHub data for ${project.github}:`, err);
+                        console.error(`Error fetching GitHub data for ${repoKey}:`, err);
                         project.updated_at = null;
                     }
-                } else {
-                    // Project is not on GitHub (e.g., Medium, Tableau)
-                    project.updated_at = null;
                 }
                 return project;
             })
         );
+        
+        setCache(cache); // Save all updates to the cache at once
 
-        // Step 3: Sort projects by last updated date in descending order (newest first)
+        // Sort projects by last updated date (descending)
         projectsWithUpdates.sort((a, b) => {
-            // Projects with update dates come before those without
             if (a.updated_at && b.updated_at) {
                 return new Date(b.updated_at) - new Date(a.updated_at);
             }
-            if (a.updated_at) return -1; // a comes first
-            if (b.updated_at) return 1;  // b comes first
-            return 0; // maintain original order if neither has a date
+            if (a.updated_at) return -1;
+            if (b.updated_at) return 1;
+            return 0;
         });
 
-        // Step 4: Render projects into the DOM
-        projectList.innerHTML = ''; // Clear existing list before rendering
+        // Render projects
+        projectList.innerHTML = '';
         projectsWithUpdates.forEach((project) => {
             const li = document.createElement("li");
-            // Set data attributes for filtering and add default active class
             li.className = "project-item active";
             li.setAttribute("data-filter-item", "");
             li.setAttribute("data-category", project.category.toLowerCase());
 
-            // Create HTML for tech stack tags
             const tagsHtml = project.tags
                 .map((tag) => `<span class="tag">${tag}</span>`)
                 .join("");
 
-            // Create HTML for the 'last updated' date if it exists
             const updatedHtml = project.updated_at
                 ? `<p class="project-category">Last updated: ${timeAgo(project.updated_at)}</p>`
                 : "";
@@ -326,7 +359,6 @@ const populateProjects = async () => {
             projectList.appendChild(li);
         });
 
-        // Step 5: Initialize the filtering logic now that items are in the DOM
         initializeProjectFilter();
 
     } catch (error) {
@@ -345,7 +377,6 @@ const initializeProjectFilter = () => {
     const filterBtns = document.querySelectorAll("[data-filter-btn]");
     const filterItems = document.querySelectorAll("[data-filter-item]");
 
-    // The core filtering function
     const filterFunc = function (selectedValue) {
         for (let i = 0; i < filterItems.length; i++) {
             if (selectedValue === "all" || selectedValue === filterItems[i].dataset.category) {
@@ -356,20 +387,20 @@ const initializeProjectFilter = () => {
         }
     }
 
-    // Filter functionality for desktop buttons
-    let lastClickedBtn = filterBtns[0];
-    for (let i = 0; i < filterBtns.length; i++) {
-        filterBtns[i].addEventListener("click", function () {
-            let selectedValue = this.innerText.toLowerCase();
-            filterFunc(selectedValue);
+    let lastClickedBtn = filterBtns.length > 0 ? filterBtns[0] : null;
+    if (lastClickedBtn) {
+        for (let i = 0; i < filterBtns.length; i++) {
+            filterBtns[i].addEventListener("click", function () {
+                let selectedValue = this.innerText.toLowerCase();
+                filterFunc(selectedValue);
 
-            lastClickedBtn.classList.remove("active");
-            this.classList.add("active");
-            lastClickedBtn = this;
-        });
+                lastClickedBtn.classList.remove("active");
+                this.classList.add("active");
+                lastClickedBtn = this;
+            });
+        }
     }
 
-    // Filter functionality for mobile select dropdown
     if (select) {
         select.addEventListener("click", function () { elementToggleFunc(this); });
 
