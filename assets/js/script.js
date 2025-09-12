@@ -237,96 +237,44 @@ const timeAgo = (dateString) => {
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
 /**
- * Populates the project list, using a cache for GitHub data to avoid excessive API calls.
+ * Populates the project list by combining data from local JSON files.
  */
 const populateProjects = async () => {
     const projectList = document.getElementById("project-list");
     if (!projectList) return;
 
-    // --- Caching Logic ---
-    const CACHE_KEY = 'github_repo_data';
-    const CACHE_DURATION_MS = 1 * 60 * 60 * 1000; // 1 hours
-
-    const getCache = () => {
-        try {
-            const cachedData = localStorage.getItem(CACHE_KEY);
-            if (!cachedData) return {};
-            return JSON.parse(cachedData);
-        } catch (e) {
-            console.error("Error reading from cache", e);
-            return {};
-        }
-    };
-
-    const setCache = (cache) => {
-        try {
-            localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
-        } catch (e) {
-            console.error("Error writing to cache", e);
-        }
-    };
-    // --- End Caching Logic ---
-
     try {
-        const response = await fetch("./assets/data/projects.json");
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        // Step 1: Fetch both local JSON files at the same time.
+        const [projectsResponse, updatesResponse] = await Promise.all([
+            fetch("./assets/data/projects.json"),
+            fetch("./assets/data/last_updated.json")
+        ]);
+
+        if (!projectsResponse.ok) {
+            throw new Error(`Failed to load projects.json: ${projectsResponse.statusText}`);
         }
-        const projects = await response.json();
-        const cache = getCache();
-
-        const projectsWithUpdates = await Promise.all(
-            projects.map(async (project) => {
-                if (!project.github) {
-                    project.updated_at = null;
-                    return project;
-                }
-
-                const repoKey = project.github;
-                const cachedRepo = cache[repoKey];
-                const isCacheValid = cachedRepo && (new Date() - new Date(cachedRepo.fetched_at)) < CACHE_DURATION_MS;
-
-                if (isCacheValid) {
-                    // Use cached data
-                    project.updated_at = cachedRepo.updated_at;
-                } else {
-                    // Fetch fresh data
-                    try {
-                        const apiUrl = `https://api.github.com/repos/${repoKey}`;
-                        const res = await fetch(apiUrl);
-                        if (res.ok) {
-                            const repoData = await res.json();
-                            project.updated_at = repoData.updated_at;
-                            // Update cache with new data
-                            cache[repoKey] = {
-                                updated_at: repoData.updated_at,
-                                fetched_at: new Date().toISOString()
-                            };
-                        } else {
-                            project.updated_at = null; // API call failed
-                        }
-                    } catch (err) {
-                        console.error(`Error fetching GitHub data for ${repoKey}:`, err);
-                        project.updated_at = null;
-                    }
-                }
-                return project;
-            })
-        );
         
-        setCache(cache); // Save all updates to the cache at once
+        const projects = await projectsResponse.json();
+        // If last_updated.json doesn't exist, default to an empty object.
+        const updates = updatesResponse.ok ? await updatesResponse.json() : {};
 
-        // Sort projects by last updated date (descending)
+        // Step 2: Combine the project data with the last updated dates.
+        const projectsWithUpdates = projects.map(project => {
+            const lastUpdated = project.github ? updates[project.github] : null;
+            return { ...project, updated_at: lastUpdated };
+        });
+
+        // Step 3: Sort projects by the new 'updated_at' field.
         projectsWithUpdates.sort((a, b) => {
             if (a.updated_at && b.updated_at) {
                 return new Date(b.updated_at) - new Date(a.updated_at);
             }
-            if (a.updated_at) return -1;
-            if (b.updated_at) return 1;
+            if (a.updated_at) return -1; // a has a date, b doesn't
+            if (b.updated_at) return 1;  // b has a date, a doesn't
             return 0;
         });
 
-        // Render projects
+        // Step 4: Render the final list to the page.
         projectList.innerHTML = '';
         projectsWithUpdates.forEach((project) => {
             const li = document.createElement("li");
@@ -367,8 +315,10 @@ const populateProjects = async () => {
     }
 };
 
+
 /**
  * Sets up event listeners for project category filtering.
+ * (This function remains unchanged)
  */
 const initializeProjectFilter = () => {
     const select = document.querySelector("[data-select]");
@@ -392,6 +342,7 @@ const initializeProjectFilter = () => {
         for (let i = 0; i < filterBtns.length; i++) {
             filterBtns[i].addEventListener("click", function () {
                 let selectedValue = this.innerText.toLowerCase();
+                if(selectValue) selectValue.innerText = this.innerText;
                 filterFunc(selectedValue);
 
                 lastClickedBtn.classList.remove("active");
@@ -414,6 +365,7 @@ const initializeProjectFilter = () => {
         }
     }
 };
+
 
   // Call all the functions to load your dynamic content
   populateEducation();
