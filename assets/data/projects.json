@@ -47,7 +47,7 @@
     "title": "DORA: Report Automator",
     "category_desc": "Data Analysis Tool",
     "category": "data analysis",
-    "tags": ["Python", "Pandas", "Python PPTX", "Matplotlib + Seaborn", "Microsoft Office"]
+    "tags": ["Python", "CLI", "Exploratory Data Analysis", "Matplotlib + Seaborn", "HTML Reports"]
   },
   {
     "github": "Asifdotexe/AniMate",
