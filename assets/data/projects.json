@@ -1,5 +1,15 @@
 [
   {
+    "github": "Asifdotexe/LittleLogger",
+    "url": "https://github.com/Asifdotexe/LittleLogger",
+    "image": "./assets/images/projects/little-logger.png",
+    "alt": "LittleLogger",
+    "title": "LittleLogger",
+    "category_desc": "Machine Learning Experiment Tracker",
+    "category": "ai/ml",
+    "tags": ["Python", "PyPI", "Scikit-learn", "Pandas"]
+  },
+  {
     "github": "Asifdotexe/playground-repo",
     "url": "https://github.com/Asifdotexe/playground-repo/issues/9",
     "image": "./assets/images/projects/python-v-cython.png",
