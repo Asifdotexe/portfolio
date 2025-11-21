@@ -353,7 +353,7 @@ const initializeProjectFilter = () => {
     }
 
     if (select) {
-        select.addEventListener("click", function () { elementToggleFunc(this); });
+        select.addEventListener("click", function  () { elementToggleFunc(this); });
 
         for (let i = 0; i < selectItems.length; i++) {
             selectItems[i].addEventListener("click", function () {
