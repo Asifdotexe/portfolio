@@ -54,15 +54,14 @@
   --smoky-black: hsl(0, 0%, 7%);
   --white-1: hsl(0, 0%, 100%);
   --white-2: hsl(0, 0%, 98%);
-  --vibrant-green: hsl(99, 76%, 56%); /* was --orange-yellow-crayola */
-  --forest-glade: hsl(99, 70%, 52%); /* was --vegas-gold */
+  --vibrant-green: hsl(99, 76%, 56%);
+  --forest-glade: hsl(99, 70%, 52%);
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
 
-  /**
-   * typography
-   */
+
+   /* typography */
 
   /* font-family */
   --ff-poppins: 'Poppins', sans-serif;
@@ -83,27 +82,19 @@
   --fw-500: 500;
   --fw-600: 600;
 
-  /**
-   * shadow
-   */
-  
+  /* shadow */
   --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
   --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.25);
   --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.25);
   --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.15);
   --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.25);
 
-  /**
-   * transition
-   */
+  /* transition */
 
   --transition-1: 0.25s ease;
   --transition-2: 0.5s ease-in-out;
 
 }
-
-
-
 
 
 /*-----------------------------------*\
@@ -148,9 +139,25 @@ html { font-family: var(--ff-poppins); }
 
 body { background: var(--smoky-black); }
 
+/*-----------------------------------*\
+  #ANIMATIONS & EFFECTS
+\*-----------------------------------*/
 
+/* Staggered fade in up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-
+.fade-in-up {
+  animation: fadeInUp 0.6s ease backwards;
+}
 
 /*-----------------------------------*\
   #REUSED STYLE
