@@ -1,5 +1,5 @@
 /*-----------------------------------*\
-  #style.css
+  #style.css - ENHANCED VERSION
 \*-----------------------------------*/
 
 /* copyright 2022 @codewithsadee */
@@ -23,7 +23,7 @@
     to bottom right,
     hsla(240, 1%, 18%, 0.251) 0%,
     hsla(240, 2%, 11%, 0) 100%
-  ), hsl(240, 2%, 13%);
+  );
   --bg-gradient-green-1: linear-gradient(
     to bottom right,
     hsl(99, 76%, 56%) 0%,
@@ -34,11 +34,13 @@
     hsla(99, 76%, 56%, 0.251) 0%,
     hsla(99, 70%, 52%, 0) 59.86%
   ), hsl(240, 2%, 13%);
+  
   --border-gradient-onyx: linear-gradient(
     to bottom right,
     hsl(0, 0%, 25%) 0%,
     hsla(0, 0%, 25%, 0) 50%
   );
+  
   --text-gradient-green: linear-gradient(
     to right,
     hsl(99, 76%, 56%),
@@ -54,8 +56,8 @@
   --smoky-black: hsl(0, 0%, 7%);
   --white-1: hsl(0, 0%, 100%);
   --white-2: hsl(0, 0%, 98%);
-  --vibrant-green: hsl(99, 76%, 56%); /* was --orange-yellow-crayola */
-  --forest-glade: hsl(99, 70%, 52%); /* was --vegas-gold */
+  --vibrant-green: hsl(99, 76%, 56%);
+  --forest-glade: hsl(99, 70%, 52%);
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
@@ -86,7 +88,7 @@
   /**
    * shadow
    */
-  
+   
   --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
   --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.25);
   --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.25);
@@ -101,10 +103,6 @@
   --transition-2: 0.5s ease-in-out;
 
 }
-
-
-
-
 
 /*-----------------------------------*\
   #RESET
@@ -148,9 +146,57 @@ html { font-family: var(--ff-poppins); }
 
 body { background: var(--smoky-black); }
 
+/*-----------------------------------*\
+  #ANIMATIONS & EFFECTS (NEW)
+\*-----------------------------------*/
 
+/* Staggered Fade In Up Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+.fade-in-up {
+  animation: fadeInUp 0.6s ease backwards;
+}
 
+/* Typewriter Cursor Effect */
+.typewriter-cursor::after {
+  content: '|';
+  animation: blink 1s step-start infinite;
+  color: var(--vibrant-green);
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* 3D Tilt Card Base Style */
+.tilt-effect {
+  transition: transform 0.1s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Skeleton Loading State */
+.skeleton {
+  background: linear-gradient(90deg, var(--eerie-black-1) 25%, var(--onyx) 50%, var(--eerie-black-1) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+  color: transparent !important;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
 
 /*-----------------------------------*\
   #REUSED STYLE
@@ -283,10 +329,6 @@ article.active {
   z-index: -1;
 }
 
-
-
-
-
 /*-----------------------------------*\
   #MAIN
 \*-----------------------------------*/
@@ -296,10 +338,6 @@ main {
   margin-bottom: 75px;
   min-width: 259px;
 }
-
-
-
-
 
 /*-----------------------------------*\
   #SIDEBAR
@@ -434,11 +472,7 @@ main {
   font-size: 18px;
 }
 
-
 .social-item .social-link:hover { color: var(--light-gray); }
-
-
-
 
 
 /*-----------------------------------*\
@@ -452,6 +486,7 @@ main {
   width: 100%;
   background: hsla(240, 1%, 17%, 0.75);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--jet);
   border-radius: 12px 12px 0 0;
   box-shadow: var(--shadow-2);
@@ -479,9 +514,6 @@ main {
 .navbar-link.active { color: var(--vibrant-green); }
 
 
-
-
-
 /*-----------------------------------*\
   #ABOUT
 \*-----------------------------------*/
@@ -496,7 +528,6 @@ main {
 }
 
 .about-text p { margin-bottom: 15px; }
-
 
 
 /**
@@ -632,16 +663,17 @@ main {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: hsl(0, 0%, 5%);
+  background: hsla(0, 0%, 5%, 0.9);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   z-index: 1;
   transition: var(--transition-1);
+  backdrop-filter: blur(2px);
 }
 
 .overlay.active {
-  opacity: 0.8;
+  opacity: 1;
   visibility: visible;
   pointer-events: all;
 }
@@ -802,10 +834,6 @@ main {
 }
 
 .clients-item img:hover { filter: grayscale(0); }
-
-
-
-
 
 /*-----------------------------------*\
   #RESUME
@@ -1161,6 +1189,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-left: 10px;
 }
 
 .tag {
@@ -1358,26 +1387,6 @@ main {
   font-weight: var(--fw-300);
   line-height: 1.6;
 }
-
-/* /* LinkedIn Recommendation Button Styles */
-/* #recommendMeButton { */
-  /* text-decoration: none; Remove underline from link */
-
-/* #recommendMeButton button { */
-  /* background-color: #0077b5; LinkedIn blue */
-  /* color: white; White text */
-  /* border: none; Remove border */
-  /* padding: 10px 20px; Button padding */
-  /* border-radius: 5px; Rounded corners */
-  /* cursor: pointer; Pointer cursor on hover */
-  /* font-size: 16px; Font size */
-  /* font-family: Arial, sans-serif; Font family for consistency */
-  /* transition: background-color 0.3s ease; Smooth hover effect */
-/* } */
-
-/* #recommendMeButton button:hover { */
-  /* background-color: #005b87; Darker blue on hover */
-/* } */
 
 /*-----------------------------------*\
   #CONTACT
@@ -1615,6 +1624,9 @@ textarea.form-input::-webkit-resizer { display: none; }
   .info_more-btn span {
     display: block;
     font-size: var(--fs-8);
+    display: flex;
+    gap: 5px;
+    align-items: center;
   }
 
   .info_more-btn ion-icon { display: none; }
@@ -1899,12 +1911,8 @@ textarea.form-input::-webkit-resizer { display: none; }
     width: max-content;
     margin-left: auto;
   }
-  
+
 }
-
-
-
-
 
 /**
  * responsive larger than 1024px screen
@@ -1918,9 +1926,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   :root {
 
-    /**
-    * shadow
-    */
+  /* shadow */
 
     --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.125);
     --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.125);
@@ -1929,21 +1935,14 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
 
-
-  /**
-   * REUSED STYLE
-   */
+  /* REUSED STYLE */
 
   .sidebar, article {
     width: 950px;
     box-shadow: var(--shadow-5);
   }
 
-
-
-  /**
-   * MAIN 
-   */
+  /* MAIN  */
 
   main { margin-bottom: 60px; }
 
@@ -1953,11 +1952,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     margin: auto;
   }
 
-
-
-  /**
-   * NAVBAR
-   */
+  /* NAVBAR */
 
   .navbar {
     position: absolute;
@@ -1978,11 +1973,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .navbar-link { font-weight: var(--fw-500); }
 
-
-
-  /**
-   * ABOUT
-   */
+  /* ABOUT */
 
   /* service */
 
@@ -2001,35 +1992,21 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
 
-  /**
-   * PORTFOLIO
-   */
+  /* PORTFOLIO */
 
   .project-list { grid-template-columns: repeat(3, 1fr); }
 
-
-
-  /**
-   * BLOG
-   */
+  /* BLOG */
 
   .blog-banner-box { height: 230px; }
 
 }
 
-
-
-
-
-/**
- * responsive larger than 1250px screen
- */
+ /* responsive larger than 1250px screen */
 
 @media (min-width: 1250px) {
 
-  /**
-   * RESET
-   */
+  /* RESET */
 
   body::-webkit-scrollbar { width: 20px; }
 
@@ -2047,22 +2024,13 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   body::-webkit-scrollbar-button { height: 60px; }
 
-
-
-  /**
-   * REUSED STYLE
-   */
+  /* REUSED STYLE */
 
   .sidebar, article { width: auto; }
 
   article { min-height: 100%; }
 
-
-
-  /**
-   * MAIN
-   */
-
+  /* MAIN */
   main {
     max-width: 1200px;
     margin-inline: auto;
@@ -2078,12 +2046,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     margin: 0;
   }
 
-
-
-  /**
-   * SIDEBAR
-   */
-
+ /* SIDEBAR */
   .sidebar {
     position: sticky;
     top: 60px;
@@ -2132,12 +2095,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .social-list { justify-content: center; }
 
-
-
-  /**
-	 * RESUME
-	 */
-
+  /* RESUME */
   .timeline-text { max-width: 700px; }
 
 }

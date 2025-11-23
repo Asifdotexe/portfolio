@@ -47,10 +47,15 @@ if (select && selectItems.length > 0) {
   const selectValue = document.querySelector("[data-selecct-value]");
   const filterBtn = document.querySelectorAll("[data-filter-btn]");
   const filterItems = document.querySelectorAll("[data-filter-item]");
+
   const filterFunc = function (selectedValue) {
     filterItems.forEach(item => {
       if (selectedValue === "all" || selectedValue === item.dataset.category) {
         item.classList.add("active");
+        // Re-trigger animation for filtered items
+        item.style.animation = 'none';
+        item.offsetHeight; /* trigger reflow */
+        item.style.animation = null; 
       } else {
         item.classList.remove("active");
       }
@@ -89,33 +94,130 @@ if (navigationLinks.length > 0 && pages.length > 0) {
       const targetPage = this.innerHTML.toLowerCase();
       pages.forEach(page => {
         page.classList.toggle("active", targetPage === page.dataset.page);
+        if(targetPage === page.dataset.page) {
+          window.scrollTo(0,0);
+        }
       });
       navigationLinks.forEach(navLink => {
         navLink.classList.toggle("active", navLink === this);
       });
-      window.scrollTo(0, 0);
     });
   });
 }
 
 // --------------------------------------------------------------------
-// DYNAMIC CONTENT LOADING (The Correct Way)
+// NEW VISUAL EFFECTS (Typewriter, Tilt)
+// --------------------------------------------------------------------
+
+const initTypewriter = () => {
+  const titleElement = document.querySelector('.info-content .title');
+  if (!titleElement) return;
+
+  const roles = ["Data Scientist", "Python Developer", "Problem Solver", "Analyst"];
+  let roleIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let typeSpeed = 100;
+
+  titleElement.classList.add('typewriter-cursor');
+
+  function type() {
+    const currentRole = roles[roleIndex];
+
+    if (isDeleting) {
+      titleElement.textContent = currentRole.substring(0, charIndex - 1);
+      charIndex--;
+      typeSpeed = 50;
+    } else {
+      titleElement.textContent = currentRole.substring(0, charIndex + 1);
+      charIndex++;
+      typeSpeed = 150;
+    }
+
+    if (!isDeleting && charIndex === currentRole.length) {
+      isDeleting = true;
+      typeSpeed = 2000; // Pause at end
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+      typeSpeed = 500; // Pause before new word
+    }
+
+    setTimeout(type, typeSpeed);
+  }
+
+  type();
+};
+
+const initTiltEffect = () => {
+  const cards = document.querySelectorAll('.project-item, .certificate-item, .events-post-item');
+
+  cards.forEach(card => {
+    // Add base style class
+    card.classList.add('tilt-effect');
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = ((y - centerY) / centerY) * -5; // Max rotation deg
+      const rotateY = ((x - centerX) / centerX) * 5;
+
+      // Apply transform to the CARD itself, not the inner link.
+      // This fixes the issue where the image detached from the background.
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+    });
+  });
+};
+
+
+// --------------------------------------------------------------------
+// DYNAMIC CONTENT LOADING
 // --------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
+
+  initTypewriter();
+
+  // Helper to add skeleton loading state
+  const showSkeleton = (elementId, count = 3, height = '100px') => {
+    const container = document.getElementById(elementId);
+    if(!container) return;
+    container.innerHTML = '';
+    for(let i=0; i<count; i++) {
+      const div = document.createElement('div');
+      div.classList.add('skeleton');
+      div.style.height = height;
+      div.style.marginBottom = '20px';
+      container.appendChild(div);
+    }
+  }
 
   // Function to populate the Education section
   const populateEducation = () => {
     const educationList = document.getElementById('education-list');
     if (!educationList) return;
+
+    showSkeleton('education-list', 3, '80px'); // Optional: enable if fetch is slow
+
     fetch('./assets/data/education.json')
       .then(response => {
         if (!response.ok) throw new Error(`HTTP ${response.status} while fetching education.json`);
         return response.json();
       })
       .then(data => {
-        data.forEach(edu => {
+        educationList.innerHTML = ''; // Clear skeleton
+        data.forEach((edu, index) => {
           const item = document.createElement('li');
-          item.className = 'timeline-item';
+          item.className = 'timeline-item fade-in-up';
+          item.style.animationDelay = `${index * 0.1}s`;
           item.innerHTML = `<h4 class="h4 timeline-item-title">${edu.institution}</h4><span>${edu.duration}</span><p class="timeline-text">${edu.description}</p>`;
           educationList.appendChild(item);
         });
@@ -133,9 +235,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return response.json();
       })
       .then(data => {
-        data.forEach(exp => {
+        data.forEach((exp, index) => {
           const item = document.createElement('li');
-          item.className = 'timeline-item';
+          item.className = 'timeline-item fade-in-up';
+          item.style.animationDelay = `${index * 0.1}s`;
           item.innerHTML = `<h4 class="h4 timeline-item-title">${exp.role}</h4><span>${exp.date}</span><p class="timeline-text">${exp.description}</p>`;
           experienceList.appendChild(item);
         });
@@ -153,12 +256,15 @@ document.addEventListener('DOMContentLoaded', () => {
         return response.json();
       })
       .then(data => {
-        data.forEach(event => {
+        data.forEach((event, index) => {
           const item = document.createElement('li');
-          item.className = 'blog-post-item';
+          item.className = 'blog-post-item fade-in-up';
+          item.style.animationDelay = `${index * 0.1}s`;
           item.innerHTML = `<a href="${event.url}" target="_blank" rel="noopener noreferrer"><figure class="blog-banner-box"><img src="${event.image}" alt="${event.title}" loading="lazy"></figure><div class="blog-content"><div class="blog-meta"><p class="blog-category">${event.category}</p><span class="dot"></span><time datetime="${event.date}">${event.formattedDate}</time></div><h3 class="h3 blog-item-title">${event.title}</h3><p class="blog-text">${event.description}</p></div></a>`;
           eventsList.appendChild(item);
         });
+        // Initialize tilt after DOM injection
+        setTimeout(initTiltEffect, 500);
       })
       .catch(error => console.error('Error fetching events data:', error));
   };
@@ -166,17 +272,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // Dynamically populate certificates section
   const populateCertificates = () => {
     const certificatesGrid = document.getElementById('certificates-grid');
-    if (!certificatesGrid) return; // Good practice to add this check
+    if (!certificatesGrid) return;
+
+    showSkeleton('certificates-grid', 6, '200px');
+
     fetch('./assets/data/certificates.json')
       .then(response => {
         if (!response.ok) throw new Error(`HTTP ${response.status} while fetching certificates.json`);
         return response.json();
       })
       .then(data => {
-        data.forEach(cert => {
+        certificatesGrid.innerHTML = ''; // Clear skeletons
+        data.forEach((cert, index) => {
           const certificateItem = document.createElement('div');
-          certificateItem.className = 'certificate-item';
+          certificateItem.className = 'certificate-item fade-in-up';
+          certificateItem.style.animationDelay = `${index * 0.05}s`; // Faster stagger
 
+          // Removed style="display:block; height:100%;" from anchor to fix text offset issue
           certificateItem.innerHTML = `
             <a href="${cert.url}" target="_blank" rel="noopener noreferrer">
               <img
@@ -194,6 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           certificatesGrid.appendChild(certificateItem);
         });
+        setTimeout(initTiltEffect, 500);
       })
       .catch(error => console.error('Error fetching certificates data:', error));
   };
@@ -205,22 +318,22 @@ const timeAgo = (dateString) => {
     const now = new Date();
     const seconds = Math.floor((now - date) / 1000);
 
-    let interval = seconds / 31536000; // 365.25 days
+    let interval = seconds / 31536000;
     if (interval > 1) {
         const years = Math.floor(interval);
         return `${years} year${years > 1 ? 's' : ''} ago`;
     }
-    interval = seconds / 2592000; // 30 days
+    interval = seconds / 2592000;
     if (interval > 1) {
         const months = Math.floor(interval);
         return `${months} month${months > 1 ? 's' : ''} ago`;
     }
-    interval = seconds / 86400; // 24 hours
+    interval = seconds / 86400;
     if (interval > 1) {
         const days = Math.floor(interval);
         return `${days} day${days > 1 ? 's' : ''} ago`;
     }
-    interval = seconds / 3600; // 1 hour
+    interval = seconds / 3600;
     if (interval > 1) {
         const hours = Math.floor(interval);
         return `${hours} hour${hours > 1 ? 's' : ''} ago`;
@@ -233,9 +346,6 @@ const timeAgo = (dateString) => {
     return `just now`;
 };
 
-// Helper function to toggle active class
-const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
-
 /**
  * Populates the project list by combining data from local JSON files.
  */
@@ -243,8 +353,9 @@ const populateProjects = async () => {
     const projectList = document.getElementById("project-list");
     if (!projectList) return;
 
+    showSkeleton('project-list', 4, '150px');
+
     try {
-        // Step 1: Fetch both local JSON files at the same time.
         const [projectsResponse, updatesResponse] = await Promise.all([
             fetch("./assets/data/projects.json"),
             fetch("./assets/data/last_updated.json")
@@ -253,32 +364,29 @@ const populateProjects = async () => {
         if (!projectsResponse.ok) {
             throw new Error(`Failed to load projects.json: ${projectsResponse.statusText}`);
         }
-        
+
         const projects = await projectsResponse.json();
-        // If last_updated.json doesn't exist, default to an empty object.
         const updates = updatesResponse.ok ? await updatesResponse.json() : {};
 
-        // Step 2: Combine the project data with the last updated dates.
         const projectsWithUpdates = projects.map(project => {
             const lastUpdated = project.github ? updates[project.github] : null;
             return { ...project, updated_at: lastUpdated };
         });
 
-        // Step 3: Sort projects by the new 'updated_at' field.
         projectsWithUpdates.sort((a, b) => {
             if (a.updated_at && b.updated_at) {
                 return new Date(b.updated_at) - new Date(a.updated_at);
             }
-            if (a.updated_at) return -1; // a has a date, b doesn't
-            if (b.updated_at) return 1;  // b has a date, a doesn't
+            if (a.updated_at) return -1;
+            if (b.updated_at) return 1; 
             return 0;
         });
 
-        // Step 4: Render the final list to the page.
-        projectList.innerHTML = '';
-        projectsWithUpdates.forEach((project) => {
+        projectList.innerHTML = ''; // Clear skeletons
+        projectsWithUpdates.forEach((project, index) => {
             const li = document.createElement("li");
-            li.className = "project-item active";
+            li.className = "project-item active fade-in-up";
+            li.style.animationDelay = `${index * 0.1}s`;
             li.setAttribute("data-filter-item", "");
             li.setAttribute("data-category", project.category.toLowerCase());
 
@@ -291,8 +399,11 @@ const populateProjects = async () => {
                 : "";
 
             li.innerHTML = `
-                <a href="${project.url}" target="_blank" rel="noopener noreferrer">
+                <a href="${project.url}" target="_blank" rel="noopener noreferrer" style="display: block; height: 100%;">
                     <figure class="project-img">
+                        <div class="project-item-icon-box">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </div>
                         <img src="${project.image}" alt="${project.alt}" loading="lazy">
                     </figure>
                     <div class="project-info">
@@ -308,6 +419,7 @@ const populateProjects = async () => {
         });
 
         initializeProjectFilter();
+        setTimeout(initTiltEffect, 500);
 
     } catch (error) {
         console.error("Error loading or processing projects:", error);
@@ -318,7 +430,6 @@ const populateProjects = async () => {
 
 /**
  * Sets up event listeners for project category filtering.
- * (This function remains unchanged)
  */
 const initializeProjectFilter = () => {
     const select = document.querySelector("[data-select]");
@@ -353,7 +464,7 @@ const initializeProjectFilter = () => {
     }
 
     if (select) {
-        select.addEventListener("click", function () { elementToggleFunc(this); });
+        select.addEventListener("click", function  () { elementToggleFunc(this); });
 
         for (let i = 0; i < selectItems.length; i++) {
             selectItems[i].addEventListener("click", function () {
