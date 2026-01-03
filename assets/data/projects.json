@@ -1,5 +1,19 @@
 [
   {
+    "github": "Asifdotexe/second-brain",
+    "url": "https://github.com/Asifdotexe/second-brain",
+    "image": "./assets/images/projects/second-brain.png",
+    "alt": "Second Brain",
+    "title": "Second Brain",
+    "category_desc": "Knowledge base website",
+    "category": "tools",
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ]
+  },
+  {
     "github": "Asifdotexe/LittleLogger",
     "url": "https://github.com/Asifdotexe/LittleLogger",
     "image": "./assets/images/projects/little-logger.png",
@@ -7,7 +21,12 @@
     "title": "LittleLogger",
     "category_desc": "Machine Learning Experiment Tracker",
     "category": "ai/ml",
-    "tags": ["Python", "PyPI", "Scikit-learn", "Pandas"]
+    "tags": [
+      "Python",
+      "PyPI",
+      "Scikit-learn",
+      "Pandas"
+    ]
   },
   {
     "github": "Asifdotexe/playground-repo",
@@ -17,7 +36,13 @@
     "title": "Python vs Cython Benchmarking",
     "category_desc": "Benchmarking Analysis",
     "category": "data analysis",
-    "tags": ["Python", "Cython", "NumPy", "Seaborn", "Matplotlib"]
+    "tags": [
+      "Python",
+      "Cython",
+      "NumPy",
+      "Seaborn",
+      "Matplotlib"
+    ]
   },
   {
     "github": "Asifdotexe/SERPENT",
@@ -27,7 +52,12 @@
     "title": "SERPENT: Code to flowchart application",
     "category_desc": "Code Documentation Tools",
     "category": "tools",
-    "tags": ["Python", "Streamlit", "Graphviz", "AST"]
+    "tags": [
+      "Python",
+      "Streamlit",
+      "Graphviz",
+      "AST"
+    ]
   },
   {
     "github": "Asifdotexe/MNISTify",
@@ -37,7 +67,13 @@
     "title": "MNISTify: Digit Recognition App",
     "category_desc": "Deep Learning",
     "category": "ai/ml",
-    "tags": ["Python", "Streamlit", "TensorFlow", "OpenCV", "CNN"]
+    "tags": [
+      "Python",
+      "Streamlit",
+      "TensorFlow",
+      "OpenCV",
+      "CNN"
+    ]
   },
   {
     "github": "Asifdotexe/QuickVU",
@@ -47,7 +83,13 @@
     "title": "QuickVU: No-code data tool",
     "category_desc": "Data Cleaning and Analysis tool",
     "category": "data analysis",
-    "tags": ["Python", "Streamlit", "Pandas", "Numpy", "Matplotlib + Seaborn"]
+    "tags": [
+      "Python",
+      "Streamlit",
+      "Pandas",
+      "Numpy",
+      "Matplotlib + Seaborn"
+    ]
   },
   {
     "github": "Asifdotexe/DORA",
@@ -57,7 +99,13 @@
     "title": "DORA: Report Automator",
     "category_desc": "Data Analysis Tool",
     "category": "data analysis",
-    "tags": ["Python", "CLI", "Exploratory Data Analysis", "Matplotlib + Seaborn", "HTML Reports"]
+    "tags": [
+      "Python",
+      "CLI",
+      "Exploratory Data Analysis",
+      "Matplotlib + Seaborn",
+      "HTML Reports"
+    ]
   },
   {
     "github": "Asifdotexe/AniMate",
@@ -67,7 +115,14 @@
     "title": "AniMate: Anime Recommendation Engine",
     "category_desc": "Natural Language Processing",
     "category": "nlp",
-    "tags": ["Python", "Streamlit", "NLTK", "spaCy", "scikit-learn", "BeautifulSoup"]
+    "tags": [
+      "Python",
+      "Streamlit",
+      "NLTK",
+      "spaCy",
+      "scikit-learn",
+      "BeautifulSoup"
+    ]
   },
   {
     "github": "Asifdotexe/StoDir",
@@ -77,7 +132,14 @@
     "title": "StoDir: Stock Direction Forecasting Model",
     "category_desc": "Machine Learning",
     "category": "ai/ml",
-    "tags": ["Python", "Streamlit", "Pandas", "Scikit-learn", "Matplotlib + Seaborn", "YFinance"]
+    "tags": [
+      "Python",
+      "Streamlit",
+      "Pandas",
+      "Scikit-learn",
+      "Matplotlib + Seaborn",
+      "YFinance"
+    ]
   },
   {
     "github": "Asifdotexe/Natural-LangWiz",
@@ -87,7 +149,16 @@
     "title": "Natural LangWiz: NLP Learning Repository",
     "category_desc": "Natural Language Processing",
     "category": "nlp",
-    "tags": ["Python", "Pandas", "NLTK", "spaCy", "Gensim", "Transformers", "Google Gemini", "scikit-learn"]
+    "tags": [
+      "Python",
+      "Pandas",
+      "NLTK",
+      "spaCy",
+      "Gensim",
+      "Transformers",
+      "Google Gemini",
+      "scikit-learn"
+    ]
   },
   {
     "github": "Asifdotexe/open-see-wee",
@@ -97,7 +168,12 @@
     "title": "Open See Wee: Computer Vision Learning Repository",
     "category_desc": "Deep Learning",
     "category": "ai/ml",
-    "tags": ["Python", "Numpy", "OpenCV", "Matplotlib"]
+    "tags": [
+      "Python",
+      "Numpy",
+      "OpenCV",
+      "Matplotlib"
+    ]
   },
   {
     "github": "Asifdotexe/PlateScribe",
@@ -107,7 +183,12 @@
     "title": "PlateScribe: License Plate Detection and OCR Tool",
     "category_desc": "Deep Learning",
     "category": "ai/ml",
-    "tags": ["Python", "TensorFlow", "OpenCV", "Streamlit"]
+    "tags": [
+      "Python",
+      "TensorFlow",
+      "OpenCV",
+      "Streamlit"
+    ]
   },
   {
     "github": "Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews",
@@ -117,7 +198,14 @@
     "title": "Sentimental Scoring Model on Amazon Reviews",
     "category_desc": "Natural Language Processing",
     "category": "nlp",
-    "tags": ["Python", "Pandas", "NLTK", "Scikit-Learn", "Scipy", "Matplotlib + Seaborn"]
+    "tags": [
+      "Python",
+      "Pandas",
+      "NLTK",
+      "Scikit-Learn",
+      "Scipy",
+      "Matplotlib + Seaborn"
+    ]
   },
   {
     "github": "Asifdotexe/real-estate-price-prediction",
@@ -127,7 +215,13 @@
     "title": "Real Estate Price Prediction Model",
     "category_desc": "Machine Learning",
     "category": "ai/ml",
-    "tags": ["Python", "Streamlit", "Pandas", "Scikit-Learn", "Matplotlib + Seaborn"]
+    "tags": [
+      "Python",
+      "Streamlit",
+      "Pandas",
+      "Scikit-Learn",
+      "Matplotlib + Seaborn"
+    ]
   },
   {
     "github": "Asifdotexe/Air-Quality-Analysis-AQA",
@@ -137,7 +231,13 @@
     "title": "AQA: Air Quality Analysis Case Study",
     "category_desc": "Data Analysis",
     "category": "data analysis",
-    "tags": ["Python", "Pandas", "Numpy", "Matplotlib + Seaborn", "Presentation"]
+    "tags": [
+      "Python",
+      "Pandas",
+      "Numpy",
+      "Matplotlib + Seaborn",
+      "Presentation"
+    ]
   },
   {
     "github": "Asifdotexe/flipkart-electric-scooter-data-analysis",
@@ -147,7 +247,13 @@
     "title": "Flipkart Electric Scooter Data Analysis",
     "category_desc": "Data Analysis",
     "category": "data analysis",
-    "tags": ["Python", "Pandas", "Numpy", "Matplotlib + Seaborn", "BeautifulSoup"]
+    "tags": [
+      "Python",
+      "Pandas",
+      "Numpy",
+      "Matplotlib + Seaborn",
+      "BeautifulSoup"
+    ]
   },
   {
     "url": "https://medium.com/@asifdotexe/how-we-used-vba-to-make-a-pathology-lab-application-45acb35e6abf",
@@ -156,7 +262,12 @@
     "title": "VBA: Pathology Lab Application",
     "category_desc": "Visual Basic for Application Tool",
     "category": "tools",
-    "tags": ["Microsoft Excel", "Macros", "Visual Basic for Application", "Userforms"]
+    "tags": [
+      "Microsoft Excel",
+      "Macros",
+      "Visual Basic for Application",
+      "Userforms"
+    ]
   },
   {
     "url": "https://public.tableau.com/app/profile/sayyed.asif/viz/Covid19Dashboard_16783477991420/Dashboard1",
@@ -165,6 +276,10 @@
     "title": "Covid-19 Dashboard",
     "category_desc": "Data Analysis",
     "category": "data analysis",
-    "tags": ["SQL", "Tableau", "Microsoft Excel"]
+    "tags": [
+      "SQL",
+      "Tableau",
+      "Microsoft Excel"
+    ]
   }
 ]
