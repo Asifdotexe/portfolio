@@ -311,22 +311,14 @@ article.active {
 
 .content-card {
   position: relative;
-  background: var(--border-gradient-onyx);
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
   padding: 15px;
   padding-top: 45px;
   border-radius: 14px;
   box-shadow: var(--shadow-2);
   cursor: pointer;
   z-index: 1;
-}
-
-.content-card::before {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  background: var(--bg-gradient-jet);
-  border-radius: inherit;
-  z-index: -1;
 }
 
 /*-----------------------------------*\
@@ -546,20 +538,12 @@ main {
 
 .service-item {
   position: relative;
-  background: var(--border-gradient-onyx);
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
   padding: 20px;
   border-radius: 14px;
   box-shadow: var(--shadow-2);
   z-index: 1;
-}
-
-.service-item::before {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  background: var(--bg-gradient-jet);
-  border-radius: inherit;
-  z-index: -1;
 }
 
 .service-icon-box { margin-bottom: 10px; }
@@ -1139,7 +1123,8 @@ main {
 }
 
 .certificate-item {
-  background: var(--border-gradient-onyx);
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
   padding: 15px;
   border-radius: 14px;
   box-shadow: var(--shadow-2);
@@ -1220,21 +1205,13 @@ main {
 
 .events-post-item > a {
   position: relative;
-  background: var(--border-gradient-onyx);
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
   height: 100%;
   box-shadow: var(--shadow-4);
   border-radius: 16px;
   z-index: 1;
   padding: 10px;
-}
-
-.events-post-item > a::before {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  border-radius: inherit;
-  background: var(--eerie-black-1);
-  z-index: -1;
 }
 
 .event-banner-box {
@@ -1318,20 +1295,12 @@ main {
 
 .blog-post-item > a {
   position: relative;
-  background: var(--border-gradient-onyx);
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
   height: 100%;
   box-shadow: var(--shadow-4);
   border-radius: 16px;
   z-index: 1;
-}
-
-.blog-post-item > a::before {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  border-radius: inherit;
-  background: var(--eerie-black-1);
-  z-index: -1;
 }
 
 .blog-banner-box {
