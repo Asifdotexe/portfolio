@@ -1,4 +1,4 @@
-name: Weekly Project Update
+name: weekly-project-update
 
 on:
   schedule:
