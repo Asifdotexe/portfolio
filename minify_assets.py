@@ -16,8 +16,10 @@ def minify_css(content: str) -> str:
     content = re.sub(r'/\*.*?\*/', '', content, flags=re.DOTALL)
     # Collapse whitespace
     content = re.sub(r'\s+', ' ', content)
-    # Remove space around symbols
-    content = re.sub(r'\s*([\{\}:;,])\s*', r'\1', content)
+    # Remove space around symbols (exclude colon to preserve descendant selectors)
+    content = re.sub(r'\s*([\{\};,])\s*', r'\1', content)
+    # Remove space after colon only (safe for properties)
+    content = re.sub(r':\s+', ':', content)
     # Remove final semicolon in block
     content = re.sub(r';}', '}', content)
     return content.strip()
