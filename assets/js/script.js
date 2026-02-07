@@ -55,7 +55,7 @@ if (select && selectItems.length > 0) {
         // Re-trigger animation for filtered items
         item.style.animation = 'none';
         item.offsetHeight; /* trigger reflow */
-        item.style.animation = null; 
+        item.style.animation = null;
       } else {
         item.classList.remove("active");
       }
@@ -94,8 +94,8 @@ if (navigationLinks.length > 0 && pages.length > 0) {
       const targetPage = this.innerHTML.toLowerCase();
       pages.forEach(page => {
         page.classList.toggle("active", targetPage === page.dataset.page);
-        if(targetPage === page.dataset.page) {
-          window.scrollTo(0,0);
+        if (targetPage === page.dataset.page) {
+          window.scrollTo(0, 0);
         }
       });
       navigationLinks.forEach(navLink => {
@@ -189,9 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Helper to add skeleton loading state
   const showSkeleton = (elementId, count = 3, height = '100px') => {
     const container = document.getElementById(elementId);
-    if(!container) return;
+    if (!container) return;
     container.innerHTML = '';
-    for(let i=0; i<count; i++) {
+    for (let i = 0; i < count; i++) {
       const div = document.createElement('div');
       div.classList.add('skeleton');
       div.style.height = height;
@@ -311,8 +311,8 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(error => console.error('Error fetching certificates data:', error));
   };
 
-// Helper function to calculate relative time
-const timeAgo = (dateString) => {
+  // Helper function to calculate relative time
+  const timeAgo = (dateString) => {
     if (!dateString) return '';
     const date = new Date(dateString);
     const now = new Date();
@@ -320,85 +320,85 @@ const timeAgo = (dateString) => {
 
     let interval = seconds / 31536000;
     if (interval > 1) {
-        const years = Math.floor(interval);
-        return `${years} year${years > 1 ? 's' : ''} ago`;
+      const years = Math.floor(interval);
+      return years + " year" + (years > 1 ? "s" : "") + " ago";
     }
     interval = seconds / 2592000;
     if (interval > 1) {
-        const months = Math.floor(interval);
-        return `${months} month${months > 1 ? 's' : ''} ago`;
+      const months = Math.floor(interval);
+      return months + " month" + (months > 1 ? "s" : "") + " ago";
     }
     interval = seconds / 86400;
     if (interval > 1) {
-        const days = Math.floor(interval);
-        return `${days} day${days > 1 ? 's' : ''} ago`;
+      const days = Math.floor(interval);
+      return days + " day" + (days > 1 ? "s" : "") + " ago";
     }
     interval = seconds / 3600;
     if (interval > 1) {
-        const hours = Math.floor(interval);
-        return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+      const hours = Math.floor(interval);
+      return hours + " hour" + (hours > 1 ? "s" : "") + " ago";
     }
     interval = seconds / 60;
     if (interval > 1) {
-        const minutes = Math.floor(interval);
-        return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+      const minutes = Math.floor(interval);
+      return minutes + " minute" + (minutes > 1 ? "s" : "") + " ago";
     }
-    return `just now`;
-};
+    return "just now";
+  };
 
-/**
- * Populates the project list by combining data from local JSON files.
- */
-const populateProjects = async () => {
+  /**
+   * Populates the project list by combining data from local JSON files.
+   */
+  const populateProjects = async () => {
     const projectList = document.getElementById("project-list");
     if (!projectList) return;
 
     showSkeleton('project-list', 4, '150px');
 
     try {
-        const [projectsResponse, updatesResponse] = await Promise.all([
-            fetch("./assets/data/projects.json"),
-            fetch("./assets/data/last_updated.json")
-        ]);
+      const [projectsResponse, updatesResponse] = await Promise.all([
+        fetch("./assets/data/projects.json"),
+        fetch("./assets/data/last_updated.json")
+      ]);
 
-        if (!projectsResponse.ok) {
-            throw new Error(`Failed to load projects.json: ${projectsResponse.statusText}`);
+      if (!projectsResponse.ok) {
+        throw new Error(`Failed to load projects.json: ${projectsResponse.statusText}`);
+      }
+
+      const projects = await projectsResponse.json();
+      const updates = updatesResponse.ok ? await updatesResponse.json() : {};
+
+      const projectsWithUpdates = projects.map(project => {
+        const lastUpdated = project.github ? updates[project.github] : null;
+        return { ...project, updated_at: lastUpdated };
+      });
+
+      projectsWithUpdates.sort((a, b) => {
+        if (a.updated_at && b.updated_at) {
+          return new Date(b.updated_at) - new Date(a.updated_at);
         }
+        if (a.updated_at) return -1;
+        if (b.updated_at) return 1;
+        return 0;
+      });
 
-        const projects = await projectsResponse.json();
-        const updates = updatesResponse.ok ? await updatesResponse.json() : {};
+      projectList.innerHTML = ''; // Clear skeletons
+      projectsWithUpdates.forEach((project, index) => {
+        const li = document.createElement("li");
+        li.className = "project-item active fade-in-up";
+        li.style.animationDelay = `${index * 0.1}s`;
+        li.setAttribute("data-filter-item", "");
+        li.setAttribute("data-category", project.category.toLowerCase());
 
-        const projectsWithUpdates = projects.map(project => {
-            const lastUpdated = project.github ? updates[project.github] : null;
-            return { ...project, updated_at: lastUpdated };
-        });
+        const tagsHtml = project.tags
+          .map((tag) => `<span class="tag">${tag}</span>`)
+          .join("");
 
-        projectsWithUpdates.sort((a, b) => {
-            if (a.updated_at && b.updated_at) {
-                return new Date(b.updated_at) - new Date(a.updated_at);
-            }
-            if (a.updated_at) return -1;
-            if (b.updated_at) return 1; 
-            return 0;
-        });
+        const updatedHtml = project.updated_at
+          ? '<p class="project-category">Last updated: ' + timeAgo(project.updated_at) + '</p>'
+          : "";
 
-        projectList.innerHTML = ''; // Clear skeletons
-        projectsWithUpdates.forEach((project, index) => {
-            const li = document.createElement("li");
-            li.className = "project-item active fade-in-up";
-            li.style.animationDelay = `${index * 0.1}s`;
-            li.setAttribute("data-filter-item", "");
-            li.setAttribute("data-category", project.category.toLowerCase());
-
-            const tagsHtml = project.tags
-                .map((tag) => `<span class="tag">${tag}</span>`)
-                .join("");
-
-            const updatedHtml = project.updated_at
-                ? `<p class="project-category">Last updated: ${timeAgo(project.updated_at)}</p>`
-                : "";
-
-            li.innerHTML = `
+        li.innerHTML = `
                 <a href="${project.url}" target="_blank" rel="noopener noreferrer" style="display: block; height: 100%;">
                     <figure class="project-img">
                         <div class="project-item-icon-box">
@@ -415,23 +415,23 @@ const populateProjects = async () => {
                 </a>
             `;
 
-            projectList.appendChild(li);
-        });
+        projectList.appendChild(li);
+      });
 
-        initializeProjectFilter();
-        setTimeout(initTiltEffect, 500);
+      initializeProjectFilter();
+      setTimeout(initTiltEffect, 500);
 
     } catch (error) {
-        console.error("Error loading or processing projects:", error);
-        projectList.innerHTML = '<li><p>Could not load projects. Please try again later.</p></li>';
+      console.error("Error loading or processing projects:", error);
+      projectList.innerHTML = '<li><p>Could not load projects. Please try again later.</p></li>';
     }
-};
+  };
 
 
-/**
- * Sets up event listeners for project category filtering.
- */
-const initializeProjectFilter = () => {
+  /**
+   * Sets up event listeners for project category filtering.
+   */
+  const initializeProjectFilter = () => {
     const select = document.querySelector("[data-select]");
     const selectItems = document.querySelectorAll("[data-select-item]");
     const selectValue = document.querySelector("[data-selecct-value]");
@@ -439,43 +439,43 @@ const initializeProjectFilter = () => {
     const filterItems = document.querySelectorAll("[data-filter-item]");
 
     const filterFunc = function (selectedValue) {
-        for (let i = 0; i < filterItems.length; i++) {
-            if (selectedValue === "all" || selectedValue === filterItems[i].dataset.category) {
-                filterItems[i].classList.add("active");
-            } else {
-                filterItems[i].classList.remove("active");
-            }
+      for (let i = 0; i < filterItems.length; i++) {
+        if (selectedValue === "all" || selectedValue === filterItems[i].dataset.category) {
+          filterItems[i].classList.add("active");
+        } else {
+          filterItems[i].classList.remove("active");
         }
+      }
     }
 
     let lastClickedBtn = filterBtns.length > 0 ? filterBtns[0] : null;
     if (lastClickedBtn) {
-        for (let i = 0; i < filterBtns.length; i++) {
-            filterBtns[i].addEventListener("click", function () {
-                let selectedValue = this.innerText.toLowerCase();
-                if(selectValue) selectValue.innerText = this.innerText;
-                filterFunc(selectedValue);
+      for (let i = 0; i < filterBtns.length; i++) {
+        filterBtns[i].addEventListener("click", function () {
+          let selectedValue = this.innerText.toLowerCase();
+          if (selectValue) selectValue.innerText = this.innerText;
+          filterFunc(selectedValue);
 
-                lastClickedBtn.classList.remove("active");
-                this.classList.add("active");
-                lastClickedBtn = this;
-            });
-        }
+          lastClickedBtn.classList.remove("active");
+          this.classList.add("active");
+          lastClickedBtn = this;
+        });
+      }
     }
 
     if (select) {
-        select.addEventListener("click", function  () { elementToggleFunc(this); });
+      select.addEventListener("click", function () { elementToggleFunc(this); });
 
-        for (let i = 0; i < selectItems.length; i++) {
-            selectItems[i].addEventListener("click", function () {
-                let selectedValue = this.innerText.toLowerCase();
-                selectValue.innerText = this.innerText;
-                elementToggleFunc(select);
-                filterFunc(selectedValue);
-            });
-        }
+      for (let i = 0; i < selectItems.length; i++) {
+        selectItems[i].addEventListener("click", function () {
+          let selectedValue = this.innerText.toLowerCase();
+          selectValue.innerText = this.innerText;
+          elementToggleFunc(select);
+          filterFunc(selectedValue);
+        });
+      }
     }
-};
+  };
 
 
   // Call all the functions to load your dynamic content

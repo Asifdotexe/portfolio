@@ -103,16 +103,18 @@
       "Python",
       "CLI",
       "Exploratory Data Analysis",
-      "Matplotlib + Seaborn",
+      "Matplotlib",
+      "Seaborn",
+      "Streamlit",
       "HTML Reports"
     ]
   },
   {
-    "github": "Asifdotexe/AniMate",
-    "url": "https://github.com/Asifdotexe/AniMate",
-    "image": "./assets/images/projects/animate.webp",
-    "alt": "AniMate",
-    "title": "AniMate: Anime Recommendation Engine",
+    "github": "Asifdotexe/RecommendationHaki",
+    "url": "https://github.com/Asifdotexe/RecommendationHaki",
+    "image": "./assets/images/projects/recommendation-haki.webp",
+    "alt": "RecommendationHaki",
+    "title": "RecommendationHaki: Anime Recommendation Engine",
     "category_desc": "Natural Language Processing",
     "category": "nlp",
     "tags": [
@@ -137,7 +139,8 @@
       "Streamlit",
       "Pandas",
       "Scikit-learn",
-      "Matplotlib + Seaborn",
+      "Matplotlib",
+      "Seaborn",
       "YFinance"
     ]
   },
@@ -204,7 +207,8 @@
       "NLTK",
       "Scikit-Learn",
       "Scipy",
-      "Matplotlib + Seaborn"
+      "Matplotlib",
+      "Seaborn"
     ]
   },
   {
@@ -220,7 +224,8 @@
       "Streamlit",
       "Pandas",
       "Scikit-Learn",
-      "Matplotlib + Seaborn"
+      "Matplotlib",
+      "Seaborn"
     ]
   },
   {
@@ -235,7 +240,8 @@
       "Python",
       "Pandas",
       "Numpy",
-      "Matplotlib + Seaborn",
+      "Matplotlib",
+      "Seaborn",
       "Presentation"
     ]
   },
@@ -251,7 +257,8 @@
       "Python",
       "Pandas",
       "Numpy",
-      "Matplotlib + Seaborn",
+      "Matplotlib",
+      "Seaborn",
       "BeautifulSoup"
     ]
   },

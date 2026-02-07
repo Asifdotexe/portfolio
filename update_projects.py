@@ -37,7 +37,7 @@ def fetch_and_save_updates():
             # Raises an exception for bad status codes (4xx or 5xx)
             response.raise_for_status()
             repo_data = response.json()
-            updated_data[repo_path] = repo_data.get('updated_at')
+            updated_data[repo_path] = repo_data.get('pushed_at')
             print(f"Successfully fetched data for: {repo_path}")
 
         except requests.exceptions.HTTPError as e:
