@@ -13,6 +13,7 @@ IMAGE_DIRS = [
     os.path.join(ASSETS_DIR, 'images', 'projects'),
     os.path.join(ASSETS_DIR, 'images', 'events'),
     os.path.join(ASSETS_DIR, 'images', 'certificates'),
+    os.path.join(ASSETS_DIR, 'images', 'badges'),
     os.path.join(ASSETS_DIR, 'images')  # For my-memoji.png
 ]
 BACKUP_DIR = os.path.join(ASSETS_DIR, 'images_backup')
