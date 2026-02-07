@@ -26,24 +26,18 @@ def minify_css(content: str) -> str:
 
 def minify_js(content: str) -> str:
     """
-    Minifies JavaScript content by removing comments and collapsing whitespace.
+    Minifies JavaScript content using the jsmin library.
 
     :param content: JavaScript content to minify
     :return: Minified JavaScript content
     """
-    # Basic JS minification (safe approach)
-    lines = content.split('\n')
-    minified_lines = []
-    for line in lines:
-        line = line.strip()
-        # Remove single line comments (careful with URLs)
-        if '//' in line and 'http' not in line: 
-            line = line.split('//')[0].strip()
-        
-        if line:
-            minified_lines.append(line)
-    
-    return '\n'.join(minified_lines)
+    try:
+        from jsmin import jsmin
+        return jsmin(content)
+    except ImportError:
+        print("Error: 'jsmin' module not found. Please install it using 'pip install jsmin' or 'pip install -r requirements.txt'")
+        # Return original content to avoid data loss, but unminified
+        return content
 
 def process_assets() -> None:
     """
