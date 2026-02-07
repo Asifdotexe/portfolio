@@ -1,8 +1,13 @@
+"""
+This script fetches the latest 'pushed_at' date from GitHub for each project
+and updates the local 'last_updated.json' file.
+"""
+
 import json
 import os
 import requests
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECTS_SOURCE_PATH = os.path.join(BASE_DIR, 'assets', 'data', 'projects.json')
 OUTPUT_PATH = os.path.join(BASE_DIR, 'assets', 'data', 'last_updated.json')
 
@@ -37,7 +42,7 @@ def fetch_and_save_updates():
             # Raises an exception for bad status codes (4xx or 5xx)
             response.raise_for_status()
             repo_data = response.json()
-            updated_data[repo_path] = repo_data.get('updated_at')
+            updated_data[repo_path] = repo_data.get('pushed_at')
             print(f"Successfully fetched data for: {repo_path}")
 
         except requests.exceptions.HTTPError as e:
@@ -59,4 +64,3 @@ def fetch_and_save_updates():
 
 if __name__ == "__main__":
     fetch_and_save_updates()
-

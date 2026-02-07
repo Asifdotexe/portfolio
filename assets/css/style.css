@@ -902,8 +902,13 @@ main {
 }
 
 .clients-item img {
-  width: 100%;
-  filter: grayscale(1);
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 150px;
+  display: block;
+  margin: 0 auto;
+
   transition: var(--transition-1);
 }
 
