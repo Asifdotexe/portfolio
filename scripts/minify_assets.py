@@ -5,6 +5,7 @@ This script minifies CSS and JavaScript files.
 import re
 import os
 
+
 def minify_css(content: str) -> str:
     """
     Minifies CSS content by removing comments and collapsing whitespace.
@@ -24,6 +25,7 @@ def minify_css(content: str) -> str:
     content = re.sub(r';}', '}', content)
     return content.strip()
 
+
 def minify_js(content: str) -> tuple[str, bool]:
     """
     Minifies JavaScript content using the jsmin library.
@@ -39,22 +41,26 @@ def minify_js(content: str) -> tuple[str, bool]:
         # Return original content to avoid data loss, but unminified
         return content, False
 
+
 def process_assets() -> None:
     """
     Processes CSS and JavaScript files by minifying them.
     """
-    css_path = 'assets/css/style.css'
-    min_css_path = 'assets/css/style.min.css'
-    
-    js_path = 'assets/js/script.js'
-    min_js_path = 'assets/js/script.min.js'
-    
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    assets_dir = os.path.join(base_dir, 'assets')
+
+    css_path = os.path.join(assets_dir, 'css', 'style.css')
+    min_css_path = os.path.join(assets_dir, 'css', 'style.min.css')
+
+    js_path = os.path.join(assets_dir, 'js', 'script.js')
+    min_js_path = os.path.join(assets_dir, 'js', 'script.min.js')
+
     # Minify CSS
     if os.path.exists(css_path):
         with open(css_path, 'r', encoding='utf-8') as f:
             css_content = f.read()
             min_css = minify_css(css_content)
-        
+
         with open(min_css_path, 'w', encoding='utf-8') as f:
             f.write(min_css)
         print(f"Minified CSS: {min_css_path}")
@@ -64,14 +70,15 @@ def process_assets() -> None:
         with open(js_path, 'r', encoding='utf-8') as f:
             js_content = f.read()
             min_js, was_minified = minify_js(js_content)
-        
+
         with open(min_js_path, 'w', encoding='utf-8') as f:
             f.write(min_js)
-            
+
         if was_minified:
             print(f"Minified JS: {min_js_path}")
         else:
             print(f"Copied JS (no minification): {min_js_path}")
+
 
 if __name__ == "__main__":
     process_assets()
