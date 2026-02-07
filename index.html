@@ -47,6 +47,14 @@
   <!-- preload LCP image -->
   <link rel="preload" as="image" href="./assets/images/my-memoji.webp">
 
+  <!-- preload critical resources -->
+  <link rel="preload" href="./assets/js/script.min.js" as="script">
+  <link rel="preload" href="./assets/data/projects.json" as="fetch" crossorigin>
+  <link rel="preload" href="./assets/data/last_updated.json" as="fetch" crossorigin>
+
+  <!-- custom js link -->
+  <script src="./assets/js/script.min.js" defer></script>
+
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
     {
@@ -763,10 +771,7 @@
 
 
 
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/script.min.js" defer></script>
+
 
   <!--
     - ionicon link
