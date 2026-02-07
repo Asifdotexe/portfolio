@@ -6,7 +6,30 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <title>Asif Sayyed - Portfolio Website</title>
+  <title>Asif Sayyed - Data Scientist Portfolio</title>
+  <meta name="title" content="Asif Sayyed - Data Scientist Portfolio">
+  <meta name="description"
+    content="Portfolio of Asif Sayyed, a Data Scientist specializing in Python, Machine Learning, and Problem Solving. View projects, certificates, and experience.">
+  <meta name="keywords"
+    content="Data Scientist, Python Developer, Machine Learning, AI, Portfolio, Asif Sayyed, Mumbai">
+  <meta name="author" content="Asif Sayyed">
+  <meta name="theme-color" content="#2b2b2c">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asifdotexe.github.io/portfolio/">
+  <meta property="og:title" content="Asif Sayyed - Data Scientist Portfolio">
+  <meta property="og:description"
+    content="Portfolio of Asif Sayyed, a Data Scientist specializing in Python, Machine Learning, and Problem Solving.">
+  <meta property="og:image" content="https://asifdotexe.github.io/portfolio/assets/images/my-memoji.webp">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://asifdotexe.github.io/portfolio/">
+  <meta property="twitter:title" content="Asif Sayyed - Data Scientist Portfolio">
+  <meta property="twitter:description"
+    content="Portfolio of Asif Sayyed, a Data Scientist specializing in Python, Machine Learning, and Problem Solving.">
+  <meta property="twitter:image" content="https://asifdotexe.github.io/portfolio/assets/images/my-memoji.webp">
 
   <!-- favicon -->
   <link rel="shortcut icon" href="./assets/images/icons/icon-job.svg" type="image/x-icon">
@@ -14,13 +37,39 @@
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
   <!-- custom css link -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/style.min.css">
 
   <!-- google font link -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <!-- preload LCP image -->
+  <link rel="preload" as="image" href="./assets/images/my-memoji.webp">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Asif Sayyed",
+      "jobTitle": "Data Scientist",
+      "url": "https://asifdotexe.github.io/portfolio/",
+      "image": "https://asifdotexe.github.io/portfolio/assets/images/my-memoji.webp",
+      "sameAs": [
+        "https://github.com/Asifdotexe",
+        "https://www.linkedin.com/in/sayyedasif/",
+        "https://kc7cyber.com/profile/asifdotexe"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mumbai",
+        "addressRegion": "Maharashtra",
+        "addressCountry": "India"
+      },
+      "description": "Data Scientist specializing in Python, Machine Learning, and Problem Solving."
+    }
+  </script>
 </head>
 
 <body>
@@ -34,7 +83,7 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/images/my-memoji.png" alt="Asif Sayyed" width="80">
+          <img src="./assets/images/my-memoji.webp" alt="Asif Sayyed" width="80" loading="eager" fetchpriority="high">
         </figure>
 
         <div class="info-content">
@@ -55,37 +104,7 @@
 
         <ul class="contacts-list">
 
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="mail"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-              <a href="mailto:asifdotexe@gmail.com" class="contact-link">asifdotexe@gmail.com</a>
-            </div>
-          </li>
 
-          <!-- OPTIONAL: Uncomment if you want to add a phone number
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-              <a href="tel:+12133522795" class="contact-link">+1 (213) 352-2795</a>
-            </div>
-          </li>
-          -->
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="calendar"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-              <time datetime="2004-03-02">March 02, 2004</time>
-            </div>
-          </li>
 
           <li class="contact-item">
             <div class="icon-box">
@@ -322,7 +341,7 @@
 
             <div class="modal-img-wrapper">
               <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+                <img src="./assets/images/avatar-1.webp" alt="Daniel lewis" width="80" data-modal-img>
               </figure>
 
               <img src="./assets/images/icons/icon-quote.svg" alt="quote icon">
@@ -361,7 +380,7 @@
                   data-share-badge-id="85db4974-0195-4e14-a094-9328fa9fde95"
                   data-share-badge-host="https://www.credly.com"></div>
               </a>
-              <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+              <script type="text/javascript" async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
             </li>
 
             <li class="clients-item">
@@ -370,7 +389,7 @@
                   data-share-badge-id="b7b17778-c71e-492d-878e-cd684a543c80"
                   data-share-badge-host="https://www.credly.com"></div>
               </a>
-              <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+              <script type="text/javascript" async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
             </li>
 
             <li class="clients-item">
@@ -379,7 +398,7 @@
                   data-share-badge-id="9426003d-b623-41ed-abee-6779f7503902"
                   data-share-badge-host="https://www.credly.com"></div>
               </a>
-              <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+              <script type="text/javascript" async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
             </li>
 
             <li class="clients-item">
@@ -388,7 +407,7 @@
                   data-share-badge-id="a02b69ad-0261-46a0-99dc-c5b736fed61e"
                   data-share-badge-host="https://www.credly.com"></div>
               </a>
-              <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+              <script type="text/javascript" async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
             </li>
 
             <li class="clients-item">
@@ -397,7 +416,7 @@
                   data-share-badge-id="997eb17d-a570-472c-a04a-186356e23ffa"
                   data-share-badge-host="https://www.credly.com"></div>
               </a>
-              <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+              <script type="text/javascript" async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
             </li>
 
             <li class="clients-item">
@@ -406,7 +425,7 @@
                   data-share-badge-id="e541fccf-4c0d-48e6-8129-b2c1e20cc977"
                   data-share-badge-host="https://www.credly.com"></div>
               </a>
-              <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+              <script type="text/javascript" async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
             </li>
 
             <li class="clients-item">
@@ -415,7 +434,7 @@
                   data-share-badge-id="560338c6-b4e7-4552-a99b-9461df31f93e"
                   data-share-badge-host="https://www.credly.com"></div>
               </a>
-              <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+              <script type="text/javascript" async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
             </li>
 
             <li class="clients-item">
@@ -424,7 +443,7 @@
                   data-share-badge-id="6ad7bb70-c735-4ebf-af91-52552bb21d8e"
                   data-share-badge-host="https://www.credly.com"></div>
               </a>
-              <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+              <script type="text/javascript" async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
             </li>
 
           </ul>
@@ -763,7 +782,7 @@
   <!--
     - custom js link
   -->
-  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/script.min.js" defer></script>
 
   <!--
     - ionicon link
