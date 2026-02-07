@@ -42,7 +42,16 @@ def fetch_and_save_updates():
             # Raises an exception for bad status codes (4xx or 5xx)
             response.raise_for_status()
             repo_data = response.json()
+            
+            # Update last_updated time
             updated_data[repo_path] = repo_data.get('pushed_at')
+            
+            # Update tags from topics
+            topics = repo_data.get('topics', [])
+            if topics:
+                project['tags'] = topics
+                print(f"   -> Updated tags: {topics}")
+            
             print(f"Successfully fetched data for: {repo_path}")
 
         except requests.exceptions.HTTPError as e:
@@ -53,13 +62,21 @@ def fetch_and_save_updates():
         except requests.exceptions.RequestException as e:
             print(f"Failed to connect for {repo_path}: {e}")
 
-    # Write the collected data to the output file
+    # Write the collected data to the output file (last_updated.json)
     try:
         with open(OUTPUT_PATH, 'w', encoding='utf-8') as f:
             json.dump(updated_data, f, indent=2)
         print(f"\nSuccessfully created the update file at: {OUTPUT_PATH}")
     except IOError as e:
         print(f"Error writing to output file: {e}")
+
+    # Write the updated projects data back to projects.json
+    try:
+        with open(PROJECTS_SOURCE_PATH, 'w', encoding='utf-8') as f:
+            json.dump(projects, f, indent=2)
+        print(f"Successfully updated projects file at: {PROJECTS_SOURCE_PATH}")
+    except IOError as e:
+        print(f"Error writing to projects file: {e}")
 
 
 if __name__ == "__main__":

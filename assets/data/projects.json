@@ -8,9 +8,13 @@
     "category_desc": "Knowledge base website",
     "category": "tools",
     "tags": [
-      "HTML",
-      "CSS",
-      "JavaScript"
+      "blog",
+      "css",
+      "html",
+      "javascript",
+      "knowledge-bank",
+      "markdown",
+      "python"
     ]
   },
   {
@@ -22,10 +26,11 @@
     "category_desc": "Machine Learning Experiment Tracker",
     "category": "ai/ml",
     "tags": [
-      "Python",
-      "PyPI",
-      "Scikit-learn",
-      "Pandas"
+      "developer-tools",
+      "logging",
+      "pypi",
+      "python",
+      "scikit-learn"
     ]
   },
   {
@@ -53,10 +58,13 @@
     "category_desc": "Code Documentation Tools",
     "category": "tools",
     "tags": [
-      "Python",
-      "Streamlit",
-      "Graphviz",
-      "AST"
+      "ast",
+      "code-documentation",
+      "code-to-flowchart",
+      "developer-tools",
+      "graphviz",
+      "python",
+      "streamlit"
     ]
   },
   {
@@ -84,11 +92,13 @@
     "category_desc": "Data Cleaning and Analysis tool",
     "category": "data analysis",
     "tags": [
-      "Python",
-      "Streamlit",
-      "Pandas",
-      "Numpy",
-      "Matplotlib + Seaborn"
+      "automation",
+      "data-analysis",
+      "data-cleaning",
+      "data-visualization",
+      "python3",
+      "streamlit-application",
+      "toolkit"
     ]
   },
   {
@@ -100,13 +110,12 @@
     "category_desc": "Data Analysis Tool",
     "category": "data analysis",
     "tags": [
-      "Python",
-      "CLI",
-      "Exploratory Data Analysis",
-      "Matplotlib",
-      "Seaborn",
-      "Streamlit",
-      "HTML Reports"
+      "cli-tool",
+      "exploratory-analysis",
+      "html-report",
+      "pypi",
+      "python",
+      "streamlit"
     ]
   },
   {
@@ -118,12 +127,13 @@
     "category_desc": "Natural Language Processing",
     "category": "nlp",
     "tags": [
-      "Python",
-      "Streamlit",
-      "NLTK",
-      "spaCy",
-      "scikit-learn",
-      "BeautifulSoup"
+      "css",
+      "html",
+      "machine-learning",
+      "natural-language-procressing",
+      "python",
+      "recommendation-system",
+      "streamlit"
     ]
   },
   {
@@ -135,13 +145,11 @@
     "category_desc": "Machine Learning",
     "category": "ai/ml",
     "tags": [
-      "Python",
-      "Streamlit",
-      "Pandas",
-      "Scikit-learn",
-      "Matplotlib",
-      "Seaborn",
-      "YFinance"
+      "python",
+      "scikit-learn",
+      "streamlit",
+      "time-series-forecasting",
+      "yfinance"
     ]
   },
   {
@@ -153,14 +161,10 @@
     "category_desc": "Natural Language Processing",
     "category": "nlp",
     "tags": [
-      "Python",
-      "Pandas",
-      "NLTK",
-      "spaCy",
-      "Gensim",
-      "Transformers",
-      "Google Gemini",
-      "scikit-learn"
+      "learning-repository",
+      "machine-learning",
+      "natural-language-preprocessing",
+      "python"
     ]
   },
   {
@@ -172,10 +176,11 @@
     "category_desc": "Deep Learning",
     "category": "ai/ml",
     "tags": [
-      "Python",
-      "Numpy",
-      "OpenCV",
-      "Matplotlib"
+      "computer-vision",
+      "image-analysis",
+      "learning-repository",
+      "opencv",
+      "python"
     ]
   },
   {
@@ -187,10 +192,12 @@
     "category_desc": "Deep Learning",
     "category": "ai/ml",
     "tags": [
-      "Python",
-      "TensorFlow",
-      "OpenCV",
-      "Streamlit"
+      "deep-learning",
+      "ocr",
+      "opencv-python",
+      "pytesseract",
+      "python",
+      "streamlit"
     ]
   },
   {
@@ -202,13 +209,10 @@
     "category_desc": "Natural Language Processing",
     "category": "nlp",
     "tags": [
-      "Python",
-      "Pandas",
-      "NLTK",
-      "Scikit-Learn",
-      "Scipy",
-      "Matplotlib",
-      "Seaborn"
+      "data-analysis",
+      "data-visualization",
+      "natural-language-processing",
+      "sentiment-analysis"
     ]
   },
   {
@@ -220,12 +224,9 @@
     "category_desc": "Machine Learning",
     "category": "ai/ml",
     "tags": [
-      "Python",
-      "Streamlit",
-      "Pandas",
-      "Scikit-Learn",
-      "Matplotlib",
-      "Seaborn"
+      "machine-learning",
+      "python",
+      "scikit-learn"
     ]
   },
   {
@@ -237,12 +238,12 @@
     "category_desc": "Data Analysis",
     "category": "data analysis",
     "tags": [
-      "Python",
-      "Pandas",
-      "Numpy",
-      "Matplotlib",
-      "Seaborn",
-      "Presentation"
+      "aqi-analysis",
+      "data-analysis",
+      "data-preprocessing",
+      "data-science",
+      "data-visualization",
+      "presentation"
     ]
   },
   {
@@ -254,12 +255,11 @@
     "category_desc": "Data Analysis",
     "category": "data analysis",
     "tags": [
-      "Python",
-      "Pandas",
-      "Numpy",
-      "Matplotlib",
-      "Seaborn",
-      "BeautifulSoup"
+      "beautifulsoup4",
+      "data-analysis",
+      "data-science",
+      "flipkart",
+      "webscraping"
     ]
   },
   {
