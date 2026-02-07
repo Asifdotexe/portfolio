@@ -24,20 +24,20 @@ def minify_css(content: str) -> str:
     content = re.sub(r';}', '}', content)
     return content.strip()
 
-def minify_js(content: str) -> str:
+def minify_js(content: str) -> tuple[str, bool]:
     """
     Minifies JavaScript content using the jsmin library.
 
     :param content: JavaScript content to minify
-    :return: Minified JavaScript content
+    :return: Tuple containing (Minified JavaScript content, success flag)
     """
     try:
         from jsmin import jsmin
-        return jsmin(content)
+        return jsmin(content), True
     except ImportError:
         print("Error: 'jsmin' module not found. Please install it using 'pip install jsmin' or 'pip install -r requirements.txt'")
         # Return original content to avoid data loss, but unminified
-        return content
+        return content, False
 
 def process_assets() -> None:
     """
@@ -63,11 +63,15 @@ def process_assets() -> None:
     if os.path.exists(js_path):
         with open(js_path, 'r', encoding='utf-8') as f:
             js_content = f.read()
-            min_js = minify_js(js_content)
+            min_js, was_minified = minify_js(js_content)
         
         with open(min_js_path, 'w', encoding='utf-8') as f:
             f.write(min_js)
-        print(f"Minified JS: {min_js_path}")
+            
+        if was_minified:
+            print(f"Minified JS: {min_js_path}")
+        else:
+            print(f"Copied JS (no minification): {min_js_path}")
 
 if __name__ == "__main__":
     process_assets()
