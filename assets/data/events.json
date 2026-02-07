@@ -1,7 +1,7 @@
 [
     {
         "title": "LinkedIn Orientation 2025",
-        "image": "./assets/images/events/abasaheb-gaware-sdbi-pune-linkedin-2025.jpg",
+        "image": "./assets/images/events/abasaheb-gaware-sdbi-pune-linkedin-2025.webp",
         "category": "Abasaheb Gaware College, Pune",
         "date": "2025-11-15",
         "formattedDate": "Nov 15, 2025",
@@ -10,7 +10,7 @@
     },
     {
         "title": "LinkedIn Orientation 2025",
-        "image": "./assets/images/events/linkedin-orientation-2025.png",
+        "image": "./assets/images/events/linkedin-orientation-2025.webp",
         "category": "Patker Varde College, Mumbai",
         "date": "2025-07-26",
         "formattedDate": "July 26, 2025",
@@ -19,7 +19,7 @@
     },
     {
         "title": "SDBI 2025 Batch Orientation",
-        "image": "./assets/images/events/sdbi-orientation-2025.png",
+        "image": "./assets/images/events/sdbi-orientation-2025.webp",
         "category": "Patker Varde College, Mumbai",
         "date": "2025-07-15",
         "formattedDate": "July 15, 2025",
@@ -28,7 +28,7 @@
     },
     {
         "title": "LinkedIn Orientation 2024",
-        "image": "./assets/images/events/linkedin-orientation-2024.jpeg",
+        "image": "./assets/images/events/linkedin-orientation-2024.webp",
         "category": "Patker Varde College, Mumbai",
         "date": "2024-10-14",
         "formattedDate": "Oct 14, 2024",
@@ -37,7 +37,7 @@
     },
     {
         "title": "LinkedIn Orientation 2023",
-        "image": "./assets/images/events/linkedin-orientation-2023.jpeg",
+        "image": "./assets/images/events/linkedin-orientation-2023.webp",
         "category": "Patker Varde College, Mumbai",
         "date": "2023-08-19",
         "formattedDate": "August 19, 2023",
@@ -46,7 +46,7 @@
     },
     {
         "title": "Tech Jam 2023",
-        "image": "./assets/images/events/techjam-2023.jpeg",
+        "image": "./assets/images/events/techjam-2023.webp",
         "category": "Patker Varde College, Mumbai",
         "date": "2023-01-16",
         "formattedDate": "Jan 16, 2023",
@@ -55,7 +55,7 @@
     },
     {
         "title": "UTSAV FEST: 2020",
-        "image": "./assets/images/events/utsav-2020.jpeg",
+        "image": "./assets/images/events/utsav-2020.webp",
         "category": "SLRTC, Mumbai",
         "date": "2020-02-13",
         "formattedDate": "Feb 13, 2020",

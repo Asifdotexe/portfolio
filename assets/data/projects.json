@@ -2,7 +2,7 @@
   {
     "github": "Asifdotexe/second-brain",
     "url": "https://github.com/Asifdotexe/second-brain",
-    "image": "./assets/images/projects/second-brain.png",
+    "image": "./assets/images/projects/second-brain.webp",
     "alt": "Second Brain",
     "title": "Second Brain",
     "category_desc": "Knowledge base website",
@@ -16,7 +16,7 @@
   {
     "github": "Asifdotexe/LittleLogger",
     "url": "https://github.com/Asifdotexe/LittleLogger",
-    "image": "./assets/images/projects/little-logger.png",
+    "image": "./assets/images/projects/little-logger.webp",
     "alt": "LittleLogger",
     "title": "LittleLogger",
     "category_desc": "Machine Learning Experiment Tracker",
@@ -31,7 +31,7 @@
   {
     "github": "Asifdotexe/playground-repo",
     "url": "https://github.com/Asifdotexe/playground-repo/issues/9",
-    "image": "./assets/images/projects/python-v-cython.png",
+    "image": "./assets/images/projects/python-v-cython.webp",
     "alt": "Python vs Cython Benchmarking",
     "title": "Python vs Cython Benchmarking",
     "category_desc": "Benchmarking Analysis",
@@ -47,7 +47,7 @@
   {
     "github": "Asifdotexe/SERPENT",
     "url": "https://github.com/Asifdotexe/SERPENT",
-    "image": "./assets/images/projects/serpent.png",
+    "image": "./assets/images/projects/serpent.webp",
     "alt": "SERPENT",
     "title": "SERPENT: Code to flowchart application",
     "category_desc": "Code Documentation Tools",
@@ -62,7 +62,7 @@
   {
     "github": "Asifdotexe/MNISTify",
     "url": "https://github.com/Asifdotexe/MNISTify",
-    "image": "./assets/images/projects/mnistify.png",
+    "image": "./assets/images/projects/mnistify.webp",
     "alt": "MNISTify",
     "title": "MNISTify: Digit Recognition App",
     "category_desc": "Deep Learning",
@@ -78,7 +78,7 @@
   {
     "github": "Asifdotexe/QuickVU",
     "url": "https://github.com/Asifdotexe/QuickVU",
-    "image": "./assets/images/projects/quickvu.png",
+    "image": "./assets/images/projects/quickvu.webp",
     "alt": "QuickVU",
     "title": "QuickVU: No-code data tool",
     "category_desc": "Data Cleaning and Analysis tool",
@@ -94,7 +94,7 @@
   {
     "github": "Asifdotexe/DORA",
     "url": "https://github.com/Asifdotexe/DORA",
-    "image": "./assets/images/projects/dora.png",
+    "image": "./assets/images/projects/dora.webp",
     "alt": "DORA",
     "title": "DORA: Report Automator",
     "category_desc": "Data Analysis Tool",
@@ -110,7 +110,7 @@
   {
     "github": "Asifdotexe/AniMate",
     "url": "https://github.com/Asifdotexe/AniMate",
-    "image": "./assets/images/projects/animate.png",
+    "image": "./assets/images/projects/animate.webp",
     "alt": "AniMate",
     "title": "AniMate: Anime Recommendation Engine",
     "category_desc": "Natural Language Processing",
@@ -127,7 +127,7 @@
   {
     "github": "Asifdotexe/StoDir",
     "url": "https://github.com/Asifdotexe/StoDir",
-    "image": "./assets/images/projects/StoDir.png",
+    "image": "./assets/images/projects/StoDir.webp",
     "alt": "StoDir",
     "title": "StoDir: Stock Direction Forecasting Model",
     "category_desc": "Machine Learning",
@@ -144,7 +144,7 @@
   {
     "github": "Asifdotexe/Natural-LangWiz",
     "url": "https://github.com/Asifdotexe/Natural-LangWiz",
-    "image": "./assets/images/projects/natural-langwiz.png",
+    "image": "./assets/images/projects/natural-langwiz.webp",
     "alt": "Natural LangWiz",
     "title": "Natural LangWiz: NLP Learning Repository",
     "category_desc": "Natural Language Processing",
@@ -163,7 +163,7 @@
   {
     "github": "Asifdotexe/open-see-wee",
     "url": "https://github.com/Asifdotexe/open-see-wee",
-    "image": "./assets/images/projects/open-cv.png",
+    "image": "./assets/images/projects/open-cv.webp",
     "alt": "Open See Wee",
     "title": "Open See Wee: Computer Vision Learning Repository",
     "category_desc": "Deep Learning",
@@ -178,7 +178,7 @@
   {
     "github": "Asifdotexe/PlateScribe",
     "url": "https://github.com/Asifdotexe/PlateScribe",
-    "image": "./assets/images/projects/platescribe.png",
+    "image": "./assets/images/projects/platescribe.webp",
     "alt": "PlateScribe",
     "title": "PlateScribe: License Plate Detection and OCR Tool",
     "category_desc": "Deep Learning",
@@ -193,7 +193,7 @@
   {
     "github": "Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews",
     "url": "https://github.com/Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews",
-    "image": "./assets/images/projects/nlp-amazon-sentiment-scoring-model.png",
+    "image": "./assets/images/projects/nlp-amazon-sentiment-scoring-model.webp",
     "alt": "Amazon Sentiment Analysis",
     "title": "Sentimental Scoring Model on Amazon Reviews",
     "category_desc": "Natural Language Processing",
@@ -210,7 +210,7 @@
   {
     "github": "Asifdotexe/real-estate-price-prediction",
     "url": "https://github.com/Asifdotexe/real-estate-price-prediction",
-    "image": "./assets/images/projects/real-estate-price-prediction-model.png",
+    "image": "./assets/images/projects/real-estate-price-prediction-model.webp",
     "alt": "Real Estate Price Prediction",
     "title": "Real Estate Price Prediction Model",
     "category_desc": "Machine Learning",
@@ -226,7 +226,7 @@
   {
     "github": "Asifdotexe/Air-Quality-Analysis-AQA",
     "url": "https://github.com/Asifdotexe/Air-Quality-Analysis-AQA",
-    "image": "./assets/images/projects/aqa-air-quality-study.png",
+    "image": "./assets/images/projects/aqa-air-quality-study.webp",
     "alt": "AQA Air Quality Analysis",
     "title": "AQA: Air Quality Analysis Case Study",
     "category_desc": "Data Analysis",
@@ -242,7 +242,7 @@
   {
     "github": "Asifdotexe/flipkart-electric-scooter-data-analysis",
     "url": "https://github.com/Asifdotexe/flipkart-electric-scooter-data-analysis",
-    "image": "./assets/images/projects/ev-scooter-analysis.png",
+    "image": "./assets/images/projects/ev-scooter-analysis.webp",
     "alt": "Flipkart Electric Scooter Analysis",
     "title": "Flipkart Electric Scooter Data Analysis",
     "category_desc": "Data Analysis",
@@ -257,7 +257,7 @@
   },
   {
     "url": "https://medium.com/@asifdotexe/how-we-used-vba-to-make-a-pathology-lab-application-45acb35e6abf",
-    "image": "./assets/images/projects/vba-pathology-lab-application.png",
+    "image": "./assets/images/projects/vba-pathology-lab-application.webp",
     "alt": "VBA Pathology Lab Application",
     "title": "VBA: Pathology Lab Application",
     "category_desc": "Visual Basic for Application Tool",
@@ -271,7 +271,7 @@
   },
   {
     "url": "https://public.tableau.com/app/profile/sayyed.asif/viz/Covid19Dashboard_16783477991420/Dashboard1",
-    "image": "./assets/images/projects/covid-19-tableau-dashboard.png",
+    "image": "./assets/images/projects/covid-19-tableau-dashboard.webp",
     "alt": "Covid-19 Dashboard",
     "title": "Covid-19 Dashboard",
     "category_desc": "Data Analysis",
