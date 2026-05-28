@@ -24,14 +24,27 @@ const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
 const modalContainer = document.querySelector("[data-modal-container]");
 const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
 const overlay = document.querySelector("[data-overlay]");
+let lastFocusedEl = null;
 if (modalContainer && modalCloseBtn && overlay) {
   const modalImg = document.querySelector("[data-modal-img]");
   const modalTitle = document.querySelector("[data-modal-title]");
   const modalText = document.querySelector("[data-modal-text]");
+  const focusableEls = modalContainer.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  const firstFocusable = focusableEls[0];
+  const lastFocusable = focusableEls[focusableEls.length - 1];
+
   const testimonialsModalFunc = function () {
+    const opening = !modalContainer.classList.contains("active");
     modalContainer.classList.toggle("active");
     overlay.classList.toggle("active");
-  }
+    if (opening) {
+      lastFocusedEl = document.activeElement;
+      modalContainer.focus();
+    } else {
+      if (lastFocusedEl) lastFocusedEl.focus();
+    }
+  };
+
   testimonialsItem.forEach(item => {
     item.addEventListener("click", function () {
       modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
@@ -43,6 +56,22 @@ if (modalContainer && modalCloseBtn && overlay) {
   });
   modalCloseBtn.addEventListener("click", testimonialsModalFunc);
   overlay.addEventListener("click", testimonialsModalFunc);
+
+  modalContainer.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      testimonialsModalFunc();
+      return;
+    }
+    if (e.key === 'Tab') {
+      if (e.shiftKey && document.activeElement === firstFocusable) {
+        e.preventDefault();
+        lastFocusable.focus();
+      } else if (!e.shiftKey && document.activeElement === lastFocusable) {
+        e.preventDefault();
+        firstFocusable.focus();
+      }
+    }
+  });
 }
 
 // Project filter select
@@ -96,7 +125,7 @@ const pages = document.querySelectorAll("[data-page]");
 if (navigationLinks.length > 0 && pages.length > 0) {
   navigationLinks.forEach(link => {
     link.addEventListener("click", function () {
-      const targetPage = this.innerHTML.toLowerCase();
+      const targetPage = this.textContent.trim().toLowerCase();
       pages.forEach(page => {
         page.classList.toggle("active", targetPage === page.dataset.page);
         if (targetPage === page.dataset.page) {
@@ -115,25 +144,29 @@ if (navigationLinks.length > 0 && pages.length > 0) {
 // --------------------------------------------------------------------
 
 const initKeyboardNav = () => {
-  const links = document.querySelectorAll('[data-nav-link]');
-  if (!links.length) return;
+  const links = Array.from(document.querySelectorAll('[data-nav-link]'));
+
+  const getVisibleLinks = () => links.filter(l => l.offsetParent !== null);
 
   document.addEventListener('keydown', (e) => {
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
+    const visibleLinks = getVisibleLinks();
+    if (!visibleLinks.length) return;
+
     const num = parseInt(e.key);
-    if (num >= 1 && num <= links.length) {
+    if (num >= 1 && num <= visibleLinks.length) {
       e.preventDefault();
-      links[num - 1].click();
+      visibleLinks[num - 1].click();
       return;
     }
 
     if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
       e.preventDefault();
-      const activeIdx = Array.from(links).findIndex(l => l.classList.contains('active'));
+      const activeIdx = visibleLinks.findIndex(l => l.classList.contains('active'));
       const step = e.key === 'ArrowRight' ? 1 : -1;
-      const next = (activeIdx + step + links.length) % links.length;
-      links[next].click();
+      const next = (activeIdx + step + visibleLinks.length) % visibleLinks.length;
+      visibleLinks[next].click();
     }
   });
 };
@@ -147,11 +180,17 @@ const initScrollProgress = () => {
   bar.className = 'scroll-progress';
   document.body.prepend(bar);
 
+  let ticking = false;
   window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    bar.style.width = progress + '%';
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) : 0;
+      bar.style.transform = 'scaleX(' + progress + ')';
+      ticking = false;
+    });
   }, { passive: true });
 };
 
@@ -168,7 +207,11 @@ const initFormSubmit = () => {
   const msgEl = form.querySelector('[data-form-message]');
 
   const validate = () => {
-    const valid = Array.from(inputs).every(i => i.value.trim() !== '');
+    const emailField = form.querySelector('input[type="email"]');
+    let valid = Array.from(inputs).every(i => i.value.trim() !== '');
+    if (emailField && emailField.value.trim() !== '') {
+      valid = valid && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value.trim());
+    }
     btn.disabled = !valid;
   };
 
@@ -256,26 +299,31 @@ const initTiltEffect = () => {
   const cards = document.querySelectorAll('.project-item, .certificate-item, .events-post-item');
 
   cards.forEach(card => {
-    // Add base style class
     card.classList.add('tilt-effect');
 
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+    let ticking = false;
+    const onMove = (e) => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
 
-      const rotateX = ((y - centerY) / centerY) * -5; // Max rotation deg
-      const rotateY = ((x - centerX) / centerX) * 5;
+        const rotateX = ((y - centerY) / centerY) * -5;
+        const rotateY = ((x - centerX) / centerX) * 5;
 
-      // Apply transform to the CARD itself, not the inner link.
-      // This fixes the issue where the image detached from the background.
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-    });
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        ticking = false;
+      });
+    };
 
+    card.addEventListener('mousemove', onMove, { passive: true });
     card.addEventListener('mouseleave', () => {
+      ticking = false;
       card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
     });
   });
@@ -306,7 +354,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Function to populate the Education section
+  // Helper to show error state
+  const showFetchError = (elementId, message = 'Could not load content. Please try again later.') => {
+    const container = document.getElementById(elementId);
+    if (!container) return;
+    container.innerHTML = `<p class="fetch-error">${message}</p>`;
+  }
   const populateEducation = () => {
     const educationList = document.getElementById('education-list');
     if (!educationList) return;
@@ -320,6 +373,10 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .then(data => {
         educationList.innerHTML = ''; // Clear skeleton
+        if (!data.length) {
+          showFetchError('education-list', 'No education data available.');
+          return;
+        }
         data.forEach((edu, index) => {
           const item = document.createElement('li');
           item.className = 'timeline-item fade-in-up';
@@ -328,7 +385,10 @@ document.addEventListener('DOMContentLoaded', () => {
           educationList.appendChild(item);
         });
       })
-      .catch(error => console.error('Error fetching education data:', error));
+      .catch(error => {
+        console.error('Error fetching education data:', error);
+        showFetchError('education-list');
+      });
   };
 
   // Function to populate the Experience section
@@ -341,6 +401,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return response.json();
       })
       .then(data => {
+        if (!data.length) {
+          showFetchError('experience-list', 'No experience data available.');
+          return;
+        }
         data.forEach((exp, index) => {
           const item = document.createElement('li');
           item.className = 'timeline-item fade-in-up';
@@ -349,7 +413,10 @@ document.addEventListener('DOMContentLoaded', () => {
           experienceList.appendChild(item);
         });
       })
-      .catch(error => console.error('Error fetching experience data:', error));
+      .catch(error => {
+        console.error('Error fetching experience data:', error);
+        showFetchError('experience-list');
+      });
   };
 
   // Function to populate the Events section
@@ -362,6 +429,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return response.json();
       })
       .then(data => {
+        if (!data.length) {
+          showFetchError('events-list', 'No events data available.');
+          return;
+        }
         data.forEach((event, index) => {
           const item = document.createElement('li');
           item.className = 'blog-post-item fade-in-up';
@@ -372,7 +443,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initialize tilt after DOM injection
         setTimeout(initTiltEffect, 500);
       })
-      .catch(error => console.error('Error fetching events data:', error));
+      .catch(error => {
+        console.error('Error fetching events data:', error);
+        showFetchError('events-list');
+      });
   };
 
   // Dynamically populate certificates section
@@ -389,6 +463,10 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .then(data => {
         certificatesGrid.innerHTML = ''; // Clear skeletons
+        if (!data.length) {
+          showFetchError('certificates-grid', 'No certificates available.');
+          return;
+        }
         data.forEach((cert, index) => {
           const certificateItem = document.createElement('div');
           certificateItem.className = 'certificate-item fade-in-up';
@@ -401,6 +479,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 src="${cert.image}"
                 alt="${cert.title}"
                 loading="lazy"
+                onerror="this.parentElement.innerHTML='<div class=\\'cert-placeholder\\'><ion-icon name=\\'document-text-outline\\'></ion-icon></div>'"
               >
             </a>
             <div class="certificate-content">
@@ -414,7 +493,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         setTimeout(initTiltEffect, 500);
       })
-      .catch(error => console.error('Error fetching certificates data:', error));
+      .catch(error => {
+        console.error('Error fetching certificates data:', error);
+        showFetchError('certificates-grid');
+      });
   };
 
   // Helper function to calculate relative time

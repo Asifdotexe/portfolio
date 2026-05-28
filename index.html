@@ -98,6 +98,8 @@
             rel="stylesheet"
             type="text/css"
             href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+            media="print"
+            onload="this.media='all'"
         />
         <!-- preload LCP image -->
         <link rel="preload" as="image" href="./assets/images/my-memoji.webp" />
@@ -412,6 +414,7 @@
     </head>
 
     <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
         <!-- MAIN -->
         <main>
             <!-- SIDEBAR -->
@@ -523,7 +526,7 @@
             </aside>
 
             <!-- #main-content -->
-            <div class="main-content">
+            <div class="main-content" id="main-content">
                 <!-- #NAVBAR -->
                 <nav
                     class="navbar"
@@ -738,13 +741,20 @@
           - testimonials modal
         -->
 
-                    <div class="modal-container" data-modal-container>
+                    <div
+                        class="modal-container"
+                        data-modal-container
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="modal-title"
+                    >
                         <div class="overlay" data-overlay></div>
 
                         <section class="testimonials-modal">
                             <button
                                 class="modal-close-btn"
                                 data-modal-close-btn
+                                aria-label="Close testimonial"
                             >
                                 <ion-icon name="close-outline"></ion-icon>
                             </button>
@@ -766,7 +776,11 @@
                             </div>
 
                             <div class="modal-content">
-                                <h4 class="h3 modal-title" data-modal-title>
+                                <h4
+                                    class="h3 modal-title"
+                                    id="modal-title"
+                                    data-modal-title
+                                >
                                     Daniel lewis
                                 </h4>
 
@@ -1481,11 +1495,7 @@
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.03900799053!2d72.88118615!3d19.082250749999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1721486767184!5m2!1sen!2sin"
                                 width="100%"
                                 height="350"
-                                style="
-                                    border: 0;
-                                    border-radius: 10px;
-                                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-                                "
+                                style="border: 0"
                                 allowfullscreen=""
                                 loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"
@@ -1528,8 +1538,9 @@
                             <input
                                 type="checkbox"
                                 name="botcheck"
-                                class="hidden"
-                                style="display: none"
+                                class="honeypot"
+                                tabindex="-1"
+                                autocomplete="off"
                             />
                             <div class="input-wrapper">
                                 <div>
@@ -1541,6 +1552,7 @@
                                         class="form-input"
                                         placeholder="Full name"
                                         required
+                                        maxlength="100"
                                         data-form-input
                                     />
                                 </div>
@@ -1553,21 +1565,23 @@
                                         class="form-input"
                                         placeholder="Email address"
                                         required
+                                        maxlength="200"
                                         data-form-input
                                     />
                                 </div>
                             </div>
                             <div>
                                 <label for="message" class="sr-only">Your message</label>
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    class="form-input"
-                                    placeholder="Your message"
-                                    required
-                                    data-form-input
-                                    rows="5"
-                                ></textarea>
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        class="form-input"
+                                        placeholder="Your message"
+                                        required
+                                        maxlength="5000"
+                                        data-form-input
+                                        rows="5"
+                                    ></textarea>
                             </div>
                             <div class="form-message" data-form-message aria-live="polite"></div>
 
@@ -1584,12 +1598,54 @@
                     </section>
                 </article>
             </div>
+            <!-- BOTTOM NAV (mobile/tablet) -->
+            <nav class="bottom-nav" role="navigation" aria-label="Main navigation">
+                <ul class="bottom-nav-list">
+                    <li class="bottom-nav-item">
+                        <button class="bottom-nav-link active" data-nav-link>
+                            <ion-icon name="person-outline"></ion-icon>
+                            <span>About</span>
+                        </button>
+                    </li>
+                    <li class="bottom-nav-item">
+                        <button class="bottom-nav-link" data-nav-link>
+                            <ion-icon name="document-text-outline"></ion-icon>
+                            <span>Resume</span>
+                        </button>
+                    </li>
+                    <li class="bottom-nav-item">
+                        <button class="bottom-nav-link" data-nav-link>
+                            <ion-icon name="code-slash-outline"></ion-icon>
+                            <span>Projects</span>
+                        </button>
+                    </li>
+                    <li class="bottom-nav-item">
+                        <button class="bottom-nav-link" data-nav-link>
+                            <ion-icon name="ribbon-outline"></ion-icon>
+                            <span>Certificates</span>
+                        </button>
+                    </li>
+                    <li class="bottom-nav-item">
+                        <button class="bottom-nav-link" data-nav-link>
+                            <ion-icon name="calendar-outline"></ion-icon>
+                            <span>Events</span>
+                        </button>
+                    </li>
+                    <li class="bottom-nav-item">
+                        <button class="bottom-nav-link" data-nav-link>
+                            <ion-icon name="mail-outline"></ion-icon>
+                            <span>Contact</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
         </main>
 
         <!-- FOOTER -->
         <footer class="site-footer">
             <p class="site-footer__text">
-                &copy; 2026 Asif Sayyed &ensp;
+                &copy; 2026 Asif Sayyed
+                <span aria-hidden="true">&middot;</span>&ensp;
                 Data Scientist at
                 <a
                     href="https://www.marshmclennan.com/"
@@ -1598,9 +1654,9 @@
                     class="site-footer__link"
                     >Marsh McLennan</a
                 >
-                &ensp; Mumbai, India &ensp;
+                &ensp;<span aria-hidden="true">&middot;</span>&ensp; Mumbai, India &ensp;
                 <a href="/llms.txt" class="site-footer__link">llms.txt</a>
-                &ensp;
+                &ensp;<span aria-hidden="true">&middot;</span>&ensp;
                 <a href="/llms-full.txt" class="site-footer__link">llms-full.txt</a>
             </p>
         </footer>
