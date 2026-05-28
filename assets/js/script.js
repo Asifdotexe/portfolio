@@ -583,23 +583,20 @@ document.addEventListener('DOMContentLoaded', () => {
           .join("");
 
         const updatedHtml = project.updated_at
-          ? '<p class="project-category">Last updated: ' + timeAgo(project.updated_at) + '</p>'
+          ? '<p class="project-desc">Last updated: ' + timeAgo(project.updated_at) + '</p>'
           : "";
 
         li.innerHTML = `
-                <a href="${project.url}" target="_blank" rel="noopener noreferrer" style="display: block; height: 100%;">
-                    <figure class="project-img">
-                        <div class="project-item-icon-box">
-                            <ion-icon name="eye-outline"></ion-icon>
-                        </div>
+                <a href="${project.url}" target="_blank" rel="noopener noreferrer">
+                    <div class="project-thumb">
                         <img src="${project.image}" alt="${project.alt}" loading="lazy">
-                    </figure>
-                    <div class="project-info">
-                        <h3 class="project-title">${project.title}</h3>
-                        <p class="project-category">${project.category_desc}</p>
-                        ${updatedHtml}
-                        <div class="project-tags">${tagsHtml}</div>
                     </div>
+                    <div class="project-body">
+                        <h3 class="project-title">${project.title}</h3>
+                        <p class="project-desc">${project.category_desc}</p>
+                        ${updatedHtml}
+                    </div>
+                    <div class="project-tags">${tagsHtml}</div>
                 </a>
             `;
 
