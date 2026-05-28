@@ -74,49 +74,10 @@ if (modalContainer && modalCloseBtn && overlay) {
   });
 }
 
-// Project filter select
+// Project filter select (early toggle so dropdown opens on first tap)
 const select = document.querySelector("[data-select]");
-const selectItems = document.querySelectorAll("[data-select-item]");
-if (select && selectItems.length > 0) {
-  const selectValue = document.querySelector("[data-selecct-value]");
-  const filterBtn = document.querySelectorAll("[data-filter-btn]");
-  const filterItems = document.querySelectorAll("[data-filter-item]");
-
-  const filterFunc = function (selectedValue) {
-    filterItems.forEach(item => {
-      if (selectedValue === "all" || selectedValue === item.dataset.category) {
-        item.classList.add("active");
-        // Re-trigger animation for filtered items
-        item.style.animation = 'none';
-        item.offsetHeight; /* trigger reflow */
-        item.style.animation = null;
-      } else {
-        item.classList.remove("active");
-      }
-    });
-  }
+if (select) {
   select.addEventListener("click", function () { elementToggleFunc(this); });
-  selectItems.forEach(item => {
-    item.addEventListener("click", function () {
-      let selectedValue = this.innerText.toLowerCase();
-      selectValue.innerText = this.innerText;
-      elementToggleFunc(select);
-      filterFunc(selectedValue);
-    });
-  });
-  if (filterBtn.length > 0) {
-    let lastClickedBtn = filterBtn[0];
-    filterBtn.forEach(btn => {
-      btn.addEventListener("click", function () {
-        let selectedValue = this.innerText.toLowerCase();
-        selectValue.innerText = this.innerText;
-        filterFunc(selectedValue);
-        lastClickedBtn.classList.remove("active");
-        this.classList.add("active");
-        lastClickedBtn = this;
-      });
-    });
-  }
 }
 
 // Page navigation
@@ -622,6 +583,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectValue = document.querySelector("[data-selecct-value]");
     const filterBtns = document.querySelectorAll("[data-filter-btn]");
     const filterItems = document.querySelectorAll("[data-filter-item]");
+    const indicator = document.querySelector(".filter-indicator");
+
+    const updateFilterIndicator = (btn) => {
+      if (!indicator || !btn) return;
+      const list = btn.closest(".filter-list");
+      if (!list) return;
+      const btnRect = btn.getBoundingClientRect();
+      const listRect = list.getBoundingClientRect();
+      indicator.style.left = (btnRect.left - listRect.left) + "px";
+      indicator.style.width = btnRect.width + "px";
+    };
 
     const filterFunc = function (selectedValue) {
       for (let i = 0; i < filterItems.length; i++) {
@@ -631,6 +603,11 @@ document.addEventListener('DOMContentLoaded', () => {
           filterItems[i].classList.remove("active");
         }
       }
+    }
+
+    if (indicator) {
+      const initialActive = document.querySelector(".filter-item button.active");
+      updateFilterIndicator(initialActive || filterBtns[0]);
     }
 
     let lastClickedBtn = filterBtns.length > 0 ? filterBtns[0] : null;
@@ -644,6 +621,8 @@ document.addEventListener('DOMContentLoaded', () => {
           lastClickedBtn.classList.remove("active");
           this.classList.add("active");
           lastClickedBtn = this;
+
+          updateFilterIndicator(this);
         });
       }
     }
@@ -659,6 +638,12 @@ document.addEventListener('DOMContentLoaded', () => {
           }
           elementToggleFunc(select);
           filterFunc(selectedValue);
+
+          for (let j = 0; j < filterBtns.length; j++) {
+            const match = filterBtns[j].innerText.toLowerCase() === selectedValue;
+            filterBtns[j].classList.toggle("active", match);
+            if (match) updateFilterIndicator(filterBtns[j]);
+          }
         });
       }
     }
