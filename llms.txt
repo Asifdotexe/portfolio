@@ -1,0 +1,76 @@
+# Asif Sayyed — Data Scientist Portfolio
+
+> Data Scientist (Specialist - Data Science) at Marsh McLennan's Cyber Risk Intelligence Center, Mumbai, India. B.Sc. in Data Science & Business Analytics. Builder of ML tools, NLP engines, and open-source Python packages.
+
+## About
+
+Asif Sayyed is a Data Science Specialist at [Marsh McLennan](https://www.marshmclennan.com/)'s Cyber Risk Intelligence Center (CRIC), based in Mumbai, India. He holds a B.Sc. in Data Science & Business Analytics from the [School of Data Science and Business Intelligence (SDBI)](https://www.linkedin.com/school/sdbiofficial/), Mumbai University (2022–2025). His work spans cyber risk analytics, machine learning, NLP, computer vision, and building data-driven applications.
+
+- [Website](https://sayyedasif.com)
+- [Full AI-readable profile](https://sayyedasif.com/llms-full.txt)
+
+## Skills
+
+- **Programming & Databases:** Python, R, SQL, MongoDB, Scala
+- **Data Wrangling:** Pandas, NumPy, Web Scraping
+- **Data Analysis & Visualization:** Matplotlib, Seaborn, Plotly, Tableau, Power BI, Streamlit, GraphViz
+- **Machine Learning:** Scikit-learn, XGBoost, StatsModels, Time Series
+- **Deep Learning:** TensorFlow, PyTorch, Keras, NLP (NLTK, Spacy), Computer Vision (OpenCV)
+- **Big Data:** PySpark, Databricks
+- **Cloud & Automation:** AWS, Git, GitHub, Power Automate
+
+## Projects
+
+- [Second Brain](https://github.com/Asifdotexe/second-brain): Knowledge base website built with HTML, CSS, JavaScript, Python, and Markdown.
+- [LittleLogger](https://github.com/Asifdotexe/LittleLogger): Machine Learning experiment tracker published on PyPI. Python, Scikit-learn.
+- [SERPENT](https://github.com/Asifdotexe/SERPENT): Code-to-flowchart application using AST parsing, Graphviz, and Streamlit.
+- [MNISTify](https://github.com/Asifdotexe/MNISTify): Digit recognition app using CNN and TensorFlow with a Streamlit interface.
+- [QuickVU](https://github.com/Asifdotexe/QuickVU): No-code data cleaning and analysis tool built with Streamlit.
+- [DORA](https://github.com/Asifdotexe/DORA): Automated exploratory data analysis report generator, published on PyPI.
+- [RecommendationHaki](https://github.com/Asifdotexe/RecommendationHaki): Anime recommendation engine using NLP and content-based filtering.
+- [StoDir](https://github.com/Asifdotexe/StoDir): Stock direction forecasting model using Scikit-learn and yfinance.
+- [PlateScribe](https://github.com/Asifdotexe/PlateScribe): License plate detection and OCR tool using deep learning, OpenCV, and Pytesseract.
+- [Python vs Cython Benchmarking](https://github.com/Asifdotexe/playground-repo/issues/9): Performance benchmarking analysis comparing Python and Cython.
+- [Natural LangWiz](https://github.com/Asifdotexe/Natural-LangWiz): NLP learning repository covering natural language preprocessing techniques.
+- [Open See Wee](https://github.com/Asifdotexe/open-see-wee): Computer vision learning repository using OpenCV.
+- [Amazon Sentiment Analysis](https://github.com/Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews): Sentiment scoring model on Amazon reviews using NLP.
+- [Real Estate Price Prediction](https://github.com/Asifdotexe/real-estate-price-prediction): Price prediction model using Scikit-learn.
+- [AQA: Air Quality Analysis](https://github.com/Asifdotexe/Air-Quality-Analysis-AQA): Air quality case study with data analysis and visualization.
+- [Flipkart Electric Scooter Analysis](https://github.com/Asifdotexe/flipkart-electric-scooter-data-analysis): Web scraping and data analysis of Flipkart electric scooter listings.
+- [VBA Pathology Lab Application](https://medium.com/@asifdotexe/how-we-used-vba-to-make-a-pathology-lab-application-45acb35e6abf): Pathology lab automation tool using Excel VBA and Macros.
+- [Covid-19 Dashboard](https://public.tableau.com/app/profile/sayyed.asif/viz/Covid19Dashboard_16783477991420/Dashboard1): Interactive Tableau dashboard for COVID-19 data visualization.
+
+## Experience
+
+- **Specialist - Data Science** at Marsh McLennan (May 2025 – Present)
+- **Graduate Trainee - Data Science** at Marsh McLennan (Dec 2023 – Dec 2024)
+
+## Education
+
+- **B.Sc. Data Science & Business Analytics** — SDBI, Mumbai University (2022–2025)
+- **HSC (Science)** — Shree L.R. Tiwari Junior College (2019–2021)
+- **SSC** — St. Xavier's High School (2009–2019)
+
+## Certifications
+
+- [IBM Data Science Specialization](https://coursera.org/verify/professional-cert/MJD36RK7GYSD) — IBM | Coursera
+- [Machine Learning with Python](https://coursera.org/verify/GWPQEUHRCBFU) — IBM | Coursera
+- [Data Visualization with Python](https://coursera.org/verify/RHHC3MT8KPYF) — IBM | Coursera
+- [Data Analysis with Python](https://coursera.org/verify/JKRUYFGA72KC) — IBM | Coursera
+- [Databases and SQL for Data Science with Python](https://coursera.org/verify/8WUMVP9EXJAG) — IBM | Coursera
+- [British Airways - Data Science Job Simulation](https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/British%20Airways/NjynCWzGSaWXQCxSX_British%20Airways_FwfgP2ABWgdaSjJkD_1729342300556_completion_certificate.pdf) — Forage
+- [Commonwealth Bank - Data Science Job Simulation](https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Commonwealth%20Bank/smwfytX3mcLboA9bf_Commonwealth%20Bank_FwfgP2ABWgdaSjJkD_1729344065407_completion_certificate.pdf) — Forage
+- [Quantium - Data Science Job Simulation](https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Quantium/NkaC7knWtjSbi6aYv_Quantium_FwfgP2ABWgdaSjJkD_1729341363657_completion_certificate.pdf) — Forage
+
+## Social Profiles
+
+- [GitHub](https://github.com/Asifdotexe)
+- [LinkedIn](https://www.linkedin.com/in/sayyedasif/)
+- [Medium](https://medium.com/@asifdotexe)
+- [dev.to](https://dev.to/asifdotexe)
+- [KC7 Cyber](https://kc7cyber.com/profile/asifdotexe)
+
+## Contact
+
+- **Location:** Mumbai, Maharashtra, India
+- **Website:** [sayyedasif.com](https://sayyedasif.com)
