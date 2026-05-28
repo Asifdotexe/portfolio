@@ -95,6 +95,7 @@
   --transition-2: 0.5s var(--ease-out-quint);
 
   /* spacing */
+  --space-3xs: 5px;
   --space-xs: 8px;
   --space-sm: 12px;
   --space-md: 15px;
@@ -1399,21 +1400,33 @@ main {
 }
 
 /* Certificates */
-/* Certificates Section Styles */
 .certificates-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-2xl);
-  padding: 20px 0;
+  gap: var(--space-lg);
+  padding: var(--space-md) 0;
+}
+
+@media (min-width: 580px) {
+  .certificates-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .certificates-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .certificate-item {
   background: var(--eerie-black-2);
   border: 1px solid var(--jet);
-  padding: 15px;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-2);
   transition: transform 0.3s var(--ease-out-quart), box-shadow 0.3s var(--ease-out-quart);
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 
 .certificate-item:hover {
@@ -1422,34 +1435,27 @@ main {
 
 .certificate-item img {
   width: 100%;
-  border-radius: var(--radius-sm);
-  margin-bottom: 15px;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 }
 
 .certificate-content {
-  padding: 10px;
+  padding: var(--space-sm);
 }
 
 .certificate-title {
   color: var(--white-2);
-  margin-bottom: 5px;
+  margin-bottom: var(--space-3xs);
 }
 
 .certificate-issuer {
   color: var(--light-gray);
   font-size: var(--fs-6);
-  margin-bottom: 5px;
+  margin-bottom: var(--space-3xs);
 }
 
 .certificate-date {
   color: var(--light-gray-70);
   font-size: var(--fs-7);
-}
-
-@media (min-width: 1024px) {
-  .certificates-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
 /* CSS for the tags */
