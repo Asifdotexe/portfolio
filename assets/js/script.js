@@ -111,6 +111,34 @@ if (navigationLinks.length > 0 && pages.length > 0) {
 }
 
 // --------------------------------------------------------------------
+// KEYBOARD NAVIGATION
+// --------------------------------------------------------------------
+
+const initKeyboardNav = () => {
+  const links = document.querySelectorAll('[data-nav-link]');
+  if (!links.length) return;
+
+  document.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+    const num = parseInt(e.key);
+    if (num >= 1 && num <= links.length) {
+      e.preventDefault();
+      links[num - 1].click();
+      return;
+    }
+
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      const activeIdx = Array.from(links).findIndex(l => l.classList.contains('active'));
+      const step = e.key === 'ArrowRight' ? 1 : -1;
+      const next = (activeIdx + step + links.length) % links.length;
+      links[next].click();
+    }
+  });
+};
+
+// --------------------------------------------------------------------
 // SCROLL PROGRESS INDICATOR
 // --------------------------------------------------------------------
 
@@ -128,25 +156,55 @@ const initScrollProgress = () => {
 };
 
 // --------------------------------------------------------------------
-// FORM SUBMIT FEEDBACK
+// FORM VALIDATION & SUBMIT
 // --------------------------------------------------------------------
 
 const initFormSubmit = () => {
   const form = document.querySelector('.contact-form form');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
-    const btn = form.querySelector('.form-btn');
-    if (!btn || btn.disabled) return;
+  const inputs = form.querySelectorAll('[data-form-input]');
+  const btn = form.querySelector('[data-form-btn]');
+  const msgEl = form.querySelector('[data-form-message]');
+
+  const validate = () => {
+    const valid = Array.from(inputs).every(i => i.value.trim() !== '');
+    btn.disabled = !valid;
+  };
+
+  inputs.forEach(i => i.addEventListener('input', validate));
+  validate();
+
+  const showMessage = (type, text) => {
+    msgEl.textContent = text;
+    msgEl.className = 'form-message form-message--visible form-message--' + type;
+  };
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (btn.disabled) return;
 
     btn.classList.add('form-btn--loading');
     btn.disabled = true;
+    msgEl.className = 'form-message';
 
-    // Re-enable after 3s in case the form doesn't navigate away
-    setTimeout(() => {
-      btn.classList.remove('form-btn--loading');
-      btn.disabled = false;
-    }, 3000);
+    try {
+      const data = new FormData(form);
+      const res = await fetch(form.action, { method: 'POST', body: data });
+      const json = await res.json();
+      if (json.success) {
+        showMessage('success', 'Message sent successfully! I\'ll get back to you soon.');
+        form.reset();
+        validate();
+      } else {
+        showMessage('error', json.message || 'Something went wrong. Please try again.');
+      }
+    } catch {
+      showMessage('error', 'Network error. Please check your connection and try again.');
+    }
+
+    btn.classList.remove('form-btn--loading');
+    btn.disabled = false;
   });
 };
 
@@ -231,6 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initTypewriter();
   initScrollProgress();
+  initKeyboardNav();
   initFormSubmit();
 
   // Helper to add skeleton loading state
