@@ -11,7 +11,12 @@ const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 if (sidebar && sidebarBtn) {
-  sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+  sidebarBtn.addEventListener("click", function () {
+    elementToggleFunc(sidebar);
+    const expanded = sidebar.classList.contains("active");
+    sidebarBtn.setAttribute("aria-expanded", expanded);
+    sidebarBtn.querySelector("span").textContent = expanded ? "Hide Contacts" : "Show Contacts";
+  });
 }
 
 // Testimonials modal
@@ -106,6 +111,46 @@ if (navigationLinks.length > 0 && pages.length > 0) {
 }
 
 // --------------------------------------------------------------------
+// SCROLL PROGRESS INDICATOR
+// --------------------------------------------------------------------
+
+const initScrollProgress = () => {
+  const bar = document.createElement('div');
+  bar.className = 'scroll-progress';
+  document.body.prepend(bar);
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = progress + '%';
+  }, { passive: true });
+};
+
+// --------------------------------------------------------------------
+// FORM SUBMIT FEEDBACK
+// --------------------------------------------------------------------
+
+const initFormSubmit = () => {
+  const form = document.querySelector('.contact-form form');
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    const btn = form.querySelector('.form-btn');
+    if (!btn || btn.disabled) return;
+
+    btn.classList.add('form-btn--loading');
+    btn.disabled = true;
+
+    // Re-enable after 3s in case the form doesn't navigate away
+    setTimeout(() => {
+      btn.classList.remove('form-btn--loading');
+      btn.disabled = false;
+    }, 3000);
+  });
+};
+
+// --------------------------------------------------------------------
 // NEW VISUAL EFFECTS (Typewriter, Tilt)
 // --------------------------------------------------------------------
 
@@ -185,6 +230,8 @@ const initTiltEffect = () => {
 document.addEventListener('DOMContentLoaded', () => {
 
   initTypewriter();
+  initScrollProgress();
+  initFormSubmit();
 
   // Helper to add skeleton loading state
   const showSkeleton = (elementId, count = 3, height = '100px') => {

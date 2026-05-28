@@ -432,13 +432,16 @@
                         <p class="title">Data Scientist</p>
                     </div>
 
-                    <button class="info_more-btn" data-sidebar-btn>
+                    <button class="info_more-btn" data-sidebar-btn
+                        aria-expanded="false"
+                        aria-controls="sidebar-contacts"
+                    >
                         <span>Show Contacts</span>
                         <ion-icon name="chevron-down"></ion-icon>
                     </button>
                 </div>
 
-                <div class="sidebar-info_more">
+                <div class="sidebar-info_more" id="sidebar-contacts">
                     <div class="separator"></div>
 
                     <ul class="contacts-list">
@@ -758,7 +761,7 @@
 
                                 <img
                                     src="./assets/images/icons/icon-quote.svg"
-                                    alt="quote icon"
+                                    alt="Opening quotation mark"
                                 />
                             </div>
 
@@ -769,19 +772,7 @@
 
                                 <!-- <time datetime="2021-06-14">14 June, 2021</time> -->
 
-                                <div data-modal-text>
-                                    <p>
-                                        Richard was hired to create a corporate
-                                        identity. We were very pleased with the
-                                        work done. She has a lot of experience
-                                        and is very concerned about the needs of
-                                        client. Lorem ipsum dolor sit amet,
-                                        ullamcous cididt consectetur adipiscing
-                                        elit, seds do et eiusmod tempor
-                                        incididunt ut laborels dolore magnarels
-                                        alia.
-                                    </p>
-                                </div>
+                                <div data-modal-text></div>
                             </div>
                         </section>
                     </div>
@@ -1505,7 +1496,7 @@
 
                     <section class="contact-form">
                         <h3 class="h3 form-title">Contact Me</h3>
-                        <p style="margin-bottom: 1.5em; color: #666">
+                        <p class="contact-description">
                             Have a question, collaboration idea, or just want to
                             say hello? Fill out the form below and I'll get back
                             to you soon!
@@ -1545,44 +1536,49 @@
                                 class="hidden"
                                 style="display: none"
                             />
-                            <div
-                                class="input-wrapper"
-                                style="display: flex; gap: 1em; flex-wrap: wrap"
-                            >
-                                <input
-                                    type="text"
-                                    name="fullname"
-                                    class="form-input"
-                                    placeholder="Full name"
-                                    required
-                                    data-form-input
-                                    style="flex: 1 1 200px; min-width: 180px"
-                                />
-                                <input
-                                    type="email"
-                                    name="email"
-                                    class="form-input"
-                                    placeholder="Email address"
-                                    required
-                                    data-form-input
-                                    style="flex: 1 1 200px; min-width: 180px"
-                                />
+                            <div class="input-wrapper">
+                                <div>
+                                    <label for="fullname" class="sr-only">Full name</label>
+                                    <input
+                                        type="text"
+                                        id="fullname"
+                                        name="fullname"
+                                        class="form-input"
+                                        placeholder="Full name"
+                                        required
+                                        data-form-input
+                                    />
+                                </div>
+                                <div>
+                                    <label for="email" class="sr-only">Email address</label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        class="form-input"
+                                        placeholder="Email address"
+                                        required
+                                        data-form-input
+                                    />
+                                </div>
                             </div>
-                            <textarea
-                                name="message"
-                                class="form-input"
-                                placeholder="Your message"
-                                required
-                                data-form-input
-                                rows="5"
-                                style="margin-top: 1em; resize: vertical"
-                            ></textarea>
+                            <div>
+                                <label for="message" class="sr-only">Your message</label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    class="form-input"
+                                    placeholder="Your message"
+                                    required
+                                    data-form-input
+                                    rows="5"
+                                ></textarea>
+                            </div>
                             <button
                                 class="form-btn"
                                 type="submit"
                                 disabled
                                 data-form-btn
-                                style="margin-top: 1em"
                             >
                                 <ion-icon name="paper-plane"></ion-icon>
                                 <span>Send Message</span>
@@ -1594,37 +1590,27 @@
         </main>
 
         <!-- FOOTER -->
-        <footer
-            style="
-                text-align: center;
-                padding: 20px 15px;
-                color: var(--light-gray-70);
-                font-size: var(--fs-8);
-            "
-        >
+        <footer class="site-footer">
             <p>&copy; 2025 Asif Sayyed. All rights reserved.</p>
-            <p style="margin-top: 6px">
+            <p class="site-footer__meta">
                 Data Scientist at
                 <a
                     href="https://www.marshmclennan.com/"
                     rel="noopener noreferrer"
                     target="_blank"
-                    style="color: var(--vibrant-green); text-decoration: none"
+                    class="site-footer__link"
                     >Marsh McLennan</a
                 >
                 &bull; Mumbai, India
             </p>
-            <p style="margin-top: 6px">
-                <a
-                    href="/llms.txt"
-                    style="
-                        color: var(--light-gray-70);
-                        text-decoration: none;
-                        font-size: 10px;
-                    "
-                    >llms.txt</a
-                >
+            <p class="site-footer__meta">
+                <a href="/llms.txt" class="site-footer__sub">llms.txt</a>
+                &bull;
+                <a href="/llms-full.txt" class="site-footer__sub">llms-full.txt</a>
             </p>
         </footer>
-    </body>
+    <!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js"></script>
+<!-- impeccable-live-end -->
+</body>
 </html>

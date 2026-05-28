@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-28T20:40:00+05:30",
+  "title": "Design System: Asif Sayyed Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "page-bg": {
+        "role": "background",
+        "displayName": "Page Surface",
+        "canonical": "oklch(7% 0.002 240)",
+        "tonalRamp": ["#0a0a0c", "#0e0e10", "#121212", "#161618", "#1a1a1c", "#1e1e20", "#222224", "#262628"]
+      },
+      "surface-dark": {
+        "role": "surface",
+        "displayName": "Surface Dark",
+        "canonical": "oklch(13% 0.004 240)",
+        "tonalRamp": ["#101012", "#141416", "#1c1c20", "#222226", "#28282c", "#2e2e32", "#343438", "#3a3a3e"]
+      },
+      "surface-mid": {
+        "role": "surface-elevated",
+        "displayName": "Surface Mid",
+        "canonical": "oklch(14% 0.004 240)",
+        "tonalRamp": ["#121214", "#18181a", "#202024", "#26262a", "#2c2c30", "#323236", "#38383c", "#3e3e42"]
+      },
+      "surface-muted": {
+        "role": "surface-muted",
+        "displayName": "Surface Muted",
+        "canonical": "oklch(18% 0.003 240)",
+        "tonalRamp": ["#161618", "#1e1e20", "#2b2b2c", "#323234", "#3a3a3c", "#424244", "#4a4a4c", "#525254"]
+      },
+      "accent-green": {
+        "role": "primary",
+        "displayName": "Signal Green",
+        "canonical": "oklch(80% 0.18 130)",
+        "tonalRamp": ["#1a3a00", "#2a5a00", "#3a7a00", "#4a9a00", "#6aba20", "#8ada30", "#a8e43a", "#c8f05a"]
+      },
+      "accent-green-deep": {
+        "role": "primary-deep",
+        "displayName": "Signal Green Deep",
+        "canonical": "oklch(75% 0.16 130)",
+        "tonalRamp": ["#153300", "#255300", "#357300", "#459300", "#55b320", "#75cd28", "#9eda2f", "#b8e848"]
+      },
+      "error": {
+        "role": "error",
+        "displayName": "Error",
+        "canonical": "oklch(48% 0.12 30)",
+        "tonalRamp": ["#2a1010", "#3e1a1a", "#522424", "#662e2e", "#7a3838", "#8e4242", "#a24c4c", "#b74c4c"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Name and primary page/section titles." },
+      "headline": { "displayName": "Headline", "purpose": "Article titles and major section headings." },
+      "title": { "displayName": "Title", "purpose": "Card titles, timeline item titles, project headings." },
+      "body": { "displayName": "Body", "purpose": "Paragraph text, descriptions, form input values." },
+      "label": { "displayName": "Label", "purpose": "Metadata, skill items, filter buttons, tag text, navbar links." }
+    },
+    "shadows": [
+      { "name": "ambient-low", "value": "-4px 8px 24px hsla(0,0%,0%,0.25)", "purpose": "Sidebar, icon boxes. Directional shadow from left-center." },
+      { "name": "ambient-mid", "value": "0 16px 30px hsla(0,0%,0%,0.25)", "purpose": "Cards, modals, dropdown lists. Centered wide spread." },
+      { "name": "elevated", "value": "0 16px 40px hsla(0,0%,0%,0.25)", "purpose": "Buttons at rest. Taller reach." },
+      { "name": "floating", "value": "0 25px 50px hsla(0,0%,0%,0.15)", "purpose": "Hover states on cards and items. Softer wider shadow." },
+      { "name": "modal", "value": "0 24px 80px hsla(0,0%,0%,0.25)", "purpose": "Testimonial modal overlay. Wide and diffuse." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "0.25s ease", "purpose": "Default transition for state changes (hover, focus, visibility)." },
+      { "name": "ease-expressive", "value": "0.5s ease-in-out", "purpose": "Expressive transitions (sidebar expand/collapse, page fade)." },
+      { "name": "stagger-delay", "value": "0.1s", "purpose": "Delay increment between staggered items in a list." },
+      { "name": "fade-in-up", "value": "0.6s ease backwards", "purpose": "Entrance animation for dynamically loaded content items." },
+      { "name": "scale-up", "value": "0.25s ease forwards", "purpose": "Project filter reveal animation." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "450px", "purpose": "Small phone adjustments." },
+      { "name": "tablet", "value": "580px", "purpose": "Typography upscale, column layouts begin." },
+      { "name": "tablet-wide", "value": "768px", "purpose": "Two-column layouts, filter buttons replace select." },
+      { "name": "desktop", "value": "1024px", "purpose": "Three-column grids, navbar moves to top-right." },
+      { "name": "desktop-wide", "value": "1250px", "purpose": "Sidebar sticky, main content 75% width, max-width 1200px." }
+    ],
+    "gradients": [
+      { "name": "bg-gradient-onyx", "value": "linear-gradient(to bottom right, hsl(240,1%,25%) 3%, hsl(0,0%,19%) 97%)", "purpose": "Surface gradient for sidebar, article backgrounds." },
+      { "name": "bg-gradient-jet", "value": "linear-gradient(to bottom right, hsla(240,1%,18%,0.251) 0%, hsla(240,2%,11%,0) 100%)", "purpose": "Inner pseudo-element fill for button and icon-box gradient border trick." },
+      { "name": "bg-gradient-green-1", "value": "linear-gradient(to bottom right, hsl(99,76%,56%) 0%, hsla(99,70%,52%,0) 50%)", "purpose": "Button hover border replacement. Green gradient." },
+      { "name": "bg-gradient-green-2", "value": "linear-gradient(135deg, hsla(99,76%,56%,0.251) 0%, hsla(99,70%,52%,0) 59.86%), hsl(240,2%,13%)", "purpose": "Button hover inner fill replacement." },
+      { "name": "text-gradient-green", "value": "linear-gradient(to right, hsl(99,76%,56%), hsl(99,70%,52%))", "purpose": "Green underline accent on article titles and timeline dots." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Full-width submit/call-to-action button with gradient border trick.",
+      "html": "<button class=\"ds-btn-primary\">Send Message <ion-icon name=\"arrow-forward\"></ion-icon></button>",
+      "css": ".ds-btn-primary { position: relative; width: 100%; display: flex; justify-content: center; align-items: center; gap: 10px; padding: 13px 20px; border-radius: 14px; font-size: 0.875rem; font-family: Poppins, sans-serif; font-weight: 500; text-transform: capitalize; background: linear-gradient(to bottom right, hsl(0,0%,25%) 0%, hsla(0,0%,25%,0) 50%); color: #a8e43a; box-shadow: 0 16px 40px hsla(0,0%,0%,0.25); z-index: 1; cursor: pointer; border: none; transition: 0.25s ease; } .ds-btn-primary::before { content: ''; position: absolute; inset: 1px; background: linear-gradient(to bottom right, hsla(240,1%,18%,0.251) 0%, hsla(240,2%,11%,0) 100%); border-radius: inherit; z-index: -1; transition: 0.25s ease; } .ds-btn-primary:hover { background: linear-gradient(to bottom right, hsl(99,76%,56%) 0%, hsla(99,70%,52%,0) 50%); } .ds-btn-primary:hover::before { background: linear-gradient(135deg, hsla(99,76%,56%,0.251) 0%, hsla(99,70%,52%,0) 59.86%), hsl(240,2%,13%); }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card-default",
+      "description": "Content card used for projects, events, certificates, and testimonials.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-img\"><img src=\"https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400&q=80\" alt=\"Project preview\" loading=\"lazy\"></div><div class=\"ds-card-body\"><h3 class=\"ds-card-title\">Project Title</h3><p class=\"ds-card-desc\">Brief project description goes here.</p><div class=\"ds-card-tags\"><span class=\"ds-tag\">python</span><span class=\"ds-tag\">ml</span></div></div></div>",
+      "css": ".ds-card { background: #1c1c20; border: 1px solid #383838; border-radius: 16px; box-shadow: 0 16px 30px hsla(0,0%,0%,0.25); overflow: hidden; transition: 0.25s ease; } .ds-card:hover { box-shadow: 0 25px 50px hsla(0,0%,0%,0.15); } .ds-card-img { width: 100%; height: 200px; overflow: hidden; } .ds-card-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.25s ease; } .ds-card:hover .ds-card-img img { transform: scale(1.1); } .ds-card-body { padding: 15px; } .ds-card-title { color: #fafafa; font-size: 0.9375rem; font-weight: 400; line-height: 1.3; text-transform: capitalize; font-family: Poppins, sans-serif; } .ds-card-desc { color: #d6d6d6; font-size: 0.875rem; font-weight: 300; line-height: 1.6; margin-top: 8px; font-family: Poppins, sans-serif; } .ds-card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; } .ds-tag { background: #2b2b2c; color: #76e340; font-size: 0.75rem; padding: 2px 6px; border-radius: 10px; font-family: Poppins, sans-serif; font-weight: 400; white-space: nowrap; display: inline-block; } .ds-tag:hover { background: #5a6268; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input-text",
+      "description": "Single-line text input with dark theme styling.",
+      "html": "<input type=\"text\" class=\"ds-input\" placeholder=\"Your Name\">",
+      "css": ".ds-input { width: 100%; padding: 13px 20px; border: 1px solid #383838; border-radius: 14px; background: transparent; color: #fafafa; font-size: 0.875rem; font-family: Poppins, sans-serif; font-weight: 400; outline: none; } .ds-input::placeholder { font-weight: 500; color: #a0a0a8; } .ds-input:focus { border-color: #a8e43a; } .ds-input:focus:invalid { border-color: #b74c4c; }"
+    },
+    {
+      "name": "Navigation Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Bottom navbar tab link (top-right on desktop).",
+      "html": "<nav class=\"ds-nav\"><ul class=\"ds-nav-list\"><li><button class=\"ds-nav-link active\">About</button></li><li><button class=\"ds-nav-link\">Resume</button></li><li><button class=\"ds-nav-link\">Projects</button></li></ul></nav>",
+      "css": ".ds-nav { background: linear-gradient(to bottom right, hsl(240,1%,25%) 3%, hsl(0,0%,19%) 97%); border: 1px solid #383838; border-radius: 12px 12px 0 0; box-shadow: 0 16px 30px hsla(0,0%,0%,0.25); padding: 0 10px; } .ds-nav-list { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; list-style: none; margin: 0; padding: 0; } .ds-nav-link { color: #d6d6d6; font-size: 0.6875rem; font-family: Poppins, sans-serif; font-weight: 500; text-transform: uppercase; padding: 20px 7px; background: none; border: none; cursor: pointer; transition: color 0.25s ease; } .ds-nav-link:hover { color: #a0a0a8; } .ds-nav-link.active { color: #a8e43a; }"
+    },
+    {
+      "name": "Skill Pill",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Skill badge with icon and label, used in the My Toolkit section.",
+      "html": "<span class=\"ds-skill-pill\"><i class=\"devicon-python-plain\"></i> Python</span>",
+      "css": ".ds-skill-pill { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; background: #1c1c20; border: 1px solid #383838; border-radius: 12px; font-size: 0.8125rem; font-family: Poppins, sans-serif; font-weight: 500; color: #fafafa; white-space: nowrap; cursor: default; transition: 0.25s ease; } .ds-skill-pill i { font-size: 20px; color: #a8e43a; transition: 0.25s ease; } .ds-skill-pill:hover { background: #2b2b2c; border-color: #a8e43a; transform: translateY(-2px); box-shadow: 0 16px 30px hsla(0,0%,0%,0.25); } .ds-skill-pill:hover i { color: #fafafa; }"
+    },
+    {
+      "name": "Timeline Item",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Resume/education timeline entry with vertical connector and green dot.",
+      "html": "<div class=\"ds-timeline\"><div class=\"ds-timeline-item\"><h4 class=\"ds-timeline-title\">University Name</h4><span class=\"ds-timeline-date\">2022 - 2025</span><p class=\"ds-timeline-text\">Degree description goes here.</p></div><div class=\"ds-timeline-item\"><h4 class=\"ds-timeline-title\">Company Name</h4><span class=\"ds-timeline-date\">2023 - Present</span><p class=\"ds-timeline-text\">Role description goes here.</p></div></div>",
+      "css": ".ds-timeline { margin-left: 45px; font-family: Poppins, sans-serif; } .ds-timeline-item { position: relative; padding-left: 0; } .ds-timeline-item:not(:last-child) { margin-bottom: 20px; } .ds-timeline-item:not(:last-child)::before { content: ''; position: absolute; top: -25px; left: -30px; width: 1px; height: calc(100% + 50px); background: #383838; } .ds-timeline-item::after { content: ''; position: absolute; top: 5px; left: -33px; height: 6px; width: 6px; border-radius: 50%; background: linear-gradient(to right, hsl(99,76%,56%), hsl(99,70%,52%)); box-shadow: 0 0 0 4px #383838; } .ds-timeline-title { color: #fafafa; font-size: 0.875rem; font-weight: 500; line-height: 1.3; margin-bottom: 7px; font-family: Poppins, sans-serif; } .ds-timeline-date { color: #9eda2f; font-weight: 400; line-height: 1.6; font-size: 0.875rem; font-family: Poppins, sans-serif; } .ds-timeline-text { color: #d6d6d6; font-weight: 300; line-height: 1.6; font-size: 0.875rem; font-family: Poppins, sans-serif; }"
+    },
+    {
+      "name": "Icon Box",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Small gradient-bordered square with green icon, used in contact info and section headers.",
+      "html": "<div class=\"ds-icon-box\"><ion-icon name=\"location-outline\"></ion-icon></div>",
+      "css": ".ds-icon-box { position: relative; width: 30px; height: 30px; border-radius: 8px; display: flex; justify-content: center; align-items: center; font-size: 16px; color: #a8e43a; background: linear-gradient(to bottom right, hsl(0,0%,25%) 0%, hsla(0,0%,25%,0) 50%); box-shadow: -4px 8px 24px hsla(0,0%,0%,0.25); z-index: 1; } .ds-icon-box::before { content: ''; position: absolute; inset: 1px; background: #202024; border-radius: inherit; z-index: -1; } .ds-icon-box ion-icon { --ionicon-stroke-width: 35px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Problem Solver's Studio",
+    "overview": "A personal portfolio for a data scientist who treats data as raw material and code as craft. The design is a workshop at night: dark, focused, with green as the signal light. It communicates professional competence without flash, showing evidence of depth rather than claiming it. Every element earns its place. Nothing is decorative for its own sake.\n\nThe system explicitly rejects glassmorphism, gradient text, hero-metric templates, and any pattern that prioritizes appearance over clarity. The dark theme is not a stylistic choice made because tools look cool dark; it suits the audience (recruiters and peers scanning from various environments, often on their own time) and lets the accent green function as a clear attention signal across the interface.",
+    "keyCharacteristics": [
+      "Dark-by-default with warm-neutral undertones (hue 240 at trace saturation)",
+      "Single green accent used as an interactive signal, not surface decoration",
+      "Clean rounded corners (12-20px) throughout for a polished but not playful feel",
+      "Typography-driven hierarchy with one family, three weights",
+      "Data as visual evidence (GitHub activity graph, project screenshots, certificates)",
+      "Staggered entrance animations that feel intentional, not gratuitous",
+      "Tilt-as-reveal on card hover (subtle 3D perspective, never bouncy)"
+    ],
+    "rules": [
+      { "name": "The One Signal Rule", "body": "The green accent appears on interactive states, active selections, and small metadata labels only. It never occupies more than 10% of any viewport. When it appears, the user knows something is actionable or has changed.", "section": "colors" },
+      { "name": "The Layered Surface Rule", "body": "Closer surfaces are lighter, not more shadowed. The page background is #121212; primary content surfaces are #1c1c20; the sidebar and modals use #202024. Shadows reinforce the separation but the tonal stack does the heavy lifting.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Signal Green on interactive states only. Its presence should always signal that something is actionable, active, or has changed.",
+      "Do let the tonal surface stack do the elevation work. The page is #121212, surfaces are #1c1c20 and #202024. Trust the layering.",
+      "Do keep body text at 65ch max-width. Reading comfort over full-width convenience.",
+      "Do use staggered fade-in-up animations for dynamic content. Delay by 0.1s per item, duration 0.6s.",
+      "Do keep tags compact (2px 6px padding, 0.75rem). They should label, not dominate."
+    ],
+    "donts": [
+      "Don't use glassmorphism, blurred backdrops, or translucent surfaces. Decorative translucency is forbidden.",
+      "Don't use gradient text (background-clip: text). Headings use a single solid color. The green underline accent on article titles is the only gradient in the system (and it is a line, not text).",
+      "Don't use the hero-metric template (big number, small label, gradient accent).",
+      "Don't use identical card grids with icon + heading + text repeated endlessly. Vary card composition by section: timeline lists, project image-led cards, certificate/text composites.",
+      "Don't use side-stripe borders (border-left or border-right >1px as a colored accent). Use full borders, background tints, or leading icons instead.",
+      "Don't use em dashes. Use commas, colons, semicolons, periods, or parentheses.",
+      "Don't default to modals. The testimonial modal is the one exception and it progressively enhances inline content."
+    ]
+  }
+}
