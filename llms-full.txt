@@ -1,0 +1,456 @@
+# Asif Sayyed — Complete Profile (AI Source of Truth)
+
+> Specialist - Data Science at Marsh McLennan's Cyber Risk Intelligence Center (CRIC), Mumbai, India. Data scientist, ML engineer, open-source contributor, and community speaker. This document is the comprehensive, machine-readable source of truth for Asif Sayyed's professional profile.
+
+Last updated: 2026-05-28
+
+---
+
+## 1. Professional Summary
+
+Asif Sayyed is a Data Science Specialist at Marsh McLennan, one of the world's leading professional services firms. He works at the Cyber Risk Intelligence Center (CRIC) in Mumbai, India, where he applies machine learning, data analytics, and automation to cyber risk assessment and intelligence.
+
+He is a problem solver who turns raw data into clear, useful solutions. His background spans the full data science stack — from data wrangling and exploratory analysis to building production-ready ML models and interactive applications. He draws inspiration from Sun Tzu: "In the midst of chaos, there is also opportunity." To Asif, data is that chaos, and his work is to find the opportunity hidden within it.
+
+What truly excites him isn't just analyzing data — it's building with it. He uses tools like Python, SQL, and Databricks to create working applications that turn abstract numbers into something tangible that anyone can use.
+
+---
+
+## 2. Work Experience
+
+### Specialist - Data Science | Marsh McLennan
+- **Duration:** May 2025 – Present
+- **Location:** Mumbai, Maharashtra, India
+- **Department:** Cyber Risk Intelligence Center (CRIC)
+- **Description:** Currently working as a Specialist - Data Science at the Cyber Risk Intelligence Center, applying data science and machine learning to cyber risk analytics.
+
+### Graduate Trainee - Data Science | Marsh McLennan
+- **Duration:** December 2023 – December 2024
+- **Location:** Mumbai, Maharashtra, India
+- **Department:** Cyber Risk Intelligence Center (CRIC)
+- **Description:** Worked as a Graduate Trainee Data Scientist at the Cyber Risk Intelligence Center, gaining hands-on experience in enterprise-scale data science, cyber risk modeling, and analytics.
+
+---
+
+## 3. Education
+
+### B.Sc. Data Science & Business Analytics
+- **Institution:** SDBI — School of Data Science and Business Intelligence, Goregaon (West), Mumbai
+- **University:** Mumbai University
+- **Duration:** 2022 – 2025
+- **Description:** Completed Bachelor's in Data Science and Business Analytics from SDBI, Mumbai University.
+
+### HSC (Higher Secondary Certificate) — Science
+- **Institution:** Shree L.R. Tiwari Junior College of Commerce and Science (SLRTC), Mira Road (East)
+- **Duration:** 2019 – 2021
+- **Description:** Completed HSC in Science from Shree L.R. Tiwari Junior College of Commerce and Science, Mira Road (East).
+
+### SSC (Secondary School Certificate)
+- **Institution:** St. Xavier's High School, Mira Road (East)
+- **Duration:** 2009 – 2019
+- **Description:** Completed SSC at St. Xavier's High School, Mira Road (East).
+
+---
+
+## 4. Complete Skills Inventory
+
+### Programming & Databases
+- Python
+- R
+- SQL
+- NoSQL (MongoDB)
+- Scala
+
+### Data Wrangling & Preprocessing
+- Pandas
+- NumPy
+- Web Scraping (BeautifulSoup, Requests)
+
+### Data Analysis & Visualization
+- Matplotlib
+- Seaborn
+- Plotly & Dash
+- Tableau
+- Power BI
+- Streamlit
+- GraphViz
+
+### Machine Learning & Modeling
+- Scikit-learn
+- XGBoost
+- StatsModels
+- Time Series Analysis & Forecasting
+
+### Deep Learning
+- TensorFlow
+- PyTorch
+- Keras
+- NLP (NLTK, Spacy)
+- Computer Vision (OpenCV)
+
+### Big Data Technologies
+- Apache Spark (PySpark)
+- Databricks
+
+### Cloud & Automation
+- AWS (Amazon Web Services)
+- Git
+- GitHub
+- Power Automate
+- GitHub Actions (CI/CD)
+
+---
+
+## 5. Projects (All 18)
+
+### Project 1: Second Brain
+- **Category:** Tools
+- **Description:** Knowledge base website
+- **GitHub:** https://github.com/Asifdotexe/second-brain
+- **Tags:** blog, css, html, javascript, knowledge-bank, markdown, python
+
+### Project 2: LittleLogger
+- **Category:** AI/ML
+- **Description:** Machine Learning Experiment Tracker
+- **GitHub:** https://github.com/Asifdotexe/LittleLogger
+- **Tags:** developer-tools, logging, pypi, python, scikit-learn
+- **Note:** Published as a package on PyPI.
+
+### Project 3: Python vs Cython Benchmarking
+- **Category:** Data Analysis
+- **Description:** Benchmarking Analysis comparing Python and Cython performance
+- **URL:** https://github.com/Asifdotexe/playground-repo/issues/9
+- **Tags:** Python, Cython, NumPy, Seaborn, Matplotlib
+
+### Project 4: SERPENT — Code to Flowchart Application
+- **Category:** Tools
+- **Description:** Code Documentation Tools — converts Python code into visual flowcharts
+- **GitHub:** https://github.com/Asifdotexe/SERPENT
+- **Tags:** ast, code-documentation, code-to-flowchart, developer-tools, graphviz, python, streamlit
+
+### Project 5: MNISTify — Digit Recognition App
+- **Category:** AI/ML
+- **Description:** Deep Learning digit recognition application
+- **GitHub:** https://github.com/Asifdotexe/MNISTify
+- **Tags:** Python, Streamlit, TensorFlow, OpenCV, CNN
+
+### Project 6: QuickVU — No-Code Data Tool
+- **Category:** Data Analysis
+- **Description:** Data Cleaning and Analysis tool — no-code interface for data exploration
+- **GitHub:** https://github.com/Asifdotexe/QuickVU
+- **Tags:** automation, data-analysis, data-cleaning, data-visualization, python3, streamlit-application, toolkit
+
+### Project 7: DORA — Report Automator
+- **Category:** Data Analysis
+- **Description:** Data Analysis Tool — automated exploratory data analysis report generator
+- **GitHub:** https://github.com/Asifdotexe/DORA
+- **Tags:** cli-tool, exploratory-analysis, html-report, pypi, python, streamlit
+- **Note:** Published as a package on PyPI.
+
+### Project 8: RecommendationHaki — Anime Recommendation Engine
+- **Category:** NLP
+- **Description:** Natural Language Processing-based anime recommendation system
+- **GitHub:** https://github.com/Asifdotexe/RecommendationHaki
+- **Tags:** css, html, machine-learning, natural-language-processing, python, recommendation-system, streamlit
+
+### Project 9: StoDir — Stock Direction Forecasting Model
+- **Category:** AI/ML
+- **Description:** Machine Learning model for stock direction forecasting
+- **GitHub:** https://github.com/Asifdotexe/StoDir
+- **Tags:** python, scikit-learn, streamlit, time-series-forecasting, yfinance
+
+### Project 10: Natural LangWiz — NLP Learning Repository
+- **Category:** NLP
+- **Description:** Natural Language Processing learning repository
+- **GitHub:** https://github.com/Asifdotexe/Natural-LangWiz
+- **Tags:** learning-repository, machine-learning, natural-language-preprocessing, python
+
+### Project 11: Open See Wee — Computer Vision Learning Repository
+- **Category:** AI/ML
+- **Description:** Deep Learning — Computer Vision learning repository
+- **GitHub:** https://github.com/Asifdotexe/open-see-wee
+- **Tags:** computer-vision, image-analysis, learning-repository, opencv, python
+
+### Project 12: PlateScribe — License Plate Detection and OCR Tool
+- **Category:** AI/ML
+- **Description:** Deep Learning-based license plate detection and OCR tool
+- **GitHub:** https://github.com/Asifdotexe/PlateScribe
+- **Tags:** deep-learning, ocr, opencv-python, pytesseract, python, streamlit
+
+### Project 13: Sentimental Scoring Model on Amazon Reviews
+- **Category:** NLP
+- **Description:** Natural Language Processing — sentiment analysis on Amazon product reviews
+- **GitHub:** https://github.com/Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews
+- **Tags:** data-analysis, data-visualization, natural-language-processing, sentiment-analysis
+
+### Project 14: Real Estate Price Prediction Model
+- **Category:** AI/ML
+- **Description:** Machine Learning model for predicting real estate prices
+- **GitHub:** https://github.com/Asifdotexe/real-estate-price-prediction
+- **Tags:** machine-learning, python, scikit-learn
+
+### Project 15: AQA — Air Quality Analysis Case Study
+- **Category:** Data Analysis
+- **Description:** Data Analysis case study on air quality index
+- **GitHub:** https://github.com/Asifdotexe/Air-Quality-Analysis-AQA
+- **Tags:** aqi-analysis, data-analysis, data-preprocessing, data-science, data-visualization, presentation
+
+### Project 16: Flipkart Electric Scooter Data Analysis
+- **Category:** Data Analysis
+- **Description:** Data Analysis — web scraping and analysis of electric scooter listings on Flipkart
+- **GitHub:** https://github.com/Asifdotexe/flipkart-electric-scooter-data-analysis
+- **Tags:** beautifulsoup4, data-analysis, data-science, flipkart, webscraping
+
+### Project 17: VBA Pathology Lab Application
+- **Category:** Tools
+- **Description:** Visual Basic for Application Tool — pathology lab automation application
+- **URL:** https://medium.com/@asifdotexe/how-we-used-vba-to-make-a-pathology-lab-application-45acb35e6abf
+- **Tags:** Microsoft Excel, Macros, Visual Basic for Application, Userforms
+
+### Project 18: Covid-19 Dashboard
+- **Category:** Data Analysis
+- **Description:** Data Analysis — interactive Tableau dashboard for COVID-19 data visualization
+- **URL:** https://public.tableau.com/app/profile/sayyed.asif/viz/Covid19Dashboard_16783477991420/Dashboard1
+- **Tags:** SQL, Tableau, Microsoft Excel
+
+---
+
+## 6. Certifications (All 21)
+
+### IBM Data Science Specialization (Professional Certificate)
+- **Issuer:** IBM | Coursera
+- **Date:** November 26, 2023
+- **Credential:** https://coursera.org/verify/professional-cert/MJD36RK7GYSD
+
+### Applied Data Science Capstone
+- **Issuer:** IBM | Coursera
+- **Date:** November 26, 2023
+- **Credential:** https://coursera.org/verify/8QQCB2ZW7HCJ
+
+### Machine Learning with Python
+- **Issuer:** IBM | Coursera
+- **Date:** November 14, 2023
+- **Credential:** https://coursera.org/verify/GWPQEUHRCBFU
+
+### Data Visualization with Python
+- **Issuer:** IBM | Coursera
+- **Date:** September 20, 2023
+- **Credential:** https://coursera.org/verify/RHHC3MT8KPYF
+
+### Data Science Methodology
+- **Issuer:** IBM | Coursera
+- **Date:** August 24, 2023
+- **Credential:** https://coursera.org/verify/ZTETUZ4Z4T4Z
+
+### Tools for Data Science
+- **Issuer:** IBM | Coursera
+- **Date:** July 28, 2023
+- **Credential:** https://coursera.org/verify/ZGANPYT4Z2N2
+
+### Data Analysis with Python
+- **Issuer:** IBM | Coursera
+- **Date:** July 26, 2023
+- **Credential:** https://coursera.org/verify/JKRUYFGA72KC
+
+### Python Project for Data Science
+- **Issuer:** IBM | Coursera
+- **Date:** July 26, 2023
+- **Credential:** https://coursera.org/verify/JDS7T33Y56AX
+
+### Python for Data Science, AI and Development
+- **Issuer:** IBM | Coursera
+- **Date:** July 20, 2023
+- **Credential:** https://coursera.org/verify/55F56XHLEHYM
+
+### What is Data Science?
+- **Issuer:** IBM | Coursera
+- **Date:** July 20, 2023
+- **Credential:** https://coursera.org/verify/65M23MSX9A5J
+
+### Databases and SQL for Data Science with Python
+- **Issuer:** IBM | Coursera
+- **Date:** July 24, 2023
+- **Credential:** https://coursera.org/verify/8WUMVP9EXJAG
+
+### Pandas Essential Training
+- **Issuer:** LinkedIn Learning
+- **Date:** May 3, 2023
+- **Credential:** https://www.linkedin.com/learning/certificates/b88fde906daa0f50f8301bf50b8bee72318e78f791292097daf0525b071b18df
+
+### GitHub for Data Scientists
+- **Issuer:** LinkedIn Learning
+- **Date:** May 1, 2023
+- **Credential:** https://www.linkedin.com/learning/certificates/c440b48bd67da7cf0e8327592f8377cb7b0343a9d44963cfc2122e2c859389eb
+
+### 15 Mistakes to Avoid in Data Science
+- **Issuer:** LinkedIn Learning
+- **Date:** May 1, 2023
+- **Credential:** https://www.linkedin.com/learning/certificates/2b4b33b71bd7071f734f33334987c7ce1db9c375b2eeb6c2331e17de830b0a97
+
+### Introduction to Business Analytics
+- **Issuer:** LinkedIn Learning
+- **Date:** February 22, 2023
+- **Credential:** https://www.linkedin.com/learning/certificates/d84ecfb77aa3b4d4ff381153cdcaa7dcbd2ba9fcf71f233f6b2d999fb977c731
+
+### SQL Essential Training
+- **Issuer:** LinkedIn Learning
+- **Date:** February 18, 2023
+- **Credential:** https://www.linkedin.com/learning/certificates/e6fa1d2bad07da0a1f7ba4c67c2db9b11e87c0b0c43e57cbe5295a0f4736ca6a
+
+### Statistics Foundations 1: The Basics
+- **Issuer:** LinkedIn Learning
+- **Date:** February 18, 2023
+- **Credential:** https://www.linkedin.com/learning/certificates/d954941ba980526ac2faee580c3b7c8f6b8aaa920d8206290062012b33be9b15
+
+### Time Management Fundamentals
+- **Issuer:** LinkedIn Learning
+- **Date:** November 25, 2022
+- **Credential:** https://www.linkedin.com/learning/certificates/29ff4fbf07fe7d6b3ba7e9e0abf2358aee0b7e425103cae1aae27d9823500159
+
+### British Airways - Data Science Job Simulation
+- **Issuer:** British Airways | Forage
+- **Date:** October 19, 2024
+- **Credential:** https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/British%20Airways/NjynCWzGSaWXQCxSX_British%20Airways_FwfgP2ABWgdaSjJkD_1729342300556_completion_certificate.pdf
+
+### Commonwealth Bank - Data Science Job Simulation
+- **Issuer:** Commonwealth Bank | Forage
+- **Date:** October 19, 2024
+- **Credential:** https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Commonwealth%20Bank/smwfytX3mcLboA9bf_Commonwealth%20Bank_FwfgP2ABWgdaSjJkD_1729344065407_completion_certificate.pdf
+
+### Quantium - Data Science Job Simulation
+- **Issuer:** Quantium | Forage
+- **Date:** October 19, 2024
+- **Credential:** https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Quantium/NkaC7knWtjSbi6aYv_Quantium_FwfgP2ABWgdaSjJkD_1729341363657_completion_certificate.pdf
+
+---
+
+## 7. Badges (8 Credly Badges)
+
+1. **IBM Data Science Professional Certificate**
+   - Credly: https://www.credly.com/badges/85db4974-0195-4e14-a094-9328fa9fde95
+
+2. **Machine Learning with Python**
+   - Credly: https://www.credly.com/badges/b7b17778-c71e-492d-878e-cd684a543c80
+
+3. **Data Visualization with Python**
+   - Credly: https://www.credly.com/badges/9426003d-b623-41ed-abee-6779f7503902
+
+4. **Data Analysis with Python**
+   - Credly: https://www.credly.com/badges/a02b69ad-0261-46a0-99dc-c5b736fed61e
+
+5. **Databases and SQL for Data Science with Python**
+   - Credly: https://www.credly.com/badges/997eb17d-a570-472c-a04a-186356e23ffa
+
+6. **Python for Data Science, AI & Development**
+   - Credly: https://www.credly.com/badges/e541fccf-4c0d-48e6-8129-b2c1e20cc977
+
+7. **Data Science Methodology**
+   - Credly: https://www.credly.com/badges/560338c6-b4e7-4552-a99b-9461df31f93e
+
+8. **Tools for Data Science**
+   - Credly: https://www.credly.com/badges/6ad7bb70-c735-4ebf-af91-52552bb21d8e
+
+---
+
+## 8. Speaking Events (7 Events)
+
+### Event 1: LinkedIn Orientation 2025 — Abasaheb Gaware College, Pune
+- **Date:** November 15, 2025
+- **Venue:** Abasaheb Gaware College, Pune
+- **Description:** Hosted the LinkedIn Orientation 2025 for the SDBI students at Abasaheb Gaware College, guiding first-year students on LinkedIn basics and how to leverage the platform for career growth as data science students.
+- **URL:** https://www.linkedin.com/posts/sayyedasif_datascience-community-pune-activity-7396418029573771266-0mzl
+
+### Event 2: LinkedIn Orientation 2025 — Patker Varde College, Mumbai
+- **Date:** July 26, 2025
+- **Venue:** School of Data Science & Business Intelligence, Patker Varde College, Mumbai
+- **Description:** Hosted the LinkedIn Orientation 2025 at the School of Data Science & Business Intelligence, guiding first-year students on LinkedIn basics and how to leverage the platform for career growth as data science students.
+- **URL:** https://www.linkedin.com/posts/sdbiofficial_from-student-to-mentor-thank-you-asif-activity-7358509655049842688-6Ers
+
+### Event 3: SDBI 2025 Batch Orientation
+- **Date:** July 15, 2025
+- **Venue:** Patker Varde College, Mumbai
+- **Description:** Invited as a guest speaker for the SDBI 2025 Batch Orientation, where Asif shared his journey and experiences with SDBI, providing insights and guidance to the new batch of students.
+- **URL:** https://www.linkedin.com/posts/sdbiofficial_sdbi-orientationday-bscdatascience-activity-7357063791919976448-bF8T
+
+### Event 4: LinkedIn Orientation 2024
+- **Date:** October 14, 2024
+- **Venue:** School of Data Science & Business Intelligence, Patker Varde College, Mumbai
+- **Description:** Led a LinkedIn Orientation at the School of Data Science & Business Intelligence for first-year bachelor's and master's students, focusing on LinkedIn basics, resume building, and ATS tips for career development.
+- **URL:** https://www.linkedin.com/posts/sayyedasif_linkedin-orientation-resumebuilding-activity-7251611339939295232-gbFp
+
+### Event 5: LinkedIn Orientation 2023
+- **Date:** August 19, 2023
+- **Venue:** Patker Varde College, Mumbai
+- **Description:** Seminar for Bachelor's Freshers: Highlighting the Importance of LinkedIn and Effective Strategies for Leveraging It.
+- **URL:** https://www.linkedin.com/posts/sayyedasif_linkedin-publicspeaking-orientation-activity-7099046970144530432-Z9Lz
+
+### Event 6: Tech Jam 2023
+- **Date:** January 16, 2023
+- **Venue:** Patker Varde College, Mumbai
+- **Description:** Led the hospitality team for TechJam, the college's annual tech event, with the responsibility of participant outreach. Successfully secured over 75 attendees for the event.
+- **URL:** https://www.linkedin.com/posts/sayyedasif_team-building-ai-activity-7021465512798793728-wUUP
+
+### Event 7: UTSAV FEST 2020
+- **Date:** February 13, 2020
+- **Venue:** SLRTC (Shree L.R. Tiwari College), Mumbai
+- **Description:** Served as a key member of the public relations team for the fest at Shree L.R. Tiwari College, responsible for promoting the event at over 12 colleges across Mumbai.
+- **URL:** https://www.linkedin.com/posts/sayyedasif_publicrelations-communication-learning-activity-6980827716287696896-k1pe
+
+---
+
+## 9. Testimonials
+
+### Prof. Awesh Bhornya — SDBI (School of Data Science & Business Intelligence)
+> "I highly recommend Asif Sayyed as an exceptionally talented student. I had the pleasure of teaching him Excel, Excel VBA, and Power BI during the B. Sc in Data Science program. Asif's aptitude for these subjects is truly impressive, and his dedication to mastering them sets him apart. He approaches challenges with enthusiasm and consistently produces high-quality work. Asif's passion for data science is evident, and I have no doubt that he will excel in any future endeavors in this field."
+
+---
+
+## 10. Blog Posts & Articles
+
+### How We Used VBA to Make a Pathology Lab Application
+- **Platform:** Medium
+- **Date:** September 12, 2023
+- **Category:** VBA / Macros
+- **Description:** An in-depth case study exploring how Visual Basic for Applications (VBA) can streamline and automate reporting pipelines for medical labs, with real code walkthrough.
+- **URL:** https://medium.com/@asifdotexe/how-we-used-vba-to-make-a-pathology-lab-application-45acb35e6abf
+
+### Demystifying Cyber Risk with Machine Learning
+- **Platform:** LinkedIn
+- **Date:** May 10, 2024
+- **Category:** Cyber Risk & ML
+- **Description:** Connecting predictive modeling techniques with cyber risk scenarios. Visualizing threat models and scaling enterprise vulnerability assessments.
+- **URL:** https://www.linkedin.com/in/sayyedasif/
+
+### Exploratory Data Analysis: From Data Chaos to Business Opportunity
+- **Platform:** Medium
+- **Date:** January 20, 2024
+- **Category:** Data Science / EDA
+- **Description:** Discussing standard frameworks for dataset inspection, cleaning heuristics, and automation tools that accelerate time-to-insight.
+- **URL:** https://medium.com/@asifdotexe
+
+---
+
+## 11. Contact Information
+
+- **Full Name:** Asif Sayyed
+- **Location:** Mumbai, Maharashtra, India
+- **Website:** https://sayyedasif.com
+- **GitHub:** https://github.com/Asifdotexe
+- **LinkedIn:** https://www.linkedin.com/in/sayyedasif/
+- **Medium:** https://medium.com/@asifdotexe
+- **dev.to:** https://dev.to/asifdotexe
+- **KC7 Cyber:** https://kc7cyber.com/profile/asifdotexe
+- **Credly:** https://www.credly.com/users/asifdotexe
+- **Tableau Public:** https://public.tableau.com/app/profile/sayyed.asif
+
+---
+
+## 12. Website Metadata
+
+- **Domain:** sayyedasif.com
+- **GitHub Repository:** https://github.com/Asifdotexe/portfolio
+- **Technology:** Static HTML/CSS/JavaScript site hosted on GitHub Pages
+- **LLMs.txt (summary):** https://sayyedasif.com/llms.txt
+- **LLMs-full.txt (this file):** https://sayyedasif.com/llms-full.txt
+- **Sitemap:** https://sayyedasif.com/sitemap.xml
+- **Robots.txt:** https://sayyedasif.com/robots.txt

@@ -12,5 +12,32 @@ User-agent: PerplexityBot
 Allow: /
 User-agent: ClaudeBot
 Allow: /
+User-agent: Amazonbot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: Bytespider
+Allow: /
+User-agent: cohere-ai
+Allow: /
+User-agent: Diffbot
+Allow: /
+User-agent: FacebookBot
+Allow: /
+User-agent: Meta-ExternalAgent
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: YouBot
+Allow: /
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
 
 Sitemap: https://sayyedasif.com/sitemap.xml
+
+# LLM-specific content files
+# See https://llmstxt.org for the llms.txt specification
+# llms.txt: https://sayyedasif.com/llms.txt
+# llms-full.txt: https://sayyedasif.com/llms-full.txt
