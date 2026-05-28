@@ -1,0 +1,32 @@
+[
+  {
+    "title": "How We Used VBA to Make a Pathology Lab Application",
+    "platform": "Medium",
+    "date": "2023-09-12",
+    "formattedDate": "Sep 12, 2023",
+    "image": "./assets/images/projects/vba-pathology-lab-application.webp",
+    "category": "VBA / Macros",
+    "description": "An in-depth case study exploring how Visual Basic for Applications (VBA) can streamline and automate reporting pipelines for medical labs, with real code walkthrough.",
+    "url": "https://medium.com/@asifdotexe/how-we-used-vba-to-make-a-pathology-lab-application-45acb35e6abf"
+  },
+  {
+    "title": "Demystifying Cyber Risk with Machine Learning",
+    "platform": "LinkedIn",
+    "date": "2024-05-10",
+    "formattedDate": "May 10, 2024",
+    "image": "./assets/images/events/linkedin-orientation-2025.webp",
+    "category": "Cyber Risk & ML",
+    "description": "Connecting predictive modeling techniques with cyber risk scenarios. Visualizing threat models and scaling enterprise vulnerability assessments.",
+    "url": "https://www.linkedin.com/in/sayyedasif/"
+  },
+  {
+    "title": "Exploratory Data Analysis: From Data Chaos to Business Opportunity",
+    "platform": "Medium",
+    "date": "2024-01-20",
+    "formattedDate": "Jan 20, 2024",
+    "image": "./assets/images/projects/dora.webp",
+    "category": "Data Science / EDA",
+    "description": "Discussing standard frameworks for dataset inspection, cleaning heuristics, and automation tools that accelerate time-to-insight.",
+    "url": "https://medium.com/@asifdotexe"
+  }
+]
