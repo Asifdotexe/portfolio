@@ -42,6 +42,7 @@
 
   --lh-body: 1.5;
   --lh-button: 2;
+  --lh-caption: 2;
 
   /* Spacing (8px base unit) */
   --space-xxs: 1px;
@@ -515,7 +516,7 @@ h1, h2, h3, h4 {
   gap: var(--space-xxs);
   padding: var(--space-xs) 0;
   color: var(--mute);
-  font-size: 10px;
+  font-size: 12px;
   font-family: var(--ff-mono);
   width: 100%;
   cursor: pointer;
@@ -1117,7 +1118,7 @@ h1, h2, h3, h4 {
 }
 
 .certificate-date {
-  color: var(--ash);
+  color: var(--mute);
   font-size: var(--caption-md);
   margin-top: auto;
 }
@@ -1136,7 +1137,7 @@ h1, h2, h3, h4 {
   justify-content: center;
   height: 140px;
   background: var(--surface-soft);
-  color: var(--mute);
+  color: var(--stone);
   font-size: var(--body-md);
 }
 
@@ -1279,6 +1280,11 @@ h1, h2, h3, h4 {
   border-color: var(--hairline-strong);
 }
 
+.form-input[aria-invalid] {
+  border-color: var(--ink);
+  background: var(--canvas);
+}
+
 textarea.form-input {
   min-height: 120px;
   resize: vertical;
@@ -1306,7 +1312,9 @@ textarea.form-input {
 }
 
 .form-btn:disabled {
-  opacity: 0.5;
+  background: var(--surface-card);
+  color: var(--ash);
+  opacity: 1;
   cursor: not-allowed;
 }
 
@@ -1332,6 +1340,14 @@ textarea.form-input {
 
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+
+.form-field-error {
+  display: block;
+  font-size: var(--caption-md);
+  color: var(--mute);
+  min-height: 1.4em;
+  margin-top: var(--space-xxs);
 }
 
 .form-message {
@@ -1479,7 +1495,7 @@ textarea.form-input {
     left: 0;
     height: 2px;
     background: var(--ink);
-    transition: left 0.3s var(--ease-out-quart), width 0.3s var(--ease-out-quart);
+    transition: transform 0.3s var(--ease-out-quart), width 0.3s var(--ease-out-quart);
     pointer-events: none;
   }
 
@@ -1569,6 +1585,51 @@ textarea.form-input {
 
   .certificates-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Ultra-narrow */
+@media (max-width: 360px) {
+  .main-layout {
+    padding: 0 var(--space-md);
+  }
+
+  .hero-tui {
+    padding: 24px var(--space-md);
+    margin-left: calc(-1 * var(--space-md));
+    margin-right: calc(-1 * var(--space-md));
+  }
+
+  .hero-tui-wordmark {
+    font-size: 20px;
+  }
+
+  .hero-tui-hints span {
+    display: inline;
+  }
+
+  .section {
+    padding: var(--space-xl) 0;
+  }
+
+  .project-thumb {
+    width: 72px;
+    height: 44px;
+  }
+
+  .project-item > a {
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+  }
+
+  .bottom-nav-link .bracket {
+    font-size: 14px;
+  }
+
+  .skills-item {
+    font-size: 11px;
+    height: 28px;
+    padding: 2px var(--space-sm);
   }
 }
 

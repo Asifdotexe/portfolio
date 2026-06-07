@@ -39,7 +39,7 @@ const initScrollSpy = () => {
 
   sections.forEach(s => observer.observe(s));
 
-  // Set initial active based on scroll position
+  // Set initial active based on scroll position (debounced)
   const onScroll = () => {
     let bestSection = null;
     let bestDist = Infinity;
@@ -59,7 +59,13 @@ const initScrollSpy = () => {
     }
   };
 
-  window.addEventListener('scroll', onScroll, { passive: true });
+  let scrollTimer = null;
+  const debouncedScroll = () => {
+    if (scrollTimer) cancelAnimationFrame(scrollTimer);
+    scrollTimer = requestAnimationFrame(onScroll);
+  };
+
+  window.addEventListener('scroll', debouncedScroll, { passive: true });
   onScroll();
 };
 
@@ -128,16 +134,48 @@ const initFormSubmit = () => {
   const btn = form.querySelector('[data-form-btn]');
   const msgEl = form.querySelector('[data-form-message]');
 
+  const fieldErrors = {
+    fullname: 'Please enter your full name.',
+    email: 'Please enter a valid email address.',
+    message: 'Please enter your message.',
+  };
+
+  const clearFieldErrors = () => {
+    form.querySelectorAll('.form-field-error').forEach(el => { el.textContent = ''; });
+    form.querySelectorAll('[aria-invalid]').forEach(el => { el.removeAttribute('aria-invalid'); });
+  };
+
   const validate = () => {
+    clearFieldErrors();
     const emailField = form.querySelector('input[type="email"]');
-    let valid = Array.from(inputs).every(i => i.value.trim() !== '');
+    let valid = true;
+
+    inputs.forEach(i => {
+      const name = i.name;
+      if (i.value.trim() === '') {
+        valid = false;
+        i.setAttribute('aria-invalid', 'true');
+        const errEl = document.getElementById(name + '-error');
+        if (errEl && fieldErrors[name]) errEl.textContent = fieldErrors[name];
+      }
+    });
+
     if (emailField && emailField.value.trim() !== '') {
-      valid = valid && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value.trim());
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value.trim())) {
+        valid = false;
+        emailField.setAttribute('aria-invalid', 'true');
+        const errEl = document.getElementById('email-error');
+        if (errEl) errEl.textContent = 'Email format is invalid.';
+      }
     }
+
     btn.disabled = !valid;
   };
 
-  inputs.forEach(i => i.addEventListener('input', validate));
+  inputs.forEach(i => {
+    i.addEventListener('input', validate);
+    i.addEventListener('blur', validate);
+  });
   validate();
 
   const showMessage = (type, text) => {
@@ -210,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
         data.forEach((edu) => {
           const item = document.createElement('li');
           item.className = 'timeline-item';
-          item.innerHTML = '<h4 class="timeline-item-title">' + edu.institution + '</h4><span>' + edu.duration + '</span><p class="timeline-text">' + edu.description + '</p>';
+          item.innerHTML = '<h3 class="timeline-item-title">' + edu.institution + '</h3><span>' + edu.duration + '</span><p class="timeline-text">' + edu.description + '</p>';
           educationList.appendChild(item);
         });
       })
@@ -239,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
         data.forEach((exp) => {
           const item = document.createElement('li');
           item.className = 'timeline-item';
-          item.innerHTML = '<h4 class="timeline-item-title">' + exp.role + '</h4><span>' + exp.date + '</span><p class="timeline-text">' + exp.description + '</p>';
+          item.innerHTML = '<h3 class="timeline-item-title">' + exp.role + '</h3><span>' + exp.date + '</span><p class="timeline-text">' + exp.description + '</p>';
           experienceList.appendChild(item);
         });
       })
@@ -417,7 +455,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!wrapper) return;
       const btnRect = btn.getBoundingClientRect();
       const wrapperRect = wrapper.getBoundingClientRect();
-      indicator.style.left = (btnRect.left - wrapperRect.left) + 'px';
+      indicator.style.transform = 'translateX(' + (btnRect.left - wrapperRect.left) + 'px)';
       indicator.style.width = btnRect.width + 'px';
     };
 
