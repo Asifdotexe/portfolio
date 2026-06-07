@@ -743,6 +743,7 @@
 
                     <div
                         class="modal-container"
+                        tabindex="-1"
                         data-modal-container
                         role="dialog"
                         aria-modal="true"
@@ -1223,6 +1224,7 @@
                     </header>
 
                     <section class="projects">
+                        <div class="filter-wrapper">
                         <ul class="filter-list">
                             <li class="filter-item">
                                 <button class="active" data-filter-btn>
@@ -1241,8 +1243,9 @@
                             <li class="filter-item">
                                 <button data-filter-btn>Tools</button>
                             </li>
-                            <span class="filter-indicator" aria-hidden="true"></span>
                         </ul>
+                        <span class="filter-indicator" aria-hidden="true"></span>
+                        </div>
 
                         <!-- The select box is kept in HTML but can be hidden with CSS if not needed on desktop -->
                         <div class="filter-select-box">
@@ -1661,8 +1664,5 @@
                 <a href="/llms-full.txt" class="site-footer__link">llms-full.txt</a>
             </p>
         </footer>
-    <!-- impeccable-live-start -->
-<script src="http://localhost:8400/live.js"></script>
-<!-- impeccable-live-end -->
 </body>
 </html>

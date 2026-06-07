@@ -74,12 +74,6 @@ if (modalContainer && modalCloseBtn && overlay) {
   });
 }
 
-// Project filter select (early toggle so dropdown opens on first tap)
-const select = document.querySelector("[data-select]");
-if (select) {
-  select.addEventListener("click", function () { elementToggleFunc(this); });
-}
-
 // Page navigation
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
@@ -202,13 +196,14 @@ const initFormSubmit = () => {
         validate();
       } else {
         showMessage('error', json.message || 'Something went wrong. Please try again.');
+        btn.disabled = false;
       }
     } catch {
       showMessage('error', 'Network error. Please check your connection and try again.');
+      btn.disabled = false;
     }
 
     btn.classList.remove('form-btn--loading');
-    btn.disabled = false;
   });
 };
 
@@ -260,6 +255,8 @@ const initTiltEffect = () => {
   const cards = document.querySelectorAll('.project-item, .certificate-item, .events-post-item');
 
   cards.forEach(card => {
+    if (card.dataset.tiltInitialized) return;
+    card.dataset.tiltInitialized = 'true';
     card.classList.add('tilt-effect');
 
     let ticking = false;
@@ -587,11 +584,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateFilterIndicator = (btn) => {
       if (!indicator || !btn) return;
-      const list = btn.closest(".filter-list");
-      if (!list) return;
+      const wrapper = btn.closest(".filter-wrapper");
+      if (!wrapper) return;
       const btnRect = btn.getBoundingClientRect();
-      const listRect = list.getBoundingClientRect();
-      indicator.style.left = (btnRect.left - listRect.left) + "px";
+      const wrapperRect = wrapper.getBoundingClientRect();
+      indicator.style.left = (btnRect.left - wrapperRect.left) + "px";
       indicator.style.width = btnRect.width + "px";
     };
 
