@@ -1,1668 +1,585 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <title>
-            Asif Sayyed | Data Scientist – Python, Machine Learning & AI
-            Portfolio
-        </title>
-        <meta
-            name="title"
-            content="Asif Sayyed | Data Scientist – Python, Machine Learning & AI Portfolio"
-        />
-        <meta
-            name="description"
-            content="Portfolio of Asif Sayyed, a Data Scientist at Marsh McLennan specializing in Python, Machine Learning, NLP, Computer Vision, and Cyber Risk Analytics. Explore projects, certifications, and experience."
-        />
-        <meta
-            name="keywords"
-            content="Asif Sayyed, Data Scientist, Python Developer, Machine Learning Engineer, AI Portfolio, NLP, Deep Learning, Cyber Risk, Marsh McLennan, Mumbai, Data Science Portfolio"
-        />
-        <meta name="author" content="Asif Sayyed" />
-        <meta name="theme-color" content="#2b2b2c" />
-        <meta
-            name="robots"
-            content="index, follow, max-snippet:-1, max-image-preview:large"
-        />
-        <meta name="language" content="English" />
-        <meta name="format-detection" content="telephone=no" />
-        <link rel="canonical" href="https://sayyedasif.com/" />
-
-        <!-- Google Search Console verification (replace YOUR_VERIFICATION_CODE after signing up at https://search.google.com/search-console) -->
-        <meta
-            name="google-site-verification"
-            content="mZ4YTDxw_emCHo0t3exypc7baNm8gDdt_ci72uqK1aY"
-        />
-
-        <!-- Open Graph (used by LinkedIn, Facebook, Discord, Slack, etc.) -->
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://sayyedasif.com/" />
-        <meta
-            property="og:title"
-            content="Asif Sayyed | Data Scientist – Python, Machine Learning & AI Portfolio"
-        />
-        <meta
-            property="og:description"
-            content="Data Scientist at Marsh McLennan specializing in Python, Machine Learning, NLP, and Cyber Risk Analytics. Explore projects, certifications, and experience."
-        />
-        <meta
-            property="og:image"
-            content="https://sayyedasif.com/assets/images/my-memoji.webp"
-        />
-        <meta property="og:site_name" content="Asif Sayyed Portfolio" />
-        <meta property="og:locale" content="en_US" />
-
-        <!-- Twitter Card (also used by LinkedIn and other platforms for link previews) -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-            name="twitter:title"
-            content="Asif Sayyed | Data Scientist – Python, Machine Learning & AI Portfolio"
-        />
-        <meta
-            name="twitter:description"
-            content="Data Scientist at Marsh McLennan specializing in Python, Machine Learning, NLP, and Cyber Risk Analytics. Explore projects, certifications, and experience."
-        />
-        <meta
-            name="twitter:image"
-            content="https://sayyedasif.com/assets/images/my-memoji.webp"
-        />
-
-        <!-- favicon -->
-        <link
-            rel="shortcut icon"
-            href="./assets/images/icons/icon-job.svg"
-            type="image/x-icon"
-        />
-        <script
-            type="module"
-            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-        ></script>
-        <script
-            nomodule
-            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-        ></script>
-
-        <!-- custom css link -->
-        <link rel="stylesheet" href="./assets/css/style.min.css" />
-
-        <!-- google font link -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-            media="print"
-            onload="this.media='all'"
-        />
-        <!-- preload LCP image -->
-        <link rel="preload" as="image" href="./assets/images/my-memoji.webp" />
-
-        <!-- preload critical resources -->
-        <link rel="preload" href="./assets/js/script.min.js" as="script" />
-        <link
-            rel="preload"
-            href="./assets/data/projects.json"
-            as="fetch"
-            crossorigin
-        />
-        <link
-            rel="preload"
-            href="./assets/data/last_updated.json"
-            as="fetch"
-            crossorigin
-        />
-
-        <!-- custom js link -->
-        <script src="./assets/js/script.min.js" defer></script>
-
-        <!-- Structured Data (JSON-LD) — Person -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "Person",
-                "@id": "https://sayyedasif.com/#person",
-                "name": "Asif Sayyed",
-                "givenName": "Asif",
-                "familyName": "Sayyed",
-                "jobTitle": "Specialist - Data Science",
-                "url": "https://sayyedasif.com/",
-                "image": "https://sayyedasif.com/assets/images/my-memoji.webp",
-                "description": "Data Scientist at Marsh McLennan's Cyber Risk Intelligence Center (CRIC), specializing in Python, Machine Learning, NLP, Computer Vision, and Cyber Risk Analytics. B.Sc. in Data Science & Business Analytics from Mumbai University.",
-                "nationality": {
-                    "@type": "Country",
-                    "name": "India"
-                },
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Mumbai",
-                    "addressRegion": "Maharashtra",
-                    "addressCountry": "IN"
-                },
-                "worksFor": {
-                    "@type": "Organization",
-                    "name": "Marsh McLennan",
-                    "url": "https://www.marshmclennan.com/",
-                    "department": {
-                        "@type": "Organization",
-                        "name": "Cyber Risk Intelligence Center (CRIC)"
-                    }
-                },
-                "alumniOf": {
-                    "@type": "EducationalOrganization",
-                    "name": "School of Data Science and Business Intelligence (SDBI)",
-                    "parentOrganization": {
-                        "@type": "EducationalOrganization",
-                        "name": "Mumbai University"
-                    }
-                },
-                "knowsAbout": [
-                    "Data Science",
-                    "Python",
-                    "Machine Learning",
-                    "Natural Language Processing",
-                    "Deep Learning",
-                    "Computer Vision",
-                    "SQL",
-                    "R Programming",
-                    "TensorFlow",
-                    "PyTorch",
-                    "Scikit-learn",
-                    "Pandas",
-                    "NumPy",
-                    "Data Visualization",
-                    "Tableau",
-                    "Power BI",
-                    "Streamlit",
-                    "PySpark",
-                    "Databricks",
-                    "AWS",
-                    "Cyber Risk Analytics",
-                    "XGBoost",
-                    "Keras",
-                    "MongoDB",
-                    "Web Scraping"
-                ],
-                "hasCredential": [
-                    {
-                        "@type": "EducationalOccupationalCredential",
-                        "name": "IBM Data Science Professional Certificate",
-                        "credentialCategory": "Professional Certificate",
-                        "recognizedBy": {
-                            "@type": "Organization",
-                            "name": "IBM"
-                        },
-                        "url": "https://coursera.org/verify/professional-cert/MJD36RK7GYSD"
-                    }
-                ],
-                "sameAs": [
-                    "https://github.com/Asifdotexe",
-                    "https://www.linkedin.com/in/sayyedasif/",
-                    "https://medium.com/@asifdotexe",
-                    "https://dev.to/asifdotexe",
-                    "https://kc7cyber.com/profile/asifdotexe"
-                ]
-            }
-        </script>
-
-        <!-- Structured Data (JSON-LD) — WebSite -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "WebSite",
-                "@id": "https://sayyedasif.com/#website",
-                "name": "Asif Sayyed Portfolio",
-                "url": "https://sayyedasif.com/",
-                "description": "Portfolio website of Asif Sayyed, Data Scientist at Marsh McLennan.",
-                "author": { "@id": "https://sayyedasif.com/#person" },
-                "inLanguage": "en-US"
-            }
-        </script>
-
-        <!-- Structured Data (JSON-LD) — ProfilePage -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "ProfilePage",
-                "@id": "https://sayyedasif.com/#profilepage",
-                "url": "https://sayyedasif.com/",
-                "name": "Asif Sayyed | Data Scientist Portfolio",
-                "isPartOf": { "@id": "https://sayyedasif.com/#website" },
-                "mainEntity": { "@id": "https://sayyedasif.com/#person" },
-                "inLanguage": "en-US",
-                "dateModified": "2026-05-28"
-            }
-        </script>
-
-        <!-- Structured Data (JSON-LD) — Projects as ItemList -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "ItemList",
-                "name": "Data Science & AI Projects by Asif Sayyed",
-                "description": "A curated collection of data science, machine learning, NLP, and developer tool projects.",
-                "numberOfItems": 18,
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "Second Brain",
-                            "description": "A knowledge base website for organizing and sharing notes, guides, and learning resources.",
-                            "url": "https://github.com/Asifdotexe/second-brain",
-                            "programmingLanguage": [
-                                "Python",
-                                "JavaScript",
-                                "HTML",
-                                "CSS"
-                            ],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "LittleLogger",
-                            "description": "A Python package (PyPI) for tracking and logging machine learning experiments with Scikit-learn.",
-                            "url": "https://github.com/Asifdotexe/LittleLogger",
-                            "programmingLanguage": ["Python"],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "SERPENT",
-                            "description": "A code-to-flowchart application that generates visual documentation from Python source code using AST and Graphviz.",
-                            "url": "https://github.com/Asifdotexe/SERPENT",
-                            "programmingLanguage": ["Python"],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 4,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "MNISTify",
-                            "description": "A digit recognition application using Convolutional Neural Networks (CNN) built with TensorFlow and OpenCV.",
-                            "url": "https://github.com/Asifdotexe/MNISTify",
-                            "programmingLanguage": ["Python"],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 5,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "QuickVU",
-                            "description": "A no-code data cleaning and analysis tool built with Streamlit for quick data exploration and visualization.",
-                            "url": "https://github.com/Asifdotexe/QuickVU",
-                            "programmingLanguage": ["Python"],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 6,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "DORA",
-                            "description": "An automated exploratory data analysis report generator available on PyPI.",
-                            "url": "https://github.com/Asifdotexe/DORA",
-                            "programmingLanguage": ["Python"],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 7,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "RecommendationHaki",
-                            "description": "An anime recommendation engine using Natural Language Processing techniques for content-based filtering.",
-                            "url": "https://github.com/Asifdotexe/RecommendationHaki",
-                            "programmingLanguage": ["Python"],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 8,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "StoDir",
-                            "description": "A stock direction forecasting model using time-series analysis and machine learning with Scikit-learn.",
-                            "url": "https://github.com/Asifdotexe/StoDir",
-                            "programmingLanguage": ["Python"],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 9,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "PlateScribe",
-                            "description": "A license plate detection and OCR tool using deep learning, OpenCV, and Pytesseract.",
-                            "url": "https://github.com/Asifdotexe/PlateScribe",
-                            "programmingLanguage": ["Python"],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 10,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "Sentimental Scoring Model on Amazon Reviews",
-                            "description": "NLP-based sentiment analysis model for classifying Amazon product reviews.",
-                            "url": "https://github.com/Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews",
-                            "programmingLanguage": ["Python"],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    }
-                ]
-            }
-        </script>
-
-        <!-- Google Analytics (GA4) — https://analytics.google.com -->
-        <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-52KQ8L4SQG"
-        ></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
-            gtag("config", "G-52KQ8L4SQG");
-        </script>
-    </head>
-
-    <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-        <!-- MAIN -->
-        <main>
-            <!-- SIDEBAR -->
-            <aside class="sidebar" data-sidebar>
-                <div class="sidebar-info">
-                    <figure class="avatar-box">
-                        <img
-                            src="./assets/images/my-memoji.webp"
-                            alt="Asif Sayyed"
-                            width="80"
-                            loading="eager"
-                            fetchpriority="high"
-                        />
-                    </figure>
-
-                    <div class="info-content">
-                        <h1 class="name" title="Asif Sayyed">Asif Sayyed</h1>
-                        <p class="title">Data Scientist</p>
-                    </div>
-
-                    <button class="info_more-btn" data-sidebar-btn
-                        aria-expanded="false"
-                        aria-controls="sidebar-contacts"
-                    >
-                        <span>Show Contacts</span>
-                        <ion-icon name="chevron-down"></ion-icon>
-                    </button>
-                </div>
-
-                <div class="sidebar-info_more" id="sidebar-contacts">
-                    <div class="separator"></div>
-
-                    <ul class="contacts-list">
-                        <li class="contact-item">
-                            <div class="icon-box">
-                                <ion-icon name="location"></ion-icon>
-                            </div>
-                            <div class="contact-info">
-                                <p class="contact-title">Location</p>
-                                <address>Mumbai, Maharashtra, India</address>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <div class="separator"></div>
-
-                    <ul class="social-list">
-                        <li class="social-item">
-                            <a
-                                href="https://github.com/Asifdotexe"
-                                class="social-link"
-                                aria-label="GitHub Profile"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                            >
-                                <ion-icon name="logo-github"></ion-icon>
-                            </a>
-                        </li>
-
-                        <li class="social-item">
-                            <a
-                                href="https://www.linkedin.com/in/sayyedasif/"
-                                class="social-link"
-                                aria-label="LinkedIn Profile"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                            >
-                                <ion-icon name="logo-linkedin"></ion-icon>
-                            </a>
-                        </li>
-
-                        <li class="social-item">
-                            <a
-                                href="https://medium.com/@asifdotexe"
-                                class="social-link"
-                                aria-label="Medium Blog"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                            >
-                                <ion-icon name="logo-medium"></ion-icon>
-                            </a>
-                        </li>
-
-                        <li class="social-item">
-                            <a
-                                href="https://dev.to/asifdotexe"
-                                class="social-link"
-                                aria-label="dev.to Profile"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                            >
-                                <ion-icon name="code-slash-outline"></ion-icon>
-                            </a>
-                        </li>
-
-                        <li class="social-item">
-                            <a
-                                href="https://kc7cyber.com/profile/asifdotexe"
-                                class="social-link"
-                                aria-label="KC7 Cyber Profile"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                            >
-                                <ion-icon name="shield-checkmark"></ion-icon>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </aside>
-
-            <!-- #main-content -->
-            <div class="main-content" id="main-content">
-                <!-- #NAVBAR -->
-                <nav
-                    class="navbar"
-                    role="navigation"
-                    aria-label="Main navigation"
-                >
-                    <ul class="navbar-list">
-                        <li class="navbar-item">
-                            <button class="navbar-link active" data-nav-link>About</button>
-                        </li>
-
-                        <li class="navbar-item">
-                            <button class="navbar-link" data-nav-link>Resume</button>
-                        </li>
-
-                        <li class="navbar-item">
-                            <button class="navbar-link" data-nav-link>Projects</button>
-                        </li>
-
-                        <li class="navbar-item">
-                            <button class="navbar-link" data-nav-link>Certificates</button>
-                        </li>
-
-                        <li class="navbar-item">
-                            <button class="navbar-link" data-nav-link>Events</button>
-                        </li>
-
-                        <li class="navbar-item">
-                            <button class="navbar-link" data-nav-link>Contact</button>
-                        </li>
-                    </ul>
-                </nav>
-
-                <!-- ABOUT -->
-                <article class="about active" data-page="about">
-                    <header>
-                        <h2 class="h2 article-title">About me</h2>
-                    </header>
-
-                    <section class="about-text">
-                        <p>Hi there, I'm Asif Sayyed.</p>
-
-                        <p>
-                            I'm a <b>problem solver</b> and
-                            <b>Data Science Specialist</b> at Marsh McLennan,
-                            focused on turning raw data into
-                            <i>clear, useful solutions.</i>
-                            My background is in Data Science & Business
-                            Analytics, with professional experience in the
-                            insurance industry analyzing cyber risk.
-                        </p>
-
-                        <p>
-                            I draw inspiration from the strategist Sun Tzu, who
-                            wrote,
-                            <i
-                                >"In the midst of chaos, there is also
-                                opportunity."</i
-                            >
-                            To me, data is that chaos. My work is to find the
-                            opportunity hidden within it.
-                        </p>
-
-                        <p>
-                            What truly excites me isn't just analyzing data;
-                            it's <b>building with it</b>. I use tools like
-                            Python, SQL, and Databricks to create working
-                            applications that turn abstract numbers into
-                            something tangible that anyone can use.
-                        </p>
-
-                        <p>
-                            Whether you're a fellow developer or just curious, I
-                            invite you to <b>explore my portfolio</b>.
-                        </p>
-                    </section>
-
-                    <!--
-          - service
-        -->
-
-                    <section class="service">
-                        <h3 class="h3 service-title">
-                            What I'm currently doing
-                        </h3>
-
-                        <ul class="service-list">
-                            <li class="service-item">
-                                <div class="service-icon-box">
-                                    <img
-                                        src="./assets/images/icons/icon-job.svg"
-                                        alt="Corporate role icon"
-                                        width="40"
-                                        height="40"
-                                    />
-                                </div>
-                                <div class="service-content-box">
-                                    <h4 class="h4 service-item-title">
-                                        Corporate Overview
-                                    </h4>
-                                    <p class="service-item-text">
-                                        Specialist - Data Science @ Marsh
-                                        McLennan at the Cyber Risk and
-                                        Intelligence Center (CRIC).
-                                    </p>
-                                </div>
-                            </li>
-
-                            <li class="service-item">
-                                <div class="service-icon-box">
-                                    <img
-                                        src="./assets/images/icons/icon-graduate.svg"
-                                        alt="Academic degree icon"
-                                        width="40"
-                                        height="40"
-                                    />
-                                </div>
-                                <div class="service-content-box">
-                                    <h4 class="h4 service-item-title">
-                                        Academic Overview
-                                    </h4>
-                                    <p class="service-item-text">
-                                        I have my Bachelors in Science, Data
-                                        Science and Business Analytics from
-                                        Mumbai University.
-                                    </p>
-                                </div>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <!--
-          - testimonials
-        -->
-
-                    <section class="testimonials">
-                        <div class="testimonials-header">
-                            <h3 class="h3 testimonials-title">Testimonials</h3>
-                            <a
-                                id="recommendMeButton"
-                                href="https://www.linkedin.com/in/sayyedasif/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="form-btn"
-                            >
-                                <ion-icon name="ribbon"></ion-icon>
-                                Recommend Me on LinkedIn
-                            </a>
-                        </div>
-
-                        <script>
-                            // Your LinkedIn Profile URL
-                            const linkedInProfileURL =
-                                "https://www.linkedin.com/in/sayyedasif/";
-
-                            // Adding Dynamic Redirection to Recommendations Section
-                            document.getElementById("recommendMeButton").href =
-                                linkedInProfileURL +
-                                "edit/forms/recommendation/write";
-                        </script>
-
-                        <ul class="testimonials-list has-scrollbar">
-                            <li class="testimonials-item">
-                                <div
-                                    class="content-card"
-                                    data-testimonials-item
-                                >
-                                    <figure class="testimonials-avatar-box">
-                                        <img
-                                            src="./assets/images/icons/icon-linkedin.svg"
-                                            alt="Prof. Awesh Bhornya"
-                                            width="60"
-                                            data-testimonials-avatar
-                                        />
-                                    </figure>
-
-                                    <h4
-                                        class="h4 testimonials-item-title"
-                                        data-testimonials-title
-                                    >
-                                        Prof. Awesh Bhornya @SDBI
-                                    </h4>
-
-                                    <div
-                                        class="testimonials-text"
-                                        data-testimonials-text
-                                    >
-                                        <p>
-                                            I highly recommend Asif Sayyed as an
-                                            exceptionally talented student. I
-                                            had the pleasure of teaching him
-                                            Excel, Excel VBA, and Power BI
-                                            during the B. Sc in Data Science
-                                            program. Asif's aptitude for these
-                                            subjects is truly impressive, and
-                                            his dedication to mastering them
-                                            sets him apart. He approaches
-                                            challenges with enthusiasm and
-                                            consistently produces high-quality
-                                            work. Asif's passion for data
-                                            science is evident, and I have no
-                                            doubt that he will excel in any
-                                            future endeavors in this field.
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <!--
-          - testimonials modal
-        -->
-
-                    <div
-                        class="modal-container"
-                        tabindex="-1"
-                        data-modal-container
-                        role="dialog"
-                        aria-modal="true"
-                        aria-labelledby="modal-title"
-                    >
-                        <div class="overlay" data-overlay></div>
-
-                        <section class="testimonials-modal">
-                            <button
-                                class="modal-close-btn"
-                                data-modal-close-btn
-                                aria-label="Close testimonial"
-                            >
-                                <ion-icon name="close-outline"></ion-icon>
-                            </button>
-
-                            <div class="modal-img-wrapper">
-                                <figure class="modal-avatar-box">
-                                    <img
-                                        src="./assets/images/my-memoji.webp"
-                                        alt="Asif Sayyed"
-                                        width="80"
-                                        data-modal-img
-                                    />
-                                </figure>
-
-                                <img
-                                    src="./assets/images/icons/icon-quote.svg"
-                                    alt="Opening quotation mark"
-                                />
-                            </div>
-
-                            <div class="modal-content">
-                                <h4
-                                    class="h3 modal-title"
-                                    id="modal-title"
-                                    data-modal-title
-                                >
-                                    Daniel lewis
-                                </h4>
-
-                                <!-- <time datetime="2021-06-14">14 June, 2021</time> -->
-
-                                <div data-modal-text></div>
-                            </div>
-                        </section>
-                    </div>
-
-                    <!-- Badges -->
-                    <section class="clients">
-                        <h3 class="h3 clients-title">Badges</h3>
-                        <ul class="clients-list has-scrollbar">
-                            <li class="clients-item">
-                                <a
-                                    href="https://www.credly.com/badges/85db4974-0195-4e14-a094-9328fa9fde95"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img
-                                        src="./assets/images/badges/85db4974-0195-4e14-a094-9328fa9fde95.webp"
-                                        alt="IBM Data Science Professional Certificate badge"
-                                        loading="lazy"
-                                    />
-                                </a>
-                            </li>
-
-                            <li class="clients-item">
-                                <a
-                                    href="https://www.credly.com/badges/b7b17778-c71e-492d-878e-cd684a543c80"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img
-                                        src="./assets/images/badges/b7b17778-c71e-492d-878e-cd684a543c80.webp"
-                                        alt="Machine Learning with Python badge"
-                                        loading="lazy"
-                                    />
-                                </a>
-                            </li>
-
-                            <li class="clients-item">
-                                <a
-                                    href="https://www.credly.com/badges/9426003d-b623-41ed-abee-6779f7503902"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img
-                                        src="./assets/images/badges/9426003d-b623-41ed-abee-6779f7503902.webp"
-                                        alt="Data Visualization with Python badge"
-                                        loading="lazy"
-                                    />
-                                </a>
-                            </li>
-
-                            <li class="clients-item">
-                                <a
-                                    href="https://www.credly.com/badges/a02b69ad-0261-46a0-99dc-c5b736fed61e"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img
-                                        src="./assets/images/badges/a02b69ad-0261-46a0-99dc-c5b736fed61e.webp"
-                                        alt="Data Analysis with Python badge"
-                                        loading="lazy"
-                                    />
-                                </a>
-                            </li>
-
-                            <li class="clients-item">
-                                <a
-                                    href="https://www.credly.com/badges/997eb17d-a570-472c-a04a-186356e23ffa"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img
-                                        src="./assets/images/badges/997eb17d-a570-472c-a04a-186356e23ffa.webp"
-                                        alt="Databases and SQL for Data Science with Python badge"
-                                        loading="lazy"
-                                    />
-                                </a>
-                            </li>
-
-                            <li class="clients-item">
-                                <a
-                                    href="https://www.credly.com/badges/e541fccf-4c0d-48e6-8129-b2c1e20cc977"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img
-                                        src="./assets/images/badges/e541fccf-4c0d-48e6-8129-b2c1e20cc977.webp"
-                                        alt="Python for Data Science, AI & Development badge"
-                                        loading="lazy"
-                                    />
-                                </a>
-                            </li>
-
-                            <li class="clients-item">
-                                <a
-                                    href="https://www.credly.com/badges/560338c6-b4e7-4552-a99b-9461df31f93e"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img
-                                        src="./assets/images/badges/560338c6-b4e7-4552-a99b-9461df31f93e.webp"
-                                        alt="Data Science Methodology badge"
-                                        loading="lazy"
-                                    />
-                                </a>
-                            </li>
-
-                            <li class="clients-item">
-                                <a
-                                    href="https://www.credly.com/badges/6ad7bb70-c735-4ebf-af91-52552bb21d8e"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img
-                                        src="./assets/images/badges/6ad7bb70-c735-4ebf-af91-52552bb21d8e.webp"
-                                        alt="Tools for Data Science badge"
-                                        loading="lazy"
-                                    />
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
-                </article>
-
-                <!-- RESUME -->
-                <article class="resume" data-page="resume">
-                    <header>
-                        <h2 class="h2 article-title">Resume</h2>
-                    </header>
-
-                    <section class="timeline">
-                        <div class="title-wrapper">
-                            <div class="icon-box">
-                                <ion-icon name="book"></ion-icon>
-                            </div>
-                            <h3 class="h3">Education</h3>
-                        </div>
-                        <ol class="timeline-list" id="education-list">
-                            <!-- Content loaded dynamically via JS; noscript fallback below for crawlers -->
-                        </ol>
-                        <noscript>
-                            <ol class="timeline-list">
-                                <li class="timeline-item">
-                                    <h4 class="h4 timeline-item-title">
-                                        SDBI - School of Data Science and
-                                        Business Intelligence, Mumbai
-                                    </h4>
-                                    <span>2022 - 2025</span>
-                                    <p class="timeline-text">
-                                        Completed Bachelor's in Data Science and
-                                        Business Analytics from Mumbai
-                                        University.
-                                    </p>
-                                </li>
-                                <li class="timeline-item">
-                                    <h4 class="h4 timeline-item-title">
-                                        Shree L.R. Tiwari Junior College, Mira
-                                        Road
-                                    </h4>
-                                    <span>2019 - 2021</span>
-                                    <p class="timeline-text">
-                                        Completed HSC (Higher Secondary
-                                        Certificate) in Science.
-                                    </p>
-                                </li>
-                                <li class="timeline-item">
-                                    <h4 class="h4 timeline-item-title">
-                                        St. Xavier's High School, Mira Road
-                                    </h4>
-                                    <span>2009 - 2019</span>
-                                    <p class="timeline-text">
-                                        Completed SSC (Secondary School
-                                        Certificate).
-                                    </p>
-                                </li>
-                            </ol>
-                        </noscript>
-                    </section>
-
-                    <section class="timeline">
-                        <div class="title-wrapper">
-                            <div class="icon-box">
-                                <ion-icon name="bar-chart"></ion-icon>
-                            </div>
-                            <h3 class="h3">Experience</h3>
-                        </div>
-
-                        <ol class="timeline-list" id="experience-list">
-                            <!-- Content loaded dynamically via JS; noscript fallback below for crawlers -->
-                        </ol>
-                        <noscript>
-                            <ol class="timeline-list">
-                                <li class="timeline-item">
-                                    <h4 class="h4 timeline-item-title">
-                                        Specialist - Data Science at Marsh
-                                        McLennan
-                                    </h4>
-                                    <span>May 2025 - Present</span>
-                                    <p class="timeline-text">
-                                        Currently working as a Specialist - Data
-                                        Science at the Cyber Risk Intelligence
-                                        Center (CRIC).
-                                    </p>
-                                </li>
-                                <li class="timeline-item">
-                                    <h4 class="h4 timeline-item-title">
-                                        Graduate Trainee - Data Science at Marsh
-                                        McLennan
-                                    </h4>
-                                    <span>December 2023 - December 2024</span>
-                                    <p class="timeline-text">
-                                        Worked as a Graduate Trainee Data
-                                        Scientist at the Cyber Risk Intelligence
-                                        Center.
-                                    </p>
-                                </li>
-                            </ol>
-                        </noscript>
-                    </section>
-
-                    <section class="timeline">
-                        <div class="title-wrapper">
-                            <div class="icon-box">
-                                <ion-icon name="logo-github"></ion-icon>
-                            </div>
-                            <h3 class="h3">GitHub Contributions</h3>
-                        </div>
-                        <div class="contribution-chart">
-                            <img
-                                src="https://github-readme-activity-graph.vercel.app/graph?username=Asifdotexe&bg_color=1e1e1e&color=e6e6e6&line=15E618&point=15E618&area=true&hide_border=true&days=50&custom_title=As Data Scientists, we love charts and we love Github. So here's both."
-                                alt="Asifdotexe's GitHub Contribution Graph"
-                            />
-                        </div>
-                    </section>
-
-                    <section class="skills content-card">
-                        <h3 class="h3 skills-title">My Toolkit</h3>
-
-                        <div class="skills-group">
-                            <h4 class="h4 skills-group-title">
-                                Programming & Databases
-                            </h4>
-                            <ul class="skills-list">
-                                <li class="skills-item">
-                                    <i class="devicon-python-plain"></i>
-                                    <span>Python</span>
-                                </li>
-                                <li class="skills-item">
-                                    <i class="devicon-r-plain"></i>
-                                    <span>R</span>
-                                </li>
-                                <li class="skills-item">
-                                    <i class="devicon-mysql-plain"></i>
-                                    <span>SQL</span>
-                                </li>
-                                <li class="skills-item">
-                                    <i class="devicon-mongodb-plain"></i>
-                                    <span>NoSQL (MongoDB)</span>
-                                </li>
-                                <li class="skills-item">
-                                    <i class="devicon-scala-plain"></i>
-                                    <span>Scala</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="skills-group">
-                            <h4 class="h4 skills-group-title">
-                                Data Wrangling & Preprocessing
-                            </h4>
-                            <ul class="skills-list">
-                                <li class="skills-item">
-                                    <i class="devicon-pandas-plain"></i>
-                                    <span>Pandas</span>
-                                </li>
-                                <li class="skills-item">
-                                    <i class="devicon-numpy-plain"></i>
-                                    <span>NumPy</span>
-                                </li>
-                                <li class="skills-item">
-                                    <ion-icon name="globe-outline"></ion-icon>
-                                    <span>Web Scraping</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="skills-group">
-                            <h4 class="h4 skills-group-title">
-                                Data Analysis & Visualization
-                            </h4>
-                            <ul class="skills-list">
-                                <li class="skills-item">
-                                    <i class="devicon-matplotlib-plain"></i>
-                                    <span>Matplotlib & Seaborn</span>
-                                </li>
-                                <li class="skills-item">
-                                    <i class="devicon-plotly-plain"></i>
-                                    <span>Plotly & Dash</span>
-                                </li>
-                                <li class="skills-item">
-                                    <i class="devicon-tableau-plain"></i>
-                                    <span>Tableau</span>
-                                </li>
-                                <li class="skills-item">
-                                    <ion-icon
-                                        name="bar-chart-outline"
-                                    ></ion-icon>
-                                    <span>Power BI</span>
-                                </li>
-                                <li class="skills-item">
-                                    <i class="devicon-streamlit-plain"></i>
-                                    <span>Streamlit</span>
-                                </li>
-                                <li class="skills-item">
-                                    <ion-icon
-                                        name="git-network-outline"
-                                    ></ion-icon>
-                                    <span>GraphViz</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="skills-group">
-                            <h4 class="h4 skills-group-title">
-                                Machine Learning & Modeling
-                            </h4>
-                            <ul class="skills-list">
-                                <li class="skills-item">
-                                    <i class="devicon-scikitlearn-plain"></i>
-                                    <span>Scikit-learn</span>
-                                </li>
-                                <li class="skills-item">
-                                    <ion-icon
-                                        name="hardware-chip-outline"
-                                    ></ion-icon>
-                                    <span>XGBoost</span>
-                                </li>
-                                <li class="skills-item">
-                                    <ion-icon
-                                        name="trending-up-outline"
-                                    ></ion-icon>
-                                    <span>StatsModels</span>
-                                </li>
-                                <li class="skills-item">
-                                    <ion-icon name="time-outline"></ion-icon>
-                                    <span>Time Series</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="skills-group">
-                            <h4 class="h4 skills-group-title">Deep Learning</h4>
-                            <ul class="skills-list">
-                                <li class="skills-item">
-                                    <i class="devicon-tensorflow-original"></i>
-                                    <span>TensorFlow</span>
-                                </li>
-                                <li class="skills-item">
-                                    <i class="devicon-pytorch-original"></i>
-                                    <span>PyTorch</span>
-                                </li>
-                                <li class="skills-item">
-                                    <i class="devicon-keras-plain"></i>
-                                    <span>Keras</span>
-                                </li>
-                                <li class="skills-item">
-                                    <ion-icon
-                                        name="language-outline"
-                                    ></ion-icon>
-                                    <span>NLP (NLTK, Spacy)</span>
-                                </li>
-                                <li class="skills-item">
-                                    <i class="devicon-opencv-plain"></i>
-                                    <span>Computer Vision</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="skills-group">
-                            <h4 class="h4 skills-group-title">
-                                Big Data Technologies
-                            </h4>
-                            <ul class="skills-list">
-                                <li class="skills-item">
-                                    <i class="devicon-apachespark-original"></i>
-                                    <span>Spark (PySpark)</span>
-                                </li>
-                                <li class="skills-item">
-                                    <ion-icon name="server-outline"></ion-icon>
-                                    <span>Databricks</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="skills-group">
-                            <h4 class="h4 skills-group-title">
-                                Cloud & Automations
-                            </h4>
-                            <ul class="skills-list">
-                                <li class="skills-item">
-                                    <i
-                                        class="devicon-amazonwebservices-plain-wordmark"
-                                    ></i>
-                                    <span>AWS</span>
-                                </li>
-                                <!-- <li class="skills-item">GCP (BigQuery, AI Platform)</li>
-              <li class="skills-item">Azure (Machine Learning)</li>
-              <li class="skills-item">Docker</li> -->
-                                <li class="skills-item">
-                                    <i class="devicon-git-plain"></i>
-                                    <span>Git</span>
-                                </li>
-                                <li class="skills-item">
-                                    <i class="devicon-github-original"></i>
-                                    <span>GitHub</span>
-                                </li>
-                                <li class="skills-item">
-                                    <ion-icon
-                                        name="settings-outline"
-                                    ></ion-icon>
-                                    <span>Power Automate</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </section>
-                </article>
-
-                <!--
-    - #PROJECTS
-    - This section contains the projects of the portfolio.
-  -->
-                <article class="projects" data-page="projects">
-                    <header>
-                        <h2 class="h2 article-title">Projects</h2>
-                    </header>
-
-                    <section class="projects">
-                        <div class="filter-wrapper">
-                        <ul class="filter-list">
-                            <li class="filter-item">
-                                <button class="active" data-filter-btn>
-                                    All
-                                </button>
-                            </li>
-                            <li class="filter-item">
-                                <button data-filter-btn>Data Analysis</button>
-                            </li>
-                            <li class="filter-item">
-                                <button data-filter-btn>AI/ML</button>
-                            </li>
-                            <li class="filter-item">
-                                <button data-filter-btn>NLP</button>
-                            </li>
-                            <li class="filter-item">
-                                <button data-filter-btn>Tools</button>
-                            </li>
-                        </ul>
-                        <span class="filter-indicator" aria-hidden="true"></span>
-                        </div>
-
-                        <!-- The select box is kept in HTML but can be hidden with CSS if not needed on desktop -->
-                        <div class="filter-select-box">
-                            <button class="filter-select" data-select>
-                                <div class="select-value" data-selecct-value>
-                                    Select category
-                                </div>
-                                <div class="select-icon">
-                                    <!-- Ionicon would require an external script, using text as fallback -->
-                                    <span>▼</span>
-                                </div>
-                            </button>
-                            <ul class="select-list">
-                                <li class="select-item">
-                                    <button data-select-item>All</button>
-                                </li>
-                                <li class="select-item">
-                                    <button data-select-item>
-                                        Data Analysis
-                                    </button>
-                                </li>
-                                <li class="select-item">
-                                    <button data-select-item>AI/ML</button>
-                                </li>
-                                <li class="select-item">
-                                    <button data-select-item>NLP</button>
-                                </li>
-                                <li class="select-item">
-                                    <button data-select-item>Tools</button>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="projects-grid">
-                            <!-- Project list will be dynamically populated here -->
-                            <ul class="project-list" id="project-list">
-                                <!-- Content loaded dynamically via JS; noscript fallback below for crawlers -->
-                            </ul>
-                            <noscript>
-                                <ul class="project-list">
-                                    <li class="project-item">
-                                        <a
-                                            href="https://github.com/Asifdotexe/second-brain"
-                                            ><h3>Second Brain</h3>
-                                            <p>
-                                                Knowledge base website — blog,
-                                                CSS, HTML, JavaScript, Markdown,
-                                                Python
-                                            </p></a
-                                        >
-                                    </li>
-                                    <li class="project-item">
-                                        <a
-                                            href="https://github.com/Asifdotexe/LittleLogger"
-                                            ><h3>LittleLogger</h3>
-                                            <p>
-                                                Machine Learning Experiment
-                                                Tracker — developer-tools,
-                                                logging, PyPI, Python,
-                                                Scikit-learn
-                                            </p></a
-                                        >
-                                    </li>
-                                    <li class="project-item">
-                                        <a
-                                            href="https://github.com/Asifdotexe/SERPENT"
-                                            ><h3>
-                                                SERPENT: Code to Flowchart
-                                                Application
-                                            </h3>
-                                            <p>
-                                                Code Documentation Tools — AST,
-                                                code-to-flowchart, Graphviz,
-                                                Python, Streamlit
-                                            </p></a
-                                        >
-                                    </li>
-                                    <li class="project-item">
-                                        <a
-                                            href="https://github.com/Asifdotexe/MNISTify"
-                                            ><h3>
-                                                MNISTify: Digit Recognition App
-                                            </h3>
-                                            <p>
-                                                Deep Learning — Python,
-                                                Streamlit, TensorFlow, OpenCV,
-                                                CNN
-                                            </p></a
-                                        >
-                                    </li>
-                                    <li class="project-item">
-                                        <a
-                                            href="https://github.com/Asifdotexe/QuickVU"
-                                            ><h3>QuickVU: No-code Data Tool</h3>
-                                            <p>
-                                                Data Cleaning and Analysis —
-                                                automation, data-analysis,
-                                                data-visualization, Python,
-                                                Streamlit
-                                            </p></a
-                                        >
-                                    </li>
-                                    <li class="project-item">
-                                        <a
-                                            href="https://github.com/Asifdotexe/DORA"
-                                            ><h3>DORA: Report Automator</h3>
-                                            <p>
-                                                Data Analysis Tool — CLI,
-                                                exploratory-analysis,
-                                                HTML-report, PyPI, Python,
-                                                Streamlit
-                                            </p></a
-                                        >
-                                    </li>
-                                    <li class="project-item">
-                                        <a
-                                            href="https://github.com/Asifdotexe/RecommendationHaki"
-                                            ><h3>
-                                                RecommendationHaki: Anime
-                                                Recommendation Engine
-                                            </h3>
-                                            <p>
-                                                Natural Language Processing —
-                                                machine-learning, NLP, Python,
-                                                recommendation-system, Streamlit
-                                            </p></a
-                                        >
-                                    </li>
-                                    <li class="project-item">
-                                        <a
-                                            href="https://github.com/Asifdotexe/StoDir"
-                                            ><h3>
-                                                StoDir: Stock Direction
-                                                Forecasting Model
-                                            </h3>
-                                            <p>
-                                                Machine Learning — Python,
-                                                Scikit-learn, Streamlit,
-                                                time-series-forecasting
-                                            </p></a
-                                        >
-                                    </li>
-                                    <li class="project-item">
-                                        <a
-                                            href="https://github.com/Asifdotexe/PlateScribe"
-                                            ><h3>
-                                                PlateScribe: License Plate
-                                                Detection and OCR
-                                            </h3>
-                                            <p>
-                                                Deep Learning — deep-learning,
-                                                OCR, OpenCV, Pytesseract,
-                                                Python, Streamlit
-                                            </p></a
-                                        >
-                                    </li>
-                                    <li class="project-item">
-                                        <a
-                                            href="https://github.com/Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews"
-                                            ><h3>
-                                                Sentimental Scoring Model on
-                                                Amazon Reviews
-                                            </h3>
-                                            <p>
-                                                Natural Language Processing —
-                                                data-analysis,
-                                                sentiment-analysis
-                                            </p></a
-                                        >
-                                    </li>
-                                    <li class="project-item">
-                                        <a
-                                            href="https://github.com/Asifdotexe/real-estate-price-prediction"
-                                            ><h3>
-                                                Real Estate Price Prediction
-                                                Model
-                                            </h3>
-                                            <p>
-                                                Machine Learning — Python,
-                                                Scikit-learn
-                                            </p></a
-                                        >
-                                    </li>
-                                    <li class="project-item">
-                                        <a
-                                            href="https://github.com/Asifdotexe/Air-Quality-Analysis-AQA"
-                                            ><h3>
-                                                AQA: Air Quality Analysis Case
-                                                Study
-                                            </h3>
-                                            <p>
-                                                Data Analysis — AQI analysis,
-                                                data-preprocessing,
-                                                data-science, data-visualization
-                                            </p></a
-                                        >
-                                    </li>
-                                    <li class="project-item">
-                                        <a
-                                            href="https://github.com/Asifdotexe/flipkart-electric-scooter-data-analysis"
-                                            ><h3>
-                                                Flipkart Electric Scooter Data
-                                                Analysis
-                                            </h3>
-                                            <p>
-                                                Data Analysis — BeautifulSoup,
-                                                data-science, webscraping
-                                            </p></a
-                                        >
-                                    </li>
-                                </ul>
-                            </noscript>
-                        </div>
-                    </section>
-                </article>
-
-                <!-- Certificates Section -->
-                <article class="certificates" data-page="certificates">
-                    <header>
-                        <h2 class="h2 article-title">Certificates</h2>
-                    </header>
-                    <section
-                        class="certificates-grid"
-                        id="certificates-grid"
-                    ></section>
-                </article>
-
-                <!--
-        - #BLOG
-      -->
-
-                <article class="blog" data-page="events">
-                    <header>
-                        <h2 class="h2 article-title">Events</h2>
-                    </header>
-
-                    <section class="blog-posts">
-                        <ul class="blog-posts-list" id="events-list"></ul>
-                    </section>
-                </article>
-
-                <!-- #CONTACT -->
-                <article class="contact" data-page="contact">
-                    <header>
-                        <h2 class="h2 article-title">Contact</h2>
-                    </header>
-
-                    <section class="mapbox" data-mapbox>
-                        <figure>
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.03900799053!2d72.88118615!3d19.082250749999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1721486767184!5m2!1sen!2sin"
-                                width="100%"
-                                height="350"
-                                style="border: 0"
-                                allowfullscreen=""
-                                loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"
-                                title="Mumbai, Maharashtra, India Map"
-                            ></iframe>
-                        </figure>
-                    </section>
-
-                    <section class="contact-form">
-                        <h3 class="h3 form-title">Contact Me</h3>
-                        <p class="contact-description">
-                            Have a question, collaboration idea, or just want to
-                            say hello? Fill out the form below and I'll get back
-                            to you soon!
-                        </p>
-                        <form
-                            action="https://api.web3forms.com/submit"
-                            method="POST"
-                            class="form"
-                            data-form
-                            autocomplete="off"
-                        >
-                            <!-- Web3Forms Access Key — get yours free at https://web3forms.com -->
-                            <input
-                                type="hidden"
-                                name="access_key"
-                                value="WEB3FORMS_ACCESS_KEY_PLACEHOLDER"
-                            />
-                            <input
-                                type="hidden"
-                                name="subject"
-                                value="New Contact from Portfolio Website"
-                            />
-                            <input
-                                type="hidden"
-                                name="from_name"
-                                value="Portfolio Contact Form"
-                            />
-                            <!-- Honeypot spam protection -->
-                            <input
-                                type="checkbox"
-                                name="botcheck"
-                                class="honeypot"
-                                tabindex="-1"
-                                autocomplete="off"
-                            />
-                            <div class="input-wrapper">
-                                <div>
-                                    <label for="fullname" class="sr-only">Full name</label>
-                                    <input
-                                        type="text"
-                                        id="fullname"
-                                        name="fullname"
-                                        class="form-input"
-                                        placeholder="Full name"
-                                        required
-                                        maxlength="100"
-                                        data-form-input
-                                    />
-                                </div>
-                                <div>
-                                    <label for="email" class="sr-only">Email address</label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        class="form-input"
-                                        placeholder="Email address"
-                                        required
-                                        maxlength="200"
-                                        data-form-input
-                                    />
-                                </div>
-                            </div>
-                            <div>
-                                <label for="message" class="sr-only">Your message</label>
-                                    <textarea
-                                        id="message"
-                                        name="message"
-                                        class="form-input"
-                                        placeholder="Your message"
-                                        required
-                                        maxlength="5000"
-                                        data-form-input
-                                        rows="5"
-                                    ></textarea>
-                            </div>
-                            <div class="form-message" data-form-message aria-live="polite"></div>
-
-                            <button
-                                class="form-btn"
-                                type="submit"
-                                disabled
-                                data-form-btn
-                            >
-                                <ion-icon name="paper-plane"></ion-icon>
-                                <span class="btn-text">Send Message</span>
-                            </button>
-                        </form>
-                    </section>
-                </article>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asif Sayyed | Data Scientist – Python, Machine Learning & AI Portfolio</title>
+    <meta name="title" content="Asif Sayyed | Data Scientist – Python, Machine Learning & AI Portfolio" />
+    <meta name="description" content="Portfolio of Asif Sayyed, a Data Scientist at Marsh McLennan specializing in Python, Machine Learning, NLP, Computer Vision, and Cyber Risk Analytics. Explore projects, certifications, and experience." />
+    <meta name="keywords" content="Asif Sayyed, Data Scientist, Python Developer, Machine Learning Engineer, AI Portfolio, NLP, Deep Learning, Cyber Risk, Marsh McLennan, Mumbai, Data Science Portfolio" />
+    <meta name="author" content="Asif Sayyed" />
+    <meta name="theme-color" content="#fdfcfc" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <meta name="language" content="English" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="canonical" href="https://sayyedasif.com/" />
+    <meta name="google-site-verification" content="mZ4YTDxw_emCHo0t3exypc7baNm8gDdt_ci72uqK1aY" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sayyedasif.com/" />
+    <meta property="og:title" content="Asif Sayyed | Data Scientist – Python, Machine Learning & AI Portfolio" />
+    <meta property="og:description" content="Data Scientist at Marsh McLennan specializing in Python, Machine Learning, NLP, and Cyber Risk Analytics." />
+    <meta property="og:image" content="https://sayyedasif.com/assets/images/my-memoji.webp" />
+    <meta property="og:site_name" content="Asif Sayyed Portfolio" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Asif Sayyed | Data Scientist – Python, Machine Learning & AI Portfolio" />
+    <meta name="twitter:description" content="Data Scientist at Marsh McLennan specializing in Python, Machine Learning, NLP, and Cyber Risk Analytics." />
+    <meta name="twitter:image" content="https://sayyedasif.com/assets/images/my-memoji.webp" />
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./assets/images/icons/icon-job.svg" type="image/x-icon" />
+
+    <!-- custom css link -->
+    <link rel="stylesheet" href="./assets/css/style.min.css" />
+
+    <!-- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- preload LCP image -->
+    <link rel="preload" as="image" href="./assets/images/my-memoji.webp" />
+
+    <!-- preload critical resources -->
+    <link rel="preload" href="./assets/js/script.min.js" as="script" />
+    <link rel="preload" href="./assets/data/projects.json" as="fetch" crossorigin />
+    <link rel="preload" href="./assets/data/last_updated.json" as="fetch" crossorigin />
+
+    <!-- custom js link -->
+    <script src="./assets/js/script.min.js" defer></script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://sayyedasif.com/#person",
+        "name": "Asif Sayyed",
+        "givenName": "Asif",
+        "familyName": "Sayyed",
+        "jobTitle": "Specialist - Data Science",
+        "url": "https://sayyedasif.com/",
+        "image": "https://sayyedasif.com/assets/images/my-memoji.webp",
+        "description": "Data Scientist at Marsh McLennan's Cyber Risk Intelligence Center (CRIC), specializing in Python, Machine Learning, NLP, Computer Vision, and Cyber Risk Analytics.",
+        "nationality": { "@type": "Country", "name": "India" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Mumbai", "addressRegion": "Maharashtra", "addressCountry": "IN" },
+        "worksFor": { "@type": "Organization", "name": "Marsh McLennan", "url": "https://www.marshmclennan.com/", "department": { "@type": "Organization", "name": "Cyber Risk Intelligence Center (CRIC)" } },
+        "alumniOf": { "@type": "EducationalOrganization", "name": "School of Data Science and Business Intelligence (SDBI)", "parentOrganization": { "@type": "EducationalOrganization", "name": "Mumbai University" } },
+        "knowsAbout": ["Data Science","Python","Machine Learning","Natural Language Processing","Deep Learning","Computer Vision","SQL","R Programming","TensorFlow","PyTorch","Scikit-learn","Pandas","NumPy","Data Visualization","Tableau","Power BI","Streamlit","PySpark","Databricks","AWS","Cyber Risk Analytics","XGBoost","Keras","MongoDB","Web Scraping"],
+        "hasCredential": [{ "@type": "EducationalOccupationalCredential", "name": "IBM Data Science Professional Certificate", "credentialCategory": "Professional Certificate", "recognizedBy": { "@type": "Organization", "name": "IBM" }, "url": "https://coursera.org/verify/professional-cert/MJD36RK7GYSD" }],
+        "sameAs": ["https://github.com/Asifdotexe","https://www.linkedin.com/in/sayyedasif/","https://medium.com/@asifdotexe","https://dev.to/asifdotexe","https://kc7cyber.com/profile/asifdotexe"]
+    }
+    </script>
+    <script type="application/ld+json">
+    { "@context": "https://schema.org", "@type": "WebSite", "@id": "https://sayyedasif.com/#website", "name": "Asif Sayyed Portfolio", "url": "https://sayyedasif.com/", "description": "Portfolio website of Asif Sayyed, Data Scientist at Marsh McLennan.", "author": { "@id": "https://sayyedasif.com/#person" }, "inLanguage": "en-US" }
+    </script>
+    <script type="application/ld+json">
+    { "@context": "https://schema.org", "@type": "ProfilePage", "@id": "https://sayyedasif.com/#profilepage", "url": "https://sayyedasif.com/", "name": "Asif Sayyed | Data Scientist Portfolio", "isPartOf": { "@id": "https://sayyedasif.com/#website" }, "mainEntity": { "@id": "https://sayyedasif.com/#person" }, "inLanguage": "en-US", "dateModified": "2026-05-28" }
+    </script>
+    <script type="application/ld+json">
+    { "@context": "https://schema.org", "@type": "ItemList", "name": "Data Science & AI Projects by Asif Sayyed", "description": "A curated collection of data science, machine learning, NLP, and developer tool projects.", "numberOfItems": 18, "itemListElement": [
+        { "@type": "ListItem", "position": 1, "item": { "@type": "SoftwareSourceCode", "name": "Second Brain", "description": "A knowledge base website for organizing and sharing notes, guides, and learning resources.", "url": "https://github.com/Asifdotexe/second-brain", "programmingLanguage": ["Python","JavaScript","HTML","CSS"], "author": { "@id": "https://sayyedasif.com/#person" } } },
+        { "@type": "ListItem", "position": 2, "item": { "@type": "SoftwareSourceCode", "name": "LittleLogger", "description": "A Python package (PyPI) for tracking and logging machine learning experiments with Scikit-learn.", "url": "https://github.com/Asifdotexe/LittleLogger", "programmingLanguage": ["Python"], "author": { "@id": "https://sayyedasif.com/#person" } } },
+        { "@type": "ListItem", "position": 3, "item": { "@type": "SoftwareSourceCode", "name": "SERPENT", "description": "A code-to-flowchart application that generates visual documentation from Python source code using AST and Graphviz.", "url": "https://github.com/Asifdotexe/SERPENT", "programmingLanguage": ["Python"], "author": { "@id": "https://sayyedasif.com/#person" } } },
+        { "@type": "ListItem", "position": 4, "item": { "@type": "SoftwareSourceCode", "name": "MNISTify", "description": "A digit recognition application using Convolutional Neural Networks (CNN) built with TensorFlow and OpenCV.", "url": "https://github.com/Asifdotexe/MNISTify", "programmingLanguage": ["Python"], "author": { "@id": "https://sayyedasif.com/#person" } } },
+        { "@type": "ListItem", "position": 5, "item": { "@type": "SoftwareSourceCode", "name": "QuickVU", "description": "A no-code data cleaning and analysis tool built with Streamlit for quick data exploration and visualization.", "url": "https://github.com/Asifdotexe/QuickVU", "programmingLanguage": ["Python"], "author": { "@id": "https://sayyedasif.com/#person" } } },
+        { "@type": "ListItem", "position": 6, "item": { "@type": "SoftwareSourceCode", "name": "DORA", "description": "An automated exploratory data analysis report generator available on PyPI.", "url": "https://github.com/Asifdotexe/DORA", "programmingLanguage": ["Python"], "author": { "@id": "https://sayyedasif.com/#person" } } },
+        { "@type": "ListItem", "position": 7, "item": { "@type": "SoftwareSourceCode", "name": "RecommendationHaki", "description": "An anime recommendation engine using Natural Language Processing techniques for content-based filtering.", "url": "https://github.com/Asifdotexe/RecommendationHaki", "programmingLanguage": ["Python"], "author": { "@id": "https://sayyedasif.com/#person" } } },
+        { "@type": "ListItem", "position": 8, "item": { "@type": "SoftwareSourceCode", "name": "StoDir", "description": "A stock direction forecasting model using time-series analysis and machine learning with Scikit-learn.", "url": "https://github.com/Asifdotexe/StoDir", "programmingLanguage": ["Python"], "author": { "@id": "https://sayyedasif.com/#person" } } },
+        { "@type": "ListItem", "position": 9, "item": { "@type": "SoftwareSourceCode", "name": "PlateScribe", "description": "A license plate detection and OCR tool using deep learning, OpenCV, and Pytesseract.", "url": "https://github.com/Asifdotexe/PlateScribe", "programmingLanguage": ["Python"], "author": { "@id": "https://sayyedasif.com/#person" } } },
+        { "@type": "ListItem", "position": 10, "item": { "@type": "SoftwareSourceCode", "name": "Sentimental Scoring Model on Amazon Reviews", "description": "NLP-based sentiment analysis model for classifying Amazon product reviews.", "url": "https://github.com/Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews", "programmingLanguage": ["Python"], "author": { "@id": "https://sayyedasif.com/#person" } } }
+    ]}
+    </script>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-52KQ8L4SQG"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-52KQ8L4SQG");
+    </script>
+</head>
+
+<body>
+<a href="#about" class="skip-link">Skip to main content</a>
+
+<!-- TOP NAV (Desktop) -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-inner">
+        <span class="navbar-brand" aria-label="Asif Sayyed">> asif.sh</span>
+        <ul class="navbar-list">
+            <li><button class="navbar-link active" data-nav-link="about">[x] About</button></li>
+            <li><button class="navbar-link" data-nav-link="resume">[+] Resume</button></li>
+            <li><button class="navbar-link" data-nav-link="projects">[+] Projects</button></li>
+            <li><button class="navbar-link" data-nav-link="certificates">[+] Certs</button></li>
+            <li><button class="navbar-link" data-nav-link="events">[+] Events</button></li>
+            <li><button class="navbar-link" data-nav-link="contact">[x] Contact</button></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- MAIN LAYOUT -->
+<div class="main-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" data-sidebar>
+        <div class="sidebar-info">
+            <figure class="avatar-box">
+                <img src="./assets/images/my-memoji.webp" alt="Asif Sayyed" width="80" loading="eager" fetchpriority="high" />
+            </figure>
+            <div class="info-content">
+                <h1 class="name">Asif Sayyed</h1>
+                <p class="title">Data Scientist</p>
             </div>
-            <!-- BOTTOM NAV (mobile/tablet) -->
-            <nav class="bottom-nav" role="navigation" aria-label="Main navigation">
-                <ul class="bottom-nav-list">
-                    <li class="bottom-nav-item">
-                        <button class="bottom-nav-link active" data-nav-link>
-                            <ion-icon name="person-outline"></ion-icon>
-                            <span>About</span>
-                        </button>
+        </div>
+
+        <ul class="contacts-list">
+            <li class="contact-item">
+                <span class="bracket">[x]</span>
+                <div class="contact-info">
+                    <p class="contact-title">Location</p>
+                    <address>Mumbai, India</address>
+                </div>
+            </li>
+        </ul>
+
+        <hr class="separator" />
+
+        <ul class="social-list">
+            <li><a href="https://github.com/Asifdotexe" class="social-link" aria-label="GitHub Profile" rel="noopener noreferrer" target="_blank">&gt; GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/sayyedasif/" class="social-link" aria-label="LinkedIn Profile" rel="noopener noreferrer" target="_blank">&gt; LinkedIn</a></li>
+            <li><a href="https://medium.com/@asifdotexe" class="social-link" aria-label="Medium Blog" rel="noopener noreferrer" target="_blank">&gt; Medium</a></li>
+            <li><a href="https://dev.to/asifdotexe" class="social-link" aria-label="dev.to Profile" rel="noopener noreferrer" target="_blank">&gt; dev.to</a></li>
+            <li><a href="https://kc7cyber.com/profile/asifdotexe" class="social-link" aria-label="KC7 Cyber Profile" rel="noopener noreferrer" target="_blank">&gt; KC7</a></li>
+        </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content" id="main-content">
+
+        <!-- HERO TUI MOCKUP -->
+        <section class="hero-tui" id="home">
+            <div class="hero-tui-wordmark">  __   __    _      __   __
+ /  \ /  \  | \    /  \ /  \
+| || | || | |  \  | || | || |
+| || | || | |   \ | || | || |
+| || | || | | |\ \| || | || |
+ \__/ \__/  |_| \__/  \__/    1.0</div>
+            <div class="hero-tui-prompt">
+                <span class="prompt-pipe">&gt;</span>
+                <span class="prompt-command">Build</span>
+                <span class="prompt-token">[data-scientist]</span>
+                <span class="prompt-command">asif.sh --profile --verbose</span>
+            </div>
+            <div class="hero-tui-hints">
+                <span>Tab: switch section</span>
+                <span class="hint-divider">|</span>
+                <span>Ctrl+P: scroll to top</span>
+                <span class="hint-divider">|</span>
+                <span>1-6: quick jump</span>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="section" id="about">
+            <div class="section-content">
+                <h2 class="section-label"><span class="bracket">[x]</span> About</h2>
+
+                <div class="about-text">
+                    <p>Hi there, I'm Asif Sayyed.</p>
+                    <p>I'm a <b>problem solver</b> and <b>Data Science Specialist</b> at Marsh McLennan, focused on turning raw data into <i>clear, useful solutions.</i> My background is in Data Science & Business Analytics, with professional experience in the insurance industry analyzing cyber risk.</p>
+                    <p>I draw inspiration from the strategist Sun Tzu, who wrote, <i>"In the midst of chaos, there is also opportunity."</i> To me, data is that chaos. My work is to find the opportunity hidden within it.</p>
+                    <p>What truly excites me isn't just analyzing data; it's <b>building with it</b>. I use tools like Python, SQL, and Databricks to create working applications that turn abstract numbers into something tangible that anyone can use.</p>
+                    <p>Whether you're a fellow developer or just curious, I invite you to <b>explore my portfolio</b>.</p>
+                </div>
+
+                <!-- Service -->
+                <h3 class="section-label"><span class="bracket">[+]</span> What I'm currently doing</h3>
+                <ul class="service-list">
+                    <li class="service-item">
+                        <div class="service-icon-box"><span class="bracket">[x]</span></div>
+                        <div class="service-content-box">
+                            <h4 class="service-item-title">Corporate Overview</h4>
+                            <p class="service-item-text">Specialist - Data Science @ Marsh McLennan at the Cyber Risk and Intelligence Center (CRIC).</p>
+                        </div>
                     </li>
-                    <li class="bottom-nav-item">
-                        <button class="bottom-nav-link" data-nav-link>
-                            <ion-icon name="document-text-outline"></ion-icon>
-                            <span>Resume</span>
-                        </button>
-                    </li>
-                    <li class="bottom-nav-item">
-                        <button class="bottom-nav-link" data-nav-link>
-                            <ion-icon name="code-slash-outline"></ion-icon>
-                            <span>Projects</span>
-                        </button>
-                    </li>
-                    <li class="bottom-nav-item">
-                        <button class="bottom-nav-link" data-nav-link>
-                            <ion-icon name="ribbon-outline"></ion-icon>
-                            <span>Certificates</span>
-                        </button>
-                    </li>
-                    <li class="bottom-nav-item">
-                        <button class="bottom-nav-link" data-nav-link>
-                            <ion-icon name="calendar-outline"></ion-icon>
-                            <span>Events</span>
-                        </button>
-                    </li>
-                    <li class="bottom-nav-item">
-                        <button class="bottom-nav-link" data-nav-link>
-                            <ion-icon name="mail-outline"></ion-icon>
-                            <span>Contact</span>
-                        </button>
+                    <li class="service-item">
+                        <div class="service-icon-box"><span class="bracket">[+]</span></div>
+                        <div class="service-content-box">
+                            <h4 class="service-item-title">Academic Overview</h4>
+                            <p class="service-item-text">I have my Bachelors in Science, Data Science and Business Analytics from Mumbai University.</p>
+                        </div>
                     </li>
                 </ul>
-            </nav>
-        </main>
+
+                <!-- Testimonials (inline rows) -->
+                <section class="testimonials">
+                    <div class="testimonials-header">
+                        <h3 class="section-label"><span class="bracket">[x]</span> Testimonials</h3>
+                        <a id="recommendMeButton" href="https://www.linkedin.com/in/sayyedasif/" target="_blank" rel="noopener noreferrer" class="recommend-btn">&gt; Recommend Me</a>
+                    </div>
+                    <script>
+                    const linkedInProfileURL = "https://www.linkedin.com/in/sayyedasif/";
+                    document.getElementById("recommendMeButton").href = linkedInProfileURL + "edit/forms/recommendation/write";
+                    </script>
+
+                    <ul class="testimonials-list">
+                        <li class="testimonials-item">
+                            <div class="content-card">
+                                <figure class="testimonials-avatar-box">
+                                    <img src="./assets/images/icons/icon-linkedin.svg" alt="Prof. Awesh Bhornya" width="32" />
+                                </figure>
+                                <div>
+                                    <h4 class="testimonials-item-title">Prof. Awesh Bhornya @SDBI</h4>
+                                    <div class="testimonials-text">
+                                        <p>I highly recommend Asif Sayyed as an exceptionally talented student. I had the pleasure of teaching him Excel, Excel VBA, and Power BI during the B. Sc in Data Science program. Asif's aptitude for these subjects is truly impressive, and his dedication to mastering them sets him apart.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Badges -->
+                <section class="clients">
+                    <h3 class="section-label"><span class="bracket">[+]</span> Badges</h3>
+                    <ul class="clients-list has-scrollbar">
+                        <li class="clients-item">
+                            <a href="https://www.credly.com/badges/85db4974-0195-4e14-a094-9328fa9fde95" target="_blank" rel="noopener noreferrer">
+                                <img src="./assets/images/badges/85db4974-0195-4e14-a094-9328fa9fde95.webp" alt="IBM Data Science Professional Certificate badge" loading="lazy" />
+                            </a>
+                        </li>
+                        <li class="clients-item">
+                            <a href="https://www.credly.com/badges/b7b17778-c71e-492d-878e-cd684a543c80" target="_blank" rel="noopener noreferrer">
+                                <img src="./assets/images/badges/b7b17778-c71e-492d-878e-cd684a543c80.webp" alt="Machine Learning with Python badge" loading="lazy" />
+                            </a>
+                        </li>
+                        <li class="clients-item">
+                            <a href="https://www.credly.com/badges/9426003d-b623-41ed-abee-6779f7503902" target="_blank" rel="noopener noreferrer">
+                                <img src="./assets/images/badges/9426003d-b623-41ed-abee-6779f7503902.webp" alt="Data Visualization with Python badge" loading="lazy" />
+                            </a>
+                        </li>
+                        <li class="clients-item">
+                            <a href="https://www.credly.com/badges/a02b69ad-0261-46a0-99dc-c5b736fed61e" target="_blank" rel="noopener noreferrer">
+                                <img src="./assets/images/badges/a02b69ad-0261-46a0-99dc-c5b736fed61e.webp" alt="Data Analysis with Python badge" loading="lazy" />
+                            </a>
+                        </li>
+                        <li class="clients-item">
+                            <a href="https://www.credly.com/badges/997eb17d-a570-472c-a04a-186356e23ffa" target="_blank" rel="noopener noreferrer">
+                                <img src="./assets/images/badges/997eb17d-a570-472c-a04a-186356e23ffa.webp" alt="Databases and SQL for Data Science with Python badge" loading="lazy" />
+                            </a>
+                        </li>
+                        <li class="clients-item">
+                            <a href="https://www.credly.com/badges/e541fccf-4c0d-48e6-8129-b2c1e20cc977" target="_blank" rel="noopener noreferrer">
+                                <img src="./assets/images/badges/e541fccf-4c0d-48e6-8129-b2c1e20cc977.webp" alt="Python for Data Science, AI & Development badge" loading="lazy" />
+                            </a>
+                        </li>
+                        <li class="clients-item">
+                            <a href="https://www.credly.com/badges/560338c6-b4e7-4552-a99b-9461df31f93e" target="_blank" rel="noopener noreferrer">
+                                <img src="./assets/images/badges/560338c6-b4e7-4552-a99b-9461df31f93e.webp" alt="Data Science Methodology badge" loading="lazy" />
+                            </a>
+                        </li>
+                        <li class="clients-item">
+                            <a href="https://www.credly.com/badges/6ad7bb70-c735-4ebf-af91-52552bb21d8e" target="_blank" rel="noopener noreferrer">
+                                <img src="./assets/images/badges/6ad7bb70-c735-4ebf-af91-52552bb21d8e.webp" alt="Tools for Data Science badge" loading="lazy" />
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </section>
+
+        <!-- RESUME -->
+        <section class="section" id="resume">
+            <div class="section-content">
+
+                <!-- Education -->
+                <div class="timeline">
+                    <h2 class="section-label"><span class="bracket">[+]</span> Education</h2>
+                    <ol class="timeline-list" id="education-list">
+                        <!-- Content loaded dynamically via JS -->
+                    </ol>
+                    <noscript>
+                        <ol class="timeline-list">
+                            <li class="timeline-item"><h4 class="timeline-item-title">SDBI - School of Data Science and Business Intelligence, Mumbai</h4><span>2022 - 2025</span><p class="timeline-text">Completed Bachelor's in Data Science and Business Analytics from Mumbai University.</p></li>
+                            <li class="timeline-item"><h4 class="timeline-item-title">Shree L.R. Tiwari Junior College, Mira Road</h4><span>2019 - 2021</span><p class="timeline-text">Completed HSC (Higher Secondary Certificate) in Science.</p></li>
+                            <li class="timeline-item"><h4 class="timeline-item-title">St. Xavier's High School, Mira Road</h4><span>2009 - 2019</span><p class="timeline-text">Completed SSC (Secondary School Certificate).</p></li>
+                        </ol>
+                    </noscript>
+                </div>
+
+                <!-- Experience -->
+                <div class="timeline">
+                    <h2 class="section-label"><span class="bracket">[+]</span> Experience</h2>
+                    <ol class="timeline-list" id="experience-list">
+                        <!-- Content loaded dynamically via JS -->
+                    </ol>
+                    <noscript>
+                        <ol class="timeline-list">
+                            <li class="timeline-item"><h4 class="timeline-item-title">Specialist - Data Science at Marsh McLennan</h4><span>May 2025 - Present</span><p class="timeline-text">Currently working as a Specialist - Data Science at the Cyber Risk Intelligence Center (CRIC).</p></li>
+                            <li class="timeline-item"><h4 class="timeline-item-title">Graduate Trainee - Data Science at Marsh McLennan</h4><span>December 2023 - December 2024</span><p class="timeline-text">Worked as a Graduate Trainee Data Scientist at the Cyber Risk Intelligence Center.</p></li>
+                        </ol>
+                    </noscript>
+                </div>
+
+                <!-- GitHub Contributions -->
+                <div class="timeline">
+                    <h2 class="section-label"><span class="bracket">[+]</span> GitHub Contributions</h2>
+                    <div class="contribution-chart">
+                        <img src="https://github-readme-activity-graph.vercel.app/graph?username=Asifdotexe&bg_color=fdfcfc&color=201d1d&line=201d1d&point=201d1d&area=true&area_color=f1eeee&hide_border=true&days=50&custom_title=Activity%20Graph" alt="Asifdotexe's GitHub Contribution Graph" />
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <section class="skills">
+                    <h2 class="section-label"><span class="bracket">[+]</span> My Toolkit</h2>
+
+                    <div class="skills-group">
+                        <h3 class="skills-group-title">&gt; Programming &amp; Databases</h3>
+                        <ul class="skills-list">
+                            <li class="skills-item"><span class="bracket">[x]</span> Python</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> R</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> SQL</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> NoSQL (MongoDB)</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> Scala</li>
+                        </ul>
+                    </div>
+
+                    <div class="skills-group">
+                        <h3 class="skills-group-title">&gt; Data Wrangling &amp; Preprocessing</h3>
+                        <ul class="skills-list">
+                            <li class="skills-item"><span class="bracket">[x]</span> Pandas</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> NumPy</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> Web Scraping</li>
+                        </ul>
+                    </div>
+
+                    <div class="skills-group">
+                        <h3 class="skills-group-title">&gt; Data Analysis &amp; Visualization</h3>
+                        <ul class="skills-list">
+                            <li class="skills-item"><span class="bracket">[x]</span> Matplotlib &amp; Seaborn</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> Plotly &amp; Dash</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> Tableau</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> Power BI</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> Streamlit</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> GraphViz</li>
+                        </ul>
+                    </div>
+
+                    <div class="skills-group">
+                        <h3 class="skills-group-title">&gt; Machine Learning &amp; Modeling</h3>
+                        <ul class="skills-list">
+                            <li class="skills-item"><span class="bracket">[x]</span> Scikit-learn</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> XGBoost</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> StatsModels</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> Time Series</li>
+                        </ul>
+                    </div>
+
+                    <div class="skills-group">
+                        <h3 class="skills-group-title">&gt; Deep Learning</h3>
+                        <ul class="skills-list">
+                            <li class="skills-item"><span class="bracket">[x]</span> TensorFlow</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> PyTorch</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> Keras</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> NLP (NLTK, Spacy)</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> Computer Vision (OpenCV)</li>
+                        </ul>
+                    </div>
+
+                    <div class="skills-group">
+                        <h3 class="skills-group-title">&gt; Big Data Technologies</h3>
+                        <ul class="skills-list">
+                            <li class="skills-item"><span class="bracket">[x]</span> Spark (PySpark)</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> Databricks</li>
+                        </ul>
+                    </div>
+
+                    <div class="skills-group">
+                        <h3 class="skills-group-title">&gt; Cloud &amp; Automations</h3>
+                        <ul class="skills-list">
+                            <li class="skills-item"><span class="bracket">[x]</span> AWS</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> Git</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> GitHub</li>
+                            <li class="skills-item"><span class="bracket">[x]</span> Power Automate</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="section" id="projects">
+            <div class="section-content">
+                <h2 class="section-label"><span class="bracket">[+]</span> Projects</h2>
+
+                <div class="filter-wrapper">
+                    <ul class="filter-list">
+                        <li class="filter-item"><button class="button-tab active" data-filter-btn>All</button></li>
+                        <li class="filter-item"><button class="button-tab" data-filter-btn>Data Analysis</button></li>
+                        <li class="filter-item"><button class="button-tab" data-filter-btn>AI/ML</button></li>
+                        <li class="filter-item"><button class="button-tab" data-filter-btn>NLP</button></li>
+                        <li class="filter-item"><button class="button-tab" data-filter-btn>Tools</button></li>
+                    </ul>
+                    <span class="filter-indicator" aria-hidden="true"></span>
+                </div>
+
+                <div class="filter-select-box">
+                    <button class="filter-select" data-select>
+                        <div class="select-value" data-selecct-value>Select category</div>
+                        <div class="select-icon"><span>&#9660;</span></div>
+                    </button>
+                    <ul class="select-list">
+                        <li class="select-item"><button data-select-item>All</button></li>
+                        <li class="select-item"><button data-select-item>Data Analysis</button></li>
+                        <li class="select-item"><button data-select-item>AI/ML</button></li>
+                        <li class="select-item"><button data-select-item>NLP</button></li>
+                        <li class="select-item"><button data-select-item>Tools</button></li>
+                    </ul>
+                </div>
+
+                <ul class="project-list" id="project-list">
+                    <!-- Content loaded dynamically via JS -->
+                </ul>
+                <noscript>
+                    <ul class="project-list">
+                        <li class="project-item"><a href="https://github.com/Asifdotexe/second-brain"><h3>Second Brain</h3><p>Knowledge base website — blog, CSS, HTML, JavaScript, Markdown, Python</p></a></li>
+                        <li class="project-item"><a href="https://github.com/Asifdotexe/LittleLogger"><h3>LittleLogger</h3><p>ML Experiment Tracker — developer-tools, logging, PyPI, Python, Scikit-learn</p></a></li>
+                        <li class="project-item"><a href="https://github.com/Asifdotexe/SERPENT"><h3>SERPENT: Code to Flowchart</h3><p>Code Documentation — AST, Graphviz, Python, Streamlit</p></a></li>
+                        <li class="project-item"><a href="https://github.com/Asifdotexe/MNISTify"><h3>MNISTify: Digit Recognition App</h3><p>Deep Learning — Python, Streamlit, TensorFlow, OpenCV, CNN</p></a></li>
+                        <li class="project-item"><a href="https://github.com/Asifdotexe/QuickVU"><h3>QuickVU: No-code Data Tool</h3><p>Data Cleaning and Analysis — Python, Streamlit</p></a></li>
+                        <li class="project-item"><a href="https://github.com/Asifdotexe/DORA"><h3>DORA: Report Automator</h3><p>Data Analysis Tool — CLI, PyPI, Python, Streamlit</p></a></li>
+                    </ul>
+                </noscript>
+            </div>
+        </section>
+
+        <!-- CERTIFICATES -->
+        <section class="section" id="certificates">
+            <div class="section-content">
+                <h2 class="section-label"><span class="bracket">[+]</span> Certificates</h2>
+                <div class="certificates-grid" id="certificates-grid">
+                    <!-- Content loaded dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- EVENTS -->
+        <section class="section" id="events">
+            <div class="section-content">
+                <h2 class="section-label"><span class="bracket">[+]</span> Events</h2>
+                <section class="blog-posts">
+                    <ul class="events-posts-list" id="events-list">
+                        <!-- Content loaded dynamically via JS -->
+                    </ul>
+                </section>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section" id="contact">
+            <div class="section-content">
+                <h2 class="section-label"><span class="bracket">[x]</span> Contact</h2>
+
+                <section class="mapbox" data-mapbox>
+                    <figure>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.03900799053!2d72.88118615!3d19.082250749999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1721486767184!5m2!1sen!2sin" width="100%" height="350" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mumbai, Maharashtra, India Map"></iframe>
+                    </figure>
+                </section>
+
+                <section class="contact-form">
+                    <h3 class="section-label"><span class="bracket">[x]</span> Send a message</h3>
+                    <p class="contact-description">Have a question, collaboration idea, or just want to say hello? Fill out the form below and I'll get back to you soon.</p>
+                    <form action="https://api.web3forms.com/submit" method="POST" class="form" data-form autocomplete="off">
+                        <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY_PLACEHOLDER" />
+                        <input type="hidden" name="subject" value="New Contact from Portfolio Website" />
+                        <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+                        <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" />
+                        <div class="input-wrapper">
+                            <div>
+                                <label for="fullname" class="sr-only">Full name</label>
+                                <input type="text" id="fullname" name="fullname" class="form-input" placeholder="Full name" required maxlength="100" data-form-input />
+                            </div>
+                            <div>
+                                <label for="email" class="sr-only">Email address</label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="Email address" required maxlength="200" data-form-input />
+                            </div>
+                        </div>
+                        <div>
+                            <label for="message" class="sr-only">Your message</label>
+                            <textarea id="message" name="message" class="form-input" placeholder="Your message" required maxlength="5000" data-form-input rows="5"></textarea>
+                        </div>
+                        <div class="form-message" data-form-message aria-live="polite"></div>
+                        <button class="form-btn" type="submit" disabled data-form-btn>
+                            <span class="btn-text">&gt; Send Message</span>
+                        </button>
+                    </form>
+                </section>
+            </div>
+        </section>
 
         <!-- FOOTER -->
         <footer class="site-footer">
             <p class="site-footer__text">
-                &copy; 2026 Asif Sayyed
-                <span aria-hidden="true">&middot;</span>&ensp;
+                &copy; 2026 Asif Sayyed &middot;&ensp;
                 Data Scientist at
-                <a
-                    href="https://www.marshmclennan.com/"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    class="site-footer__link"
-                    >Marsh McLennan</a
-                >
-                &ensp;<span aria-hidden="true">&middot;</span>&ensp; Mumbai, India &ensp;
+                <a href="https://www.marshmclennan.com/" rel="noopener noreferrer" target="_blank" class="site-footer__link">Marsh McLennan</a>
+                &ensp;&middot;&ensp; Mumbai, India &ensp;
                 <a href="/llms.txt" class="site-footer__link">llms.txt</a>
-                &ensp;<span aria-hidden="true">&middot;</span>&ensp;
+                &ensp;&middot;&ensp;
                 <a href="/llms-full.txt" class="site-footer__link">llms-full.txt</a>
             </p>
         </footer>
+
+    </div>
+</div>
+
+<!-- BOTTOM NAV (mobile) -->
+<nav class="bottom-nav" role="navigation" aria-label="Main navigation">
+    <ul class="bottom-nav-list">
+        <li class="bottom-nav-item">
+            <button class="bottom-nav-link active" data-nav-link="about">
+                <span class="bracket">[x]</span>
+                <span>About</span>
+            </button>
+        </li>
+        <li class="bottom-nav-item">
+            <button class="bottom-nav-link" data-nav-link="resume">
+                <span class="bracket">[+]</span>
+                <span>Resume</span>
+            </button>
+        </li>
+        <li class="bottom-nav-item">
+            <button class="bottom-nav-link" data-nav-link="projects">
+                <span class="bracket">[+]</span>
+                <span>Projects</span>
+            </button>
+        </li>
+        <li class="bottom-nav-item">
+            <button class="bottom-nav-link" data-nav-link="certificates">
+                <span class="bracket">[+]</span>
+                <span>Certs</span>
+            </button>
+        </li>
+        <li class="bottom-nav-item">
+            <button class="bottom-nav-link" data-nav-link="events">
+                <span class="bracket">[+]</span>
+                <span>Events</span>
+            </button>
+        </li>
+        <li class="bottom-nav-item">
+            <button class="bottom-nav-link" data-nav-link="contact">
+                <span class="bracket">[x]</span>
+                <span>Contact</span>
+            </button>
+        </li>
+    </ul>
+</nav>
+
 </body>
 </html>

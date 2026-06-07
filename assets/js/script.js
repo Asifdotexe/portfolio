@@ -1,98 +1,90 @@
 'use strict';
 
 // --------------------------------------------------------------------
-// Original UI Functionality (Sidebar, Modals, Filters, Navigation)
+// SCROLL SPY — IntersectionObserver for active section highlighting
 // --------------------------------------------------------------------
 
-// Element toggle function
-const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+const initScrollSpy = () => {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('[data-nav-link]');
+  if (!sections.length || !navLinks.length) return;
 
-// Sidebar
-const sidebar = document.querySelector("[data-sidebar]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-if (sidebar && sidebarBtn) {
-  sidebarBtn.addEventListener("click", function () {
-    elementToggleFunc(sidebar);
-    const expanded = sidebar.classList.contains("active");
-    sidebarBtn.setAttribute("aria-expanded", expanded);
-    sidebarBtn.querySelector("span").textContent = expanded ? "Hide Contacts" : "Show Contacts";
+  let currentActiveId = '';
+
+  const setActive = (id) => {
+    if (id === currentActiveId) return;
+    currentActiveId = id;
+    navLinks.forEach(link => {
+      const target = link.dataset.navLink;
+      link.classList.toggle('active', target === id);
+    });
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    let maxRatio = 0;
+    let bestId = currentActiveId;
+
+    entries.forEach(entry => {
+      if (entry.intersectionRatio > maxRatio) {
+        maxRatio = entry.intersectionRatio;
+        bestId = entry.target.id;
+      }
+    });
+
+    if (bestId) setActive(bestId);
+  }, {
+    threshold: [0, 0.25, 0.5, 0.75, 1],
+    rootMargin: '-56px 0px -40% 0px'
   });
-}
 
-// Testimonials modal
-const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
-const modalContainer = document.querySelector("[data-modal-container]");
-const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
-const overlay = document.querySelector("[data-overlay]");
-let lastFocusedEl = null;
-if (modalContainer && modalCloseBtn && overlay) {
-  const modalImg = document.querySelector("[data-modal-img]");
-  const modalTitle = document.querySelector("[data-modal-title]");
-  const modalText = document.querySelector("[data-modal-text]");
-  const focusableEls = modalContainer.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-  const firstFocusable = focusableEls[0];
-  const lastFocusable = focusableEls[focusableEls.length - 1];
+  sections.forEach(s => observer.observe(s));
 
-  const testimonialsModalFunc = function () {
-    const opening = !modalContainer.classList.contains("active");
-    modalContainer.classList.toggle("active");
-    overlay.classList.toggle("active");
-    if (opening) {
-      lastFocusedEl = document.activeElement;
-      modalContainer.focus();
-    } else {
-      if (lastFocusedEl) lastFocusedEl.focus();
+  // Set initial active based on scroll position
+  const onScroll = () => {
+    let bestSection = null;
+    let bestDist = Infinity;
+    const navHeight = 56;
+
+    sections.forEach(s => {
+      const rect = s.getBoundingClientRect();
+      const dist = Math.abs(rect.top - navHeight);
+      if (dist < bestDist) {
+        bestDist = dist;
+        bestSection = s;
+      }
+    });
+
+    if (bestSection && bestSection.id !== currentActiveId) {
+      setActive(bestSection.id);
     }
   };
 
-  testimonialsItem.forEach(item => {
-    item.addEventListener("click", function () {
-      modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-      modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-      modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-      modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
-      testimonialsModalFunc();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+};
+
+// --------------------------------------------------------------------
+// NAV CLICK — smooth scroll to section
+// --------------------------------------------------------------------
+
+const initNavClick = () => {
+  const navLinks = document.querySelectorAll('[data-nav-link]');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const targetId = link.dataset.navLink;
+      const targetSection = document.getElementById(targetId);
+      if (!targetSection) return;
+
+      const navHeight = 56;
+      const top = targetSection.getBoundingClientRect().top + window.scrollY - navHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
+
+      // Set active immediately for responsiveness
+      navLinks.forEach(l => l.classList.toggle('active', l === link));
     });
   });
-  modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-  overlay.addEventListener("click", testimonialsModalFunc);
-
-  modalContainer.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      testimonialsModalFunc();
-      return;
-    }
-    if (e.key === 'Tab') {
-      if (e.shiftKey && document.activeElement === firstFocusable) {
-        e.preventDefault();
-        lastFocusable.focus();
-      } else if (!e.shiftKey && document.activeElement === lastFocusable) {
-        e.preventDefault();
-        firstFocusable.focus();
-      }
-    }
-  });
-}
-
-// Page navigation
-const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
-if (navigationLinks.length > 0 && pages.length > 0) {
-  navigationLinks.forEach(link => {
-    link.addEventListener("click", function () {
-      const targetPage = this.textContent.trim().toLowerCase();
-      pages.forEach(page => {
-        page.classList.toggle("active", targetPage === page.dataset.page);
-        if (targetPage === page.dataset.page) {
-          window.scrollTo(0, 0);
-        }
-      });
-      navigationLinks.forEach(navLink => {
-        navLink.classList.toggle("active", navLink === this);
-      });
-    });
-  });
-}
+};
 
 // --------------------------------------------------------------------
 // KEYBOARD NAVIGATION
@@ -101,12 +93,10 @@ if (navigationLinks.length > 0 && pages.length > 0) {
 const initKeyboardNav = () => {
   const links = Array.from(document.querySelectorAll('[data-nav-link]'));
 
-  const getVisibleLinks = () => links.filter(l => l.offsetParent !== null);
-
   document.addEventListener('keydown', (e) => {
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
-    const visibleLinks = getVisibleLinks();
+    const visibleLinks = links.filter(l => l.offsetParent !== null);
     if (!visibleLinks.length) return;
 
     const num = parseInt(e.key);
@@ -124,29 +114,6 @@ const initKeyboardNav = () => {
       visibleLinks[next].click();
     }
   });
-};
-
-// --------------------------------------------------------------------
-// SCROLL PROGRESS INDICATOR
-// --------------------------------------------------------------------
-
-const initScrollProgress = () => {
-  const bar = document.createElement('div');
-  bar.className = 'scroll-progress';
-  document.body.prepend(bar);
-
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (scrollTop / docHeight) : 0;
-      bar.style.transform = 'scaleX(' + progress + ')';
-      ticking = false;
-    });
-  }, { passive: true });
 };
 
 // --------------------------------------------------------------------
@@ -208,138 +175,42 @@ const initFormSubmit = () => {
 };
 
 // --------------------------------------------------------------------
-// NEW VISUAL EFFECTS (Typewriter, Tilt)
-// --------------------------------------------------------------------
-
-const initTypewriter = () => {
-  const titleElement = document.querySelector('.info-content .title');
-  if (!titleElement) return;
-
-  const roles = ["Data Scientist", "Python Developer", "Problem Solver", "Analyst"];
-  let roleIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let typeSpeed = 100;
-
-  titleElement.classList.add('typewriter-cursor');
-
-  function type() {
-    const currentRole = roles[roleIndex];
-
-    if (isDeleting) {
-      titleElement.textContent = currentRole.substring(0, charIndex - 1);
-      charIndex--;
-      typeSpeed = 50;
-    } else {
-      titleElement.textContent = currentRole.substring(0, charIndex + 1);
-      charIndex++;
-      typeSpeed = 150;
-    }
-
-    if (!isDeleting && charIndex === currentRole.length) {
-      isDeleting = true;
-      typeSpeed = 2000; // Pause at end
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      roleIndex = (roleIndex + 1) % roles.length;
-      typeSpeed = 500; // Pause before new word
-    }
-
-    setTimeout(type, typeSpeed);
-  }
-
-  type();
-};
-
-const initTiltEffect = () => {
-  const cards = document.querySelectorAll('.project-item, .certificate-item, .events-post-item');
-
-  cards.forEach(card => {
-    if (card.dataset.tiltInitialized) return;
-    card.dataset.tiltInitialized = 'true';
-    card.classList.add('tilt-effect');
-
-    let ticking = false;
-    const onMove = (e) => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = ((y - centerY) / centerY) * -5;
-        const rotateY = ((x - centerX) / centerX) * 5;
-
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-        ticking = false;
-      });
-    };
-
-    card.addEventListener('mousemove', onMove, { passive: true });
-    card.addEventListener('mouseleave', () => {
-      ticking = false;
-      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-    });
-  });
-};
-
-
-// --------------------------------------------------------------------
 // DYNAMIC CONTENT LOADING
 // --------------------------------------------------------------------
+
 document.addEventListener('DOMContentLoaded', () => {
 
-  initTypewriter();
-  initScrollProgress();
+  initScrollSpy();
+  initNavClick();
   initKeyboardNav();
   initFormSubmit();
 
-  // Helper to add skeleton loading state
-  const showSkeleton = (elementId, count = 3, height = '100px') => {
-    const container = document.getElementById(elementId);
-    if (!container) return;
-    container.innerHTML = '';
-    for (let i = 0; i < count; i++) {
-      const div = document.createElement('div');
-      div.classList.add('skeleton');
-      div.style.height = height;
-      div.style.marginBottom = '20px';
-      container.appendChild(div);
-    }
-  }
-
-  // Helper to show error state
   const showFetchError = (elementId, message = 'Could not load content. Please try again later.') => {
     const container = document.getElementById(elementId);
     if (!container) return;
-    container.innerHTML = `<p class="fetch-error">${message}</p>`;
-  }
+    container.innerHTML = '<p class="fetch-error">' + message + '</p>';
+  };
+
+  // Populate Education
   const populateEducation = () => {
     const educationList = document.getElementById('education-list');
     if (!educationList) return;
 
-    showSkeleton('education-list', 3, '80px'); // Optional: enable if fetch is slow
-
     fetch('./assets/data/education.json')
       .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching education.json`);
+        if (!response.ok) throw new Error('HTTP ' + response.status);
         return response.json();
       })
       .then(data => {
-        educationList.innerHTML = ''; // Clear skeleton
+        educationList.innerHTML = '';
         if (!data.length) {
           showFetchError('education-list', 'No education data available.');
           return;
         }
-        data.forEach((edu, index) => {
+        data.forEach((edu) => {
           const item = document.createElement('li');
-          item.className = 'timeline-item fade-in-up';
-          item.style.animationDelay = `${index * 0.1}s`;
-          item.innerHTML = `<h4 class="h4 timeline-item-title">${edu.institution}</h4><span>${edu.duration}</span><p class="timeline-text">${edu.description}</p>`;
+          item.className = 'timeline-item';
+          item.innerHTML = '<h4 class="timeline-item-title">' + edu.institution + '</h4><span>' + edu.duration + '</span><p class="timeline-text">' + edu.description + '</p>';
           educationList.appendChild(item);
         });
       })
@@ -349,25 +220,26 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   };
 
-  // Function to populate the Experience section
+  // Populate Experience
   const populateExperience = () => {
     const experienceList = document.getElementById('experience-list');
     if (!experienceList) return;
+
     fetch('./assets/data/experience.json')
       .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching experience.json`);
+        if (!response.ok) throw new Error('HTTP ' + response.status);
         return response.json();
       })
       .then(data => {
+        experienceList.innerHTML = '';
         if (!data.length) {
           showFetchError('experience-list', 'No experience data available.');
           return;
         }
-        data.forEach((exp, index) => {
+        data.forEach((exp) => {
           const item = document.createElement('li');
-          item.className = 'timeline-item fade-in-up';
-          item.style.animationDelay = `${index * 0.1}s`;
-          item.innerHTML = `<h4 class="h4 timeline-item-title">${exp.role}</h4><span>${exp.date}</span><p class="timeline-text">${exp.description}</p>`;
+          item.className = 'timeline-item';
+          item.innerHTML = '<h4 class="timeline-item-title">' + exp.role + '</h4><span>' + exp.date + '</span><p class="timeline-text">' + exp.description + '</p>';
           experienceList.appendChild(item);
         });
       })
@@ -377,29 +249,28 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   };
 
-  // Function to populate the Events section
+  // Populate Events
   const populateEvents = () => {
     const eventsList = document.getElementById('events-list');
     if (!eventsList) return;
+
     fetch('./assets/data/events.json')
       .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching events.json`);
+        if (!response.ok) throw new Error('HTTP ' + response.status);
         return response.json();
       })
       .then(data => {
+        eventsList.innerHTML = '';
         if (!data.length) {
           showFetchError('events-list', 'No events data available.');
           return;
         }
-        data.forEach((event, index) => {
+        data.forEach((event) => {
           const item = document.createElement('li');
-          item.className = 'blog-post-item fade-in-up';
-          item.style.animationDelay = `${index * 0.1}s`;
-          item.innerHTML = `<a href="${event.url}" target="_blank" rel="noopener noreferrer"><figure class="blog-banner-box"><img src="${event.image}" alt="${event.title}" loading="lazy"></figure><div class="blog-content"><div class="blog-meta"><p class="blog-category">${event.category}</p><span class="dot"></span><time datetime="${event.date}">${event.formattedDate}</time></div><h3 class="h3 blog-item-title">${event.title}</h3><p class="blog-text">${event.description}</p></div></a>`;
+          item.className = 'events-post-item';
+          item.innerHTML = '<a href="' + event.url + '" target="_blank" rel="noopener noreferrer"><figure class="event-banner-box"><img src="' + event.image + '" alt="' + event.title + '" loading="lazy"></figure><div class="events-content"><div class="events-meta"><span class="event-category">' + event.category + '</span><span class="dot"></span><time datetime="' + event.date + '">' + event.formattedDate + '</time></div><h3 class="events-item-title">' + event.title + '</h3><p class="events-text">' + event.description + '</p></div></a>';
           eventsList.appendChild(item);
         });
-        // Initialize tilt after DOM injection
-        setTimeout(initTiltEffect, 500);
       })
       .catch(error => {
         console.error('Error fetching events data:', error);
@@ -407,49 +278,28 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   };
 
-  // Dynamically populate certificates section
+  // Populate Certificates
   const populateCertificates = () => {
     const certificatesGrid = document.getElementById('certificates-grid');
     if (!certificatesGrid) return;
 
-    showSkeleton('certificates-grid', 6, '200px');
-
     fetch('./assets/data/certificates.json')
       .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching certificates.json`);
+        if (!response.ok) throw new Error('HTTP ' + response.status);
         return response.json();
       })
       .then(data => {
-        certificatesGrid.innerHTML = ''; // Clear skeletons
+        certificatesGrid.innerHTML = '';
         if (!data.length) {
           showFetchError('certificates-grid', 'No certificates available.');
           return;
         }
-        data.forEach((cert, index) => {
+        data.forEach((cert) => {
           const certificateItem = document.createElement('div');
-          certificateItem.className = 'certificate-item fade-in-up';
-          certificateItem.style.animationDelay = `${index * 0.05}s`; // Faster stagger
-
-          // Removed style="display:block; height:100%;" from anchor to fix text offset issue
-          certificateItem.innerHTML = `
-            <a href="${cert.url}" target="_blank" rel="noopener noreferrer">
-              <img
-                src="${cert.image}"
-                alt="${cert.title}"
-                loading="lazy"
-                onerror="this.parentElement.innerHTML='<div class=\\'cert-placeholder\\'><ion-icon name=\\'document-text-outline\\'></ion-icon></div>'"
-              >
-            </a>
-            <div class="certificate-content">
-              <h3 class="h4 certificate-title">${cert.title}</h3>
-              <p class="certificate-issuer">${cert.issuer}</p>
-              <time class="certificate-date">${cert.date}</time>
-            </div>
-          `;
-
+          certificateItem.className = 'certificate-item';
+          certificateItem.innerHTML = '<a href="' + cert.url + '" target="_blank" rel="noopener noreferrer"><img src="' + cert.image + '" alt="' + cert.title + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<div class=\\\\\'cert-placeholder\\\\\'>&gt; ' + cert.title.replace(/'/g, "\\'") + '</div>\'"></a><div class="certificate-content"><h3 class="certificate-title">' + cert.title + '</h3><p class="certificate-issuer">' + cert.issuer + '</p><time class="certificate-date">' + cert.date + '</time></div>';
           certificatesGrid.appendChild(certificateItem);
         });
-        setTimeout(initTiltEffect, 500);
       })
       .catch(error => {
         console.error('Error fetching certificates data:', error);
@@ -457,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   };
 
-  // Helper function to calculate relative time
+  // Helper: timeAgo
   const timeAgo = (dateString) => {
     if (!dateString) return '';
     const date = new Date(dateString);
@@ -467,48 +317,44 @@ document.addEventListener('DOMContentLoaded', () => {
     let interval = seconds / 31536000;
     if (interval > 1) {
       const years = Math.floor(interval);
-      return years + " year" + (years > 1 ? "s" : "") + " ago";
+      return years + ' year' + (years > 1 ? 's' : '') + ' ago';
     }
     interval = seconds / 2592000;
     if (interval > 1) {
       const months = Math.floor(interval);
-      return months + " month" + (months > 1 ? "s" : "") + " ago";
+      return months + ' month' + (months > 1 ? 's' : '') + ' ago';
     }
     interval = seconds / 86400;
     if (interval > 1) {
       const days = Math.floor(interval);
-      return days + " day" + (days > 1 ? "s" : "") + " ago";
+      return days + ' day' + (days > 1 ? 's' : '') + ' ago';
     }
     interval = seconds / 3600;
     if (interval > 1) {
       const hours = Math.floor(interval);
-      return hours + " hour" + (hours > 1 ? "s" : "") + " ago";
+      return hours + ' hour' + (hours > 1 ? 's' : '') + ' ago';
     }
     interval = seconds / 60;
     if (interval > 1) {
       const minutes = Math.floor(interval);
-      return minutes + " minute" + (minutes > 1 ? "s" : "") + " ago";
+      return minutes + ' minute' + (minutes > 1 ? 's' : '') + ' ago';
     }
-    return "just now";
+    return 'just now';
   };
 
-  /**
-   * Populates the project list by combining data from local JSON files.
-   */
+  // Populate Projects
   const populateProjects = async () => {
-    const projectList = document.getElementById("project-list");
+    const projectList = document.getElementById('project-list');
     if (!projectList) return;
-
-    showSkeleton('project-list', 4, '150px');
 
     try {
       const [projectsResponse, updatesResponse] = await Promise.all([
-        fetch("./assets/data/projects.json"),
-        fetch("./assets/data/last_updated.json")
+        fetch('./assets/data/projects.json'),
+        fetch('./assets/data/last_updated.json')
       ]);
 
       if (!projectsResponse.ok) {
-        throw new Error(`Failed to load projects.json: ${projectsResponse.statusText}`);
+        throw new Error('Failed to load projects.json: ' + projectsResponse.statusText);
       }
 
       const projects = await projectsResponse.json();
@@ -528,95 +374,78 @@ document.addEventListener('DOMContentLoaded', () => {
         return 0;
       });
 
-      projectList.innerHTML = ''; // Clear skeletons
-      projectsWithUpdates.forEach((project, index) => {
-        const li = document.createElement("li");
-        li.className = "project-item active fade-in-up";
-        li.style.animationDelay = `${index * 0.1}s`;
-        li.setAttribute("data-filter-item", "");
-        li.setAttribute("data-category", project.category.toLowerCase());
+      projectList.innerHTML = '';
+      projectsWithUpdates.forEach((project) => {
+        const li = document.createElement('li');
+        li.className = 'project-item active';
+        li.setAttribute('data-filter-item', '');
+        li.setAttribute('data-category', project.category.toLowerCase());
 
         const tagsHtml = project.tags
-          .map((tag) => `<span class="tag">${tag}</span>`)
-          .join("");
+          .map(tag => '<span class="tag">' + tag + '</span>')
+          .join('');
 
         const updatedHtml = project.updated_at
           ? '<p class="project-desc">Last updated: ' + timeAgo(project.updated_at) + '</p>'
-          : "";
+          : '';
 
-        li.innerHTML = `
-                <a href="${project.url}" target="_blank" rel="noopener noreferrer">
-                    <div class="project-thumb">
-                        <img src="${project.image}" alt="${project.alt}" loading="lazy">
-                    </div>
-                    <div class="project-body">
-                        <h3 class="project-title">${project.title}</h3>
-                        <p class="project-desc">${project.category_desc}</p>
-                        ${updatedHtml}
-                    </div>
-                    <div class="project-tags">${tagsHtml}</div>
-                </a>
-            `;
+        li.innerHTML = '<a href="' + project.url + '" target="_blank" rel="noopener noreferrer"><div class="project-thumb"><img src="' + project.image + '" alt="' + project.alt + '" loading="lazy"></div><div class="project-body"><h3 class="project-title">' + project.title + '</h3><p class="project-desc">' + project.category_desc + '</p>' + updatedHtml + '</div><div class="project-tags">' + tagsHtml + '</div></a>';
 
         projectList.appendChild(li);
       });
 
       initializeProjectFilter();
-      setTimeout(initTiltEffect, 500);
 
     } catch (error) {
-      console.error("Error loading or processing projects:", error);
-      projectList.innerHTML = '<li><p>Could not load projects. Please try again later.</p></li>';
+      console.error('Error loading projects:', error);
+      projectList.innerHTML = '<li><p class="fetch-error">Could not load projects. Please try again later.</p></li>';
     }
   };
 
-
-  /**
-   * Sets up event listeners for project category filtering.
-   */
+  // Initialize Project Filter
   const initializeProjectFilter = () => {
-    const select = document.querySelector("[data-select]");
-    const selectItems = document.querySelectorAll("[data-select-item]");
-    const selectValue = document.querySelector("[data-selecct-value]");
-    const filterBtns = document.querySelectorAll("[data-filter-btn]");
-    const filterItems = document.querySelectorAll("[data-filter-item]");
-    const indicator = document.querySelector(".filter-indicator");
+    const select = document.querySelector('[data-select]');
+    const selectItems = document.querySelectorAll('[data-select-item]');
+    const selectValue = document.querySelector('[data-selecct-value]');
+    const filterBtns = document.querySelectorAll('[data-filter-btn]');
+    const filterItems = document.querySelectorAll('[data-filter-item]');
+    const indicator = document.querySelector('.filter-indicator');
 
     const updateFilterIndicator = (btn) => {
       if (!indicator || !btn) return;
-      const wrapper = btn.closest(".filter-wrapper");
+      const wrapper = btn.closest('.filter-wrapper');
       if (!wrapper) return;
       const btnRect = btn.getBoundingClientRect();
       const wrapperRect = wrapper.getBoundingClientRect();
-      indicator.style.left = (btnRect.left - wrapperRect.left) + "px";
-      indicator.style.width = btnRect.width + "px";
+      indicator.style.left = (btnRect.left - wrapperRect.left) + 'px';
+      indicator.style.width = btnRect.width + 'px';
     };
 
     const filterFunc = function (selectedValue) {
       for (let i = 0; i < filterItems.length; i++) {
-        if (selectedValue === "all" || selectedValue === filterItems[i].dataset.category) {
-          filterItems[i].classList.add("active");
+        if (selectedValue === 'all' || selectedValue === filterItems[i].dataset.category) {
+          filterItems[i].classList.add('active');
         } else {
-          filterItems[i].classList.remove("active");
+          filterItems[i].classList.remove('active');
         }
       }
-    }
+    };
 
     if (indicator) {
-      const initialActive = document.querySelector(".filter-item button.active");
+      const initialActive = document.querySelector('.filter-item button.active');
       updateFilterIndicator(initialActive || filterBtns[0]);
     }
 
     let lastClickedBtn = filterBtns.length > 0 ? filterBtns[0] : null;
     if (lastClickedBtn) {
       for (let i = 0; i < filterBtns.length; i++) {
-        filterBtns[i].addEventListener("click", function () {
+        filterBtns[i].addEventListener('click', function () {
           let selectedValue = this.innerText.toLowerCase();
           if (selectValue) selectValue.innerText = this.innerText;
           filterFunc(selectedValue);
 
-          lastClickedBtn.classList.remove("active");
-          this.classList.add("active");
+          lastClickedBtn.classList.remove('active');
+          this.classList.add('active');
           lastClickedBtn = this;
 
           updateFilterIndicator(this);
@@ -625,20 +454,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (select) {
-      select.addEventListener("click", function () { elementToggleFunc(this); });
+      select.addEventListener('click', function () { this.classList.toggle('active'); });
 
       for (let i = 0; i < selectItems.length; i++) {
-        selectItems[i].addEventListener("click", function () {
+        selectItems[i].addEventListener('click', function () {
           let selectedValue = this.innerText.toLowerCase();
-          if (selectValue) {
-            selectValue.innerText = this.innerText;
-          }
-          elementToggleFunc(select);
+          if (selectValue) selectValue.innerText = this.innerText;
+          select.classList.remove('active');
           filterFunc(selectedValue);
 
           for (let j = 0; j < filterBtns.length; j++) {
             const match = filterBtns[j].innerText.toLowerCase() === selectedValue;
-            filterBtns[j].classList.toggle("active", match);
+            filterBtns[j].classList.toggle('active', match);
             if (match) updateFilterIndicator(filterBtns[j]);
           }
         });
@@ -646,8 +473,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-
-  // Call all the functions to load your dynamic content
+  // Call all data loaders
   populateEducation();
   populateExperience();
   populateEvents();
