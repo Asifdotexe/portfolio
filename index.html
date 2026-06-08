@@ -111,14 +111,14 @@
 <!-- TOP NAV (Desktop) -->
 <nav class="navbar" role="navigation" aria-label="Top navigation">
     <div class="navbar-inner">
-        <span class="navbar-brand" aria-label="Asif Sayyed">> asif.sh</span>
+        <span class="navbar-brand" aria-label="Asif Sayyed">> asif.exe</span>
         <ul class="navbar-list">
-            <li><button class="navbar-link active" data-nav-link="about">[x] About</button></li>
-            <li><button class="navbar-link" data-nav-link="resume">[+] Resume</button></li>
-            <li><button class="navbar-link" data-nav-link="projects">[+] Projects</button></li>
-            <li><button class="navbar-link" data-nav-link="certificates">[+] Certs</button></li>
-            <li><button class="navbar-link" data-nav-link="events">[+] Events</button></li>
-            <li><button class="navbar-link" data-nav-link="contact">[x] Contact</button></li>
+            <li><button class="navbar-link active" data-nav-link="about">[1] About</button></li>
+            <li><button class="navbar-link" data-nav-link="resume">[2] Resume</button></li>
+            <li><button class="navbar-link" data-nav-link="projects">[3] Projects</button></li>
+            <li><button class="navbar-link" data-nav-link="certificates">[4] Certs</button></li>
+            <li><button class="navbar-link" data-nav-link="events">[5] Events</button></li>
+            <li><button class="navbar-link" data-nav-link="contact">[6] Contact</button></li>
         </ul>
     </div>
 </nav>
@@ -150,38 +150,48 @@
 
         <hr class="separator" />
 
-        <ul class="social-list">
-            <li><a href="https://github.com/Asifdotexe" class="social-link" aria-label="GitHub Profile" rel="noopener noreferrer" target="_blank">&gt; GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/sayyedasif/" class="social-link" aria-label="LinkedIn Profile" rel="noopener noreferrer" target="_blank">&gt; LinkedIn</a></li>
-            <li><a href="https://medium.com/@asifdotexe" class="social-link" aria-label="Medium Blog" rel="noopener noreferrer" target="_blank">&gt; Medium</a></li>
-            <li><a href="https://dev.to/asifdotexe" class="social-link" aria-label="dev.to Profile" rel="noopener noreferrer" target="_blank">&gt; dev.to</a></li>
-            <li><a href="https://kc7cyber.com/profile/asifdotexe" class="social-link" aria-label="KC7 Cyber Profile" rel="noopener noreferrer" target="_blank">&gt; KC7</a></li>
-        </ul>
+        <div class="socials-accordion">
+            <button class="socials-toggle" aria-expanded="false">
+                <span class="bracket">[+]</span> Socials
+            </button>
+            <ul class="social-list">
+                <li><a href="https://github.com/Asifdotexe" class="social-link" aria-label="GitHub Profile" rel="noopener noreferrer" target="_blank">[+] GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/sayyedasif/" class="social-link" aria-label="LinkedIn Profile" rel="noopener noreferrer" target="_blank">[+] LinkedIn</a></li>
+                <li><a href="https://medium.com/@asifdotexe" class="social-link" aria-label="Medium Blog" rel="noopener noreferrer" target="_blank">[+] Medium</a></li>
+                <li><a href="https://dev.to/asifdotexe" class="social-link" aria-label="dev.to Profile" rel="noopener noreferrer" target="_blank">[+] dev.to</a></li>
+                <li><a href="https://kc7cyber.com/profile/asifdotexe" class="social-link" aria-label="KC7 Cyber Profile" rel="noopener noreferrer" target="_blank">[+] KC7</a></li>
+            </ul>
+        </div>
     </aside>
 
     <!-- MAIN CONTENT -->
     <main class="main-content" id="main-content">
+        <h1 class="sr-only">Asif Sayyed — Data Scientist Portfolio</h1>
 
         <!-- HERO TUI MOCKUP -->
         <section class="hero-tui" id="home">
-            <div class="hero-tui-wordmark">  __   __    _      __   __
- /  \ /  \  | \    /  \ /  \
-| || | || | |  \  | || | || |
-| || | || | |   \ | || | || |
-| || | || | | |\ \| || | || |
- \__/ \__/  |_| \__/  \__/    1.0</div>
             <div class="hero-tui-prompt">
                 <span class="prompt-pipe">&gt;</span>
-                <span class="prompt-command">Build</span>
-                <span class="prompt-token">[data-scientist]</span>
-                <span class="prompt-command">asif.sh --profile --verbose</span>
+                <span class="prompt-command">whoami</span>
+            </div>
+            <div class="hero-tui-output">
+                <span class="output-name">Asif Sayyed</span>
+                <span class="output-title">Data Scientist @ Marsh McLennan</span>
+                <span class="output-location">Mumbai, India</span>
+            </div>
+            <div class="hero-tui-prompt">
+                <span class="prompt-pipe">&gt;</span>
+                <span class="prompt-command">cat /skills</span>
+            </div>
+            <div class="hero-tui-output">
+                <span class="output-line">Python &middot; ML &middot; NLP &middot; Computer Vision &middot; Cyber Risk Analytics</span>
             </div>
             <div class="hero-tui-hints">
-                <span>Tab: switch section</span>
+                <span>[1-6] jump to section</span>
                 <span class="hint-divider">|</span>
-                <span>Ctrl+P: scroll to top</span>
+                <span>[0] scroll top</span>
                 <span class="hint-divider">|</span>
-                <span>1-6: quick jump</span>
+                <span>[&uarr;/&darr;] navigate</span>
             </div>
         </section>
 
@@ -331,7 +341,7 @@
                 <div class="timeline">
                     <h2 class="section-label"><span class="bracket">[+]</span> GitHub Contributions</h2>
                     <div class="contribution-chart">
-                        <img src="https://github-readme-activity-graph.vercel.app/graph?username=Asifdotexe&bg_color=fdfcfc&color=201d1d&line=201d1d&point=201d1d&area=true&area_color=f1eeee&hide_border=true&days=50&custom_title=Activity%20Graph" alt="Asifdotexe's GitHub Contribution Graph" />
+                        <img src="https://github-readme-activity-graph.vercel.app/graph?username=Asifdotexe&bg_color=fdfcfc&color=201d1d&line=201d1d&point=201d1d&area=true&area_color=f1eeee&hide_border=true&days=50&custom_title=As%20data%20scientists%2C%20we%20love%20charts%20and%20we%20love%20GitHub.%20Here%20is%20both." alt="Asifdotexe's GitHub Contribution Graph" />
                     </div>
                 </div>
 
@@ -420,11 +430,11 @@
 
                 <div class="filter-wrapper">
                     <ul class="filter-list">
-                        <li class="filter-item"><button class="button-tab active" data-filter-btn>All</button></li>
-                        <li class="filter-item"><button class="button-tab" data-filter-btn>Data Analysis</button></li>
-                        <li class="filter-item"><button class="button-tab" data-filter-btn>AI/ML</button></li>
-                        <li class="filter-item"><button class="button-tab" data-filter-btn>NLP</button></li>
-                        <li class="filter-item"><button class="button-tab" data-filter-btn>Tools</button></li>
+                        <li class="filter-item"><button class="button-tab active" data-filter-btn data-category="all">All</button></li>
+                        <li class="filter-item"><button class="button-tab" data-filter-btn data-category="data analysis">Data Analysis</button></li>
+                        <li class="filter-item"><button class="button-tab" data-filter-btn data-category="ai/ml">AI/ML</button></li>
+                        <li class="filter-item"><button class="button-tab" data-filter-btn data-category="nlp">NLP</button></li>
+                        <li class="filter-item"><button class="button-tab" data-filter-btn data-category="tools">Tools</button></li>
                     </ul>
                     <span class="filter-indicator" aria-hidden="true"></span>
                 </div>
@@ -435,11 +445,11 @@
                         <div class="select-icon"><span>&#9660;</span></div>
                     </button>
                     <ul class="select-list">
-                        <li class="select-item"><button data-select-item>All</button></li>
-                        <li class="select-item"><button data-select-item>Data Analysis</button></li>
-                        <li class="select-item"><button data-select-item>AI/ML</button></li>
-                        <li class="select-item"><button data-select-item>NLP</button></li>
-                        <li class="select-item"><button data-select-item>Tools</button></li>
+                        <li class="select-item"><button data-select-item data-category="all">All</button></li>
+                        <li class="select-item"><button data-select-item data-category="data analysis">Data Analysis</button></li>
+                        <li class="select-item"><button data-select-item data-category="ai/ml">AI/ML</button></li>
+                        <li class="select-item"><button data-select-item data-category="nlp">NLP</button></li>
+                        <li class="select-item"><button data-select-item data-category="tools">Tools</button></li>
                     </ul>
                 </div>
 
@@ -481,10 +491,25 @@
             </div>
         </section>
 
+        <!-- EVENT MODAL -->
+        <div class="event-modal" id="event-modal" role="dialog" aria-modal="true" aria-hidden="true">
+            <div class="event-modal-overlay" data-event-modal-close></div>
+            <div class="event-modal-content">
+                <button class="event-modal-close" data-event-modal-close aria-label="Close">&#10005;</button>
+                <div class="event-modal-body" id="event-modal-body"></div>
+            </div>
+        </div>
+
         <!-- CONTACT -->
         <section class="section" id="contact">
             <div class="section-content">
                 <h2 class="section-label"><span class="bracket">[x]</span> Contact</h2>
+
+                <div class="contact-info-box">
+                    <span class="bracket">[+]</span>
+                    <span class="contact-info-label">Email:</span>
+                    <a href="mailto:hey@sayyedasif.com" class="contact-info-value">hey@sayyedasif.com</a>
+                </div>
 
                 <section class="mapbox" data-mapbox>
                     <figure>
@@ -522,6 +547,13 @@
                             <span class="btn-text">&gt; Send Message</span>
                         </button>
                     </form>
+                    <div class="form-fallback" hidden>
+                        <p class="fallback-text">
+                            <span class="bracket">[-]</span>
+                            Couldn't send via form?
+                            <a href="mailto:hey@sayyedasif.com" class="fallback-link">Send an email directly &rarr;</a>
+                        </p>
+                    </div>
                 </section>
             </div>
         </section>
@@ -547,37 +579,37 @@
     <ul class="bottom-nav-list">
         <li class="bottom-nav-item">
             <button class="bottom-nav-link active" data-nav-link="about">
-                <span class="bracket">[x]</span>
+                <span class="bracket">[1]</span>
                 <span>About</span>
             </button>
         </li>
         <li class="bottom-nav-item">
             <button class="bottom-nav-link" data-nav-link="resume">
-                <span class="bracket">[+]</span>
+                <span class="bracket">[2]</span>
                 <span>Resume</span>
             </button>
         </li>
         <li class="bottom-nav-item">
             <button class="bottom-nav-link" data-nav-link="projects">
-                <span class="bracket">[+]</span>
+                <span class="bracket">[3]</span>
                 <span>Projects</span>
             </button>
         </li>
         <li class="bottom-nav-item">
             <button class="bottom-nav-link" data-nav-link="certificates">
-                <span class="bracket">[+]</span>
+                <span class="bracket">[4]</span>
                 <span>Certs</span>
             </button>
         </li>
         <li class="bottom-nav-item">
             <button class="bottom-nav-link" data-nav-link="events">
-                <span class="bracket">[+]</span>
+                <span class="bracket">[5]</span>
                 <span>Events</span>
             </button>
         </li>
         <li class="bottom-nav-item">
             <button class="bottom-nav-link" data-nav-link="contact">
-                <span class="bracket">[x]</span>
+                <span class="bracket">[6]</span>
                 <span>Contact</span>
             </button>
         </li>

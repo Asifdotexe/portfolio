@@ -106,6 +106,16 @@ const initKeyboardNav = () => {
     if (!visibleLinks.length) return;
 
     const num = parseInt(e.key);
+    if (num === 0) {
+      e.preventDefault();
+      const homeEl = document.getElementById('home');
+      if (homeEl) {
+        const top = homeEl.getBoundingClientRect().top + window.scrollY - 56;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+      document.querySelectorAll('[data-nav-link]').forEach(l => l.classList.remove('active'));
+      return;
+    }
     if (num >= 1 && num <= visibleLinks.length) {
       e.preventDefault();
       visibleLinks[num - 1].click();
@@ -119,6 +129,23 @@ const initKeyboardNav = () => {
       const next = (activeIdx + step + visibleLinks.length) % visibleLinks.length;
       visibleLinks[next].click();
     }
+  });
+};
+
+// --------------------------------------------------------------------
+// SOCIAL ACCORDION
+// --------------------------------------------------------------------
+
+const initSocialAccordion = () => {
+  const container = document.querySelector('.socials-accordion');
+  const toggle = container?.querySelector('.socials-toggle');
+  if (!container || !toggle) return;
+
+  toggle.addEventListener('click', () => {
+    const isOpen = container.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', isOpen);
+    const bracket = toggle.querySelector('.bracket');
+    if (bracket) bracket.textContent = isOpen ? '[x]' : '[+]';
   });
 };
 
@@ -206,6 +233,8 @@ const initFormSubmit = () => {
     } catch {
       showMessage('error', 'Network error. Please check your connection and try again.');
       btn.disabled = false;
+      const fallback = document.querySelector('.form-fallback');
+      if (fallback) fallback.hidden = false;
     }
 
     btn.classList.remove('form-btn--loading');
@@ -222,11 +251,16 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavClick();
   initKeyboardNav();
   initFormSubmit();
+  initSocialAccordion();
 
   const showFetchError = (elementId, message = 'Could not load content. Please try again later.') => {
     const container = document.getElementById(elementId);
     if (!container) return;
-    container.innerHTML = '<p class="fetch-error">' + message + '</p>';
+    container.textContent = '';
+    const p = document.createElement('p');
+    p.className = 'fetch-error';
+    p.textContent = message;
+    container.appendChild(p);
   };
 
   // Populate Education
@@ -276,7 +310,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         data.forEach((exp) => {
           const item = document.createElement('li');
-          item.className = 'timeline-item';
+          const isActive = exp.date && exp.date.toLowerCase().includes('present');
+          item.className = 'timeline-item' + (isActive ? ' timeline-item--active' : '');
           item.innerHTML = '<h3 class="timeline-item-title">' + exp.role + '</h3><span>' + exp.date + '</span><p class="timeline-text">' + exp.description + '</p>';
           experienceList.appendChild(item);
         });
@@ -292,6 +327,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const eventsList = document.getElementById('events-list');
     if (!eventsList) return;
 
+    const modal = document.getElementById('event-modal');
+    const modalBody = document.getElementById('event-modal-body');
+
+    const openModal = (eventData) => {
+      if (!modal || !modalBody) return;
+      modalBody.innerHTML = '<figure class="event-modal-figure"><img src="' + eventData.image + '" alt="' + eventData.title + '" loading="lazy"></figure><div class="event-modal-info"><div class="events-meta"><span class="event-category">' + eventData.category + '</span><span class="dot"></span><time datetime="' + eventData.date + '">' + eventData.formattedDate + '</time></div><h3 class="event-modal-title">' + eventData.title + '</h3><p class="events-text">' + eventData.description + '</p><a href="' + eventData.url + '" target="_blank" rel="noopener noreferrer" class="event-link">&gt; View on LinkedIn</a></div>';
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+    };
+
+    const closeModal = () => {
+      if (!modal) return;
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+    };
+
+    document.querySelectorAll('[data-event-modal-close]').forEach(el => {
+      el.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal && modal.getAttribute('aria-hidden') === 'false') {
+        closeModal();
+      }
+    });
+
+    // Prevent clicks inside modal content from closing
+    const modalContent = modal ? modal.querySelector('.event-modal-content') : null;
+    if (modalContent) {
+      modalContent.addEventListener('click', (e) => e.stopPropagation());
+    }
+
     fetch('./assets/data/events.json')
       .then(response => {
         if (!response.ok) throw new Error('HTTP ' + response.status);
@@ -306,8 +373,13 @@ document.addEventListener('DOMContentLoaded', () => {
         data.forEach((event) => {
           const item = document.createElement('li');
           item.className = 'events-post-item';
-          item.innerHTML = '<a href="' + event.url + '" target="_blank" rel="noopener noreferrer"><figure class="event-banner-box"><img src="' + event.image + '" alt="' + event.title + '" loading="lazy"></figure><div class="events-content"><div class="events-meta"><span class="event-category">' + event.category + '</span><span class="dot"></span><time datetime="' + event.date + '">' + event.formattedDate + '</time></div><h3 class="events-item-title">' + event.title + '</h3><p class="events-text">' + event.description + '</p></div></a>';
+          item.innerHTML = '<button class="event-card-btn"><figure class="event-banner-box"><img src="' + event.image + '" alt="' + event.title + '" loading="lazy" onerror="this.alt=\'' + event.title.replace(/'/g, "\\'") + '\';this.style.display=\'none\'"></figure><h3 class="events-item-title">' + event.title + '</h3><span class="event-venue">' + event.category + '</span><time class="event-date">' + event.formattedDate + '</time></button>';
           eventsList.appendChild(item);
+
+          const btn = item.querySelector('.event-card-btn');
+          if (btn) {
+            btn.addEventListener('click', () => openModal(event));
+          }
         });
       })
       .catch(error => {
@@ -335,7 +407,15 @@ document.addEventListener('DOMContentLoaded', () => {
         data.forEach((cert) => {
           const certificateItem = document.createElement('div');
           certificateItem.className = 'certificate-item';
-          certificateItem.innerHTML = '<a href="' + cert.url + '" target="_blank" rel="noopener noreferrer"><img src="' + cert.image + '" alt="' + cert.title + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<div class=\\\\\'cert-placeholder\\\\\'>&gt; ' + cert.title.replace(/'/g, "\\'") + '</div>\'"></a><div class="certificate-content"><h3 class="certificate-title">' + cert.title + '</h3><p class="certificate-issuer">' + cert.issuer + '</p><time class="certificate-date">' + cert.date + '</time></div>';
+          const placeholder = document.createElement('div');
+          placeholder.className = 'cert-placeholder';
+          placeholder.textContent = '> ' + cert.title;
+          const onerrorHandler = function() {
+            this.replaceWith(placeholder.cloneNode(true));
+          };
+          certificateItem.innerHTML = '<a href="' + cert.url + '" target="_blank" rel="noopener noreferrer"><img src="' + cert.image + '" alt="' + cert.title + '" loading="lazy"></a><div class="certificate-content"><h3 class="certificate-title">' + cert.title + '</h3><p class="certificate-issuer">' + cert.issuer + '</p><time class="certificate-date">' + cert.date + '</time></div>';
+          const img = certificateItem.querySelector('img');
+          if (img) img.addEventListener('error', onerrorHandler);
           certificatesGrid.appendChild(certificateItem);
         });
       })
@@ -432,6 +512,23 @@ document.addEventListener('DOMContentLoaded', () => {
         projectList.appendChild(li);
       });
 
+      // Count projects per category and update filter displays
+      const counts = { all: projects.length };
+      projects.forEach(p => {
+        const cat = p.category.toLowerCase();
+        counts[cat] = (counts[cat] || 0) + 1;
+      });
+      document.querySelectorAll('[data-filter-btn]').forEach(btn => {
+        const cat = btn.dataset.category;
+        const label = btn.textContent.replace(/\s*\(\d+\)\s*$/, '');
+        btn.textContent = label + ' (' + counts[cat] + ')';
+      });
+      document.querySelectorAll('[data-select-item]').forEach(item => {
+        const cat = item.dataset.category;
+        const label = item.textContent.replace(/\s*\(\d+\)\s*$/, '');
+        item.textContent = label + ' (' + counts[cat] + ')';
+      });
+
       initializeProjectFilter();
 
     } catch (error) {
@@ -478,8 +575,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lastClickedBtn) {
       for (let i = 0; i < filterBtns.length; i++) {
         filterBtns[i].addEventListener('click', function () {
-          let selectedValue = this.innerText.toLowerCase();
-          if (selectValue) selectValue.innerText = this.innerText;
+          let selectedValue = this.dataset.category;
+          if (selectValue) selectValue.innerText = this.textContent;
           filterFunc(selectedValue);
 
           lastClickedBtn.classList.remove('active');
@@ -496,13 +593,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       for (let i = 0; i < selectItems.length; i++) {
         selectItems[i].addEventListener('click', function () {
-          let selectedValue = this.innerText.toLowerCase();
-          if (selectValue) selectValue.innerText = this.innerText;
+          let selectedValue = this.dataset.category;
+          if (selectValue) selectValue.innerText = this.textContent;
           select.classList.remove('active');
           filterFunc(selectedValue);
 
           for (let j = 0; j < filterBtns.length; j++) {
-            const match = filterBtns[j].innerText.toLowerCase() === selectedValue;
+            const match = filterBtns[j].dataset.category === selectedValue;
             filterBtns[j].classList.toggle('active', match);
             if (match) updateFilterIndicator(filterBtns[j]);
           }
