@@ -145,7 +145,10 @@ const initSocialAccordion = () => {
     const isOpen = container.classList.toggle('is-open');
     toggle.setAttribute('aria-expanded', isOpen);
     const bracket = toggle.querySelector('.bracket');
-    if (bracket) bracket.textContent = isOpen ? '[x]' : '[+]';
+    if (bracket) {
+      bracket.textContent = isOpen ? '[x]' : '[+]';
+      colorizeBracket(bracket);
+    }
   });
 };
 
@@ -242,6 +245,29 @@ const initFormSubmit = () => {
 };
 
 // --------------------------------------------------------------------
+// BRACKET SYMBOL COLORIZER
+// --------------------------------------------------------------------
+
+// Wraps the symbol inside [x] / [+] / [-] with a colored <span>.
+// Brackets [] themselves keep their existing muted color unchanged.
+const colorizeBracket = (el) => {
+  const text = el.textContent;
+  const match = text.match(/^\[(.+)\]$/);
+  if (!match) return;
+  const sym = match[1];
+  let cls = '';
+  if (sym === 'x') cls = 'sym-x';
+  else if (sym === '+') cls = 'sym-plus';
+  else if (sym === '-') cls = 'sym-minus';
+  if (!cls) return;
+  el.innerHTML = '[<span class="' + cls + '" aria-hidden="true">' + sym + '</span>]';
+};
+
+const initBracketColors = () => {
+  document.querySelectorAll('.bracket').forEach(colorizeBracket);
+};
+
+// --------------------------------------------------------------------
 // DYNAMIC CONTENT LOADING
 // --------------------------------------------------------------------
 
@@ -252,6 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initKeyboardNav();
   initFormSubmit();
   initSocialAccordion();
+  initBracketColors();
 
   const showFetchError = (elementId, message = 'Could not load content. Please try again later.') => {
     const container = document.getElementById(elementId);

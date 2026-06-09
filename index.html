@@ -186,12 +186,34 @@
             <div class="hero-tui-output">
                 <span class="output-line">Python &middot; ML &middot; NLP &middot; Computer Vision &middot; Cyber Risk Analytics</span>
             </div>
-            <div class="hero-tui-hints">
+            <!-- Desktop: keyboard shortcut hints -->
+            <div class="hero-tui-hints hero-tui-hints--desktop">
                 <span>[1-6] jump to section</span>
                 <span class="hint-divider">|</span>
                 <span>[0] scroll top</span>
                 <span class="hint-divider">|</span>
                 <span>[&uarr;/&darr;] navigate</span>
+            </div>
+
+            <!-- Mobile: ls /socials TUI block -->
+            <div class="hero-tui-socials-block">
+                <div class="hero-tui-prompt">
+                    <span class="prompt-pipe">&gt;</span>
+                    <span class="prompt-command">ls /socials</span>
+                </div>
+                <div class="hero-tui-output">
+                    <span class="output-line output-socials">
+                        <a href="https://github.com/Asifdotexe" class="hero-social-link" aria-label="GitHub" rel="noopener noreferrer" target="_blank">GitHub</a>
+                        <span class="social-sep">&middot;</span>
+                        <a href="https://www.linkedin.com/in/sayyedasif/" class="hero-social-link" aria-label="LinkedIn" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+                        <span class="social-sep">&middot;</span>
+                        <a href="https://medium.com/@asifdotexe" class="hero-social-link" aria-label="Medium" rel="noopener noreferrer" target="_blank">Medium</a>
+                        <span class="social-sep">&middot;</span>
+                        <a href="https://dev.to/asifdotexe" class="hero-social-link" aria-label="dev.to" rel="noopener noreferrer" target="_blank">dev.to</a>
+                        <span class="social-sep">&middot;</span>
+                        <a href="https://kc7cyber.com/profile/asifdotexe" class="hero-social-link" aria-label="KC7 Cyber" rel="noopener noreferrer" target="_blank">KC7</a>
+                    </span>
+                </div>
             </div>
         </section>
 
@@ -579,37 +601,65 @@
     <ul class="bottom-nav-list">
         <li class="bottom-nav-item">
             <button class="bottom-nav-link active" data-nav-link="about">
-                <span class="bracket">[1]</span>
+                <!-- Person / About icon -->
+                <svg class="bottom-nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                </svg>
                 <span>About</span>
             </button>
         </li>
         <li class="bottom-nav-item">
             <button class="bottom-nav-link" data-nav-link="resume">
-                <span class="bracket">[2]</span>
+                <!-- Document / Resume icon -->
+                <svg class="bottom-nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="8" y1="13" x2="16" y2="13"/>
+                    <line x1="8" y1="17" x2="12" y2="17"/>
+                </svg>
                 <span>Resume</span>
             </button>
         </li>
         <li class="bottom-nav-item">
             <button class="bottom-nav-link" data-nav-link="projects">
-                <span class="bracket">[3]</span>
+                <!-- Code brackets / Projects icon -->
+                <svg class="bottom-nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="16 18 22 12 16 6"/>
+                    <polyline points="8 6 2 12 8 18"/>
+                </svg>
                 <span>Projects</span>
             </button>
         </li>
         <li class="bottom-nav-item">
             <button class="bottom-nav-link" data-nav-link="certificates">
-                <span class="bracket">[4]</span>
+                <!-- Ribbon / Cert icon -->
+                <svg class="bottom-nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="9" r="5"/>
+                    <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/>
+                </svg>
                 <span>Certs</span>
             </button>
         </li>
         <li class="bottom-nav-item">
             <button class="bottom-nav-link" data-nav-link="events">
-                <span class="bracket">[5]</span>
+                <!-- Calendar / Events icon -->
+                <svg class="bottom-nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
                 <span>Events</span>
             </button>
         </li>
         <li class="bottom-nav-item">
             <button class="bottom-nav-link" data-nav-link="contact">
-                <span class="bracket">[6]</span>
+                <!-- Envelope / Contact icon -->
+                <svg class="bottom-nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                </svg>
                 <span>Contact</span>
             </button>
         </li>

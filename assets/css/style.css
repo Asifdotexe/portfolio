@@ -265,6 +265,18 @@ h1, h2, h3, h4 {
   user-select: none;
 }
 
+/* Colored symbols inside brackets — [] stays muted, only the inner char is colored */
+.sym-x,
+.sym-plus,
+.sym-minus {
+  display: inline; /* override global span { display: block } reset */
+  user-select: none;
+}
+
+.sym-x    { color: #c0392b; } /* muted red  */
+.sym-plus { color: #27ae60; } /* muted green */
+.sym-minus { color: var(--ash); }
+
 /* Scrollbar styling */
 .has-scrollbar::-webkit-scrollbar {
   height: 4px;
@@ -563,10 +575,10 @@ h1, h2, h3, h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-xxs);
-  padding: var(--space-xs) 0;
+  gap: var(--space-xs);
+  padding: var(--space-sm) 0;
   color: var(--mute);
-  font-size: 12px;
+  font-size: 11px;
   font-family: var(--ff-mono);
   width: 100%;
   cursor: pointer;
@@ -577,12 +589,15 @@ h1, h2, h3, h4 {
   color: var(--ink);
 }
 
-.bottom-nav-link .bracket {
-  font-size: 16px;
+.bottom-nav-icon {
+  display: block;
+  flex-shrink: 0;
+  transition: color var(--transition-1);
+  /* stroke inherits currentColor from button */
 }
 
 @media (max-width: 400px) {
-  .bottom-nav-link span {
+  .bottom-nav-link span:not(.bottom-nav-icon) {
     display: none;
   }
 }
@@ -672,11 +687,61 @@ h1, h2, h3, h4 {
   text-align: center;
   margin-top: var(--space-lg);
   font-family: var(--ff-mono);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-xs);
+  row-gap: var(--space-xs);
+}
+
+.hero-tui-hints span {
+  white-space: nowrap;
 }
 
 .hero-tui-hints .hint-divider {
   color: var(--hairline-strong);
-  margin: 0 var(--space-sm);
+  margin: 0 var(--space-xs);
+}
+
+/* Desktop: show keybind hints, hide socials block */
+.hero-tui-hints--desktop {
+  display: flex;
+}
+
+.hero-tui-socials-block {
+  display: none;
+}
+
+/* Social links inside hero output */
+.output-socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.social-sep {
+  color: var(--ash);
+  user-select: none;
+  display: inline;
+}
+
+.hero-social-link {
+  color: var(--body);
+  font-size: var(--body-md);
+  font-family: var(--ff-mono);
+  font-weight: var(--fw-400);
+  white-space: nowrap;
+  transition: color var(--transition-1);
+  text-decoration: none;
+  display: inline;
+}
+
+.hero-social-link:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /*-----------------------------------*\
@@ -743,9 +808,10 @@ h1, h2, h3, h4 {
 /* Testimonials - inline rows per spec */
 .testimonials-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: var(--space-lg);
+  flex-wrap: wrap;
+  gap: var(--space-md);
   margin-bottom: var(--space-lg);
 }
 
@@ -915,7 +981,9 @@ h1, h2, h3, h4 {
 
 .contribution-chart img {
   width: 100%;
+  max-width: 100%;
   height: auto;
+  display: block;
 }
 
 /*-----------------------------------*\
@@ -961,6 +1029,8 @@ h1, h2, h3, h4 {
   height: 32px;
   white-space: nowrap;
   background: var(--surface-soft);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .skills-item:hover {
@@ -1613,8 +1683,11 @@ textarea.form-input {
   margin-bottom: var(--space-xl);
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: var(--space-sm);
   font-size: var(--body-md);
+  overflow-wrap: break-word;
+  word-break: break-all;
 }
 
 .contact-info-label {
@@ -1837,6 +1910,15 @@ textarea.form-input {
     display: block;
   }
 
+  /* Swap hero hints: hide keybinds, show socials block */
+  .hero-tui-hints--desktop {
+    display: none;
+  }
+
+  .hero-tui-socials-block {
+    display: block;
+  }
+
   .main-layout {
     display: block;
   }
@@ -1857,11 +1939,19 @@ textarea.form-input {
   }
 
   .output-name {
-    font-size: 28px;
+    font-size: clamp(22px, 5vw, 32px);
   }
 
   .output-title {
     font-size: var(--caption-md);
+  }
+
+  .output-line {
+    font-size: var(--caption-md);
+  }
+
+  .hero-tui-hints {
+    font-size: 12px;
   }
 }
 
@@ -1889,11 +1979,22 @@ textarea.form-input {
   }
 
   .output-name {
-    font-size: 22px;
+    font-size: 20px;
   }
 
-  .hero-tui-hints span {
-    display: inline;
+  .output-title,
+  .output-line,
+  .output-location {
+    font-size: 12px;
+  }
+
+  .hero-tui-hints {
+    font-size: 11px;
+    gap: var(--space-xxs);
+  }
+
+  .hero-tui-hints .hint-divider {
+    display: none;
   }
 
   .section {
@@ -1910,14 +2011,28 @@ textarea.form-input {
     padding: var(--space-sm);
   }
 
-  .bottom-nav-link .bracket {
-    font-size: 14px;
+  .bottom-nav-icon {
+    width: 18px;
+    height: 18px;
   }
 
   .skills-item {
     font-size: 11px;
     height: 28px;
     padding: 2px var(--space-sm);
+  }
+
+  .event-modal {
+    padding: var(--space-sm);
+  }
+
+  .testimonials-item .content-card {
+    padding: var(--space-md);
+  }
+
+  .contact-info-box {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
