@@ -64,9 +64,12 @@
   --z-navbar: 5;
   --z-modal: 99;
 
-  /* Transitions */
-  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
-  --transition-1: 0.25s var(--ease-out-quart);
+  /* Transitions — Emil Kowalski easing philosophy */
+  --ease-out:      cubic-bezier(0.23, 1, 0.32, 1);     /* strong ease-out: instant feedback */
+  --ease-in-out:   cubic-bezier(0.77, 0, 0.175, 1);    /* on-screen movement */
+  --ease-drawer:   cubic-bezier(0.32, 0.72, 0, 1);     /* iOS-like drawer */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);     /* kept for compat */
+  --transition-1: 0.2s var(--ease-out);
 
   /* Layout */
   --content-max: 960px;
@@ -318,14 +321,16 @@ h1, h2, h3, h4 {
 .sidebar {
   width: 260px;
   flex-shrink: 0;
+  align-self: flex-start;        /* prevent flex from stretching it */
   padding: var(--space-xxl) 0;
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: 56px;                     /* lock below the sticky navbar */
+  height: calc(100vh - 56px);   /* fill remaining viewport */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: visible;
+  overflow-y: auto;              /* scroll if content ever overflows */
+  overflow-x: visible;
   background: var(--canvas);
 }
 
@@ -2036,7 +2041,319 @@ textarea.form-input {
   }
 }
 
-/* Reduced motion */
+/*-----------------------------------*\
+  #ANIMATIONS — Emil Kowalski design philosophy
+  Rules:
+  • Only animate transform + opacity (GPU only)
+  • Durations: buttons 100-160ms, dropdowns 150-250ms, modals 200-350ms
+  • ease-out for entering, ease-in-out for on-screen movement
+  • Gate hover transforms behind (hover: hover) and (pointer: fine)
+  • Stagger: 30-80ms between items
+  • Never animate from scale(0) — start at scale(0.95)
+\*-----------------------------------*/
+
+/* ── Keyframes ─────────────────────────────────────────────────── */
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes dotPulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+
+/* ── Scroll-reveal base state ───────────────────────────────────── */
+/* Applied via JS (initScrollReveal). Elements start invisible,
+   animate to visible when they enter the viewport. */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.35s var(--ease-out), transform 0.35s var(--ease-out);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for child items inside a revealed parent */
+.reveal-stagger > *     { opacity: 0; transform: translateY(8px); }
+.reveal-stagger.is-visible > *:nth-child(1)  { animation: fadeUp 0.3s var(--ease-out) 0ms   forwards; }
+.reveal-stagger.is-visible > *:nth-child(2)  { animation: fadeUp 0.3s var(--ease-out) 50ms  forwards; }
+.reveal-stagger.is-visible > *:nth-child(3)  { animation: fadeUp 0.3s var(--ease-out) 100ms forwards; }
+.reveal-stagger.is-visible > *:nth-child(4)  { animation: fadeUp 0.3s var(--ease-out) 150ms forwards; }
+.reveal-stagger.is-visible > *:nth-child(5)  { animation: fadeUp 0.3s var(--ease-out) 200ms forwards; }
+.reveal-stagger.is-visible > *:nth-child(6)  { animation: fadeUp 0.3s var(--ease-out) 250ms forwards; }
+.reveal-stagger.is-visible > *:nth-child(n+7){ animation: fadeUp 0.3s var(--ease-out) 300ms forwards; }
+
+/* ── Pressable scale feedback (all interactive elements) ────────── */
+/* "Buttons must feel responsive" — Emil */
+
+@media (hover: hover) and (pointer: fine) {
+  .navbar-link:hover,
+  .bottom-nav-link:hover,
+  .button-tab:hover,
+  .filter-item button:hover {
+    transform: translateY(-1px);
+    transition: transform 0.15s var(--ease-out), color 0.2s var(--ease-out);
+  }
+}
+
+.navbar-link:active,
+.bottom-nav-link:active,
+.button-tab:active,
+.filter-item button:active,
+.form-btn:active:not(:disabled),
+.recommend-btn:active,
+.event-card-btn:active {
+  transform: scale(0.97);
+  transition: transform 0.12s var(--ease-out);
+}
+
+/* ── Bottom-nav icon bounce on activation ───────────────────────── */
+.bottom-nav-link.active .bottom-nav-icon {
+  animation: dotPulse 0.3s var(--ease-out);
+}
+
+/* ── Navbar brand subtle entrance ───────────────────────────────── */
+.navbar-brand {
+  opacity: 0;
+  animation: fadeIn 0.4s var(--ease-out) 0.1s forwards;
+}
+
+/* ── Hero TUI cursor blink — sits inline at end of command text ─── */
+/* Target .prompt-command so the cursor is on the same line as the text.
+   Only show on the last .hero-tui-prompt child to avoid multiple cursors. */
+.hero-tui > .hero-tui-prompt:last-of-type .prompt-command::after,
+.hero-tui-socials-block .hero-tui-prompt .prompt-command::after {
+  content: '█';
+  color: var(--accent);
+  margin-left: 3px;
+  display: inline;     /* stays on same line as the command text */
+  font-size: 0.8em;
+  vertical-align: baseline;
+  animation: blink 1.1s step-end infinite;
+  opacity: 0.7;
+}
+
+/* ── Social list smooth expand ──────────────────────────────────── */
+/* Override the JS-toggled display:none with a proper height transition */
+.social-list {
+  display: flex !important; /* always in flow */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    max-height 0.25s var(--ease-out),
+    opacity    0.2s  var(--ease-out),
+    transform  0.2s  var(--ease-out);
+  margin-top: 0;
+  pointer-events: none;
+}
+
+.socials-accordion.is-open .social-list {
+  max-height: 300px;
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: var(--space-sm);
+  pointer-events: auto;
+}
+
+/* ── Modal: scale from 0.95 + opacity (never scale(0)) ─────────── */
+.event-modal-content {
+  transform: scale(0.95);
+  opacity: 0;
+  transition:
+    transform 0.25s var(--ease-out),
+    opacity   0.2s  var(--ease-out);
+}
+
+.event-modal[aria-hidden="false"] .event-modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* ── Select dropdown: scale from 0.95 ──────────────────────────── */
+.select-list {
+  transform-origin: top center;
+  transform: scale(0.95) translateY(-4px);
+  transition:
+    opacity    0.15s var(--ease-out),
+    transform  0.15s var(--ease-out),
+    visibility 0.15s;
+}
+
+.filter-select.active + .select-list {
+  transform: scale(1) translateY(0);
+}
+
+/* ── Skill chips: stagger via CSS custom property ───────────────── */
+.skills-item {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.skills-list.is-visible .skills-item {
+  animation: fadeUp 0.25s var(--ease-out) calc(var(--i, 0) * 30ms) forwards;
+}
+
+/* ── Timeline dot: scale pulse when section enters view ─────────── */
+.timeline-item::before {
+  transition: transform 0.3s var(--ease-out), background 0.3s var(--ease-out);
+}
+
+.timeline-item.is-visible::before {
+  animation: dotPulse 0.5s var(--ease-out);
+}
+
+/* ── Project & certificate items: fade-up on reveal ────────────── */
+.project-item.active {
+  animation: fadeUp 0.3s var(--ease-out) forwards;
+}
+
+.certificate-item {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.certificate-item.is-visible {
+  animation: fadeUp 0.3s var(--ease-out) calc(var(--i, 0) * 50ms) forwards;
+}
+
+/* ── Events post items: stagger ─────────────────────────────────── */
+.events-post-item {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.events-post-item.is-visible {
+  animation: fadeUp 0.3s var(--ease-out) calc(var(--i, 0) * 60ms) forwards;
+}
+
+/* ── Hero TUI block: stagger each prompt+output pair ───────────── */
+.hero-tui > * {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.hero-tui > *:nth-child(1) { animation: fadeUp 0.3s var(--ease-out) 0ms   forwards; }
+.hero-tui > *:nth-child(2) { animation: fadeUp 0.3s var(--ease-out) 80ms  forwards; }
+.hero-tui > *:nth-child(3) { animation: fadeUp 0.3s var(--ease-out) 160ms forwards; }
+.hero-tui > *:nth-child(4) { animation: fadeUp 0.3s var(--ease-out) 240ms forwards; }
+.hero-tui > *:nth-child(5) { animation: fadeUp 0.3s var(--ease-out) 300ms forwards; }
+.hero-tui > *:nth-child(6) { animation: fadeUp 0.3s var(--ease-out) 340ms forwards; }
+
+/* ── Sidebar info: fade-up on load ─────────────────────────────── */
+.sidebar-info {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeUp 0.4s var(--ease-out) 0.15s forwards;
+}
+
+.contacts-list {
+  opacity: 0;
+  animation: fadeIn 0.4s var(--ease-out) 0.3s forwards;
+}
+
+.socials-accordion {
+  opacity: 0;
+  animation: fadeIn 0.4s var(--ease-out) 0.4s forwards;
+}
+
+/* ── Service items hover lift ───────────────────────────────────── */
+@media (hover: hover) and (pointer: fine) {
+  .service-item {
+    transition: transform 0.2s var(--ease-out), border-color 0.2s var(--ease-out);
+  }
+
+  .service-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--hairline-strong);
+  }
+
+  .testimonials-item .content-card {
+    transition: transform 0.2s var(--ease-out), border-color 0.2s var(--ease-out);
+  }
+
+  .testimonials-item .content-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--hairline-strong);
+  }
+
+  .project-item {
+    transition: background 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+  }
+
+  .project-item:hover {
+    transform: translateX(2px);
+  }
+
+  .certificate-item {
+    transition: border-color 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+  }
+
+  .certificate-item:hover {
+    transform: translateY(-3px);
+  }
+
+  .events-post-item {
+    transition: border-color 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+  }
+
+  .events-post-item:hover {
+    transform: translateY(-3px);
+  }
+
+  .skills-item {
+    transition: border-color 0.15s var(--ease-out), color 0.15s var(--ease-out), transform 0.15s var(--ease-out);
+  }
+
+  .skills-item:hover {
+    transform: translateY(-1px);
+  }
+
+  .social-link {
+    transition: color 0.15s var(--ease-out), transform 0.15s var(--ease-out);
+    display: inline-block;
+  }
+
+  .social-link:hover {
+    transform: translateX(3px);
+  }
+}
+
+/* ── Filter indicator slide ─────────────────────────────────────── */
+.filter-indicator {
+  transition: transform 0.25s var(--ease-in-out), width 0.25s var(--ease-in-out);
+}
+
+/* ── Reduced motion — keep opacity fades, remove movement ────────── */
+/* "Reduced motion means fewer and gentler animations, not zero" — Emil */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -2045,5 +2362,16 @@ textarea.form-input {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .reveal-stagger > *,
+  .skills-item,
+  .certificate-item,
+  .events-post-item,
+  .hero-tui > * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
   }
 }

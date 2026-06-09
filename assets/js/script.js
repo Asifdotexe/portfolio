@@ -268,6 +268,109 @@ const initBracketColors = () => {
 };
 
 // --------------------------------------------------------------------
+// SCROLL REVEAL — IntersectionObserver-driven animations
+// "Rare/first-time = can add delight" — Emil Kowalski framework
+// --------------------------------------------------------------------
+
+const initScrollReveal = () => {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return; // respect user preference
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target); // once only
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  // Section labels: simple reveal
+  document.querySelectorAll('.section-label').forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+
+  // About text block
+  const aboutText = document.querySelector('.about-text');
+  if (aboutText) { aboutText.classList.add('reveal'); observer.observe(aboutText); }
+
+  // Service list: stagger children
+  document.querySelectorAll('.service-list').forEach(el => {
+    el.classList.add('reveal-stagger');
+    observer.observe(el);
+  });
+
+  // Testimonials list: stagger children
+  document.querySelectorAll('.testimonials-list').forEach(el => {
+    el.classList.add('reveal-stagger');
+    observer.observe(el);
+  });
+
+  // Skills lists: stagger chips with --i custom property
+  document.querySelectorAll('.skills-list').forEach(list => {
+    const items = list.querySelectorAll('.skills-item');
+    items.forEach((item, i) => {
+      item.style.setProperty('--i', i);
+    });
+    const skillsObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        skillsObs.unobserve(entry.target);
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+    skillsObs.observe(list);
+  });
+
+  // Timeline items: reveal for dot pulse
+  document.querySelectorAll('.timeline-item').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Certificates: stagger with --i
+  const certsObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      certsObs.unobserve(entry.target);
+    });
+  }, { threshold: 0.1 });
+
+  const observeCerts = () => {
+    document.querySelectorAll('.certificate-item').forEach((el, i) => {
+      el.style.setProperty('--i', i);
+      certsObs.observe(el);
+    });
+  };
+  // Run after dynamic content loads
+  window.addEventListener('certificates-loaded', observeCerts);
+  // Also try immediately in case already loaded
+  observeCerts();
+
+  // Events: stagger with --i
+  const eventsObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      eventsObs.unobserve(entry.target);
+    });
+  }, { threshold: 0.1 });
+
+  const observeEvents = () => {
+    document.querySelectorAll('.events-post-item').forEach((el, i) => {
+      el.style.setProperty('--i', i);
+      eventsObs.observe(el);
+    });
+  };
+  window.addEventListener('events-loaded', observeEvents);
+  observeEvents();
+
+  // Contact section
+  const contactSection = document.querySelector('#contact .section-content');
+  if (contactSection) { contactSection.classList.add('reveal'); observer.observe(contactSection); }
+};
+
+// --------------------------------------------------------------------
 // DYNAMIC CONTENT LOADING
 // --------------------------------------------------------------------
 
@@ -279,6 +382,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initFormSubmit();
   initSocialAccordion();
   initBracketColors();
+  initScrollReveal();
+
 
   const showFetchError = (elementId, message = 'Could not load content. Please try again later.') => {
     const container = document.getElementById(elementId);
@@ -408,6 +513,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.addEventListener('click', () => openModal(event));
           }
         });
+        window.dispatchEvent(new Event('events-loaded'));
       })
       .catch(error => {
         console.error('Error fetching events data:', error);
@@ -445,6 +551,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (img) img.addEventListener('error', onerrorHandler);
           certificatesGrid.appendChild(certificateItem);
         });
+        window.dispatchEvent(new Event('certificates-loaded'));
       })
       .catch(error => {
         console.error('Error fetching certificates data:', error);
