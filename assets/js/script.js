@@ -1,5 +1,10 @@
 'use strict';
 
+const getNavHeight = () => {
+  const navbar = document.querySelector('.navbar');
+  return navbar ? navbar.offsetHeight : 0;
+};
+
 // --------------------------------------------------------------------
 // SCROLL SPY — IntersectionObserver for active section highlighting
 // --------------------------------------------------------------------
@@ -20,6 +25,7 @@ const initScrollSpy = () => {
     });
   };
 
+  const navHeight = getNavHeight();
   const observer = new IntersectionObserver((entries) => {
     let maxRatio = 0;
     let bestId = currentActiveId;
@@ -34,7 +40,7 @@ const initScrollSpy = () => {
     if (bestId) setActive(bestId);
   }, {
     threshold: [0, 0.25, 0.5, 0.75, 1],
-    rootMargin: '-56px 0px -40% 0px'
+    rootMargin: '-' + navHeight + 'px 0px -40% 0px'
   });
 
   sections.forEach(s => observer.observe(s));
@@ -43,7 +49,6 @@ const initScrollSpy = () => {
   const onScroll = () => {
     let bestSection = null;
     let bestDist = Infinity;
-    const navHeight = 56;
 
     sections.forEach(s => {
       const rect = s.getBoundingClientRect();
@@ -82,8 +87,7 @@ const initNavClick = () => {
       const targetSection = document.getElementById(targetId);
       if (!targetSection) return;
 
-      const navHeight = 56;
-      const top = targetSection.getBoundingClientRect().top + window.scrollY - navHeight;
+      const top = targetSection.getBoundingClientRect().top + window.scrollY - getNavHeight();
       window.scrollTo({ top, behavior: 'smooth' });
 
       // Set active immediately for responsiveness
@@ -110,7 +114,7 @@ const initKeyboardNav = () => {
       e.preventDefault();
       const homeEl = document.getElementById('home');
       if (homeEl) {
-        const top = homeEl.getBoundingClientRect().top + window.scrollY - 56;
+        const top = homeEl.getBoundingClientRect().top + window.scrollY - getNavHeight();
         window.scrollTo({ top, behavior: 'smooth' });
       }
       document.querySelectorAll('[data-nav-link]').forEach(l => l.classList.remove('active'));
@@ -567,27 +571,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const seconds = Math.floor((now - date) / 1000);
 
     let interval = seconds / 31536000;
-    if (interval > 1) {
+    if (interval >= 1) {
       const years = Math.floor(interval);
       return years + ' year' + (years > 1 ? 's' : '') + ' ago';
     }
     interval = seconds / 2592000;
-    if (interval > 1) {
+    if (interval >= 1) {
       const months = Math.floor(interval);
       return months + ' month' + (months > 1 ? 's' : '') + ' ago';
     }
     interval = seconds / 86400;
-    if (interval > 1) {
+    if (interval >= 1) {
       const days = Math.floor(interval);
       return days + ' day' + (days > 1 ? 's' : '') + ' ago';
     }
     interval = seconds / 3600;
-    if (interval > 1) {
+    if (interval >= 1) {
       const hours = Math.floor(interval);
       return hours + ' hour' + (hours > 1 ? 's' : '') + ' ago';
     }
     interval = seconds / 60;
-    if (interval > 1) {
+    if (interval >= 1) {
       const minutes = Math.floor(interval);
       return minutes + ' minute' + (minutes > 1 ? 's' : '') + ' ago';
     }
@@ -655,12 +659,12 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('[data-filter-btn]').forEach(btn => {
         const cat = btn.dataset.category;
         const label = btn.textContent.replace(/\s*\(\d+\)\s*$/, '');
-        btn.textContent = label + ' (' + counts[cat] + ')';
+        btn.textContent = label + ' (' + (counts[cat] ?? 0) + ')';
       });
       document.querySelectorAll('[data-select-item]').forEach(item => {
         const cat = item.dataset.category;
         const label = item.textContent.replace(/\s*\(\d+\)\s*$/, '');
-        item.textContent = label + ' (' + counts[cat] + ')';
+        item.textContent = label + ' (' + (counts[cat] ?? 0) + ')';
       });
 
       initializeProjectFilter();
