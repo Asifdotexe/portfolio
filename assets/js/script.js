@@ -1,98 +1,100 @@
 'use strict';
 
+const getNavHeight = () => {
+  const navbar = document.querySelector('.navbar');
+  return navbar ? navbar.offsetHeight : 0;
+};
+
 // --------------------------------------------------------------------
-// Original UI Functionality (Sidebar, Modals, Filters, Navigation)
+// SCROLL SPY — IntersectionObserver for active section highlighting
 // --------------------------------------------------------------------
 
-// Element toggle function
-const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+const initScrollSpy = () => {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('[data-nav-link]');
+  if (!sections.length || !navLinks.length) return;
 
-// Sidebar
-const sidebar = document.querySelector("[data-sidebar]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-if (sidebar && sidebarBtn) {
-  sidebarBtn.addEventListener("click", function () {
-    elementToggleFunc(sidebar);
-    const expanded = sidebar.classList.contains("active");
-    sidebarBtn.setAttribute("aria-expanded", expanded);
-    sidebarBtn.querySelector("span").textContent = expanded ? "Hide Contacts" : "Show Contacts";
+  let currentActiveId = '';
+
+  const setActive = (id) => {
+    if (id === currentActiveId) return;
+    currentActiveId = id;
+    navLinks.forEach(link => {
+      const target = link.dataset.navLink;
+      link.classList.toggle('active', target === id);
+    });
+  };
+
+  const navHeight = getNavHeight();
+  const observer = new IntersectionObserver((entries) => {
+    let maxRatio = 0;
+    let bestId = currentActiveId;
+
+    entries.forEach(entry => {
+      if (entry.intersectionRatio > maxRatio) {
+        maxRatio = entry.intersectionRatio;
+        bestId = entry.target.id;
+      }
+    });
+
+    if (bestId) setActive(bestId);
+  }, {
+    threshold: [0, 0.25, 0.5, 0.75, 1],
+    rootMargin: '-' + navHeight + 'px 0px -40% 0px'
   });
-}
 
-// Testimonials modal
-const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
-const modalContainer = document.querySelector("[data-modal-container]");
-const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
-const overlay = document.querySelector("[data-overlay]");
-let lastFocusedEl = null;
-if (modalContainer && modalCloseBtn && overlay) {
-  const modalImg = document.querySelector("[data-modal-img]");
-  const modalTitle = document.querySelector("[data-modal-title]");
-  const modalText = document.querySelector("[data-modal-text]");
-  const focusableEls = modalContainer.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-  const firstFocusable = focusableEls[0];
-  const lastFocusable = focusableEls[focusableEls.length - 1];
+  sections.forEach(s => observer.observe(s));
 
-  const testimonialsModalFunc = function () {
-    const opening = !modalContainer.classList.contains("active");
-    modalContainer.classList.toggle("active");
-    overlay.classList.toggle("active");
-    if (opening) {
-      lastFocusedEl = document.activeElement;
-      modalContainer.focus();
-    } else {
-      if (lastFocusedEl) lastFocusedEl.focus();
+  // Set initial active based on scroll position (debounced)
+  const onScroll = () => {
+    let bestSection = null;
+    let bestDist = Infinity;
+
+    sections.forEach(s => {
+      const rect = s.getBoundingClientRect();
+      const dist = Math.abs(rect.top - navHeight);
+      if (dist < bestDist) {
+        bestDist = dist;
+        bestSection = s;
+      }
+    });
+
+    if (bestSection && bestSection.id !== currentActiveId) {
+      setActive(bestSection.id);
     }
   };
 
-  testimonialsItem.forEach(item => {
-    item.addEventListener("click", function () {
-      modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-      modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-      modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-      modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
-      testimonialsModalFunc();
+  let scrollTimer = null;
+  const debouncedScroll = () => {
+    if (scrollTimer) cancelAnimationFrame(scrollTimer);
+    scrollTimer = requestAnimationFrame(onScroll);
+  };
+
+  window.addEventListener('scroll', debouncedScroll, { passive: true });
+  onScroll();
+};
+
+// --------------------------------------------------------------------
+// NAV CLICK — smooth scroll to section
+// --------------------------------------------------------------------
+
+const initNavClick = () => {
+  const navLinks = document.querySelectorAll('[data-nav-link]');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const targetId = link.dataset.navLink;
+      const targetSection = document.getElementById(targetId);
+      if (!targetSection) return;
+
+      const top = targetSection.getBoundingClientRect().top + window.scrollY - getNavHeight();
+      window.scrollTo({ top, behavior: 'smooth' });
+
+      // Set active immediately for responsiveness
+      navLinks.forEach(l => l.classList.toggle('active', l === link));
     });
   });
-  modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-  overlay.addEventListener("click", testimonialsModalFunc);
-
-  modalContainer.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      testimonialsModalFunc();
-      return;
-    }
-    if (e.key === 'Tab') {
-      if (e.shiftKey && document.activeElement === firstFocusable) {
-        e.preventDefault();
-        lastFocusable.focus();
-      } else if (!e.shiftKey && document.activeElement === lastFocusable) {
-        e.preventDefault();
-        firstFocusable.focus();
-      }
-    }
-  });
-}
-
-// Page navigation
-const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
-if (navigationLinks.length > 0 && pages.length > 0) {
-  navigationLinks.forEach(link => {
-    link.addEventListener("click", function () {
-      const targetPage = this.textContent.trim().toLowerCase();
-      pages.forEach(page => {
-        page.classList.toggle("active", targetPage === page.dataset.page);
-        if (targetPage === page.dataset.page) {
-          window.scrollTo(0, 0);
-        }
-      });
-      navigationLinks.forEach(navLink => {
-        navLink.classList.toggle("active", navLink === this);
-      });
-    });
-  });
-}
+};
 
 // --------------------------------------------------------------------
 // KEYBOARD NAVIGATION
@@ -101,15 +103,23 @@ if (navigationLinks.length > 0 && pages.length > 0) {
 const initKeyboardNav = () => {
   const links = Array.from(document.querySelectorAll('[data-nav-link]'));
 
-  const getVisibleLinks = () => links.filter(l => l.offsetParent !== null);
-
   document.addEventListener('keydown', (e) => {
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
-    const visibleLinks = getVisibleLinks();
+    const visibleLinks = links.filter(l => l.offsetParent !== null);
     if (!visibleLinks.length) return;
 
     const num = parseInt(e.key);
+    if (num === 0) {
+      e.preventDefault();
+      const homeEl = document.getElementById('home');
+      if (homeEl) {
+        const top = homeEl.getBoundingClientRect().top + window.scrollY - getNavHeight();
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+      document.querySelectorAll('[data-nav-link]').forEach(l => l.classList.remove('active'));
+      return;
+    }
     if (num >= 1 && num <= visibleLinks.length) {
       e.preventDefault();
       visibleLinks[num - 1].click();
@@ -127,26 +137,23 @@ const initKeyboardNav = () => {
 };
 
 // --------------------------------------------------------------------
-// SCROLL PROGRESS INDICATOR
+// SOCIAL ACCORDION
 // --------------------------------------------------------------------
 
-const initScrollProgress = () => {
-  const bar = document.createElement('div');
-  bar.className = 'scroll-progress';
-  document.body.prepend(bar);
+const initSocialAccordion = () => {
+  const container = document.querySelector('.socials-accordion');
+  const toggle = container?.querySelector('.socials-toggle');
+  if (!container || !toggle) return;
 
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (scrollTop / docHeight) : 0;
-      bar.style.transform = 'scaleX(' + progress + ')';
-      ticking = false;
-    });
-  }, { passive: true });
+  toggle.addEventListener('click', () => {
+    const isOpen = container.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', isOpen);
+    const bracket = toggle.querySelector('.bracket');
+    if (bracket) {
+      bracket.textContent = isOpen ? '[x]' : '[+]';
+      colorizeBracket(bracket);
+    }
+  });
 };
 
 // --------------------------------------------------------------------
@@ -161,16 +168,48 @@ const initFormSubmit = () => {
   const btn = form.querySelector('[data-form-btn]');
   const msgEl = form.querySelector('[data-form-message]');
 
+  const fieldErrors = {
+    fullname: 'Please enter your full name.',
+    email: 'Please enter a valid email address.',
+    message: 'Please enter your message.',
+  };
+
+  const clearFieldErrors = () => {
+    form.querySelectorAll('.form-field-error').forEach(el => { el.textContent = ''; });
+    form.querySelectorAll('[aria-invalid]').forEach(el => { el.removeAttribute('aria-invalid'); });
+  };
+
   const validate = () => {
+    clearFieldErrors();
     const emailField = form.querySelector('input[type="email"]');
-    let valid = Array.from(inputs).every(i => i.value.trim() !== '');
+    let valid = true;
+
+    inputs.forEach(i => {
+      const name = i.name;
+      if (i.value.trim() === '') {
+        valid = false;
+        i.setAttribute('aria-invalid', 'true');
+        const errEl = document.getElementById(name + '-error');
+        if (errEl && fieldErrors[name]) errEl.textContent = fieldErrors[name];
+      }
+    });
+
     if (emailField && emailField.value.trim() !== '') {
-      valid = valid && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value.trim());
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value.trim())) {
+        valid = false;
+        emailField.setAttribute('aria-invalid', 'true');
+        const errEl = document.getElementById('email-error');
+        if (errEl) errEl.textContent = 'Email format is invalid.';
+      }
     }
+
     btn.disabled = !valid;
   };
 
-  inputs.forEach(i => i.addEventListener('input', validate));
+  inputs.forEach(i => {
+    i.addEventListener('input', validate);
+    i.addEventListener('blur', validate);
+  });
   validate();
 
   const showMessage = (type, text) => {
@@ -201,6 +240,8 @@ const initFormSubmit = () => {
     } catch {
       showMessage('error', 'Network error. Please check your connection and try again.');
       btn.disabled = false;
+      const fallback = document.querySelector('.form-fallback');
+      if (fallback) fallback.hidden = false;
     }
 
     btn.classList.remove('form-btn--loading');
@@ -208,138 +249,176 @@ const initFormSubmit = () => {
 };
 
 // --------------------------------------------------------------------
-// NEW VISUAL EFFECTS (Typewriter, Tilt)
+// BRACKET SYMBOL COLORIZER
 // --------------------------------------------------------------------
 
-const initTypewriter = () => {
-  const titleElement = document.querySelector('.info-content .title');
-  if (!titleElement) return;
-
-  const roles = ["Data Scientist", "Python Developer", "Problem Solver", "Analyst"];
-  let roleIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let typeSpeed = 100;
-
-  titleElement.classList.add('typewriter-cursor');
-
-  function type() {
-    const currentRole = roles[roleIndex];
-
-    if (isDeleting) {
-      titleElement.textContent = currentRole.substring(0, charIndex - 1);
-      charIndex--;
-      typeSpeed = 50;
-    } else {
-      titleElement.textContent = currentRole.substring(0, charIndex + 1);
-      charIndex++;
-      typeSpeed = 150;
-    }
-
-    if (!isDeleting && charIndex === currentRole.length) {
-      isDeleting = true;
-      typeSpeed = 2000; // Pause at end
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      roleIndex = (roleIndex + 1) % roles.length;
-      typeSpeed = 500; // Pause before new word
-    }
-
-    setTimeout(type, typeSpeed);
-  }
-
-  type();
+// Wraps the symbol inside [x] / [+] / [-] with a colored <span>.
+// Brackets [] themselves keep their existing muted color unchanged.
+const colorizeBracket = (el) => {
+  const text = el.textContent;
+  const match = text.match(/^\[(.+)\]$/);
+  if (!match) return;
+  const sym = match[1];
+  let cls = '';
+  if (sym === 'x') cls = 'sym-x';
+  else if (sym === '+') cls = 'sym-plus';
+  else if (sym === '-') cls = 'sym-minus';
+  if (!cls) return;
+  el.innerHTML = '[<span class="' + cls + '" aria-hidden="true">' + sym + '</span>]';
 };
 
-const initTiltEffect = () => {
-  const cards = document.querySelectorAll('.project-item, .certificate-item, .events-post-item');
+const initBracketColors = () => {
+  document.querySelectorAll('.bracket').forEach(colorizeBracket);
+};
 
-  cards.forEach(card => {
-    if (card.dataset.tiltInitialized) return;
-    card.dataset.tiltInitialized = 'true';
-    card.classList.add('tilt-effect');
+// --------------------------------------------------------------------
+// SCROLL REVEAL — IntersectionObserver-driven animations
+// "Rare/first-time = can add delight" — Emil Kowalski framework
+// --------------------------------------------------------------------
 
-    let ticking = false;
-    const onMove = (e) => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+const initScrollReveal = () => {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return; // respect user preference
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = ((y - centerY) / centerY) * -5;
-        const rotateY = ((x - centerX) / centerX) * 5;
-
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-        ticking = false;
-      });
-    };
-
-    card.addEventListener('mousemove', onMove, { passive: true });
-    card.addEventListener('mouseleave', () => {
-      ticking = false;
-      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target); // once only
     });
-  });
-};
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
+  // Section labels: simple reveal
+  document.querySelectorAll('.section-label').forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+
+  // About text block
+  const aboutText = document.querySelector('.about-text');
+  if (aboutText) { aboutText.classList.add('reveal'); observer.observe(aboutText); }
+
+  // Service list: stagger children
+  document.querySelectorAll('.service-list').forEach(el => {
+    el.classList.add('reveal-stagger');
+    observer.observe(el);
+  });
+
+  // Testimonials list: stagger children
+  document.querySelectorAll('.testimonials-list').forEach(el => {
+    el.classList.add('reveal-stagger');
+    observer.observe(el);
+  });
+
+  // Skills lists: stagger chips with --i custom property
+  document.querySelectorAll('.skills-list').forEach(list => {
+    const items = list.querySelectorAll('.skills-item');
+    items.forEach((item, i) => {
+      item.style.setProperty('--i', i);
+    });
+    const skillsObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        skillsObs.unobserve(entry.target);
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+    skillsObs.observe(list);
+  });
+
+  // Timeline items: reveal for dot pulse
+  document.querySelectorAll('.timeline-item').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Certificates: stagger with --i
+  const certsObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      certsObs.unobserve(entry.target);
+    });
+  }, { threshold: 0.1 });
+
+  const observeCerts = () => {
+    document.querySelectorAll('.certificate-item').forEach((el, i) => {
+      el.style.setProperty('--i', i);
+      certsObs.observe(el);
+    });
+  };
+  // Run after dynamic content loads
+  window.addEventListener('certificates-loaded', observeCerts);
+  // Also try immediately in case already loaded
+  observeCerts();
+
+  // Events: stagger with --i
+  const eventsObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      eventsObs.unobserve(entry.target);
+    });
+  }, { threshold: 0.1 });
+
+  const observeEvents = () => {
+    document.querySelectorAll('.events-post-item').forEach((el, i) => {
+      el.style.setProperty('--i', i);
+      eventsObs.observe(el);
+    });
+  };
+  window.addEventListener('events-loaded', observeEvents);
+  observeEvents();
+
+  // Contact section
+  const contactSection = document.querySelector('#contact .section-content');
+  if (contactSection) { contactSection.classList.add('reveal'); observer.observe(contactSection); }
+};
 
 // --------------------------------------------------------------------
 // DYNAMIC CONTENT LOADING
 // --------------------------------------------------------------------
+
 document.addEventListener('DOMContentLoaded', () => {
 
-  initTypewriter();
-  initScrollProgress();
+  initScrollSpy();
+  initNavClick();
   initKeyboardNav();
   initFormSubmit();
+  initSocialAccordion();
+  initBracketColors();
+  initScrollReveal();
 
-  // Helper to add skeleton loading state
-  const showSkeleton = (elementId, count = 3, height = '100px') => {
-    const container = document.getElementById(elementId);
-    if (!container) return;
-    container.innerHTML = '';
-    for (let i = 0; i < count; i++) {
-      const div = document.createElement('div');
-      div.classList.add('skeleton');
-      div.style.height = height;
-      div.style.marginBottom = '20px';
-      container.appendChild(div);
-    }
-  }
 
-  // Helper to show error state
   const showFetchError = (elementId, message = 'Could not load content. Please try again later.') => {
     const container = document.getElementById(elementId);
     if (!container) return;
-    container.innerHTML = `<p class="fetch-error">${message}</p>`;
-  }
+    container.textContent = '';
+    const p = document.createElement('p');
+    p.className = 'fetch-error';
+    p.textContent = message;
+    container.appendChild(p);
+  };
+
+  // Populate Education
   const populateEducation = () => {
     const educationList = document.getElementById('education-list');
     if (!educationList) return;
 
-    showSkeleton('education-list', 3, '80px'); // Optional: enable if fetch is slow
-
     fetch('./assets/data/education.json')
       .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching education.json`);
+        if (!response.ok) throw new Error('HTTP ' + response.status);
         return response.json();
       })
       .then(data => {
-        educationList.innerHTML = ''; // Clear skeleton
+        educationList.innerHTML = '';
         if (!data.length) {
           showFetchError('education-list', 'No education data available.');
           return;
         }
-        data.forEach((edu, index) => {
+        data.forEach((edu) => {
           const item = document.createElement('li');
-          item.className = 'timeline-item fade-in-up';
-          item.style.animationDelay = `${index * 0.1}s`;
-          item.innerHTML = `<h4 class="h4 timeline-item-title">${edu.institution}</h4><span>${edu.duration}</span><p class="timeline-text">${edu.description}</p>`;
+          item.className = 'timeline-item';
+          item.innerHTML = '<h3 class="timeline-item-title">' + edu.institution + '</h3><span>' + edu.duration + '</span><p class="timeline-text">' + edu.description + '</p>';
           educationList.appendChild(item);
         });
       })
@@ -349,25 +428,27 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   };
 
-  // Function to populate the Experience section
+  // Populate Experience
   const populateExperience = () => {
     const experienceList = document.getElementById('experience-list');
     if (!experienceList) return;
+
     fetch('./assets/data/experience.json')
       .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching experience.json`);
+        if (!response.ok) throw new Error('HTTP ' + response.status);
         return response.json();
       })
       .then(data => {
+        experienceList.innerHTML = '';
         if (!data.length) {
           showFetchError('experience-list', 'No experience data available.');
           return;
         }
-        data.forEach((exp, index) => {
+        data.forEach((exp) => {
           const item = document.createElement('li');
-          item.className = 'timeline-item fade-in-up';
-          item.style.animationDelay = `${index * 0.1}s`;
-          item.innerHTML = `<h4 class="h4 timeline-item-title">${exp.role}</h4><span>${exp.date}</span><p class="timeline-text">${exp.description}</p>`;
+          const isActive = exp.date && exp.date.toLowerCase().includes('present');
+          item.className = 'timeline-item' + (isActive ? ' timeline-item--active' : '');
+          item.innerHTML = '<h3 class="timeline-item-title">' + exp.role + '</h3><span>' + exp.date + '</span><p class="timeline-text">' + exp.description + '</p>';
           experienceList.appendChild(item);
         });
       })
@@ -377,29 +458,66 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   };
 
-  // Function to populate the Events section
+  // Populate Events
   const populateEvents = () => {
     const eventsList = document.getElementById('events-list');
     if (!eventsList) return;
+
+    const modal = document.getElementById('event-modal');
+    const modalBody = document.getElementById('event-modal-body');
+
+    const openModal = (eventData) => {
+      if (!modal || !modalBody) return;
+      modalBody.innerHTML = '<figure class="event-modal-figure"><img src="' + eventData.image + '" alt="' + eventData.title + '" loading="lazy"></figure><div class="event-modal-info"><div class="events-meta"><span class="event-category">' + eventData.category + '</span><span class="dot"></span><time datetime="' + eventData.date + '">' + eventData.formattedDate + '</time></div><h3 class="event-modal-title">' + eventData.title + '</h3><p class="events-text">' + eventData.description + '</p><a href="' + eventData.url + '" target="_blank" rel="noopener noreferrer" class="event-link">&gt; View on LinkedIn</a></div>';
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+    };
+
+    const closeModal = () => {
+      if (!modal) return;
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+    };
+
+    document.querySelectorAll('[data-event-modal-close]').forEach(el => {
+      el.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal && modal.getAttribute('aria-hidden') === 'false') {
+        closeModal();
+      }
+    });
+
+    // Prevent clicks inside modal content from closing
+    const modalContent = modal ? modal.querySelector('.event-modal-content') : null;
+    if (modalContent) {
+      modalContent.addEventListener('click', (e) => e.stopPropagation());
+    }
+
     fetch('./assets/data/events.json')
       .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching events.json`);
+        if (!response.ok) throw new Error('HTTP ' + response.status);
         return response.json();
       })
       .then(data => {
+        eventsList.innerHTML = '';
         if (!data.length) {
           showFetchError('events-list', 'No events data available.');
           return;
         }
-        data.forEach((event, index) => {
+        data.forEach((event) => {
           const item = document.createElement('li');
-          item.className = 'blog-post-item fade-in-up';
-          item.style.animationDelay = `${index * 0.1}s`;
-          item.innerHTML = `<a href="${event.url}" target="_blank" rel="noopener noreferrer"><figure class="blog-banner-box"><img src="${event.image}" alt="${event.title}" loading="lazy"></figure><div class="blog-content"><div class="blog-meta"><p class="blog-category">${event.category}</p><span class="dot"></span><time datetime="${event.date}">${event.formattedDate}</time></div><h3 class="h3 blog-item-title">${event.title}</h3><p class="blog-text">${event.description}</p></div></a>`;
+          item.className = 'events-post-item';
+          item.innerHTML = '<button class="event-card-btn"><figure class="event-banner-box"><img src="' + event.image + '" alt="' + event.title + '" loading="lazy" onerror="this.alt=\'' + event.title.replace(/'/g, "\\'") + '\';this.style.display=\'none\'"></figure><h3 class="events-item-title">' + event.title + '</h3><span class="event-venue">' + event.category + '</span><time class="event-date">' + event.formattedDate + '</time></button>';
           eventsList.appendChild(item);
+
+          const btn = item.querySelector('.event-card-btn');
+          if (btn) {
+            btn.addEventListener('click', () => openModal(event));
+          }
         });
-        // Initialize tilt after DOM injection
-        setTimeout(initTiltEffect, 500);
+        window.dispatchEvent(new Event('events-loaded'));
       })
       .catch(error => {
         console.error('Error fetching events data:', error);
@@ -407,49 +525,37 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   };
 
-  // Dynamically populate certificates section
+  // Populate Certificates
   const populateCertificates = () => {
     const certificatesGrid = document.getElementById('certificates-grid');
     if (!certificatesGrid) return;
 
-    showSkeleton('certificates-grid', 6, '200px');
-
     fetch('./assets/data/certificates.json')
       .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching certificates.json`);
+        if (!response.ok) throw new Error('HTTP ' + response.status);
         return response.json();
       })
       .then(data => {
-        certificatesGrid.innerHTML = ''; // Clear skeletons
+        certificatesGrid.innerHTML = '';
         if (!data.length) {
           showFetchError('certificates-grid', 'No certificates available.');
           return;
         }
-        data.forEach((cert, index) => {
+        data.forEach((cert) => {
           const certificateItem = document.createElement('div');
-          certificateItem.className = 'certificate-item fade-in-up';
-          certificateItem.style.animationDelay = `${index * 0.05}s`; // Faster stagger
-
-          // Removed style="display:block; height:100%;" from anchor to fix text offset issue
-          certificateItem.innerHTML = `
-            <a href="${cert.url}" target="_blank" rel="noopener noreferrer">
-              <img
-                src="${cert.image}"
-                alt="${cert.title}"
-                loading="lazy"
-                onerror="this.parentElement.innerHTML='<div class=\\'cert-placeholder\\'><ion-icon name=\\'document-text-outline\\'></ion-icon></div>'"
-              >
-            </a>
-            <div class="certificate-content">
-              <h3 class="h4 certificate-title">${cert.title}</h3>
-              <p class="certificate-issuer">${cert.issuer}</p>
-              <time class="certificate-date">${cert.date}</time>
-            </div>
-          `;
-
+          certificateItem.className = 'certificate-item';
+          const placeholder = document.createElement('div');
+          placeholder.className = 'cert-placeholder';
+          placeholder.textContent = '> ' + cert.title;
+          const onerrorHandler = function() {
+            this.replaceWith(placeholder.cloneNode(true));
+          };
+          certificateItem.innerHTML = '<a href="' + cert.url + '" target="_blank" rel="noopener noreferrer"><img src="' + cert.image + '" alt="' + cert.title + '" loading="lazy"></a><div class="certificate-content"><h3 class="certificate-title">' + cert.title + '</h3><p class="certificate-issuer">' + cert.issuer + '</p><time class="certificate-date">' + cert.date + '</time></div>';
+          const img = certificateItem.querySelector('img');
+          if (img) img.addEventListener('error', onerrorHandler);
           certificatesGrid.appendChild(certificateItem);
         });
-        setTimeout(initTiltEffect, 500);
+        window.dispatchEvent(new Event('certificates-loaded'));
       })
       .catch(error => {
         console.error('Error fetching certificates data:', error);
@@ -457,7 +563,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   };
 
-  // Helper function to calculate relative time
+  // Helper: timeAgo
   const timeAgo = (dateString) => {
     if (!dateString) return '';
     const date = new Date(dateString);
@@ -465,50 +571,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const seconds = Math.floor((now - date) / 1000);
 
     let interval = seconds / 31536000;
-    if (interval > 1) {
+    if (interval >= 1) {
       const years = Math.floor(interval);
-      return years + " year" + (years > 1 ? "s" : "") + " ago";
+      return years + ' year' + (years > 1 ? 's' : '') + ' ago';
     }
     interval = seconds / 2592000;
-    if (interval > 1) {
+    if (interval >= 1) {
       const months = Math.floor(interval);
-      return months + " month" + (months > 1 ? "s" : "") + " ago";
+      return months + ' month' + (months > 1 ? 's' : '') + ' ago';
     }
     interval = seconds / 86400;
-    if (interval > 1) {
+    if (interval >= 1) {
       const days = Math.floor(interval);
-      return days + " day" + (days > 1 ? "s" : "") + " ago";
+      return days + ' day' + (days > 1 ? 's' : '') + ' ago';
     }
     interval = seconds / 3600;
-    if (interval > 1) {
+    if (interval >= 1) {
       const hours = Math.floor(interval);
-      return hours + " hour" + (hours > 1 ? "s" : "") + " ago";
+      return hours + ' hour' + (hours > 1 ? 's' : '') + ' ago';
     }
     interval = seconds / 60;
-    if (interval > 1) {
+    if (interval >= 1) {
       const minutes = Math.floor(interval);
-      return minutes + " minute" + (minutes > 1 ? "s" : "") + " ago";
+      return minutes + ' minute' + (minutes > 1 ? 's' : '') + ' ago';
     }
-    return "just now";
+    return 'just now';
   };
 
-  /**
-   * Populates the project list by combining data from local JSON files.
-   */
+  // Populate Projects
   const populateProjects = async () => {
-    const projectList = document.getElementById("project-list");
+    const projectList = document.getElementById('project-list');
     if (!projectList) return;
-
-    showSkeleton('project-list', 4, '150px');
 
     try {
       const [projectsResponse, updatesResponse] = await Promise.all([
-        fetch("./assets/data/projects.json"),
-        fetch("./assets/data/last_updated.json")
+        fetch('./assets/data/projects.json'),
+        fetch('./assets/data/last_updated.json')
       ]);
 
       if (!projectsResponse.ok) {
-        throw new Error(`Failed to load projects.json: ${projectsResponse.statusText}`);
+        throw new Error('Failed to load projects.json: ' + projectsResponse.statusText);
       }
 
       const projects = await projectsResponse.json();
@@ -528,95 +630,95 @@ document.addEventListener('DOMContentLoaded', () => {
         return 0;
       });
 
-      projectList.innerHTML = ''; // Clear skeletons
-      projectsWithUpdates.forEach((project, index) => {
-        const li = document.createElement("li");
-        li.className = "project-item active fade-in-up";
-        li.style.animationDelay = `${index * 0.1}s`;
-        li.setAttribute("data-filter-item", "");
-        li.setAttribute("data-category", project.category.toLowerCase());
+      projectList.innerHTML = '';
+      projectsWithUpdates.forEach((project) => {
+        const li = document.createElement('li');
+        li.className = 'project-item active';
+        li.setAttribute('data-filter-item', '');
+        li.setAttribute('data-category', project.category.toLowerCase());
 
         const tagsHtml = project.tags
-          .map((tag) => `<span class="tag">${tag}</span>`)
-          .join("");
+          .map(tag => '<span class="tag">' + tag + '</span>')
+          .join('');
 
         const updatedHtml = project.updated_at
           ? '<p class="project-desc">Last updated: ' + timeAgo(project.updated_at) + '</p>'
-          : "";
+          : '';
 
-        li.innerHTML = `
-                <a href="${project.url}" target="_blank" rel="noopener noreferrer">
-                    <div class="project-thumb">
-                        <img src="${project.image}" alt="${project.alt}" loading="lazy">
-                    </div>
-                    <div class="project-body">
-                        <h3 class="project-title">${project.title}</h3>
-                        <p class="project-desc">${project.category_desc}</p>
-                        ${updatedHtml}
-                    </div>
-                    <div class="project-tags">${tagsHtml}</div>
-                </a>
-            `;
+        li.innerHTML = '<a href="' + project.url + '" target="_blank" rel="noopener noreferrer"><div class="project-thumb"><img src="' + project.image + '" alt="' + project.alt + '" loading="lazy"></div><div class="project-body"><h3 class="project-title">' + project.title + '</h3><p class="project-desc">' + project.category_desc + '</p>' + updatedHtml + '</div><div class="project-tags">' + tagsHtml + '</div></a>';
 
         projectList.appendChild(li);
       });
 
+      // Count projects per category and update filter displays
+      const counts = { all: projects.length };
+      projects.forEach(p => {
+        const cat = p.category.toLowerCase();
+        counts[cat] = (counts[cat] || 0) + 1;
+      });
+      document.querySelectorAll('[data-filter-btn]').forEach(btn => {
+        const cat = btn.dataset.category;
+        const label = btn.textContent.replace(/\s*\(\d+\)\s*$/, '');
+        btn.textContent = label + ' (' + (counts[cat] ?? 0) + ')';
+      });
+      document.querySelectorAll('[data-select-item]').forEach(item => {
+        const cat = item.dataset.category;
+        const label = item.textContent.replace(/\s*\(\d+\)\s*$/, '');
+        item.textContent = label + ' (' + (counts[cat] ?? 0) + ')';
+      });
+
       initializeProjectFilter();
-      setTimeout(initTiltEffect, 500);
 
     } catch (error) {
-      console.error("Error loading or processing projects:", error);
-      projectList.innerHTML = '<li><p>Could not load projects. Please try again later.</p></li>';
+      console.error('Error loading projects:', error);
+      projectList.innerHTML = '<li><p class="fetch-error">Could not load projects. Please try again later.</p></li>';
     }
   };
 
-
-  /**
-   * Sets up event listeners for project category filtering.
-   */
+  // Initialize Project Filter
   const initializeProjectFilter = () => {
-    const select = document.querySelector("[data-select]");
-    const selectItems = document.querySelectorAll("[data-select-item]");
-    const selectValue = document.querySelector("[data-selecct-value]");
-    const filterBtns = document.querySelectorAll("[data-filter-btn]");
-    const filterItems = document.querySelectorAll("[data-filter-item]");
-    const indicator = document.querySelector(".filter-indicator");
+    const select = document.querySelector('[data-select]');
+    const selectItems = document.querySelectorAll('[data-select-item]');
+    const selectValue = document.querySelector('[data-selecct-value]');
+    const filterBtns = document.querySelectorAll('[data-filter-btn]');
+    const filterItems = document.querySelectorAll('[data-filter-item]');
+    const indicator = document.querySelector('.filter-indicator');
 
     const updateFilterIndicator = (btn) => {
       if (!indicator || !btn) return;
-      const wrapper = btn.closest(".filter-wrapper");
+      const wrapper = btn.closest('.filter-wrapper');
       if (!wrapper) return;
       const btnRect = btn.getBoundingClientRect();
       const wrapperRect = wrapper.getBoundingClientRect();
-      indicator.style.left = (btnRect.left - wrapperRect.left) + "px";
-      indicator.style.width = btnRect.width + "px";
+      indicator.style.transform = 'translateX(' + (btnRect.left - wrapperRect.left) + 'px)';
+      indicator.style.width = btnRect.width + 'px';
     };
 
     const filterFunc = function (selectedValue) {
       for (let i = 0; i < filterItems.length; i++) {
-        if (selectedValue === "all" || selectedValue === filterItems[i].dataset.category) {
-          filterItems[i].classList.add("active");
+        if (selectedValue === 'all' || selectedValue === filterItems[i].dataset.category) {
+          filterItems[i].classList.add('active');
         } else {
-          filterItems[i].classList.remove("active");
+          filterItems[i].classList.remove('active');
         }
       }
-    }
+    };
 
     if (indicator) {
-      const initialActive = document.querySelector(".filter-item button.active");
+      const initialActive = document.querySelector('.filter-item button.active');
       updateFilterIndicator(initialActive || filterBtns[0]);
     }
 
     let lastClickedBtn = filterBtns.length > 0 ? filterBtns[0] : null;
     if (lastClickedBtn) {
       for (let i = 0; i < filterBtns.length; i++) {
-        filterBtns[i].addEventListener("click", function () {
-          let selectedValue = this.innerText.toLowerCase();
-          if (selectValue) selectValue.innerText = this.innerText;
+        filterBtns[i].addEventListener('click', function () {
+          let selectedValue = this.dataset.category;
+          if (selectValue) selectValue.innerText = this.textContent;
           filterFunc(selectedValue);
 
-          lastClickedBtn.classList.remove("active");
-          this.classList.add("active");
+          lastClickedBtn.classList.remove('active');
+          this.classList.add('active');
           lastClickedBtn = this;
 
           updateFilterIndicator(this);
@@ -625,20 +727,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (select) {
-      select.addEventListener("click", function () { elementToggleFunc(this); });
+      select.addEventListener('click', function () { this.classList.toggle('active'); });
 
       for (let i = 0; i < selectItems.length; i++) {
-        selectItems[i].addEventListener("click", function () {
-          let selectedValue = this.innerText.toLowerCase();
-          if (selectValue) {
-            selectValue.innerText = this.innerText;
-          }
-          elementToggleFunc(select);
+        selectItems[i].addEventListener('click', function () {
+          let selectedValue = this.dataset.category;
+          if (selectValue) selectValue.innerText = this.textContent;
+          select.classList.remove('active');
           filterFunc(selectedValue);
 
           for (let j = 0; j < filterBtns.length; j++) {
-            const match = filterBtns[j].innerText.toLowerCase() === selectedValue;
-            filterBtns[j].classList.toggle("active", match);
+            const match = filterBtns[j].dataset.category === selectedValue;
+            filterBtns[j].classList.toggle('active', match);
             if (match) updateFilterIndicator(filterBtns[j]);
           }
         });
@@ -646,8 +746,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-
-  // Call all the functions to load your dynamic content
+  // Call all data loaders
   populateEducation();
   populateExperience();
   populateEvents();

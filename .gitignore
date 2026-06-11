@@ -9,3 +9,6 @@ build/
 coverage/
 .impeccable/live/
 .impeccable/critique/
+opencode.ai/
+.agents/skills/emil-design-eng/
+skills-lock.json
