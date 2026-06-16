@@ -433,6 +433,7 @@ What truly excites him isn't just analyzing data — it's building with it. He u
 ## 11. Contact Information
 
 - **Full Name:** Asif Sayyed
+- **Email:** hello@sayyedasif.com
 - **Location:** Mumbai, Maharashtra, India
 - **Website:** https://sayyedasif.com
 - **GitHub:** https://github.com/Asifdotexe
