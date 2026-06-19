@@ -80,6 +80,9 @@ def generate_html(data, slug):
             .blog-content ul {{ list-style-type: disc; margin-left: 20px; margin-bottom: 15px; }}
             .blog-content ol {{ list-style-type: decimal; margin-left: 20px; margin-bottom: 15px; }}
             .blog-content li {{ margin-bottom: 5px; }}
+            @media (min-width: 1024px) {{
+                .blogs header {{ padding-right: 450px; }}
+            }}
         </style>
         {html_content}
     </section>
