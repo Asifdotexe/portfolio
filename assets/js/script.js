@@ -39,72 +39,6 @@ if (modalContainer && modalCloseBtn && overlay) {
   modalCloseBtn.addEventListener("click", testimonialsModalFunc);
   overlay.addEventListener("click", testimonialsModalFunc);
 }
-
-// Project filter select
-const select = document.querySelector("[data-select]");
-const selectItems = document.querySelectorAll("[data-select-item]");
-if (select && selectItems.length > 0) {
-  const selectValue = document.querySelector("[data-selecct-value]");
-  const filterBtn = document.querySelectorAll("[data-filter-btn]");
-  const filterItems = document.querySelectorAll("[data-filter-item]");
-
-  const filterFunc = function (selectedValue) {
-    filterItems.forEach(item => {
-      if (selectedValue === "all" || selectedValue === item.dataset.category) {
-        item.classList.add("active");
-        // Re-trigger animation for filtered items
-        item.style.animation = 'none';
-        item.offsetHeight; /* trigger reflow */
-        item.style.animation = null;
-      } else {
-        item.classList.remove("active");
-      }
-    });
-  }
-  select.addEventListener("click", function () { elementToggleFunc(this); });
-  selectItems.forEach(item => {
-    item.addEventListener("click", function () {
-      let selectedValue = this.innerText.toLowerCase();
-      selectValue.innerText = this.innerText;
-      elementToggleFunc(select);
-      filterFunc(selectedValue);
-    });
-  });
-  if (filterBtn.length > 0) {
-    let lastClickedBtn = filterBtn[0];
-    filterBtn.forEach(btn => {
-      btn.addEventListener("click", function () {
-        let selectedValue = this.innerText.toLowerCase();
-        selectValue.innerText = this.innerText;
-        filterFunc(selectedValue);
-        lastClickedBtn.classList.remove("active");
-        this.classList.add("active");
-        lastClickedBtn = this;
-      });
-    });
-  }
-}
-
-// Page navigation (SPA mode disabled)
-// const navigationLinks = document.querySelectorAll("[data-nav-link]");
-// const pages = document.querySelectorAll("[data-page]");
-// if (navigationLinks.length > 0 && pages.length > 0) {
-//   navigationLinks.forEach(link => {
-//     link.addEventListener("click", function () {
-//       const targetPage = this.innerHTML.toLowerCase();
-//       pages.forEach(page => {
-//         page.classList.toggle("active", targetPage === page.dataset.page);
-//         if (targetPage === page.dataset.page) {
-//           window.scrollTo(0, 0);
-//         }
-//       });
-//       navigationLinks.forEach(navLink => {
-//         navLink.classList.toggle("active", navLink === this);
-//       });
-//     });
-//   });
-// }
-
 // --------------------------------------------------------------------
 // NEW VISUAL EFFECTS (Typewriter, Tilt)
 // --------------------------------------------------------------------
@@ -314,36 +248,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Helper function to calculate relative time
   const timeAgo = (dateString) => {
     if (!dateString) return '';
-    const date = new Date(dateString);
-    const now = new Date();
-    const seconds = Math.floor((now - date) / 1000);
-
-    let interval = seconds / 31536000;
-    if (interval > 1) {
-      const years = Math.floor(interval);
-      return years + " year" + (years > 1 ? "s" : "") + " ago";
-    }
-    interval = seconds / 2592000;
-    if (interval > 1) {
-      const months = Math.floor(interval);
-      return months + " month" + (months > 1 ? "s" : "") + " ago";
-    }
-    interval = seconds / 86400;
-    if (interval > 1) {
-      const days = Math.floor(interval);
-      return days + " day" + (days > 1 ? "s" : "") + " ago";
-    }
-    interval = seconds / 3600;
-    if (interval > 1) {
-      const hours = Math.floor(interval);
-      return hours + " hour" + (hours > 1 ? "s" : "") + " ago";
-    }
-    interval = seconds / 60;
-    if (interval > 1) {
-      const minutes = Math.floor(interval);
-      return minutes + " minute" + (minutes > 1 ? "s" : "") + " ago";
-    }
-    return "just now";
+    const diff = (new Date() - new Date(dateString)) / 1000;
+    if (diff < 60) return 'just now';
+    const units = [['year', 31536000], ['month', 2592000], ['day', 86400], ['hour', 3600], ['minute', 60]];
+    const [unit, secs] = units.find(([, s]) => diff >= s);
+    return new Intl.RelativeTimeFormat('en', { numeric: 'auto' }).format(-Math.floor(diff / secs), unit);
   };
 
   /**
