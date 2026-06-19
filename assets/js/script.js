@@ -209,6 +209,34 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Dynamically populate certificates section
+  
+  const populateBlogs = () => {
+    const blogsList = document.getElementById('blogs-list');
+    if (!blogsList) return;
+    fetch('/assets/data/blogs.json')
+      .then(response => {
+        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching blogs.json`);
+        return response.json();
+      })
+      .then(data => {
+        data.forEach((blog, index) => {
+          const item = document.createElement('li');
+          item.className = 'event-post-item active fade-in-up';
+          item.style.animationDelay = `${index * 0.1}s`;
+          item.setAttribute("data-filter-item", "");
+          item.setAttribute("data-category", blog.platform ? blog.platform.toLowerCase() : "medium");
+          item.innerHTML = `<a href="${blog.url}" target="_blank" rel="noopener noreferrer"><figure class="event-banner-box"><img src="${blog.image}" alt="${blog.title}" loading="lazy"></figure><div class="event-content"><div class="event-meta"><p class="event-category">${blog.category}</p><span class="dot"></span><time datetime="${blog.date}">${blog.formattedDate}</time></div><h3 class="h3 event-item-title">${blog.title}</h3><p class="event-text">${blog.description}</p></div></a>`;
+          blogsList.appendChild(item);
+        });
+        
+        initializeProjectFilter();
+
+        // Initialize tilt after DOM injection
+        setTimeout(initTiltEffect, 500);
+      })
+      .catch(error => console.error('Error fetching blogs data:', error));
+  };
+
   const populateCertificates = () => {
     const certificatesGrid = document.getElementById('certificates-grid');
     if (!certificatesGrid) return;
@@ -398,6 +426,7 @@ document.addEventListener('DOMContentLoaded', () => {
   populateEducation();
   populateExperience();
   populateEvents();
+  populateBlogs();
   populateCertificates();
   populateProjects();
 

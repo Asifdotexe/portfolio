@@ -72,7 +72,7 @@
         <!-- favicon -->
         <link
             rel="shortcut icon"
-            href="./assets/images/icons/icon-job.svg"
+            href="../assets/images/icons/icon-job.svg"
             type="image/x-icon"
         />
         <script
@@ -85,7 +85,7 @@
         ></script>
 
         <!-- custom css link -->
-        <link rel="stylesheet" href="./assets/css/style.min.css" />
+        <link rel="stylesheet" href="../assets/css/style.min.css" />
 
         <!-- google font link -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -100,25 +100,25 @@
             href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         />
         <!-- preload LCP image -->
-        <link rel="preload" as="image" href="./assets/images/my-memoji.webp" />
+        <link rel="preload" as="image" href="../assets/images/my-memoji.webp" />
 
         <!-- preload critical resources -->
-        <link rel="preload" href="./assets/js/script.min.js" as="script" />
+        <link rel="preload" href="../assets/js/script.min.js" as="script" />
         <link
             rel="preload"
-            href="./assets/data/projects.json"
+            href="../assets/data/projects.json"
             as="fetch"
             crossorigin
         />
         <link
             rel="preload"
-            href="./assets/data/last_updated.json"
+            href="../assets/data/last_updated.json"
             as="fetch"
             crossorigin
         />
 
         <!-- custom js link -->
-        <script src="./assets/js/script.min.js" defer></script>
+        <script src="../assets/js/script.min.js" defer></script>
 
         <!-- Structured Data (JSON-LD) — Person -->
         <script type="application/ld+json">
@@ -420,7 +420,7 @@
                 <div class="sidebar-info">
                     <figure class="avatar-box">
                         <img
-                            src="./assets/images/my-memoji.webp"
+                            src="../assets/images/my-memoji.webp"
                             alt="Asif Sayyed"
                             width="80"
                             loading="eager"
@@ -544,7 +544,7 @@
                 >
                     <ul class="navbar-list">
                         <li class="navbar-item">
-                            <a href="/" class="navbar-link active">About</a>
+                            <a href="/" class="navbar-link">About</a>
                         </li>
                         <li class="navbar-item">
                             <a href="/projects/" class="navbar-link"
@@ -557,350 +557,65 @@
                             >
                         </li>
                         <li class="navbar-item">
-                            <a href="/events/" class="navbar-link">Events</a>
+                            <a href="/events/" class="navbar-link active"
+                                >Events</a
+                            >
                         </li>
-                                                <li class="navbar-item">
-                            <a href="/blogs/" class="navbar-link">Blogs</a>
+                        <li class="navbar-item">
+                            <a href="/blogs/" class="navbar-link active"
+                                >Blogs</a
+                            >
                         </li>
-<li class="navbar-item">
+                        <li class="navbar-item">
                             <a href="/contact/" class="navbar-link">Contact</a>
                         </li>
                     </ul>
                 </nav>
 
                 <!-- ABOUT -->
-                <article class="about active" data-page="about">
+                <article class="blogs active" data-page="blogs">
                     <header>
-                        <h2 class="h2 article-title">About me</h2>
+                        <h2 class="h2 article-title">Blogs</h2>
                     </header>
 
-                    <section class="about-text">
-                        <p>Hi there, I'm Asif Sayyed.</p>
-
-                        <p>
-                            I'm a <b>problem solver</b> and
-                            <b>Data Science Specialist</b> at Marsh, focused on
-                            turning raw data into
-                            <i>clear, useful solutions.</i>
-                            My background is in Data Science & Business
-                            Analytics, with professional experience in the
-                            insurance industry analyzing cyber risk.
-                        </p>
-
-                        <p>
-                            I draw inspiration from the strategist Sun Tzu, who
-                            wrote,
-                            <i
-                                >"In the midst of chaos, there is also
-                                opportunity."</i
-                            >
-                            To me, data is that chaos. My work is to find the
-                            opportunity hidden within it.
-                        </p>
-
-                        <p>
-                            What truly excites me isn't just analyzing data?
-                            it's <b>building with it</b>. I use tools like
-                            Python, SQL, and Databricks to create working
-                            applications that turn abstract numbers into
-                            something tangible that anyone can use.
-                        </p>
-
-                        <p>
-                            Whether you're a fellow developer or just curious, I
-                            invite you to <b>explore my portfolio</b>.
-                        </p>
-                    </section>
-
-                    <!--
-          - service
-        -->
-
-                    <section class="service">
-                        <h3 class="h3 service-title">
-                            What i'm currently doing?
-                        </h3>
-
-                        <ul class="service-list">
-                            <li class="service-item">
-                                <div class="service-icon-box">
-                                    <img
-                                        src="./assets/images/icons/icon-job.svg"
-                                        alt="Corporate role icon"
-                                        width="40"
-                                        height="40"
-                                    />
-                                </div>
-                                <div class="service-content-box">
-                                    <h4 class="h4 service-item-title">
-                                        Corporate Overview
-                                    </h4>
-                                    <p class="service-item-text">
-                                        Specialist - Data Science @ Marsh at the
-                                        Cyber Risk and Intelligence Center
-                                        (CRIC).
-                                    </p>
-                                </div>
+                    <section class="blogs">
+                        <ul class="filter-list">
+                            <li class="filter-item">
+                                <button class="active" data-filter-btn>
+                                    All
+                                </button>
                             </li>
-
-                            <li
-                                class="service-item"
-                                style="cursor: pointer"
-                                onclick="
-                                    window.open(
-                                        'https://github.com/Asifdotexe/yoink',
-                                        '_blank',
-                                    )
-                                "
-                            >
-                                <div class="service-icon-box">
-                                    <ion-icon
-                                        name="logo-github"
-                                        style="
-                                            font-size: 40px;
-                                            color: var(--vibrant-green);
-                                            margin: auto;
-                                            display: block;
-                                        "
-                                    ></ion-icon>
-                                </div>
-                                <div class="service-content-box">
-                                    <h4 class="h4 service-item-title">
-                                        Open Source
-                                    </h4>
-                                    <p class="service-item-text">
-                                        Currently developing Yoink, an exciting
-                                        open-source project. Feel free to try it
-                                        out, review or contribute!
-                                    </p>
-                                </div>
+                            <li class="filter-item">
+                                <button data-filter-btn>Medium</button>
+                            </li>
+                            <li class="filter-item">
+                                <button data-filter-btn>LinkedIn</button>
                             </li>
                         </ul>
-                    </section>
 
-                    <!--
-<!~~
-          - testimonials
-        ~~>
-
-                    <section class="testimonials">
-                        <div class="testimonials-header">
-                            <h3 class="h3 testimonials-title">Testimonials</h3>
-                            <a
-                                id="recommendMeButton"
-                                href="https://www.linkedin.com/in/sayyedasif/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="form-btn"
-                            >
-                                <ion-icon name="ribbon"></ion-icon>
-                                Recommend Me on LinkedIn
-                            </a>
-                        </div>
-
-                        <script>
-                            // Your LinkedIn Profile URL
-                            const linkedInProfileURL =
-                                "https://www.linkedin.com/in/sayyedasif/";
-
-                            // Adding Dynamic Redirection to Recommendations Section
-                            document.getElementById("recommendMeButton").href =
-                                linkedInProfileURL +
-                                "edit/forms/recommendation/write";
-                        </script>
-
-                        <ul class="testimonials-list has-scrollbar">
-                            <li class="testimonials-item">
-                                <div
-                                    class="content-card"
-                                    data-testimonials-item
-                                >
-                                    <figure class="testimonials-avatar-box">
-                                        <img
-                                            src="./assets/images/icons/icon-linkedin.svg"
-                                            alt="Prof. Awesh Bhornya"
-                                            width="60"
-                                            data-testimonials-avatar
-                                        />
-                                    </figure>
-
-                                    <h4
-                                        class="h4 testimonials-item-title"
-                                        data-testimonials-title
-                                    >
-                                        Prof. Awesh Bhornya @SDBI
-                                    </h4>
-
-                                    <div
-                                        class="testimonials-text"
-                                        data-testimonials-text
-                                    >
-                                        <p>
-                                            I highly recommend Asif Sayyed as an
-                                            exceptionally talented student. I
-                                            had the pleasure of teaching him
-                                            Excel, Excel VBA, and Power BI
-                                            during the B. Sc in Data Science
-                                            program. Asif's aptitude for these
-                                            subjects is truly impressive, and
-                                            his dedication to mastering them
-                                            sets him apart. He approaches
-                                            challenges with enthusiasm and
-                                            consistently produces high-quality
-                                            work. Asif's passion for data
-                                            science is evident, and I have no
-                                            doubt that he will excel in any
-                                            future endeavors in this field.
-                                        </p>
-                                    </div>
+                        <div class="filter-select-box">
+                            <button class="filter-select" data-select>
+                                <div class="select-value" data-selecct-value>
+                                    Select category
                                 </div>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <!~~
-          - testimonials modal
-        ~~>
-
-                    <div class="modal-container" data-modal-container>
-                        <div class="overlay" data-overlay></div>
-
-                        <section class="testimonials-modal">
-                            <button
-                                class="modal-close-btn"
-                                data-modal-close-btn
-                            >
-                                <ion-icon name="close-outline"></ion-icon>
+                                <div class="select-icon">
+                                    <span>▼</span>
+                                </div>
                             </button>
-
-                            <div class="modal-img-wrapper">
-                                <figure class="modal-avatar-box">
-                                    <img
-                                        src="./assets/images/my-memoji.webp"
-                                        alt="Asif Sayyed"
-                                        width="80"
-                                        data-modal-img
-                                    />
-                                </figure>
-
-                                <img
-                                    src="./assets/images/icons/icon-quote.svg"
-                                    alt="quote icon"
-                                />
-                            </div>
-
-                            <div class="modal-content">
-                                <h4 class="h3 modal-title" data-modal-title>
-                                    Daniel lewis
-                                </h4>
-
-                                <!~~ <time datetime="2021-06-14">14 June, 2021</time> ~~>
-
-                                <div data-modal-text>
-                                    <p>
-                                        Richard was hired to create a corporate
-                                        identity. We were very pleased with the
-                                        work done. She has a lot of experience
-                                        and is very concerned about the needs of
-                                        client. Lorem ipsum dolor sit amet,
-                                        ullamcous cididt consectetur adipiscing
-                                        elit, seds do et eiusmod tempor
-                                        incididunt ut laborels dolore magnarels
-                                        alia.
-                                    </p>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
--->
-
-                    <section class="timeline">
-                        <div class="title-wrapper">
-                            <div class="icon-box">
-                                <ion-icon name="bar-chart"></ion-icon>
-                            </div>
-                            <h3 class="h3">Experience</h3>
-                        </div>
-
-                        <ol class="timeline-list" id="experience-list">
-                            <!-- Content loaded dynamically via JS; noscript fallback below for crawlers -->
-                        </ol>
-                        <noscript>
-                            <ol class="timeline-list">
-                                <li class="timeline-item">
-                                    <h4 class="h4 timeline-item-title">
-                                        Specialist - Data Science at Marsh
-                                        McLennan
-                                    </h4>
-                                    <span>May 2025 - Present</span>
-                                    <p class="timeline-text">
-                                        Currently working as a Specialist - Data
-                                        Science at the Cyber Risk Intelligence
-                                        Center (CRIC).
-                                    </p>
+                            <ul class="select-list">
+                                <li class="select-item">
+                                    <button data-select-item>All</button>
                                 </li>
-                                <li class="timeline-item">
-                                    <h4 class="h4 timeline-item-title">
-                                        Graduate Trainee - Data Science at Marsh
-                                        McLennan
-                                    </h4>
-                                    <span>December 2023 - December 2024</span>
-                                    <p class="timeline-text">
-                                        Worked as a Graduate Trainee Data
-                                        Scientist at the Cyber Risk Intelligence
-                                        Center.
-                                    </p>
+                                <li class="select-item">
+                                    <button data-select-item>Medium</button>
                                 </li>
-                            </ol>
-                        </noscript>
-                    </section>
-
-                    <section class="timeline">
-                        <div class="title-wrapper">
-                            <div class="icon-box">
-                                <ion-icon name="book"></ion-icon>
-                            </div>
-                            <h3 class="h3">Education</h3>
-                        </div>
-                        <ol class="timeline-list" id="education-list">
-                            <!-- Content loaded dynamically via JS; noscript fallback below for crawlers -->
-                        </ol>
-                        <noscript>
-                            <ol class="timeline-list">
-                                <li class="timeline-item">
-                                    <h4 class="h4 timeline-item-title">
-                                        SDBI - School of Data Science and
-                                        Business Intelligence, Mumbai
-                                    </h4>
-                                    <span>2022 - 2025</span>
-                                    <p class="timeline-text">
-                                        Completed Bachelor's in Data Science and
-                                        Business Analytics from Mumbai
-                                        University.
-                                    </p>
+                                <li class="select-item">
+                                    <button data-select-item>LinkedIn</button>
                                 </li>
-                            </ol>
-                        </noscript>
-                    </section>
+                            </ul>
+                        </div>
 
-                    <section class="timeline">
-                        <div class="title-wrapper">
-                            <div class="icon-box">
-                                <ion-icon name="logo-github"></ion-icon>
-                            </div>
-                            <h3 class="h3">GitHub Contributions</h3>
-                        </div>
-                        <div class="contribution-chart">
-                            <img
-                                src="https://github-readme-activity-graph.vercel.app/graph?username=Asifdotexe&bg_color=1e1e1e&color=e6e6e6&line=15E618&point=15E618&area=true&hide_border=true&days=50&custom_title=As Data Scientists, we love charts and we love Github. So here's both."
-                                alt="Asifdotexe's GitHub Contribution Graph"
-                            />
-                            <br />
-                            <img
-                                src="http://ghchart.rshah.org/Asifdotexe"
-                                alt="Asifdotexe's Github chart"
-                            />
-                        </div>
+                        <ul class="event-posts-list" id="blogs-list"></ul>
                     </section>
                 </article>
             </div>
@@ -915,12 +630,17 @@
                 font-size: var(--fs-8);
             "
         >
-            <p>
-                &copy; <span id="current-year">2025</span> Asif Sayyed. All
-                rights reserved.
-            </p>
+            <p>&copy; 2025 Asif Sayyed. All rights reserved.</p>
             <p style="margin-top: 6px">
-                Data Scientist at Marsh &bull; Mumbai, India
+                Data Scientist at
+                <a
+                    href="https://www.marshmclennan.com/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    style="color: var(--vibrant-green); text-decoration: none"
+                    >Marsh McLennan</a
+                >
+                &bull; Mumbai, India
             </p>
             <p style="margin-top: 6px">
                 <a
