@@ -3,7 +3,6 @@ import os
 import re
 import yaml
 from datetime import datetime
-import markdown
 
 BLOGS_DIR = "_blogs"
 OUTPUT_FILE = "assets/data/blogs.json"
@@ -52,9 +51,8 @@ def parse_markdown(file_path):
 def generate_html(data, slug):
     with open(TEMPLATE_FILE, "r", encoding="utf-8") as f:
         html = f.read()
-    
-    # Render markdown to HTML
-    html_content = markdown.markdown(data['content'])
+    # Pass raw markdown to client side for marked.js to render
+    raw_content_json = json.dumps(data['content'])
     
     # Fix relative paths for assets
     html = html.replace('"../assets/', '"../../assets/')
@@ -84,7 +82,12 @@ def generate_html(data, slug):
                 .blogs header {{ padding-top: 80px; }}
             }}
         </style>
-        {html_content}
+        <div id="rendered-content"></div>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script>
+            const markdownContent = {raw_content_json};
+            document.getElementById('rendered-content').innerHTML = marked.parse(markdownContent);
+        </script>
     </section>
     """
     
