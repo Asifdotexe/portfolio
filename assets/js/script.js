@@ -85,25 +85,25 @@ if (select && selectItems.length > 0) {
   }
 }
 
-// Page navigation
-const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
-if (navigationLinks.length > 0 && pages.length > 0) {
-  navigationLinks.forEach(link => {
-    link.addEventListener("click", function () {
-      const targetPage = this.innerHTML.toLowerCase();
-      pages.forEach(page => {
-        page.classList.toggle("active", targetPage === page.dataset.page);
-        if (targetPage === page.dataset.page) {
-          window.scrollTo(0, 0);
-        }
-      });
-      navigationLinks.forEach(navLink => {
-        navLink.classList.toggle("active", navLink === this);
-      });
-    });
-  });
-}
+// Page navigation (SPA mode disabled)
+// const navigationLinks = document.querySelectorAll("[data-nav-link]");
+// const pages = document.querySelectorAll("[data-page]");
+// if (navigationLinks.length > 0 && pages.length > 0) {
+//   navigationLinks.forEach(link => {
+//     link.addEventListener("click", function () {
+//       const targetPage = this.innerHTML.toLowerCase();
+//       pages.forEach(page => {
+//         page.classList.toggle("active", targetPage === page.dataset.page);
+//         if (targetPage === page.dataset.page) {
+//           window.scrollTo(0, 0);
+//         }
+//       });
+//       navigationLinks.forEach(navLink => {
+//         navLink.classList.toggle("active", navLink === this);
+//       });
+//     });
+//   });
+// }
 
 // --------------------------------------------------------------------
 // NEW VISUAL EFFECTS (Typewriter, Tilt)
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     showSkeleton('education-list', 3, '80px'); // Optional: enable if fetch is slow
 
-    fetch('./assets/data/education.json')
+    fetch('/assets/data/education.json')
       .then(response => {
         if (!response.ok) throw new Error(`HTTP ${response.status} while fetching education.json`);
         return response.json();
@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const populateExperience = () => {
     const experienceList = document.getElementById('experience-list');
     if (!experienceList) return;
-    fetch('./assets/data/experience.json')
+    fetch('/assets/data/experience.json')
       .then(response => {
         if (!response.ok) throw new Error(`HTTP ${response.status} while fetching experience.json`);
         return response.json();
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const populateEvents = () => {
     const eventsList = document.getElementById('events-list');
     if (!eventsList) return;
-    fetch('./assets/data/events.json')
+    fetch('/assets/data/events.json')
       .then(response => {
         if (!response.ok) throw new Error(`HTTP ${response.status} while fetching events.json`);
         return response.json();
@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     showSkeleton('certificates-grid', 6, '200px');
 
-    fetch('./assets/data/certificates.json')
+    fetch('/assets/data/certificates.json')
       .then(response => {
         if (!response.ok) throw new Error(`HTTP ${response.status} while fetching certificates.json`);
         return response.json();
@@ -357,8 +357,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const [projectsResponse, updatesResponse] = await Promise.all([
-        fetch("./assets/data/projects.json"),
-        fetch("./assets/data/last_updated.json")
+        fetch("/assets/data/projects.json"),
+        fetch("/assets/data/last_updated.json")
       ]);
 
       if (!projectsResponse.ok) {
