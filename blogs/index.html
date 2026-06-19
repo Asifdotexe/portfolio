@@ -579,47 +579,44 @@
                     </header>
 
                     <section class="blogs">
-                        <ul class="filter-list">
-                            <li class="filter-item">
-                                <button class="active" data-filter-btn>
-                                    All
-                                </button>
-                            </li>
-                            <li class="filter-item">
-                                <button data-filter-btn>Medium</button>
-                            </li>
-                            <li class="filter-item">
-                                <button data-filter-btn>LinkedIn</button>
-                            </li>
-                        </ul>
-
-                        <div class="filter-select-box">
-                            <button class="filter-select" data-select>
-                                <div class="select-value" data-selecct-value>
-                                    Select category
-                                </div>
-                                <div class="select-icon">
-                                    <span>▼</span>
-                                </div>
-                            </button>
-                            <ul class="select-list">
-                                <li class="select-item">
-                                    <button data-select-item>All</button>
-                                </li>
-                                <li class="select-item">
-                                    <button data-select-item>Medium</button>
-                                </li>
-                                <li class="select-item">
-                                    <button data-select-item>LinkedIn</button>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <ul class="event-posts-list" id="blogs-list"></ul>
+                        <ol class="blog-ordered-list" id="blogs-list" style="margin-left: 20px; list-style-type: decimal; color: var(--light-gray); font-size: var(--fs-4); padding-bottom: 20px;">
+                        </ol>
                     </section>
                 </article>
+
+                <!-- Blog Modal -->
+                <div class="modal-container" data-blog-modal-container>
+                    <div class="overlay" data-blog-overlay></div>
+
+                    <section class="testimonials-modal" style="max-height: 85vh; overflow-y: auto; padding: 30px; border-radius: 14px; background: var(--eerie-black-2); border: 1px solid var(--jet); z-index: 20; position: relative; width: 90%; max-width: 800px; margin: auto;">
+                        <button class="modal-close-btn" data-blog-modal-close-btn style="top: 15px; right: 15px;">
+                            <ion-icon name="close-outline"></ion-icon>
+                        </button>
+
+                        <div class="modal-content" style="padding-top: 10px;">
+                            <h4 class="h3 modal-title" data-blog-modal-title style="color: var(--white-2); margin-bottom: 20px;"></h4>
+                            <div data-blog-modal-text style="color: var(--light-gray); font-size: var(--fs-4); line-height: 1.6;">
+                                <!-- Blog content goes here -->
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
         </main>
+        
+        <!-- Include marked.js for markdown rendering -->
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <style>
+            [data-blog-modal-text] img { display: none !important; }
+            [data-blog-modal-text] h1, [data-blog-modal-text] h2, [data-blog-modal-text] h3 {
+                color: var(--white-2);
+                margin-top: 15px;
+                margin-bottom: 10px;
+            }
+            [data-blog-modal-text] p {
+                margin-bottom: 15px;
+            }
+        </style>
 
         <!-- FOOTER -->
         <footer

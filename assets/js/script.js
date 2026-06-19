@@ -39,6 +39,47 @@ if (modalContainer && modalCloseBtn && overlay) {
   modalCloseBtn.addEventListener("click", testimonialsModalFunc);
   overlay.addEventListener("click", testimonialsModalFunc);
 }
+
+// Blog modal
+const blogModalContainer = document.querySelector("[data-blog-modal-container]");
+const blogModalCloseBtn = document.querySelector("[data-blog-modal-close-btn]");
+const blogOverlay = document.querySelector("[data-blog-overlay]");
+const blogModalTitle = document.querySelector("[data-blog-modal-title]");
+const blogModalText = document.querySelector("[data-blog-modal-text]");
+
+if (blogModalContainer && blogModalCloseBtn && blogOverlay) {
+  const closeBlogModal = function () {
+    blogModalContainer.classList.remove("active");
+    blogOverlay.classList.remove("active");
+    setTimeout(() => {
+        blogModalTitle.innerHTML = "";
+        blogModalText.innerHTML = "";
+    }, 300); // clear after transition
+  };
+
+  blogModalCloseBtn.addEventListener("click", closeBlogModal);
+  blogOverlay.addEventListener("click", closeBlogModal);
+
+  window.openBlogModal = function(blog) {
+      let dateStr = "";
+      if (blog.date) {
+        const parts = blog.date.split('-');
+        if (parts.length === 3) {
+          dateStr = ` - ${parts[2]}-${parts[1]}-${parts[0]}`;
+        }
+      }
+      blogModalTitle.textContent = blog.title + dateStr;
+      
+      if (window.marked) {
+          blogModalText.innerHTML = marked.parse(blog.content || "");
+      } else {
+          blogModalText.textContent = "Error: Markdown renderer not loaded.";
+      }
+      blogModalContainer.classList.add("active");
+      blogOverlay.classList.add("active");
+  };
+}
+
 // --------------------------------------------------------------------
 // NEW VISUAL EFFECTS (Typewriter, Tilt)
 // --------------------------------------------------------------------
@@ -221,11 +262,29 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(data => {
         data.forEach((blog, index) => {
           const item = document.createElement('li');
-          item.className = 'event-post-item active fade-in-up';
+          item.className = 'fade-in-up';
           item.style.animationDelay = `${index * 0.1}s`;
-          item.setAttribute("data-filter-item", "");
-          item.setAttribute("data-category", blog.platform ? blog.platform.toLowerCase() : "medium");
-          item.innerHTML = `<a href="${blog.url}" target="_blank" rel="noopener noreferrer"><figure class="event-banner-box"><img src="${blog.image}" alt="${blog.title}" loading="lazy"></figure><div class="event-content"><div class="event-meta"><p class="event-category">${blog.category}</p><span class="dot"></span><time datetime="${blog.date}">${blog.formattedDate}</time></div><h3 class="h3 event-item-title">${blog.title}</h3><p class="event-text">${blog.description}</p></div></a>`;
+          item.style.paddingBottom = "10px";
+          
+          let dateStr = "";
+          if (blog.date) {
+            const parts = blog.date.split('-');
+            if (parts.length === 3) {
+              dateStr = ` - ${parts[2]}-${parts[1]}-${parts[0]}`;
+            }
+          }
+          
+          const a = document.createElement('a');
+          a.href = `/blogs/${blog.slug}/`;
+          a.textContent = blog.title + dateStr;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          a.style.color = "var(--vibrant-green)";
+          a.style.textDecoration = "none";
+          a.onmouseover = function() { this.style.color = "var(--light-gray)"; };
+          a.onmouseout = function() { this.style.color = "var(--vibrant-green)"; };
+
+          item.appendChild(a);
           blogsList.appendChild(item);
         });
         
