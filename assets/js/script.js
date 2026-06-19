@@ -192,11 +192,16 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(data => {
         data.forEach((event, index) => {
           const item = document.createElement('li');
-          item.className = 'blog-post-item fade-in-up';
+          item.className = 'blog-post-item active fade-in-up';
           item.style.animationDelay = `${index * 0.1}s`;
+          item.setAttribute("data-filter-item", "");
+          item.setAttribute("data-category", event.type ? event.type.toLowerCase() : "organized");
           item.innerHTML = `<a href="${event.url}" target="_blank" rel="noopener noreferrer"><figure class="blog-banner-box"><img src="${event.image}" alt="${event.title}" loading="lazy"></figure><div class="blog-content"><div class="blog-meta"><p class="blog-category">${event.category}</p><span class="dot"></span><time datetime="${event.date}">${event.formattedDate}</time></div><h3 class="h3 blog-item-title">${event.title}</h3><p class="blog-text">${event.description}</p></div></a>`;
           eventsList.appendChild(item);
         });
+        
+        initializeProjectFilter();
+
         // Initialize tilt after DOM injection
         setTimeout(initTiltEffect, 500);
       })

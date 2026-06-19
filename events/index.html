@@ -568,12 +568,44 @@
                 </nav>
 
                 <!-- ABOUT -->
-                <article class="blog active" data-page="events">
+                <article class="events active" data-page="events">
                     <header>
                         <h2 class="h2 article-title">Events</h2>
                     </header>
 
-                    <section class="blog-posts">
+                    <section class="events">
+                        <ul class="filter-list">
+                            <li class="filter-item">
+                                <button class="active" data-filter-btn>All</button>
+                            </li>
+                            <li class="filter-item">
+                                <button data-filter-btn>Organized</button>
+                            </li>
+                            <li class="filter-item">
+                                <button data-filter-btn>Attended</button>
+                            </li>
+                        </ul>
+
+                        <div class="filter-select-box">
+                            <button class="filter-select" data-select>
+                                <div class="select-value" data-selecct-value>Select category</div>
+                                <div class="select-icon">
+                                    <span>▼</span>
+                                </div>
+                            </button>
+                            <ul class="select-list">
+                                <li class="select-item">
+                                    <button data-select-item>All</button>
+                                </li>
+                                <li class="select-item">
+                                    <button data-select-item>Organized</button>
+                                </li>
+                                <li class="select-item">
+                                    <button data-select-item>Attended</button>
+                                </li>
+                            </ul>
+                        </div>
+
                         <ul class="blog-posts-list" id="events-list"></ul>
                     </section>
                 </article>

@@ -1449,7 +1449,10 @@ main {
   gap: 20px;
 }
 
-.blog-post-item>a {
+.blog-post-item { display: none; }
+.blog-post-item.active { display: block; animation: scaleUp 0.25s ease forwards; }
+
+.blog-post-item > a {
   position: relative;
   background: var(--eerie-black-2);
   border: 1px solid var(--jet);
