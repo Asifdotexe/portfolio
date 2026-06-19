@@ -1,13 +1,5 @@
 [
   {
-    "id": "my-first-blog",
-    "title": "My First Custom Blog",
-    "date": "2024-06-19",
-    "category": "Thoughts",
-    "formattedDate": "Jun 19, 2024",
-    "slug": "my-first-custom-blog-19-06-2024"
-  },
-  {
     "id": "ram-upgrade-guide",
     "title": "Don't get scammed buying RAM in an inflated market",
     "date": "2024-06-19",
