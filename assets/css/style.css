@@ -2383,3 +2383,217 @@ textarea.form-input::-webkit-resizer {
   }
 
 }
+/*-----------------------------------*\
+  #BLOGS SECTION
+\*-----------------------------------*/
+
+.pf-v6-c-simple-list {
+  background: var(--bg-gradient-jet);
+  border: 1px solid var(--jet);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: var(--shadow-1);
+}
+
+.pf-v6-c-simple-list__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pf-v6-c-simple-list__item {
+  position: relative;
+}
+
+.pf-v6-c-simple-list__item-link {
+  width: 100%;
+  text-align: left;
+  background: var(--eerie-black-2);
+  color: var(--light-gray);
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--jet);
+  font-family: var(--ff-poppins);
+  font-size: var(--fs-4);
+  font-weight: var(--fw-500);
+  cursor: pointer;
+  transition: var(--transition-1);
+  display: block;
+}
+
+.pf-v6-c-simple-list__item-link:hover,
+.pf-v6-c-simple-list__item-link:focus {
+  background: var(--bg-gradient-green-2);
+  color: var(--vibrant-green);
+  border-color: var(--vibrant-green);
+  box-shadow: var(--shadow-2);
+}
+
+/* Modal styling overrides to match theme */
+#blog-modal {
+  backdrop-filter: blur(10px);
+}
+
+#blog-modal .modal-content {
+  background: var(--eerie-black-1);
+  border: 1px solid var(--jet);
+  border-radius: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  box-shadow: var(--shadow-5);
+  position: relative;
+}
+
+#blog-modal-body {
+  font-family: var(--ff-poppins);
+  line-height: 1.6;
+  font-size: var(--fs-5);
+}
+
+#blog-modal-body h1,
+#blog-modal-body h2,
+#blog-modal-body h3 {
+  color: var(--white-1);
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
+
+#blog-modal-body p {
+  margin-bottom: 15px;
+}
+
+#blog-modal-body ul, #blog-modal-body ol {
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+
+#blog-modal-body li {
+  margin-bottom: 5px;
+}
+
+#blog-modal-body .codehilite {
+  background: var(--smoky-black);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid var(--jet);
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+#blog-modal-body .codehilite span {
+  display: inline;
+}
+
+#blog-modal-body a {
+  display: inline;
+  color: var(--vibrant-green);
+  text-decoration: none;
+  transition: var(--transition-1);
+}
+
+#blog-modal-body a:hover,
+#blog-modal-body a:focus {
+  color: var(--white-1);
+  text-decoration: underline;
+}
+
+#blog-modal-body code {
+  font-family: monospace;
+  color: var(--vibrant-green);
+}
+
+.blog-post-content {
+  color: var(--light-gray);
+  font-family: var(--ff-poppins);
+  line-height: 1.6;
+  font-size: var(--fs-5);
+}
+
+.blog-post-content h1,
+.blog-post-content h2,
+.blog-post-content h3 {
+  color: var(--white-1);
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
+
+.blog-post-content p {
+  margin-bottom: 15px;
+}
+
+.blog-post-content ul, .blog-post-content ol {
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+
+.blog-post-content li {
+  margin-bottom: 5px;
+}
+
+.blog-post-content .codehilite {
+  background: var(--smoky-black);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid var(--jet);
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.blog-post-content .codehilite span {
+  display: inline;
+}
+
+.blog-post-content a {
+  display: inline;
+  color: var(--vibrant-green);
+  text-decoration: none;
+  transition: var(--transition-1);
+}
+
+.blog-post-content a:hover,
+.blog-post-content a:focus {
+  color: var(--white-1);
+  text-decoration: underline;
+}
+
+.blog-post-content code {
+  font-family: monospace;
+  color: var(--vibrant-green);
+}
+
+/* Custom Scrollbar for Blog Section */
+#blog-modal,
+#blog-modal-body .codehilite,
+.blog-post-content .codehilite {
+  scrollbar-width: thin;
+  scrollbar-color: var(--jet) transparent;
+}
+
+#blog-modal::-webkit-scrollbar,
+#blog-modal-body .codehilite::-webkit-scrollbar,
+.blog-post-content .codehilite::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+#blog-modal::-webkit-scrollbar-track,
+#blog-modal-body .codehilite::-webkit-scrollbar-track,
+.blog-post-content .codehilite::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#blog-modal::-webkit-scrollbar-thumb,
+#blog-modal-body .codehilite::-webkit-scrollbar-thumb,
+.blog-post-content .codehilite::-webkit-scrollbar-thumb {
+  background: var(--jet);
+  border-radius: 10px;
+}
+
+#blog-modal::-webkit-scrollbar-thumb:hover,
+#blog-modal-body .codehilite::-webkit-scrollbar-thumb:hover,
+.blog-post-content .codehilite::-webkit-scrollbar-thumb:hover {
+  background: var(--light-gray-70);
+}
