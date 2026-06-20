@@ -1,702 +1,274 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <title>
-            Asif Sayyed | Data Scientist – Python, Machine Learning & AI
-            Portfolio
-        </title>
-        <meta
-            name="title"
-            content="Asif Sayyed | Data Scientist – Python, Machine Learning & AI Portfolio"
-        />
-        <meta
-            name="description"
-            content="Portfolio of Asif Sayyed, a Data Scientist at Marsh McLennan specializing in Python, Machine Learning, NLP, Computer Vision, and Cyber Risk Analytics. Explore projects, certifications, and experience."
-        />
-        <meta
-            name="keywords"
-            content="Asif Sayyed, Data Scientist, Python Developer, Machine Learning Engineer, AI Portfolio, NLP, Deep Learning, Cyber Risk, Marsh McLennan, Mumbai, Data Science Portfolio"
-        />
-        <meta name="author" content="Asif Sayyed" />
-        <meta name="theme-color" content="#2b2b2c" />
-        <meta
-            name="robots"
-            content="index, follow, max-snippet:-1, max-image-preview:large"
-        />
-        <meta name="language" content="English" />
-        <meta name="format-detection" content="telephone=no" />
-        <link rel="canonical" href="https://sayyedasif.com/" />
-
-        <!-- Google Search Console verification (replace YOUR_VERIFICATION_CODE after signing up at https://search.google.com/search-console) -->
-        <meta
-            name="google-site-verification"
-            content="mZ4YTDxw_emCHo0t3exypc7baNm8gDdt_ci72uqK1aY"
-        />
-
-        <!-- Open Graph (used by LinkedIn, Facebook, Discord, Slack, etc.) -->
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://sayyedasif.com/" />
-        <meta
-            property="og:title"
-            content="Asif Sayyed | Data Scientist – Python, Machine Learning & AI Portfolio"
-        />
-        <meta
-            property="og:description"
-            content="Data Scientist at Marsh McLennan specializing in Python, Machine Learning, NLP, and Cyber Risk Analytics. Explore projects, certifications, and experience."
-        />
-        <meta
-            property="og:image"
-            content="https://sayyedasif.com/assets/images/my-memoji.webp"
-        />
-        <meta property="og:site_name" content="Asif Sayyed Portfolio" />
-        <meta property="og:locale" content="en_US" />
-
-        <!-- Twitter Card (also used by LinkedIn and other platforms for link previews) -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-            name="twitter:title"
-            content="Asif Sayyed | Data Scientist – Python, Machine Learning & AI Portfolio"
-        />
-        <meta
-            name="twitter:description"
-            content="Data Scientist at Marsh McLennan specializing in Python, Machine Learning, NLP, and Cyber Risk Analytics. Explore projects, certifications, and experience."
-        />
-        <meta
-            name="twitter:image"
-            content="https://sayyedasif.com/assets/images/my-memoji.webp"
-        />
-
-        <!-- favicon -->
-        <link
-            rel="shortcut icon"
-            href="../../assets/images/icons/icon-job.svg"
-            type="image/x-icon"
-        />
-        <script
-            type="module"
-            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-        ></script>
-        <script
-            nomodule
-            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-        ></script>
-
-        <!-- custom css link -->
-        <link rel="stylesheet" href="../../assets/css/style.min.css" />
-
-        <!-- google font link -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-        />
-        <!-- preload LCP image -->
-        <link rel="preload" as="image" href="../../assets/images/my-memoji.webp" />
-
-        <!-- preload critical resources -->
-        <link rel="preload" href="../../assets/js/script.min.js" as="script" />
-        <link
-            rel="preload"
-            href="../../assets/data/projects.json"
-            as="fetch"
-            crossorigin
-        />
-        <link
-            rel="preload"
-            href="../../assets/data/last_updated.json"
-            as="fetch"
-            crossorigin
-        />
-
-        <!-- custom js link -->
-        <script src="../../assets/js/script.min.js" defer></script>
-
-        <!-- Structured Data (JSON-LD) — Person -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "Person",
-                "@id": "https://sayyedasif.com/#person",
-                "name": "Asif Sayyed",
-                "givenName": "Asif",
-                "familyName": "Sayyed",
-                "jobTitle": "Specialist - Data Science",
-                "url": "https://sayyedasif.com/",
-                "image": "https://sayyedasif.com/assets/images/my-memoji.webp",
-                "description": "Data Scientist at Marsh McLennan's Cyber Risk Intelligence Center (CRIC), specializing in Python, Machine Learning, NLP, Computer Vision, and Cyber Risk Analytics. B.Sc. in Data Science & Business Analytics from Mumbai University.",
-                "email": "hello@sayyedasif.com",
-                "nationality": {
-                    "@type": "Country",
-                    "name": "India"
-                },
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Mumbai",
-                    "addressRegion": "Maharashtra",
-                    "addressCountry": "IN"
-                },
-                "worksFor": {
-                    "@type": "Organization",
-                    "name": "Marsh McLennan",
-                    "url": "https://www.marshmclennan.com/",
-                    "department": {
-                        "@type": "Organization",
-                        "name": "Cyber Risk Intelligence Center (CRIC)"
-                    }
-                },
-                "alumniOf": {
-                    "@type": "EducationalOrganization",
-                    "name": "School of Data Science and Business Intelligence (SDBI)",
-                    "parentOrganization": {
-                        "@type": "EducationalOrganization",
-                        "name": "Mumbai University"
-                    }
-                },
-                "knowsAbout": [
-                    "Data Science",
-                    "Python",
-                    "Machine Learning",
-                    "Natural Language Processing",
-                    "Deep Learning",
-                    "Computer Vision",
-                    "SQL",
-                    "R Programming",
-                    "TensorFlow",
-                    "PyTorch",
-                    "Scikit-learn",
-                    "Pandas",
-                    "NumPy",
-                    "Data Visualization",
-                    "Tableau",
-                    "Power BI",
-                    "Streamlit",
-                    "PySpark",
-                    "Databricks",
-                    "AWS",
-                    "Cyber Risk Analytics",
-                    "XGBoost",
-                    "Keras",
-                    "MongoDB",
-                    "Web Scraping"
-                ],
-                "hasCredential": [
-                    {
-                        "@type": "EducationalOccupationalCredential",
-                        "name": "IBM Data Science Professional Certificate",
-                        "credentialCategory": "Professional Certificate",
-                        "recognizedBy": {
-                            "@type": "Organization",
-                            "name": "IBM"
-                        },
-                        "url": "https://coursera.org/verify/professional-cert/MJD36RK7GYSD"
-                    }
-                ],
-                "sameAs": [
-                    "https://github.com/Asifdotexe",
-                    "https://www.linkedin.com/in/sayyedasif/",
-                    "https://medium.com/@asifdotexe",
-                    "https://dev.to/asifdotexe",
-                    "https://kc7cyber.com/profile/asifdotexe"
-                ]
-            }
-        </script>
-
-        <!-- Structured Data (JSON-LD) — WebSite -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "WebSite",
-                "@id": "https://sayyedasif.com/#website",
-                "name": "Asif Sayyed Portfolio",
-                "url": "https://sayyedasif.com/",
-                "description": "Portfolio website of Asif Sayyed, Data Scientist at Marsh McLennan.",
-                "author": { "@id": "https://sayyedasif.com/#person" },
-                "inLanguage": "en-US"
-            }
-        </script>
-
-        <!-- Structured Data (JSON-LD) — ProfilePage -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "ProfilePage",
-                "@id": "https://sayyedasif.com/#profilepage",
-                "url": "https://sayyedasif.com/",
-                "name": "Asif Sayyed | Data Scientist Portfolio",
-                "isPartOf": { "@id": "https://sayyedasif.com/#website" },
-                "mainEntity": { "@id": "https://sayyedasif.com/#person" },
-                "inLanguage": "en-US",
-                "dateModified": "2026-05-28"
-            }
-        </script>
-
-        <!-- Structured Data (JSON-LD) — Projects as ItemList -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "ItemList",
-                "name": "Data Science & AI Projects by Asif Sayyed",
-                "description": "A curated collection of data science, machine learning, NLP, and developer tool projects.",
-                "numberOfItems": 18,
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "Second Brain",
-                            "description": "A knowledge base website for organizing and sharing notes, guides, and learning resources.",
-                            "url": "https://github.com/Asifdotexe/second-brain",
-                            "programmingLanguage": [
-                                "Python",
-                                "JavaScript",
-                                "HTML",
-                                "CSS"
-                            ],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "LittleLogger",
-                            "description": "A Python package (PyPI) for tracking and logging machine learning experiments with Scikit-learn.",
-                            "url": "https://github.com/Asifdotexe/LittleLogger",
-                            "programmingLanguage": ["Python"],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "SERPENT",
-                            "description": "A code-to-flowchart application that generates visual documentation from Python source code using AST and Graphviz.",
-                            "url": "https://github.com/Asifdotexe/SERPENT",
-                            "programmingLanguage": ["Python"],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 4,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "MNISTify",
-                            "description": "A digit recognition application using Convolutional Neural Networks (CNN) built with TensorFlow and OpenCV.",
-                            "url": "https://github.com/Asifdotexe/MNISTify",
-                            "programmingLanguage": ["Python"],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 5,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "QuickVU",
-                            "description": "A no-code data cleaning and analysis tool built with Streamlit for quick data exploration and visualization.",
-                            "url": "https://github.com/Asifdotexe/QuickVU",
-                            "programmingLanguage": ["Python"],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 6,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "DORA",
-                            "description": "An automated exploratory data analysis report generator available on PyPI.",
-                            "url": "https://github.com/Asifdotexe/DORA",
-                            "programmingLanguage": ["Python"],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 7,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "RecommendationHaki",
-                            "description": "An anime recommendation engine using Natural Language Processing techniques for content-based filtering.",
-                            "url": "https://github.com/Asifdotexe/RecommendationHaki",
-                            "programmingLanguage": ["Python"],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 8,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "StoDir",
-                            "description": "A stock direction forecasting model using time-series analysis and machine learning with Scikit-learn.",
-                            "url": "https://github.com/Asifdotexe/StoDir",
-                            "programmingLanguage": ["Python"],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 9,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "PlateScribe",
-                            "description": "A license plate detection and OCR tool using deep learning, OpenCV, and Pytesseract.",
-                            "url": "https://github.com/Asifdotexe/PlateScribe",
-                            "programmingLanguage": ["Python"],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 10,
-                        "item": {
-                            "@type": "SoftwareSourceCode",
-                            "name": "Sentimental Scoring Model on Amazon Reviews",
-                            "description": "NLP-based sentiment analysis model for classifying Amazon product reviews.",
-                            "url": "https://github.com/Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews",
-                            "programmingLanguage": ["Python"],
-                            "author": {
-                                "@id": "https://sayyedasif.com/#person"
-                            }
-                        }
-                    }
-                ]
-            }
-        </script>
-
-        <!-- Google Analytics (GA4) — https://analytics.google.com -->
-        <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-52KQ8L4SQG"
-        ></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
-            gtag("config", "G-52KQ8L4SQG");
-        </script>
-    </head>
-
-    <body>
-        <!-- MAIN -->
-        <main>
-            <!-- SIDEBAR -->
-            <aside class="sidebar" data-sidebar>
-                <div class="sidebar-info">
-                    <figure class="avatar-box">
-                        <img
-                            src="../../assets/images/my-memoji.webp"
-                            alt="Asif Sayyed"
-                            width="80"
-                            loading="eager"
-                            fetchpriority="high"
-                        />
-                    </figure>
-
-                    <div class="info-content">
-                        <h1 class="name" title="Asif Sayyed">Asif Sayyed</h1>
-                        <p class="title">Data Scientist</p>
-                    </div>
-
-                    <button class="info_more-btn" data-sidebar-btn>
-                        <span>Show Contacts</span>
-                        <ion-icon name="chevron-down"></ion-icon>
-                    </button>
-                </div>
-
-                <div class="sidebar-info_more">
-                    <div class="separator"></div>
-
-                    <ul class="contacts-list">
-                        <li class="contact-item">
-                            <div class="icon-box">
-                                <ion-icon name="mail-outline"></ion-icon>
-                            </div>
-                            <div class="contact-info">
-                                <p class="contact-title">Email</p>
-                                <a
-                                    href="mailto:hello@sayyedasif.com"
-                                    class="contact-link"
-                                    >hello@sayyedasif.com</a
-                                >
-                            </div>
-                        </li>
-
-                        <li class="contact-item">
-                            <div class="icon-box">
-                                <ion-icon name="location"></ion-icon>
-                            </div>
-                            <div class="contact-info">
-                                <p class="contact-title">Location</p>
-                                <address>Mumbai, Maharashtra, India</address>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <div class="separator"></div>
-
-                    <ul class="social-list">
-                        <li class="social-item">
-                            <a
-                                href="https://github.com/Asifdotexe"
-                                class="social-link"
-                                aria-label="GitHub Profile"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                            >
-                                <ion-icon name="logo-github"></ion-icon>
-                            </a>
-                        </li>
-
-                        <li class="social-item">
-                            <a
-                                href="https://www.linkedin.com/in/sayyedasif/"
-                                class="social-link"
-                                aria-label="LinkedIn Profile"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                            >
-                                <ion-icon name="logo-linkedin"></ion-icon>
-                            </a>
-                        </li>
-
-                        <li class="social-item">
-                            <a
-                                href="https://medium.com/@asifdotexe"
-                                class="social-link"
-                                aria-label="Medium Blog"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                            >
-                                <ion-icon name="logo-medium"></ion-icon>
-                            </a>
-                        </li>
-
-                        <li class="social-item">
-                            <a
-                                href="https://dev.to/asifdotexe"
-                                class="social-link"
-                                aria-label="dev.to Profile"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                            >
-                                <ion-icon name="code-slash-outline"></ion-icon>
-                            </a>
-                        </li>
-
-                        <li class="social-item">
-                            <a
-                                href="https://kc7cyber.com/profile/asifdotexe"
-                                class="social-link"
-                                aria-label="KC7 Cyber Profile"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                            >
-                                <ion-icon name="shield-checkmark"></ion-icon>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </aside>
-
-            <!-- #main-content -->
-            <div class="main-content">
-                <!-- #NAVBAR -->
-                <nav
-                    class="navbar"
-                    role="navigation"
-                    aria-label="Main navigation"
-                >
-                    <ul class="navbar-list">
-                        <li class="navbar-item">
-                            <a href="/" class="navbar-link">About</a>
-                        </li>
-                        <li class="navbar-item">
-                            <a href="/projects/" class="navbar-link"
-                                >Projects</a
-                            >
-                        </li>
-                        <li class="navbar-item">
-                            <a href="/certifications/" class="navbar-link"
-                                >Certifications</a
-                            >
-                        </li>
-                        <li class="navbar-item">
-                            <a href="/events/" class="navbar-link active"
-                                >Events</a
-                            >
-                        </li>
-                        <li class="navbar-item">
-                            <a href="/blogs/" class="navbar-link active"
-                                >Blogs</a
-                            >
-                        </li>
-                        <li class="navbar-item">
-                            <a href="/contact/" class="navbar-link">Contact</a>
-                        </li>
-                    </ul>
-                </nav>
-
-                <!-- ABOUT -->
-                <article class="blogs active" data-page="blogs">
-
-    <header>
-        <h2 class="h2 article-title" style="margin-bottom: 10px;">Don't get scammed buying RAM in an inflated market</h2>
-        <div style="color: var(--light-gray-70); font-size: var(--fs-6); margin-bottom: 30px;">19-06-2024</div>
-    </header>
-    <section class="blog-content" style="color: var(--light-gray); font-size: var(--fs-4); line-height: 1.6;">
-        <style>
-            .blog-content h1, .blog-content h2, .blog-content h3 { color: var(--white-2); margin-top: 20px; margin-bottom: 10px; }
-            .blog-content p { margin-bottom: 15px; }
-            .blog-content a { color: var(--vibrant-green); text-decoration: none; }
-            .blog-content a:hover { color: var(--light-gray); text-decoration: underline; }
-            .blog-content ul { list-style-type: disc; margin-left: 20px; margin-bottom: 15px; }
-            .blog-content ol { list-style-type: decimal; margin-left: 20px; margin-bottom: 15px; }
-            .blog-content li { margin-bottom: 5px; }
-            @media (min-width: 1024px) {
-                .blogs header { padding-top: 80px; }
-            }
-        </style>
-        <div id="rendered-content"></div>
-        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-        <script>
-            const markdownContent = "By Asif Sayyed
-
-You need more RAM, but global prices are currently inflated and marketing specs are actively trying to confuse you. Here is the technical breakdown of how to identify what your laptop actually supports, why dual-channeling matters, and how to mix RAM modules without destroying performance.
-
-### DDR4 vs DDR5: Check your memory controller limits
-
-Before buying anything, you need to know if your motherboard supports DDR4 or DDR5. They are physically incompatible, the notch is in a different place. 
-
-The fastest way to check without opening the chassis is looking at your current RAM speed. Open Task Manager -> Performance -> Memory in Windows. 
-- If the speed says **2133 MT/s to 3200 MT/s**, you are on DDR4. 
-- If it says **4800 MT/s or higher**, you have DDR5.
-
-Don't buy 5600 MT/s RAM if your CPU's memory controller maxes out at 4800 MT/s. The motherboard will forcefully downclock your expensive new stick to match the CPU's maximum supported speed.
-
-### Why dual-channeling doubles your bus width
-
-Buying a single 16GB stick instead of two 8GB sticks is the most common mistake in budget upgrades. 
-
-Your CPU communicates with RAM over a 64-bit bus. When you install two identical sticks in the correct slots, the motherboard enables dual-channel memory. This merges the two 64-bit channels into a single 128-bit channel, doubling your maximum memory bandwidth. 
-
-If you use integrated graphics (like AMD Radeon or Intel Iris Xe), those GPUs use your system RAM as VRAM. Running single-channel cuts your graphics bandwidth in half, dropping your frame rates by up to 40%. 
-
-### Flex Mode: When mismatched RAM is good enough
-
-In an ideal world, you buy a matched kit. In a market where prices are up, you might want to just add a 16GB stick next to your existing 8GB stick. This creates an asymmetrical 24GB configuration.
-
-Modern processors handle this using **Flex Mode**. The system maps the first 16GB (the 8GB stick plus 8GB from the new stick) in fast dual-channel mode. The leftover 8GB operates in slower single-channel mode.
-
-If you are just running Chrome tabs, Docker containers, and an IDE, Flex Mode works perfectly. If you are training models or relying on integrated graphics for gaming, keep your sticks symmetrical.
-
-Check your task manager, buy the cheapest stick matching your DDR generation and maximum supported speed, and snap it in.";
-            document.getElementById('rendered-content').innerHTML = marked.parse(markdownContent);
-        </script>
-    </section>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don't get scammed buying RAM in an inflated market | Asif Sayyed</title>
+    <meta name="description" content="Don't get scammed buying RAM in an inflated market - Blog post by Asif Sayyed">
     
-</article>
-
-                <!-- Blog Modal -->
-                
-
-                    <section class="testimonials-modal" style="max-height: 85vh; overflow-y: auto; padding: 30px; border-radius: 14px; background: var(--eerie-black-2); border: 1px solid var(--jet); z-index: 20; position: relative; width: 90%; max-width: 800px; margin: auto;">
-                        <button class="modal-close-btn" data-blog-modal-close-btn style="top: 15px; right: 15px;">
-                            <ion-icon name="close-outline"></ion-icon>
-                        </button>
-
-                        <div class="modal-content" style="padding-top: 10px;">
-                            <h4 class="h3 modal-title" data-blog-modal-title style="color: var(--white-2); margin-bottom: 20px;"></h4>
-                            <div data-blog-modal-text style="color: var(--light-gray); font-size: var(--fs-4); line-height: 1.6;">
-                                <!-- Blog content goes here -->
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </main>
+    <!-- Google Fonts for Editorial Brutalism -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --text-main: #e0e0e0;
+            --text-muted: #888888;
+            --accent: hsl(45, 100%, 72%); /* Keeping portfolio accent or switching to vibrant green */
+            /* Using vibrant green to match portfolio */
+            --vibrant-green: hsl(120, 100%, 75%);
+            --border-color: #333333;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'EB Garamond', serif;
+        }
         
-        <!-- Include marked.js for markdown rendering -->
-        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-        <style>
-            [data-blog-modal-text] img { display: none !important; }
-            [data-blog-modal-text] h1, [data-blog-modal-text] h2, [data-blog-modal-text] h3 {
-                color: var(--white-2);
-                margin-top: 15px;
-                margin-bottom: 10px;
-            }
-            [data-blog-modal-text] p {
-                margin-bottom: 15px;
-            }
-        </style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Navigation */
+        nav {
+            padding: 2rem 5%;
+            border-bottom: 1px solid var(--border-color);
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+        }
+        
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--vibrant-green);
+        }
+        
+        /* Brutalist Header */
+        header {
+            padding: 10vh 5% 8vh;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 8px;
+            background-color: var(--vibrant-green);
+        }
+        
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        h1.title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+        }
+        
+        .meta {
+            font-family: var(--font-display);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: flex;
+            gap: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Content Layout */
+        main {
+            padding: 4rem 5% 8rem;
+        }
+        
+        article {
+            max-width: 65ch;
+            margin: 0 auto;
+        }
+        
+        /* Markdown Styling */
+        article h1, article h2, article h3, article h4 {
+            font-family: var(--font-display);
+            color: #ffffff;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+        
+        article h2 {
+            font-size: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        article h3 {
+            font-size: 1.5rem;
+        }
+        
+        article p {
+            margin-bottom: 1.5rem;
+        }
+        
+        article a {
+            color: var(--vibrant-green);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+        
+        article a:hover {
+            border-bottom-color: var(--vibrant-green);
+        }
+        
+        article ul, article ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        article li {
+            margin-bottom: 0.5rem;
+        }
+        
+        article blockquote {
+            border-left: 4px solid var(--vibrant-green);
+            padding-left: 1.5rem;
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+        
+        article pre {
+            background: #1a1a1a;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        article code {
+            background: #1a1a1a;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-size: 0.9em;
+            color: var(--vibrant-green);
+        }
+        
+        article pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+        
+        article img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 2rem 0;
+            display: block;
+        }
+        
+        article hr {
+            border: 0;
+            height: 1px;
+            background: var(--border-color);
+            margin: 3rem 0;
+        }
+        
+        article table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+        
+        article th, article td {
+            border: 1px solid var(--border-color);
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+        
+        article th {
+            background: #1a1a1a;
+            font-family: var(--font-display);
+        }
+        
+    </style>
+</head>
+<body>
 
-        <!-- FOOTER -->
-        <footer
-            style="
-                text-align: center;
-                padding: 20px 15px;
-                color: var(--light-gray-70);
-                font-size: var(--fs-8);
-            "
-        >
-            <p>&copy; 2025 Asif Sayyed. All rights reserved.</p>
-            <p style="margin-top: 6px">
-                Data Scientist at
-                <a
-                    href="https://www.marshmclennan.com/"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    style="color: var(--vibrant-green); text-decoration: none"
-                    >Marsh McLennan</a
-                >
-                &bull; Mumbai, India
-            </p>
-            <p style="margin-top: 6px">
-                <a
-                    href="/llms.txt"
-                    style="
-                        color: var(--light-gray-70);
-                        text-decoration: none;
-                        font-size: 10px;
-                    "
-                    >llms.txt</a
-                >
-            </p>
-        </footer>
-    </body>
+    <nav>
+        <a href="../../index.html">&larr; Back to Portfolio</a>
+    </nav>
+    
+    <header>
+        <div class="header-content">
+            <h1 class="title">Don't get scammed buying RAM in an inflated market</h1>
+            <div class="meta">
+                <span>Jun 19, 2024</span>
+                <span>Hardware</span>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <article id="rendered-content">
+            <!-- Markdown content will be injected here -->
+        </article>
+    </main>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    
+    <script>
+        const rawContent = "By Asif Sayyed\n\nYou need more RAM, but global prices are currently inflated and marketing specs are actively trying to confuse you. Here is the technical breakdown of how to identify what your laptop actually supports, why dual-channeling matters, and how to mix RAM modules without destroying performance.\n\n### DDR4 vs DDR5: Check your memory controller limits\n\nBefore buying anything, you need to know if your motherboard supports DDR4 or DDR5. They are physically incompatible, the notch is in a different place. \n\nThe fastest way to check without opening the chassis is looking at your current RAM speed. Open Task Manager -> Performance -> Memory in Windows. \n- If the speed says **2133 MT/s to 3200 MT/s**, you are on DDR4. \n- If it says **4800 MT/s or higher**, you have DDR5.\n\nDon't buy 5600 MT/s RAM if your CPU's memory controller maxes out at 4800 MT/s. The motherboard will forcefully downclock your expensive new stick to match the CPU's maximum supported speed.\n\n### Why dual-channeling doubles your bus width\n\nBuying a single 16GB stick instead of two 8GB sticks is the most common mistake in budget upgrades. \n\nYour CPU communicates with RAM over a 64-bit bus. When you install two identical sticks in the correct slots, the motherboard enables dual-channel memory. This merges the two 64-bit channels into a single 128-bit channel, doubling your maximum memory bandwidth. \n\nIf you use integrated graphics (like AMD Radeon or Intel Iris Xe), those GPUs use your system RAM as VRAM. Running single-channel cuts your graphics bandwidth in half, dropping your frame rates by up to 40%. \n\n### Flex Mode: When mismatched RAM is good enough\n\nIn an ideal world, you buy a matched kit. In a market where prices are up, you might want to just add a 16GB stick next to your existing 8GB stick. This creates an asymmetrical 24GB configuration.\n\nModern processors handle this using **Flex Mode**. The system maps the first 16GB (the 8GB stick plus 8GB from the new stick) in fast dual-channel mode. The leftover 8GB operates in slower single-channel mode.\n\nIf you are just running Chrome tabs, Docker containers, and an IDE, Flex Mode works perfectly. If you are training models or relying on integrated graphics for gaming, keep your sticks symmetrical.\n\nCheck your task manager, buy the cheapest stick matching your DDR generation and maximum supported speed, and snap it in.";
+        
+        // Configure marked to use Prism for syntax highlighting
+        marked.setOptions({
+            highlight: function(code, lang) {
+                if (Prism.languages[lang]) {
+                    return Prism.highlight(code, Prism.languages[lang], lang);
+                } else {
+                    return code;
+                }
+            }
+        });
+        
+        document.getElementById('rendered-content').innerHTML = marked.parse(rawContent);
+    </script>
+</body>
 </html>
