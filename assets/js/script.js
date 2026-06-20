@@ -251,50 +251,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Dynamically populate certificates section
   
-  const populateBlogs = () => {
-    const blogsList = document.getElementById('blogs-list');
-    if (!blogsList) return;
-    fetch('/assets/data/blogs.json')
-      .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching blogs.json`);
-        return response.json();
-      })
-      .then(data => {
-        data.forEach((blog, index) => {
-          const item = document.createElement('li');
-          item.className = 'fade-in-up';
-          item.style.animationDelay = `${index * 0.1}s`;
-          item.style.paddingBottom = "10px";
-          
-          let dateStr = "";
-          if (blog.date) {
-            const parts = blog.date.split('-');
-            if (parts.length === 3) {
-              dateStr = ` - ${parts[2]}-${parts[1]}-${parts[0]}`;
-            }
-          }
-          
-          const a = document.createElement('a');
-          a.href = `/blogs/${blog.slug}/`;
-          a.textContent = blog.title + dateStr;
-          a.target = "_blank";
-          a.rel = "noopener noreferrer";
-          a.style.color = "var(--vibrant-green)";
-          a.style.textDecoration = "none";
-          a.onmouseover = function() { this.style.color = "var(--light-gray)"; };
-          a.onmouseout = function() { this.style.color = "var(--vibrant-green)"; };
-
-          item.appendChild(a);
-          blogsList.appendChild(item);
-        });
-        
-        initializeProjectFilter();
-
-        // Initialize tilt after DOM injection
-        setTimeout(initTiltEffect, 500);
-      })
-      .catch(error => console.error('Error fetching blogs data:', error));
-  };
 
   const populateCertificates = () => {
     const certificatesGrid = document.getElementById('certificates-grid');
@@ -485,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
   populateEducation();
   populateExperience();
   populateEvents();
-  populateBlogs();
+
   populateCertificates();
   populateProjects();
 
