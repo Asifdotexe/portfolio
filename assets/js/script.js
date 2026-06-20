@@ -39,72 +39,6 @@ if (modalContainer && modalCloseBtn && overlay) {
   modalCloseBtn.addEventListener("click", testimonialsModalFunc);
   overlay.addEventListener("click", testimonialsModalFunc);
 }
-
-// Project filter select
-const select = document.querySelector("[data-select]");
-const selectItems = document.querySelectorAll("[data-select-item]");
-if (select && selectItems.length > 0) {
-  const selectValue = document.querySelector("[data-selecct-value]");
-  const filterBtn = document.querySelectorAll("[data-filter-btn]");
-  const filterItems = document.querySelectorAll("[data-filter-item]");
-
-  const filterFunc = function (selectedValue) {
-    filterItems.forEach(item => {
-      if (selectedValue === "all" || selectedValue === item.dataset.category) {
-        item.classList.add("active");
-        // Re-trigger animation for filtered items
-        item.style.animation = 'none';
-        item.offsetHeight; /* trigger reflow */
-        item.style.animation = null;
-      } else {
-        item.classList.remove("active");
-      }
-    });
-  }
-  select.addEventListener("click", function () { elementToggleFunc(this); });
-  selectItems.forEach(item => {
-    item.addEventListener("click", function () {
-      let selectedValue = this.innerText.toLowerCase();
-      selectValue.innerText = this.innerText;
-      elementToggleFunc(select);
-      filterFunc(selectedValue);
-    });
-  });
-  if (filterBtn.length > 0) {
-    let lastClickedBtn = filterBtn[0];
-    filterBtn.forEach(btn => {
-      btn.addEventListener("click", function () {
-        let selectedValue = this.innerText.toLowerCase();
-        selectValue.innerText = this.innerText;
-        filterFunc(selectedValue);
-        lastClickedBtn.classList.remove("active");
-        this.classList.add("active");
-        lastClickedBtn = this;
-      });
-    });
-  }
-}
-
-// Page navigation
-const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
-if (navigationLinks.length > 0 && pages.length > 0) {
-  navigationLinks.forEach(link => {
-    link.addEventListener("click", function () {
-      const targetPage = this.innerHTML.toLowerCase();
-      pages.forEach(page => {
-        page.classList.toggle("active", targetPage === page.dataset.page);
-        if (targetPage === page.dataset.page) {
-          window.scrollTo(0, 0);
-        }
-      });
-      navigationLinks.forEach(navLink => {
-        navLink.classList.toggle("active", navLink === this);
-      });
-    });
-  });
-}
-
 // --------------------------------------------------------------------
 // NEW VISUAL EFFECTS (Typewriter, Tilt)
 // --------------------------------------------------------------------
@@ -207,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     showSkeleton('education-list', 3, '80px'); // Optional: enable if fetch is slow
 
-    fetch('./assets/data/education.json')
+    fetch('/assets/data/education.json')
       .then(response => {
         if (!response.ok) throw new Error(`HTTP ${response.status} while fetching education.json`);
         return response.json();
@@ -229,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const populateExperience = () => {
     const experienceList = document.getElementById('experience-list');
     if (!experienceList) return;
-    fetch('./assets/data/experience.json')
+    fetch('/assets/data/experience.json')
       .then(response => {
         if (!response.ok) throw new Error(`HTTP ${response.status} while fetching experience.json`);
         return response.json();
@@ -250,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const populateEvents = () => {
     const eventsList = document.getElementById('events-list');
     if (!eventsList) return;
-    fetch('./assets/data/events.json')
+    fetch('/assets/data/events.json')
       .then(response => {
         if (!response.ok) throw new Error(`HTTP ${response.status} while fetching events.json`);
         return response.json();
@@ -258,11 +192,16 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(data => {
         data.forEach((event, index) => {
           const item = document.createElement('li');
-          item.className = 'blog-post-item fade-in-up';
+          item.className = 'event-post-item active fade-in-up';
           item.style.animationDelay = `${index * 0.1}s`;
-          item.innerHTML = `<a href="${event.url}" target="_blank" rel="noopener noreferrer"><figure class="blog-banner-box"><img src="${event.image}" alt="${event.title}" loading="lazy"></figure><div class="blog-content"><div class="blog-meta"><p class="blog-category">${event.category}</p><span class="dot"></span><time datetime="${event.date}">${event.formattedDate}</time></div><h3 class="h3 blog-item-title">${event.title}</h3><p class="blog-text">${event.description}</p></div></a>`;
+          item.setAttribute("data-filter-item", "");
+          item.setAttribute("data-category", event.type ? event.type.toLowerCase() : "organized");
+          item.innerHTML = `<a href="${event.url}" target="_blank" rel="noopener noreferrer"><figure class="event-banner-box"><img src="${event.image}" alt="${event.title}" loading="lazy"></figure><div class="event-content"><div class="event-meta"><p class="event-category">${event.category}</p><span class="dot"></span><time datetime="${event.date}">${event.formattedDate}</time></div><h3 class="h3 event-item-title">${event.title}</h3><p class="event-text">${event.description}</p></div></a>`;
           eventsList.appendChild(item);
         });
+        
+        initializeProjectFilter();
+
         // Initialize tilt after DOM injection
         setTimeout(initTiltEffect, 500);
       })
@@ -270,13 +209,41 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Dynamically populate certificates section
+  
+  const populateBlogs = () => {
+    const blogsList = document.getElementById('blogs-list');
+    if (!blogsList) return;
+    fetch('/assets/data/blogs.json')
+      .then(response => {
+        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching blogs.json`);
+        return response.json();
+      })
+      .then(data => {
+        data.forEach((blog, index) => {
+          const item = document.createElement('li');
+          item.className = 'event-post-item active fade-in-up';
+          item.style.animationDelay = `${index * 0.1}s`;
+          item.setAttribute("data-filter-item", "");
+          item.setAttribute("data-category", blog.platform ? blog.platform.toLowerCase() : "medium");
+          item.innerHTML = `<a href="${blog.url}" target="_blank" rel="noopener noreferrer"><figure class="event-banner-box"><img src="${blog.image}" alt="${blog.title}" loading="lazy"></figure><div class="event-content"><div class="event-meta"><p class="event-category">${blog.category}</p><span class="dot"></span><time datetime="${blog.date}">${blog.formattedDate}</time></div><h3 class="h3 event-item-title">${blog.title}</h3><p class="event-text">${blog.description}</p></div></a>`;
+          blogsList.appendChild(item);
+        });
+        
+        initializeProjectFilter();
+
+        // Initialize tilt after DOM injection
+        setTimeout(initTiltEffect, 500);
+      })
+      .catch(error => console.error('Error fetching blogs data:', error));
+  };
+
   const populateCertificates = () => {
     const certificatesGrid = document.getElementById('certificates-grid');
     if (!certificatesGrid) return;
 
     showSkeleton('certificates-grid', 6, '200px');
 
-    fetch('./assets/data/certificates.json')
+    fetch('/assets/data/certificates.json')
       .then(response => {
         if (!response.ok) throw new Error(`HTTP ${response.status} while fetching certificates.json`);
         return response.json();
@@ -314,36 +281,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Helper function to calculate relative time
   const timeAgo = (dateString) => {
     if (!dateString) return '';
-    const date = new Date(dateString);
-    const now = new Date();
-    const seconds = Math.floor((now - date) / 1000);
-
-    let interval = seconds / 31536000;
-    if (interval > 1) {
-      const years = Math.floor(interval);
-      return years + " year" + (years > 1 ? "s" : "") + " ago";
-    }
-    interval = seconds / 2592000;
-    if (interval > 1) {
-      const months = Math.floor(interval);
-      return months + " month" + (months > 1 ? "s" : "") + " ago";
-    }
-    interval = seconds / 86400;
-    if (interval > 1) {
-      const days = Math.floor(interval);
-      return days + " day" + (days > 1 ? "s" : "") + " ago";
-    }
-    interval = seconds / 3600;
-    if (interval > 1) {
-      const hours = Math.floor(interval);
-      return hours + " hour" + (hours > 1 ? "s" : "") + " ago";
-    }
-    interval = seconds / 60;
-    if (interval > 1) {
-      const minutes = Math.floor(interval);
-      return minutes + " minute" + (minutes > 1 ? "s" : "") + " ago";
-    }
-    return "just now";
+    const diff = (new Date() - new Date(dateString)) / 1000;
+    if (diff < 60) return 'just now';
+    const units = [['year', 31536000], ['month', 2592000], ['day', 86400], ['hour', 3600], ['minute', 60]];
+    const [unit, secs] = units.find(([, s]) => diff >= s);
+    return new Intl.RelativeTimeFormat('en', { numeric: 'auto' }).format(-Math.floor(diff / secs), unit);
   };
 
   /**
@@ -357,8 +299,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const [projectsResponse, updatesResponse] = await Promise.all([
-        fetch("./assets/data/projects.json"),
-        fetch("./assets/data/last_updated.json")
+        fetch("/assets/data/projects.json"),
+        fetch("/assets/data/last_updated.json")
       ]);
 
       if (!projectsResponse.ok) {
@@ -484,7 +426,14 @@ document.addEventListener('DOMContentLoaded', () => {
   populateEducation();
   populateExperience();
   populateEvents();
+  populateBlogs();
   populateCertificates();
   populateProjects();
+
+  // Update footer year dynamically
+  const yearElement = document.getElementById('current-year');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
 
 });
