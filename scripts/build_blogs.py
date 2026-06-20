@@ -317,18 +317,13 @@ def generate_html(data, slug):
     <script>
         const rawContent = {raw_content_json};
         
-        // Configure marked to use Prism for syntax highlighting
-        marked.setOptions({{
-            highlight: function(code, lang) {{
-                if (Prism.languages[lang]) {{
-                    return Prism.highlight(code, Prism.languages[lang], lang);
-                }} else {{
-                    return code;
-                }}
-            }}
-        }});
-        
+        // Render markdown
         document.getElementById('rendered-content').innerHTML = marked.parse(rawContent);
+        
+        // Apply syntax highlighting
+        if (typeof Prism !== 'undefined') {{
+            Prism.highlightAll();
+        }}
     </script>
 </body>
 </html>

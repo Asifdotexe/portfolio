@@ -257,18 +257,13 @@
     <script>
         const rawContent = "By Asif Sayyed\n\nYou need more RAM, but global prices are currently inflated and marketing specs are actively trying to confuse you. Here is the technical breakdown of how to identify what your laptop actually supports, why dual-channeling matters, and how to mix RAM modules without destroying performance.\n\n### DDR4 vs DDR5: Check your memory controller limits\n\nBefore buying anything, you need to know if your motherboard supports DDR4 or DDR5. They are physically incompatible, the notch is in a different place. \n\nThe fastest way to check without opening the chassis is looking at your current RAM speed. Open Task Manager -> Performance -> Memory in Windows. \n- If the speed says **2133 MT/s to 3200 MT/s**, you are on DDR4. \n- If it says **4800 MT/s or higher**, you have DDR5.\n\nDon't buy 5600 MT/s RAM if your CPU's memory controller maxes out at 4800 MT/s. The motherboard will forcefully downclock your expensive new stick to match the CPU's maximum supported speed.\n\n### Why dual-channeling doubles your bus width\n\nBuying a single 16GB stick instead of two 8GB sticks is the most common mistake in budget upgrades. \n\nYour CPU communicates with RAM over a 64-bit bus. When you install two identical sticks in the correct slots, the motherboard enables dual-channel memory. This merges the two 64-bit channels into a single 128-bit channel, doubling your maximum memory bandwidth. \n\nIf you use integrated graphics (like AMD Radeon or Intel Iris Xe), those GPUs use your system RAM as VRAM. Running single-channel cuts your graphics bandwidth in half, dropping your frame rates by up to 40%. \n\n### Flex Mode: When mismatched RAM is good enough\n\nIn an ideal world, you buy a matched kit. In a market where prices are up, you might want to just add a 16GB stick next to your existing 8GB stick. This creates an asymmetrical 24GB configuration.\n\nModern processors handle this using **Flex Mode**. The system maps the first 16GB (the 8GB stick plus 8GB from the new stick) in fast dual-channel mode. The leftover 8GB operates in slower single-channel mode.\n\nIf you are just running Chrome tabs, Docker containers, and an IDE, Flex Mode works perfectly. If you are training models or relying on integrated graphics for gaming, keep your sticks symmetrical.\n\nCheck your task manager, buy the cheapest stick matching your DDR generation and maximum supported speed, and snap it in.";
         
-        // Configure marked to use Prism for syntax highlighting
-        marked.setOptions({
-            highlight: function(code, lang) {
-                if (Prism.languages[lang]) {
-                    return Prism.highlight(code, Prism.languages[lang], lang);
-                } else {
-                    return code;
-                }
-            }
-        });
-        
+        // Render markdown
         document.getElementById('rendered-content').innerHTML = marked.parse(rawContent);
+        
+        // Apply syntax highlighting
+        if (typeof Prism !== 'undefined') {
+            Prism.highlightAll();
+        }
     </script>
 </body>
 </html>

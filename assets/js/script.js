@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
           item.style.animationDelay = `${index * 0.1}s`;
           item.setAttribute("data-filter-item", "");
           item.setAttribute("data-category", event.type ? event.type.toLowerCase() : "organized");
-          item.innerHTML = `<a href="${event.url}" target="_blank" rel="noopener noreferrer"><figure class="event-banner-box"><img src="${event.image}" alt="${event.title}" loading="lazy"></figure><div class="event-content"><div class="event-meta"><p class="event-category">${event.category}</p><span class="dot"></span><time datetime="${event.date}">${event.formattedDate}</time></div><h3 class="h3 event-item-title">${event.title}</h3><p class="event-text">${event.description}</p></div></a>`;
+          item.innerHTML = `<a href="${event.url}"><figure class="event-banner-box"><img src="${event.image}" alt="${event.title}" loading="lazy"></figure><div class="event-content"><div class="event-meta"><p class="event-category">${event.category}</p><span class="dot"></span><time datetime="${event.date}">${event.formattedDate}</time></div><h3 class="h3 event-item-title">${event.title}</h3><p class="event-text">${event.description}</p></div></a>`;
           eventsList.appendChild(item);
         });
         
