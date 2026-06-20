@@ -427,8 +427,11 @@
 </li>
 </ul>
 </nav>
+<div class="page-icon-box">
+    <ion-icon name="newspaper-outline"></ion-icon>
+</div>
 <!-- ABOUT -->
-<article class="blogs active" data-page="blogs"><header><h2 class="h2 article-title">Blogs</h2></header><section class="blogs"><div class="pf-v6-c-simple-list"><ul class="pf-v6-c-simple-list__list" role="list"><li class="pf-v6-c-simple-list__item"><button class="pf-v6-c-simple-list__item-link" data-blog-slug="blog1" onclick="openBlogModal('blog1')" type="button">My First Blog Post</button></li><li class="pf-v6-c-simple-list__item"><button class="pf-v6-c-simple-list__item-link" data-blog-slug="seo-geo-aeo-guide" onclick="openBlogModal('seo-geo-aeo-guide')" type="button">Implementing SEO, AEO, and GEO in a Developer Portfolio</button></li></ul></div></section></article>
+<article class="blogs active" data-page="blogs"><header><h2 class="h2 article-title">Blogs</h2></header><section class="blogs"><div class="pf-v6-c-simple-list"><ul class="pf-v6-c-simple-list__list" role="list"><li class="pf-v6-c-simple-list__item"><a class="pf-v6-c-simple-list__item-link" href="/blogs/blog1/">My First Blog Post</a></li><li class="pf-v6-c-simple-list__item"><a class="pf-v6-c-simple-list__item-link" href="/blogs/seo-geo-aeo-guide/">Implementing SEO, AEO, and GEO in a Developer Portfolio</a></li></ul></div></section></article>
 </div>
 </main>
 <!-- FOOTER -->
@@ -452,50 +455,5 @@
                     ">llms.txt</a>
 </p>
 </footer>
-
-<div class="modal-overlay" id="blog-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-color, #1e1e1f); z-index: 9999; overflow-y: auto;">
-<div class="modal-content" style="max-width: 800px; margin: 0 auto; padding: 40px 20px; color: var(--light-gray);">
-<button onclick="closeBlogModal()" style="display: inline-block; margin-bottom: 20px; color: var(--vibrant-green, #00ff00); background: none; border: none; cursor: pointer; font-size: 16px; font-weight: bold;">← Back to Blogs</button>
-<div id="blog-modal-body"></div>
-</div>
-</div>
-
-<script>
-            let blogData = null;
-            
-            async function loadBlogData() {
-                if (!blogData) {
-                    const response = await fetch('/assets/data/blogs.json');
-                    blogData = await response.json();
-                }
-            }
-            
-            async function openBlogModal(slug) {
-                await loadBlogData();
-                const blog = blogData.find(b => b.slug === slug);
-                if (blog) {
-                    document.getElementById('blog-modal-body').innerHTML = '<h2 style="margin-bottom: 20px; font-size: 2em; color: white;">' + blog.title + '</h2>' + blog.html_content;
-                    document.getElementById('blog-modal').style.display = 'block';
-                    document.body.style.overflow = 'hidden';
-                    window.history.pushState({slug: slug}, blog.title, '/blogs/' + slug + '/');
-                }
-            }
-            
-            function closeBlogModal() {
-                document.getElementById('blog-modal').style.display = 'none';
-                document.body.style.overflow = '';
-                window.history.pushState({}, 'Blogs', '/blogs/');
-            }
-            
-            window.addEventListener('popstate', function(event) {
-                if (window.location.pathname === '/blogs/') {
-                    document.getElementById('blog-modal').style.display = 'none';
-                    document.body.style.overflow = '';
-                } else {
-                    // Note: if they go to /blogs/slug/ via back button, we could technically re-open modal.
-                    // But if it's a full page load, the actual /blogs/slug/index.html will load.
-                }
-            });
-        </script>
 </body>
 </html>
