@@ -40,45 +40,7 @@ if (modalContainer && modalCloseBtn && overlay) {
   overlay.addEventListener("click", testimonialsModalFunc);
 }
 
-// Blog modal
-const blogModalContainer = document.querySelector("[data-blog-modal-container]");
-const blogModalCloseBtn = document.querySelector("[data-blog-modal-close-btn]");
-const blogOverlay = document.querySelector("[data-blog-overlay]");
-const blogModalTitle = document.querySelector("[data-blog-modal-title]");
-const blogModalText = document.querySelector("[data-blog-modal-text]");
 
-if (blogModalContainer && blogModalCloseBtn && blogOverlay) {
-  const closeBlogModal = function () {
-    blogModalContainer.classList.remove("active");
-    blogOverlay.classList.remove("active");
-    setTimeout(() => {
-        blogModalTitle.innerHTML = "";
-        blogModalText.innerHTML = "";
-    }, 300); // clear after transition
-  };
-
-  blogModalCloseBtn.addEventListener("click", closeBlogModal);
-  blogOverlay.addEventListener("click", closeBlogModal);
-
-  window.openBlogModal = function(blog) {
-      let dateStr = "";
-      if (blog.date) {
-        const parts = blog.date.split('-');
-        if (parts.length === 3) {
-          dateStr = ` - ${parts[2]}-${parts[1]}-${parts[0]}`;
-        }
-      }
-      blogModalTitle.textContent = blog.title + dateStr;
-      
-      if (window.marked) {
-          blogModalText.innerHTML = marked.parse(blog.content || "");
-      } else {
-          blogModalText.textContent = "Error: Markdown renderer not loaded.";
-      }
-      blogModalContainer.classList.add("active");
-      blogOverlay.classList.add("active");
-  };
-}
 
 // --------------------------------------------------------------------
 // NEW VISUAL EFFECTS (Typewriter, Tilt)
