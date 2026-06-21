@@ -52,6 +52,24 @@ def build_blogs():
         # Update title and meta
         if soup.title:
             soup.title.string = f"{title} | Asif Sayyed Portfolio"
+            
+        # Update meta tags
+        for meta in soup.find_all('meta'):
+            if meta.get('name') in ['title', 'twitter:title']:
+                meta['content'] = f"{title} | Asif Sayyed Portfolio"
+            elif meta.get('property') == 'og:title':
+                meta['content'] = f"{title} | Asif Sayyed Portfolio"
+            elif meta.get('name') in ['description', 'twitter:description']:
+                meta['content'] = description
+            elif meta.get('property') == 'og:description':
+                meta['content'] = description
+            elif meta.get('property') == 'og:url':
+                meta['content'] = f"https://sayyedasif.com/blogs/{slug}/"
+                
+        # Update canonical
+        canonical = soup.find('link', rel='canonical')
+        if canonical:
+            canonical['href'] = f"https://sayyedasif.com/blogs/{slug}/"
         
         # Update active nav link
         for nav_link in soup.find_all('a', class_='navbar-link'):
@@ -86,7 +104,7 @@ def build_blogs():
             article.append(header)
             article.append(section)
             
-        blog_html = str(soup).replace('../assets/', '../../assets/')
+        blog_html = str(soup).replace('./assets/', '../../assets/')
             
         with open(os.path.join(blog_output_dir, 'index.html'), 'w', encoding='utf-8') as f:
             f.write(blog_html)
@@ -97,6 +115,22 @@ def build_blogs():
     # Update title and meta
     if soup.title:
         soup.title.string = "Blogs | Asif Sayyed Portfolio"
+        
+    for meta in soup.find_all('meta'):
+        if meta.get('name') in ['title', 'twitter:title']:
+            meta['content'] = "Blogs | Asif Sayyed Portfolio"
+        elif meta.get('property') == 'og:title':
+            meta['content'] = "Blogs | Asif Sayyed Portfolio"
+        elif meta.get('name') in ['description', 'twitter:description']:
+            meta['content'] = "Read Asif Sayyed's latest articles and blogs on data science, machine learning, and programming."
+        elif meta.get('property') == 'og:description':
+            meta['content'] = "Read Asif Sayyed's latest articles and blogs on data science, machine learning, and programming."
+        elif meta.get('property') == 'og:url':
+            meta['content'] = "https://sayyedasif.com/blogs/"
+            
+    canonical = soup.find('link', rel='canonical')
+    if canonical:
+        canonical['href'] = "https://sayyedasif.com/blogs/"
         
     # Update active nav link
     for nav_link in soup.find_all('a', class_='navbar-link'):
@@ -122,14 +156,11 @@ def build_blogs():
         
         for blog in blogs:
             li = soup.new_tag('li', attrs={'class': 'pf-v6-c-simple-list__item'})
-            btn = soup.new_tag('button', attrs={
-                'class': 'pf-v6-c-simple-list__item-link', 
-                'type': 'button',
-                'data-blog-slug': blog['slug'],
-                'onclick': f"openBlogModal('{blog['slug']}')"
+            a_tag = soup.new_tag('a', href=f"../blogs/{blog['slug']}/", attrs={
+                'class': 'pf-v6-c-simple-list__item-link'
             })
-            btn.string = blog['title']
-            li.append(btn)
+            a_tag.string = blog['title']
+            li.append(a_tag)
             ul.append(li)
             
         list_container.append(ul)
@@ -138,63 +169,8 @@ def build_blogs():
         article.append(header)
         article.append(section)
         
-        # Add modal HTML
-        modal_html = """
-        <div id="blog-modal" class="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-color, #1e1e1f); z-index: 9999; overflow-y: auto;">
-            <div class="modal-content" style="max-width: 800px; margin: 0 auto; padding: 40px 20px; color: var(--light-gray);">
-                <button onclick="closeBlogModal()" style="display: inline-block; margin-bottom: 20px; color: var(--vibrant-green, #00ff00); background: none; border: none; cursor: pointer; font-size: 16px; font-weight: bold;">← Back to Blogs</button>
-                <div id="blog-modal-body"></div>
-            </div>
-        </div>
-        """
-        modal_soup = BeautifulSoup(modal_html, 'html.parser')
-        soup.body.append(modal_soup)
-        
-        # Add JS script
-        script_js = """
-        <script>
-            let blogData = null;
-            
-            async function loadBlogData() {
-                if (!blogData) {
-                    const response = await fetch('/assets/data/blogs.json');
-                    blogData = await response.json();
-                }
-            }
-            
-            async function openBlogModal(slug) {
-                await loadBlogData();
-                const blog = blogData.find(b => b.slug === slug);
-                if (blog) {
-                    document.getElementById('blog-modal-body').innerHTML = '<h2 style="margin-bottom: 20px; font-size: 2em; color: white;">' + blog.title + '</h2>' + blog.html_content;
-                    document.getElementById('blog-modal').style.display = 'block';
-                    document.body.style.overflow = 'hidden';
-                    window.history.pushState({slug: slug}, blog.title, '/blogs/' + slug + '/');
-                }
-            }
-            
-            function closeBlogModal() {
-                document.getElementById('blog-modal').style.display = 'none';
-                document.body.style.overflow = '';
-                window.history.pushState({}, 'Blogs', '/blogs/');
-            }
-            
-            window.addEventListener('popstate', function(event) {
-                if (window.location.pathname === '/blogs/') {
-                    document.getElementById('blog-modal').style.display = 'none';
-                    document.body.style.overflow = '';
-                } else {
-                    // Note: if they go to /blogs/slug/ via back button, we could technically re-open modal.
-                    // But if it's a full page load, the actual /blogs/slug/index.html will load.
-                }
-            });
-        </script>
-        """
-        script_soup = BeautifulSoup(script_js, 'html.parser')
-        soup.body.append(script_soup)
-        
     with open(os.path.join(output_dir, 'index.html'), 'w', encoding='utf-8') as f:
-        f.write(str(soup))
+        f.write(str(soup).replace('./assets/', '../assets/'))
         
     # Write JSON for dynamic loading if needed
     os.makedirs('assets/data', exist_ok=True)
