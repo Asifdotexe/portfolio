@@ -41,3 +41,7 @@ Sitemap: https://sayyedasif.com/sitemap.xml
 # See https://llmstxt.org for the llms.txt specification
 # llms.txt: https://sayyedasif.com/llms.txt
 # llms-full.txt: https://sayyedasif.com/llms-full.txt
+
+# Block Common Crawl (generic training scrapers)
+User-agent: CCBot
+Disallow: /
