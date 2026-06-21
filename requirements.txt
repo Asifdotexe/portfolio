@@ -1,3 +1,5 @@
 jsmin
 requests
 beautifulsoup4
+frontmatter
+markdown

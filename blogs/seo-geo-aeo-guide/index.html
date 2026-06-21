@@ -428,29 +428,29 @@
 </ul>
 </nav>
 <div class="page-icon-box">
-    <ion-icon name="newspaper-outline"></ion-icon>
+<ion-icon name="person-outline"></ion-icon>
 </div>
 <!-- ABOUT -->
-<article class="blogs active" data-page="blog-post"><header><h2 class="h2 article-title">Implementing SEO, AEO, and GEO in a Developer Portfolio</h2></header><section class="blog-content-section"><a class="blog-back-btn" href="/blogs/" style="display: inline-block; margin-bottom: 20px; color: var(--vibrant-green); text-decoration: none;">← Back to Blogs</a><div class="blog-post-content"><p>When building a modern portfolio, ranking on Google is no longer enough. With the rise of AI search tools like Perplexity, ChatGPT, and Google's AI Overviews, we need to optimize for a new generation of crawlers.</p>
-<p>In my recent portfolio project, I implemented a three-pronged approach to discoverability:
-1. <strong>SEO (Search Engine Optimization):</strong> Traditional optimization for Google, Bing, etc.
-2. <strong>AEO (Answer Engine Optimization):</strong> Structuring data so AI can directly answer questions about me.
-3. <strong>GEO (Generative Engine Optimization):</strong> Providing clean, markdown-based context specifically for Large Language Models (LLMs).</p>
-<p>Here is a complete, straight-to-the-point guide on how I implemented this, complete with code snippets so you can do the same.</p>
+<article class="blogs active" data-page="blog-post"><header><h2 class="h2 article-title">Implementing SEO, AEO, and GEO in a Developer Portfolio</h2></header><section class="blog-content-section"><a class="blog-back-btn" href="/blogs/" style="display: inline-block; margin-bottom: 20px; color: var(--vibrant-green); text-decoration: none;">← Back to Blogs</a><div class="blog-post-content"><p>Ranking on Google is not enough anymore. Not with AI tools like Perplexity, ChatGPT, and Google's AI Overviews also reading your site. A portfolio needs to work for all of them.</p>
+<p>I took three approaches on my portfolio:
+1. SEO for traditional search engines
+2. AEO so AI can answer questions about me directly
+3. GEO to give LLMs clean markdown context</p>
+<p>What follows is what I did and the code I used, in case you want to do the same.</p>
 <hr/>
-<h2>1. SEO: The Foundation (Meta Tags, Sitemap, Robots.txt)</h2>
-<p>Before optimizing for AI, your traditional SEO needs to be rock solid. We implemented semantic HTML (<code>&lt;nav&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>), canonical links, and a comprehensive set of meta tags.</p>
+<h2>1. SEO: The foundation (meta tags, sitemap, robots.txt)</h2>
+<p>Traditional SEO still matters even when optimizing for AI. I used semantic HTML (<code>&lt;nav&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>), canonical links, and standard meta tags.</p>
 <h3>Submitting to Google Search Console</h3>
-<p>A critical step in traditional SEO is ensuring search engines actually index your site. After deploying your site, you should:
+<p>Search engines need to know your site exists. After deploying:
 1. Go to <a href="https://search.google.com/search-console">Google Search Console</a>.
-2. Add your website as a property (either via Domain or URL prefix).
-3. Verify ownership (we added a <code>&lt;meta name="google-site-verification" content="..." /&gt;</code> tag in our HTML).
-4. Navigate to the <strong>Sitemaps</strong> section and submit your <code>sitemap.xml</code> URL so Google knows exactly what pages to crawl.</p>
-<h3>Meta Tags &amp; Open Graph</h3>
-<p>To ensure the site looks great when shared on platforms like LinkedIn or Twitter, and is easily indexed by search engines, we added Open Graph and Twitter Card tags.</p>
+2. Add your website as a property (Domain or URL prefix).
+3. Verify ownership. I added a <code>&lt;meta name="google-site-verification" content="..." /&gt;</code> tag in the HTML.
+4. In the <strong>Sitemaps</strong> section, submit your <code>sitemap.xml</code> URL so Google knows what pages to crawl.</p>
+<h3>Meta tags and Open Graph</h3>
+<p>Open Graph and Twitter Card tags make the site look right when shared on LinkedIn or Twitter and help search engines index it.</p>
 <p><a href="https://github.com/Asifdotexe/portfolio/blob/main/index.html">View <code>index.html</code> on GitHub</a></p>
 <div class="codehilite"><pre><span></span><code><span class="cm">&lt;!-- Primary Meta Tags --&gt;</span>
-<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Asif Sayyed | Data Scientist — Python, Machine Learning <span class="err">&amp;</span> AI Portfolio<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Asif Sayyed | Data Scientist <span class="ni">&amp;mdash;</span> Python, Machine Learning <span class="ni">&amp;amp;</span> AI Portfolio<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"description"</span> <span class="na">content</span><span class="o">=</span><span class="s">"Portfolio of Asif Sayyed, a Data Scientist at Marsh McLennan specializing in Python, Machine Learning, NLP, and Cyber Risk Analytics."</span> <span class="p">/&gt;</span>
 <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"keywords"</span> <span class="na">content</span><span class="o">=</span><span class="s">"Data Scientist, Python Developer, Machine Learning Engineer, AI Portfolio"</span> <span class="p">/&gt;</span>
 <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"canonical"</span> <span class="na">href</span><span class="o">=</span><span class="s">"https://sayyedasif.com/"</span> <span class="p">/&gt;</span>
@@ -466,8 +466,8 @@
 <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"twitter:card"</span> <span class="na">content</span><span class="o">=</span><span class="s">"summary_large_image"</span> <span class="p">/&gt;</span>
 <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"twitter:title"</span> <span class="na">content</span><span class="o">=</span><span class="s">"Asif Sayyed | Data Scientist Portfolio"</span> <span class="p">/&gt;</span>
 </code></pre></div>
-<h3>Sitemap &amp; Robots.txt</h3>
-<p>We also created a <code>sitemap.xml</code> to map out the portfolio's directories (<code>/projects</code>, <code>/events</code>, etc.) and a <code>robots.txt</code> to guide traditional crawlers.</p>
+<h3>Sitemap and robots.txt</h3>
+<p>I also created a <code>sitemap.xml</code> covering <code>/projects</code>, <code>/events</code>, and other directories, plus a <code>robots.txt</code> to guide crawlers.</p>
 <p><a href="https://github.com/Asifdotexe/portfolio/blob/main/robots.txt">View <code>robots.txt</code> on GitHub</a></p>
 <div class="codehilite"><pre><span></span><code># robots.txt
 User-agent: *
@@ -476,9 +476,9 @@ Allow: /
 Sitemap: https://sayyedasif.com/sitemap.xml
 </code></pre></div>
 <hr/>
-<h2>2. AEO: Answer Engine Optimization (JSON-LD)</h2>
-<p>Answer engines (like Perplexity or Google's AI Overviews) don't just index pages; they extract <em>entities</em> and relationships. To feed them exact facts about my career, skills, and certifications, I used <strong>JSON-LD Structured Data</strong> following the <a href="https://schema.org/docs/schemas.html">Schema.org</a> vocabulary.</p>
-<p>By explicitly defining myself as a <code>Person</code> and linking my <code>EducationalOccupationalCredential</code> (certifications) and <code>Organization</code> (employers), answer engines can confidently pull my information.</p>
+<h2>2. AEO: Answer engine optimization (JSON-LD)</h2>
+<p>Answer engines like Perplexity and Google's AI Overviews do not just index pages. They extract entities and relationships. To give them exact facts about my career and skills, I added JSON-LD structured data using the Schema.org vocabulary.</p>
+<p>When I define myself as a <code>Person</code> and link my certifications and employers, answer engines can pull my information more reliably.</p>
 <p><a href="https://github.com/Asifdotexe/portfolio/blob/main/index.html">View <code>index.html</code> on GitHub</a></p>
 <div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"application/ld+json"</span><span class="p">&gt;</span>
 <span class="p">{</span>
@@ -511,10 +511,10 @@ Sitemap: https://sayyedasif.com/sitemap.xml
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
 <hr/>
-<h2>3. GEO: Generative Engine Optimization (<code>llms.txt</code>)</h2>
-<p>Generative engines and LLMs often struggle with parsing complex HTML, CSS, and interactive JavaScript. To solve this, we implemented a standard gaining rapid adoption: <strong><code>llms.txt</code></strong>.</p>
-<p>The <code>llms.txt</code> file (and its detailed counterpart, <code>llms-full.txt</code>) is placed at the root of the website. It provides a clean, markdown-formatted summary of the entire website's content. When an AI agent or LLM scrapes the site, it can read this file to get perfectly structured context without the noise of HTML tags.</p>
-<h3>Example of <code>llms.txt</code></h3>
+<h2>3. GEO: Generative engine optimization (llms.txt)</h2>
+<p>LLMs do not parse HTML and JavaScript particularly well. The <code>llms.txt</code> standard solves this. You place a markdown file at the root of your site with a clean summary of your content. When an AI agent crawls the site, it reads this file instead of wading through markup.</p>
+<p>There is also <code>llms-full.txt</code> for the full version.</p>
+<h3>Example of llms.txt</h3>
 <p><a href="https://github.com/Asifdotexe/portfolio/blob/main/llms.txt">View <code>llms.txt</code> on GitHub</a></p>
 <div class="codehilite"><pre><span></span><code><span class="gh"># Asif Sayyed - Data Scientist Portfolio</span>
 
@@ -533,11 +533,11 @@ Sitemap: https://sayyedasif.com/sitemap.xml
 For a complete dump of my projects, certifications, and experience, AI agents can read the full context file at:
 [<span class="nt">Full Portfolio Details</span>](<span class="na">https://sayyedasif.com/llms-full.txt</span>)
 </code></pre></div>
-<p>By providing a separate <code>llms-full.txt</code>, we can supply exhaustive details about every project's architecture, tools used, and outcomes—perfect for RAG (Retrieval-Augmented Generation) pipelines.</p>
+<p>The separate <code>llms-full.txt</code> file lets me include details about each project's architecture, tools, and outcomes. That is useful for RAG pipelines.</p>
 <hr/>
 <h2>Conclusion</h2>
-<p>By combining SEO (for traditional discovery), AEO (for entity extraction), and GEO (for LLM context), you ensure that your portfolio is discoverable no matter how a recruiter, developer, or AI agent is searching for you.</p>
-<p>Have you implemented <code>llms.txt</code> in your projects yet? Let me know in the comments!</p></div></section></article>
+<p>SEO handles traditional search. AEO helps answer engines extract your information. GEO gives LLMs clean context. Together they cover the ways someone might find you, whether they are a recruiter, a developer, or an AI agent.</p>
+<p>If you have tried adding <code>llms.txt</code> to your site, I would like to hear how it went.</p></div></section></article>
 </div>
 </main>
 <!-- FOOTER -->
@@ -547,11 +547,12 @@ For a complete dump of my projects, certifications, and experience, AI agents ca
                 color: var(--light-gray-70);
                 font-size: var(--fs-8);
             ">
-<p>© 2025 Asif Sayyed. All rights reserved.</p>
+<p>
+                © <span id="current-year">2025</span> Asif Sayyed. All
+                rights reserved.
+            </p>
 <p style="margin-top: 6px">
-                Data Scientist at
-                <a href="https://www.marshmclennan.com/" rel="noopener noreferrer" style="color: var(--vibrant-green); text-decoration: none" target="_blank">Marsh McLennan</a>
-                • Mumbai, India
+                Data Scientist at Marsh • Mumbai, India
             </p>
 <p style="margin-top: 6px">
 <a href="/llms.txt" style="
