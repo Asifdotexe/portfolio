@@ -10,6 +10,7 @@ import requests
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECTS_SOURCE_PATH = os.path.join(BASE_DIR, 'assets', 'data', 'projects.json')
 OUTPUT_PATH = os.path.join(BASE_DIR, 'assets', 'data', 'last_updated.json')
+PR_BODY_PATH = os.path.join(BASE_DIR, 'pr_body.txt')
 
 
 def fetch_and_save_updates():
@@ -25,11 +26,22 @@ def fetch_and_save_updates():
         print(f"Error: The source file was not found at {PROJECTS_SOURCE_PATH}")
         return
 
-    updated_data = {}
-    # Standard headers for GitHub API - no authentication
-    headers = {'Accept': 'application/vnd.github.v3+json'}
+    try:
+        with open(OUTPUT_PATH, 'r', encoding='utf-8') as f:
+            old_data = json.load(f)
+    except FileNotFoundError:
+        old_data = {}
 
-    print("Fetching data from GitHub (unauthenticated)...")
+    updated_data = {}
+    changes = []
+    # Standard headers for GitHub API
+    headers = {'Accept': 'application/vnd.github.v3+json'}
+    github_token = os.environ.get('GITHUB_TOKEN')
+    if github_token:
+        headers['Authorization'] = f'Bearer {github_token}'
+        print("Fetching data from GitHub (authenticated)...")
+    else:
+        print("Fetching data from GitHub (unauthenticated)...")
     for project in projects:
         repo_path = project.get("github")
         if not repo_path:
@@ -44,13 +56,21 @@ def fetch_and_save_updates():
             repo_data = response.json()
             
             # Update last_updated time
-            updated_data[repo_path] = repo_data.get('pushed_at')
+            new_pushed_at = repo_data.get('pushed_at')
+            updated_data[repo_path] = new_pushed_at
+            
+            old_pushed_at = old_data.get(repo_path)
+            if old_pushed_at != new_pushed_at:
+                changes.append(f"- **{repo_path}**: Activity updated to `{new_pushed_at}`")
             
             # Update tags from topics
             topics = repo_data.get('topics', [])
             if topics:
-                project['tags'] = topics
-                print(f"   -> Updated tags: {topics}")
+                old_tags = project.get('tags', [])
+                if set(topics) != set(old_tags):
+                    project['tags'] = topics
+                    changes.append(f"- **{repo_path}**: Tags updated to `{', '.join(topics)}`")
+                    print(f"   -> Updated tags: {topics}")
             
             print(f"Successfully fetched data for: {repo_path}")
 
@@ -77,6 +97,20 @@ def fetch_and_save_updates():
         print(f"Successfully updated projects file at: {PROJECTS_SOURCE_PATH}")
     except IOError as e:
         print(f"Error writing to projects file: {e}")
+
+    # Generate PR Body
+    body_content = "This PR updates the project data via the automated schedule.\n\n### Changes:\n"
+    if changes:
+        body_content += "\n".join(changes)
+    else:
+        body_content += "No projects had new activity or tag updates."
+        
+    try:
+        with open(PR_BODY_PATH, 'w', encoding='utf-8') as f:
+            f.write(body_content)
+        print(f"Successfully created PR body at: {PR_BODY_PATH}")
+    except IOError as e:
+        print(f"Error writing PR body: {e}")
 
 
 if __name__ == "__main__":

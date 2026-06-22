@@ -29,13 +29,19 @@ jobs:
 
       - name: Run update script
         run: python scripts/fetch_github_activity.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate PR Title
+        run: |
+          echo "PR_TITLE=Automated Update: $(date +'%Y W%V')" >> $GITHUB_ENV
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
         with:
           commit-message: "refactor: weekly project update"
-          title: "refactor: weekly project update"
-          body: "This PR updates the project data via the automated schedule."
+          title: "${{ env.PR_TITLE }}"
+          body-path: "pr_body.txt"
           branch: "automated-project-update"
           base: "main"
           delete-branch: true
