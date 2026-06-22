@@ -276,20 +276,24 @@
 </div>
 <!-- ABOUT -->
 <article class="blogs active" data-page="blog-post"><header><h2 class="h2 article-title">Implementing SEO, AEO, and GEO in a Developer Portfolio</h2></header><section class="blog-content-section"><a class="blog-back-btn" href="/blogs/" style="display: inline-block; margin-bottom: 20px; color: var(--vibrant-green); text-decoration: none;">← Back to Blogs</a><div style="color: var(--light-gray-70); font-size: 14px; margin-bottom: 20px;">Published: 2026-06-20</div><div class="blog-post-content"><p>Ranking on Google is not enough anymore. Not with AI tools like Perplexity, ChatGPT, and Google's AI Overviews also reading your site. A portfolio needs to work for all of them.</p>
-<p>I took three approaches on my portfolio:
-1. SEO for traditional search engines
-2. AEO so AI can answer questions about me directly
-3. GEO to give LLMs clean markdown context</p>
+<p>I took three approaches on my portfolio:</p>
+<ol>
+<li>SEO for traditional search engines</li>
+<li>AEO so AI can answer questions about me directly</li>
+<li>GEO to give LLMs clean markdown context</li>
+</ol>
 <p>What follows is what I did and the code I used, in case you want to do the same.</p>
 <hr/>
 <h2>1. SEO: The foundation (meta tags, sitemap, robots.txt)</h2>
 <p>Traditional SEO still matters even when optimizing for AI. I used semantic HTML (<code>&lt;nav&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>), canonical links, and standard meta tags.</p>
 <h3>Submitting to Google Search Console</h3>
-<p>Search engines need to know your site exists. After deploying:
-1. Go to <a href="https://search.google.com/search-console">Google Search Console</a>.
-2. Add your website as a property (Domain or URL prefix).
-3. Verify ownership. I added a <code>&lt;meta name="google-site-verification" content="..." /&gt;</code> tag in the HTML.
-4. In the <strong>Sitemaps</strong> section, submit your <code>sitemap.xml</code> URL so Google knows what pages to crawl.</p>
+<p>Search engines need to know your site exists. After deploying:</p>
+<ol>
+<li>Go to <a href="https://search.google.com/search-console">Google Search Console</a>.</li>
+<li>Add your website as a property (Domain or URL prefix).</li>
+<li>Verify ownership. I added a <code>&lt;meta name="google-site-verification" content="..." /&gt;</code> tag in the HTML.</li>
+<li>In the <strong>Sitemaps</strong> section, submit your <code>sitemap.xml</code> URL so Google knows what pages to crawl.</li>
+</ol>
 <p><em>Note: Once your site is submitted, you'll need to actively monitor its indexing health and fix any structured data errors. I've compiled my learnings on how to do this as a developer in my companion guide: <a href="./google-search-console-best-practices.md">Google Search Console &amp; AI Search Best Practices for Developers</a>.</em></p>
 <h3>Meta tags and Open Graph</h3>
 <p>Open Graph and Twitter Card tags make the site look right when shared on LinkedIn or Twitter and help search engines index it.</p>

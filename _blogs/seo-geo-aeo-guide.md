@@ -9,6 +9,7 @@ tags: ["seo", "webdev", "ai", "tutorial"]
 Ranking on Google is not enough anymore. Not with AI tools like Perplexity, ChatGPT, and Google's AI Overviews also reading your site. A portfolio needs to work for all of them.
 
 I took three approaches on my portfolio:
+
 1. SEO for traditional search engines
 2. AEO so AI can answer questions about me directly
 3. GEO to give LLMs clean markdown context
@@ -23,6 +24,7 @@ Traditional SEO still matters even when optimizing for AI. I used semantic HTML 
 
 ### Submitting to Google Search Console
 Search engines need to know your site exists. After deploying:
+
 1. Go to [Google Search Console](https://search.google.com/search-console).
 2. Add your website as a property (Domain or URL prefix).
 3. Verify ownership. I added a `<meta name="google-site-verification" content="..." />` tag in the HTML.
