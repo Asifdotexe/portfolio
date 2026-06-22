@@ -21,6 +21,8 @@ Asif Sayyed is a Data Science Specialist at [Marsh McLennan](https://www.marshmc
 
 ## Projects
 
+- Yoink -> https://github.com/Asifdotexe/yoink: A CLI tool and FastAPI backend to pack, sanitize, and visualize codebases for Large Language Models.
+- Ship of Theseus -> https://github.com/Asifdotexe/Theseus: Software entropy visualizer tracking codebase decay and renewal using Python and D3.js.
 - Second Brain -> https://github.com/Asifdotexe/second-brain: Knowledge base website built with HTML, CSS, JavaScript, Python, and Markdown.
 - LittleLogger -> https://github.com/Asifdotexe/LittleLogger: Machine Learning experiment tracker published on PyPI. Python, Scikit-learn.
 - SERPENT -> https://github.com/Asifdotexe/SERPENT: Code-to-flowchart application using AST parsing, Graphviz, and Streamlit.

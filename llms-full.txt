@@ -101,113 +101,125 @@ What truly excites him isn't just analyzing data — it's building with it. He u
 
 ---
 
-## 5. Projects (All 18)
+## 5. Projects (All 20)
 
-### Project 1: Second Brain
+### Project 1: Yoink
+- **Category:** Tools / API
+- **Description:** A CLI tool and FastAPI backend designed to bundle, sanitize, and visualize codebases for LLM contexts, optimizing tokens and masking secrets.
+- **GitHub:** https://github.com/Asifdotexe/yoink
+- **Tags:** python, fastapi, cli-tool, llm-optimization, ast, tokenization
+
+### Project 2: Ship of Theseus
+- **Category:** Tools / Data Visualization
+- **Description:** Software entropy visualizer tracking codebase decay and renewal.
+- **GitHub:** https://github.com/Asifdotexe/Theseus
+- **Tags:** python, javascript, d3js, data-visualization, github-actions, git-history
+
+### Project 3: Second Brain
 - **Category:** Tools
 - **Description:** Knowledge base website
 - **GitHub:** https://github.com/Asifdotexe/second-brain
 - **Tags:** blog, css, html, javascript, knowledge-bank, markdown, python
 
-### Project 2: LittleLogger
+### Project 4: LittleLogger
 - **Category:** AI/ML
 - **Description:** Machine Learning Experiment Tracker
 - **GitHub:** https://github.com/Asifdotexe/LittleLogger
 - **Tags:** developer-tools, logging, pypi, python, scikit-learn
 - **Note:** Published as a package on PyPI.
 
-### Project 3: Python vs Cython Benchmarking
+### Project 5: Python vs Cython Benchmarking
 - **Category:** Data Analysis
 - **Description:** Benchmarking Analysis comparing Python and Cython performance
 - **URL:** https://github.com/Asifdotexe/playground-repo/issues/9
 - **Tags:** Python, Cython, NumPy, Seaborn, Matplotlib
 
-### Project 4: SERPENT — Code to Flowchart Application
+### Project 6: SERPENT — Code to Flowchart Application
 - **Category:** Tools
 - **Description:** Code Documentation Tools — converts Python code into visual flowcharts
 - **GitHub:** https://github.com/Asifdotexe/SERPENT
 - **Tags:** ast, code-documentation, code-to-flowchart, developer-tools, graphviz, python, streamlit
 
-### Project 5: MNISTify — Digit Recognition App
+### Project 7: MNISTify — Digit Recognition App
 - **Category:** AI/ML
 - **Description:** Deep Learning digit recognition application
 - **GitHub:** https://github.com/Asifdotexe/MNISTify
 - **Tags:** Python, Streamlit, TensorFlow, OpenCV, CNN
 
-### Project 6: QuickVU — No-Code Data Tool
+### Project 8: QuickVU — No-Code Data Tool
 - **Category:** Data Analysis
 - **Description:** Data Cleaning and Analysis tool — no-code interface for data exploration
 - **GitHub:** https://github.com/Asifdotexe/QuickVU
 - **Tags:** automation, data-analysis, data-cleaning, data-visualization, python3, streamlit-application, toolkit
 
-### Project 7: DORA — Report Automator
+### Project 9: DORA — Report Automator
 - **Category:** Data Analysis
 - **Description:** Data Analysis Tool — automated exploratory data analysis report generator
 - **GitHub:** https://github.com/Asifdotexe/DORA
 - **Tags:** cli-tool, exploratory-analysis, html-report, pypi, python, streamlit
 - **Note:** Published as a package on PyPI.
 
-### Project 8: RecommendationHaki — Anime Recommendation Engine
+### Project 10: RecommendationHaki — Anime Recommendation Engine
 - **Category:** NLP
 - **Description:** Natural Language Processing-based anime recommendation system
 - **GitHub:** https://github.com/Asifdotexe/RecommendationHaki
 - **Tags:** css, html, machine-learning, natural-language-processing, python, recommendation-system, streamlit
 
-### Project 9: StoDir — Stock Direction Forecasting Model
+### Project 11: StoDir — Stock Direction Forecasting Model
 - **Category:** AI/ML
 - **Description:** Machine Learning model for stock direction forecasting
 - **GitHub:** https://github.com/Asifdotexe/StoDir
 - **Tags:** python, scikit-learn, streamlit, time-series-forecasting, yfinance
 
-### Project 10: Natural LangWiz — NLP Learning Repository
+### Project 12: Natural LangWiz — NLP Learning Repository
 - **Category:** NLP
 - **Description:** Natural Language Processing learning repository
 - **GitHub:** https://github.com/Asifdotexe/Natural-LangWiz
 - **Tags:** learning-repository, machine-learning, natural-language-preprocessing, python
 
-### Project 11: Open See Wee — Computer Vision Learning Repository
+### Project 13: Open See Wee — Computer Vision Learning Repository
 - **Category:** AI/ML
 - **Description:** Deep Learning — Computer Vision learning repository
 - **GitHub:** https://github.com/Asifdotexe/open-see-wee
 - **Tags:** computer-vision, image-analysis, learning-repository, opencv, python
 
-### Project 12: PlateScribe — License Plate Detection and OCR Tool
+### Project 14: PlateScribe — License Plate Detection and OCR Tool
 - **Category:** AI/ML
 - **Description:** Deep Learning-based license plate detection and OCR tool
 - **GitHub:** https://github.com/Asifdotexe/PlateScribe
 - **Tags:** deep-learning, ocr, opencv-python, pytesseract, python, streamlit
 
-### Project 13: Sentimental Scoring Model on Amazon Reviews
+### Project 15: Sentimental Scoring Model on Amazon Reviews
 - **Category:** NLP
 - **Description:** Natural Language Processing — sentiment analysis on Amazon product reviews
 - **GitHub:** https://github.com/Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews
 - **Tags:** data-analysis, data-visualization, natural-language-processing, sentiment-analysis
 
-### Project 14: Real Estate Price Prediction Model
+### Project 16: Real Estate Price Prediction Model
 - **Category:** AI/ML
 - **Description:** Machine Learning model for predicting real estate prices
 - **GitHub:** https://github.com/Asifdotexe/real-estate-price-prediction
 - **Tags:** machine-learning, python, scikit-learn
 
-### Project 15: AQA — Air Quality Analysis Case Study
+### Project 17: AQA — Air Quality Analysis Case Study
 - **Category:** Data Analysis
 - **Description:** Data Analysis case study on air quality index
 - **GitHub:** https://github.com/Asifdotexe/Air-Quality-Analysis-AQA
 - **Tags:** aqi-analysis, data-analysis, data-preprocessing, data-science, data-visualization, presentation
 
-### Project 16: Flipkart Electric Scooter Data Analysis
+### Project 18: Flipkart Electric Scooter Data Analysis
 - **Category:** Data Analysis
 - **Description:** Data Analysis — web scraping and analysis of electric scooter listings on Flipkart
 - **GitHub:** https://github.com/Asifdotexe/flipkart-electric-scooter-data-analysis
 - **Tags:** beautifulsoup4, data-analysis, data-science, flipkart, webscraping
 
-### Project 17: VBA Pathology Lab Application
+### Project 19: VBA Pathology Lab Application
 - **Category:** Tools
 - **Description:** Visual Basic for Application Tool — pathology lab automation application
 - **URL:** https://medium.com/@asifdotexe/how-we-used-vba-to-make-a-pathology-lab-application-45acb35e6abf
 - **Tags:** Microsoft Excel, Macros, Visual Basic for Application, Userforms
 
-### Project 18: Covid-19 Dashboard
+### Project 20: Covid-19 Dashboard
 - **Category:** Data Analysis
 - **Description:** Data Analysis — interactive Tableau dashboard for COVID-19 data visualization
 - **URL:** https://public.tableau.com/app/profile/sayyed.asif/viz/Covid19Dashboard_16783477991420/Dashboard1

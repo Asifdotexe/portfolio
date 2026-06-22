@@ -1,5 +1,49 @@
 [
   {
+    "github": "Asifdotexe/yoink",
+    "url": "https://github.com/Asifdotexe/yoink",
+    "image": "/assets/images/projects/yoink.webp",
+    "alt": "Yoink",
+    "title": "Yoink: LLM Codebase Packer",
+    "category_desc": "Developer Tools & API",
+    "category": "tools",
+    "tags": [
+      "ast-parsing",
+      "cli-tool",
+      "codebase-analysis",
+      "docker",
+      "fastapi",
+      "llm-optimization",
+      "pre-commit",
+      "pydantic",
+      "python",
+      "render-deployment",
+      "tokenization",
+      "typer"
+    ]
+  },
+  {
+    "github": "Asifdotexe/Theseus",
+    "url": "https://github.com/Asifdotexe/Theseus",
+    "image": "/assets/images/projects/theseus.webp",
+    "alt": "Ship of Theseus",
+    "title": "Ship of Theseus: Software Entropy Visualizer",
+    "category_desc": "Data Visualization & Analysis",
+    "category": "data analysis",
+    "tags": [
+      "automation",
+      "codebase-analysis",
+      "d3js",
+      "data-visualization",
+      "git",
+      "git-history",
+      "github-actions",
+      "javascript",
+      "python",
+      "software-engineering"
+    ]
+  },
+  {
     "github": "Asifdotexe/second-brain",
     "url": "https://github.com/Asifdotexe/second-brain",
     "image": "/assets/images/projects/second-brain.webp",

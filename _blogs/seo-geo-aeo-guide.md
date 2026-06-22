@@ -28,6 +28,8 @@ Search engines need to know your site exists. After deploying:
 3. Verify ownership. I added a `<meta name="google-site-verification" content="..." />` tag in the HTML.
 4. In the **Sitemaps** section, submit your `sitemap.xml` URL so Google knows what pages to crawl.
 
+*Note: Once your site is submitted, you'll need to actively monitor its indexing health and fix any structured data errors. I've compiled my learnings on how to do this as a developer in my companion guide: [Google Search Console & AI Search Best Practices for Developers](./google-search-console-best-practices.md).*
+
 ### Meta tags and Open Graph
 Open Graph and Twitter Card tags make the site look right when shared on LinkedIn or Twitter and help search engines index it.
 
@@ -143,3 +145,10 @@ The separate `llms-full.txt` file lets me include details about each project's a
 SEO handles traditional search. AEO helps answer engines extract your information. GEO gives LLMs clean context. Together they cover the ways someone might find you, whether they are a recruiter, a developer, or an AI agent.
 
 If you have tried adding `llms.txt` to your site, I would like to hear how it went.
+
+---
+
+### About the Author
+**Asif Sayyed** is a Data Science Specialist at Marsh McLennan's Cyber Risk Intelligence Center, specializing in Python, Machine Learning, and Cyber Risk Analytics. He actively builds scalable, data-driven applications and open-source tools. 
+
+**What are your thoughts on AEO and GEO?** Let's discuss it! Connect with me on [LinkedIn](https://www.linkedin.com/in/sayyedasif/) or explore how I implemented these techniques live on my [portfolio](https://sayyedasif.com).
