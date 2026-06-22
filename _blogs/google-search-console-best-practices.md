@@ -47,7 +47,7 @@ If you do not need exact time, default to midnight UTC:
 "dateModified": "2026-05-28T00:00:00Z"
 ```
 
-The implementation is on `/index.html` at line 234.
+[The implementation is on `/index.html` at line 234.](https://github.com/Asifdotexe/portfolio/blob/09056967ce623d69fe4d94c9d14a48f024cc1994/index.html#L234)
 
 ---
 
@@ -57,7 +57,7 @@ AI Search Overviews like Perplexity, ChatGPT, or Google's AI Overviews work bett
 
 I rewrote my "About" section as a direct third-person statement: *"Asif Sayyed is a Data Science Specialist at Marsh McLennan's Cyber Risk Intelligence Center..."* I kept it between 130 and 170 words. That is the range where AI overviews seem to pick it up and quote it directly.
 
-The implementation is on `/index.html` at line 424.
+[The implementation is on `/index.html` at line 424.](https://github.com/Asifdotexe/portfolio/blob/09056967ce623d69fe4d94c9d14a48f024cc1994/index.html#L422-L426)
 
 ---
 
@@ -67,7 +67,7 @@ LLMs do not parse raw HTML well. A clean markdown file in your root directory gi
 
 I placed an `llms.txt` with a high-level summary of my profile. The pattern I see emerging for project links in this file is explicit mapping rather than standard markdown links: `- Project Name -> https://link-to-project.com: Description of the project.`
 
-I also added an `llms-full.txt` with deeper context, architecture details, and dependency lists for RAG pipelines. The full version is at `/llms.txt` lines 24 through 43.
+I also added an `llms-full.txt` with deeper context, architecture details, and dependency lists for RAG pipelines. [The full version is at `/llms.txt` lines 22 through 43.](https://github.com/Asifdotexe/portfolio/blob/09056967ce623d69fe4d94c9d14a48f024cc1994/llms.txt#L22-L43)
 
 ---
 
@@ -80,7 +80,7 @@ To block models training on the Common Crawl dataset, add this to your `robots.t
 User-agent: CCBot
 Disallow: /
 ```
-Append your sitemap URL at the bottom: `Sitemap: https://yourdomain.com/sitemap.xml`. You can see mine at `/robots.txt` line 46.
+Append your sitemap URL at the bottom: `Sitemap: https://yourdomain.com/sitemap.xml`. [You can see mine at `/robots.txt` line 46.](https://github.com/Asifdotexe/portfolio/blob/09056967ce623d69fe4d94c9d14a48f024cc1994/robots.txt#L45-L47)
 
 ---
 
