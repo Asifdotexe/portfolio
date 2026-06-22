@@ -19,6 +19,13 @@ Asif Sayyed is a Data Science Specialist at [Marsh McLennan](https://www.marshmc
 - **Big Data:** PySpark, Databricks
 - **Cloud & Automation:** AWS, Git, GitHub, Power Automate
 
+## Blogs
+
+- How Averages Deceive Us: The Math and Meaning of Simpson's Paradox -> https://sayyedasif.com/blogs/simpsons-paradox-how-averages-deceive-us/
+- Building the Ship of Theseus: Visualizing Codebase Entropy -> https://sayyedasif.com/blogs/ship-of-theseus-codebase-entropy/
+- Google Search Console & AI Search Best Practices for Developers -> https://sayyedasif.com/blogs/google-search-console-best-practices/
+- Complete Guide to SEO, GEO, and AEO -> https://sayyedasif.com/blogs/seo-geo-aeo-guide/
+
 ## Projects
 
 - Yoink -> https://github.com/Asifdotexe/yoink: A CLI tool and FastAPI backend to pack, sanitize, and visualize codebases for Large Language Models.

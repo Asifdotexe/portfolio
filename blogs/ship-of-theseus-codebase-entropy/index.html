@@ -4,49 +4,49 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Blogs | Asif Sayyed Portfolio</title>
-<meta content="Blogs | Asif Sayyed Portfolio" name="title"/>
-<meta content="Read Asif Sayyed's latest articles and blogs on data science, machine learning, and programming." name="description"/>
+<title>Building the Ship of Theseus: Visualizing Codebase Entropy | Asif Sayyed Portfolio</title>
+<meta content="Building the Ship of Theseus: Visualizing Codebase Entropy | Asif Sayyed Portfolio" name="title"/>
+<meta content="A deep dive into how I built an interactive tool to visualize codebase entropy and answer the philosophical question: how much of the original code is left?" name="description"/>
 <meta content="Asif Sayyed" name="author"/>
 <meta content="#2b2b2c" name="theme-color"/>
 <meta content="index, follow, max-snippet:-1, max-image-preview:large" name="robots"/>
 <meta content="English" name="language"/>
 <meta content="telephone=no" name="format-detection"/>
-<link href="https://sayyedasif.com/blogs/" rel="canonical"/>
+<link href="https://sayyedasif.com/blogs/ship-of-theseus-codebase-entropy/" rel="canonical"/>
 <!-- Google Search Console verification (replace YOUR_VERIFICATION_CODE after signing up at https://search.google.com/search-console) -->
 <meta content="mZ4YTDxw_emCHo0t3exypc7baNm8gDdt_ci72uqK1aY" name="google-site-verification"/>
 <!-- Open Graph (used by LinkedIn, Facebook, Discord, Slack, etc.) -->
 <meta content="website" property="og:type"/>
-<meta content="https://sayyedasif.com/blogs/" property="og:url"/>
-<meta content="Blogs | Asif Sayyed Portfolio" property="og:title"/>
-<meta content="Read Asif Sayyed's latest articles and blogs on data science, machine learning, and programming." property="og:description"/>
+<meta content="https://sayyedasif.com/blogs/ship-of-theseus-codebase-entropy/" property="og:url"/>
+<meta content="Building the Ship of Theseus: Visualizing Codebase Entropy | Asif Sayyed Portfolio" property="og:title"/>
+<meta content="A deep dive into how I built an interactive tool to visualize codebase entropy and answer the philosophical question: how much of the original code is left?" property="og:description"/>
 <meta content="https://sayyedasif.com/assets/images/my-memoji.webp" property="og:image"/>
 <meta content="Asif Sayyed Portfolio" property="og:site_name"/>
 <meta content="en_US" property="og:locale"/>
 <!-- Twitter Card (also used by LinkedIn and other platforms for link previews) -->
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Blogs | Asif Sayyed Portfolio" name="twitter:title"/>
-<meta content="Read Asif Sayyed's latest articles and blogs on data science, machine learning, and programming." name="twitter:description"/>
+<meta content="Building the Ship of Theseus: Visualizing Codebase Entropy | Asif Sayyed Portfolio" name="twitter:title"/>
+<meta content="A deep dive into how I built an interactive tool to visualize codebase entropy and answer the philosophical question: how much of the original code is left?" name="twitter:description"/>
 <meta content="https://sayyedasif.com/assets/images/my-memoji.webp" name="twitter:image"/>
 <!-- favicon -->
-<link href="../assets/images/icons/icon-job.svg" rel="shortcut icon" type="image/x-icon"/>
+<link href="../../assets/images/icons/icon-job.svg" rel="shortcut icon" type="image/x-icon"/>
 <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" type="module"></script>
 <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <!-- custom css link -->
-<link href="../assets/css/style.min.css" rel="stylesheet"/>
+<link href="../../assets/css/style.min.css" rel="stylesheet"/>
 <!-- google font link -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" rel="stylesheet" type="text/css"/>
 <!-- preload LCP image -->
-<link as="image" href="../assets/images/my-memoji.webp" rel="preload"/>
+<link as="image" href="../../assets/images/my-memoji.webp" rel="preload"/>
 <!-- preload critical resources -->
-<link as="script" href="../assets/js/script.min.js" rel="preload"/>
-<link as="fetch" crossorigin="" href="../assets/data/projects.json" rel="preload"/>
-<link as="fetch" crossorigin="" href="../assets/data/last_updated.json" rel="preload"/>
+<link as="script" href="../../assets/js/script.min.js" rel="preload"/>
+<link as="fetch" crossorigin="" href="../../assets/data/projects.json" rel="preload"/>
+<link as="fetch" crossorigin="" href="../../assets/data/last_updated.json" rel="preload"/>
 <!-- custom js link -->
-<script defer="" src="../assets/js/script.min.js"></script>
+<script defer="" src="../../assets/js/script.min.js"></script>
 <!-- Structured Data (JSON-LD) — Person -->
 <script type="application/ld+json">
             {
@@ -181,7 +181,7 @@
 <aside class="sidebar" data-sidebar="">
 <div class="sidebar-info">
 <figure class="avatar-box">
-<img alt="Asif Sayyed" fetchpriority="high" loading="eager" src="../assets/images/my-memoji.webp" width="80"/>
+<img alt="Asif Sayyed" fetchpriority="high" loading="eager" src="../../assets/images/my-memoji.webp" width="80"/>
 </figure>
 <div class="info-content">
 <h1 class="name" title="Asif Sayyed - Data Scientist">
@@ -264,7 +264,7 @@
 <a class="navbar-link" href="/events/">Events</a>
 </li>
 <li class="navbar-item">
-<a class="navbar-link active" href="/blogs/">Blogs</a>
+<a class="navbar-link" href="/blogs/">Blogs</a>
 </li>
 <li class="navbar-item">
 <a class="navbar-link" href="/contact/">Contact</a>
@@ -275,7 +275,54 @@
 <ion-icon name="person-outline"></ion-icon>
 </div>
 <!-- ABOUT -->
-<article class="blogs active" data-page="blogs"><header><h2 class="h2 article-title">Blogs</h2></header><section class="blogs"><div class="pf-v6-c-simple-list"><ul class="pf-v6-c-simple-list__list" role="list"><li class="pf-v6-c-simple-list__item"><a class="pf-v6-c-simple-list__item-link" href="../blogs/google-search-console-best-practices/"><span>Google Search Console &amp; AI Search Best Practices for Developers</span><span style="color: var(--light-gray-70); font-size: 12px; margin-left: 10px;">2026-06-22</span></a></li><li class="pf-v6-c-simple-list__item"><a class="pf-v6-c-simple-list__item-link" href="../blogs/ship-of-theseus-codebase-entropy/"><span>Building the Ship of Theseus: Visualizing Codebase Entropy</span><span style="color: var(--light-gray-70); font-size: 12px; margin-left: 10px;">2026-06-22</span></a></li><li class="pf-v6-c-simple-list__item"><a class="pf-v6-c-simple-list__item-link" href="../blogs/seo-geo-aeo-guide/"><span>Implementing SEO, AEO, and GEO in a Developer Portfolio</span><span style="color: var(--light-gray-70); font-size: 12px; margin-left: 10px;">2026-06-20</span></a></li><li class="pf-v6-c-simple-list__item"><a class="pf-v6-c-simple-list__item-link" href="../blogs/simpsons-paradox-how-averages-deceive-us/"><span>How Averages Deceive Us: The Math and Meaning of Simpson's Paradox</span><span style="color: var(--light-gray-70); font-size: 12px; margin-left: 10px;">2025-10-18</span></a></li></ul></div></section></article>
+<article class="blogs active" data-page="blog-post"><header><h2 class="h2 article-title">Building the Ship of Theseus: Visualizing Codebase Entropy</h2></header><section class="blog-content-section"><a class="blog-back-btn" href="/blogs/" style="display: inline-block; margin-bottom: 20px; color: var(--vibrant-green); text-decoration: none;">← Back to Blogs</a><div style="color: var(--light-gray-70); font-size: 14px; margin-bottom: 20px;">Published: 2026-06-22</div><div class="blog-post-content"><h2>Before We Begin...</h2>
+<p>Let's address the elephant in the room: this blog post dives deep into the technical guts of a tool. If you haven't seen what the tool actually is, a lot of this won't make sense! I highly recommend you take a moment to <a href="https://asifdotexe.github.io/Theseus/">look at the live website</a>, play around with the interactive charts, and explore the different repositories. Once you've seen codebase entropy in action, come back here to see how it was built. </p>
+<h2>Abstract &amp; The Philosophical Origin</h2>
+<p>Most developers, when looking at a massive legacy repository, are primarily interested in how the codebase grew to such an enormous extent. But my curiosity was slightly different: <em>how much of the original code is actually left?</em> </p>
+<p>This question came to me while I was reading about an ancient Greek thought experiment known as the <em>Ship of Theseus</em>. The paradox asks a profound question: if you have a famous wooden ship, and over the years you slowly replace every single decaying plank with a new one until no original wood remains, is it still the same ship?</p>
+<p>It hit me that this exact paradox plays out daily in modern software engineering. Repositories live for years, sometimes decades. The original developers leave, entire architectural paradigms shift, and eventually, the very last line of the original "genesis" code is overwritten. Yet, the repository retains its name, its URL, and its identity. I wanted to build something that pulls back the curtain on this continuous decay and renewal, proving visually whether our software ships are entirely new constructs or if they still carry pieces of their original hulls.</p>
+<h2>What Exactly Does Ship of Theseus Do?</h2>
+<p>At its core, the tool provides a visceral, data-driven understanding of how codebases are constantly being reborn. It helps us with a few distinct views:</p>
+<ul>
+<li><strong>The Chronological View:</strong> A stacked area chart showing the age composition of a repository over time. You can literally watch eras of code expand and get overwritten by newer refactors.</li>
+<li><strong>The Identity View:</strong> Answering the philosophical question—how much of the 2015 code is still alive in 2025? </li>
+<li><strong>Ancient Code Fragments &amp; Fossils:</strong> We track "Fossils"—the absolute oldest surviving lines of code. It's an incredibly fun insight to find a single comment or edge-case logic from 14 years ago that survived 10,000 commits of refactoring. It gives personality to the data.</li>
+</ul>
+<h2>The Architecture &amp; Database as Code</h2>
+<p>When designing the system, I wanted to keep it as accessible and cheap to run as possible. The architecture is split into a disconnected backend (the data generator) and frontend (the UI visualizer). They communicate entirely via an intermediary static JSON format. </p>
+<p><em>(For a full breakdown of the system flow, you can check out the <a href="file:///D:/Theseus/docs/ARCHITECTURE.md">ARCHITECTURE.md</a> file in the repo).</em></p>
+<p>The frontend is intentionally lightweight—no React, no massive dependency chains, and no heavy bundlers. It's just Vanilla HTML, CSS, and JS fetching a centralized <code>theseus.config.json</code> to dynamically render a D3 chart.</p>
+<p>Because this is a static site hosted for free on GitHub Pages, we essentially use the repository itself as the database. </p>
+<h2>Extensive GitHub Actions (and Fighting the Limits)</h2>
+<p>Codebases never stop evolving, so the data generation relies on GitHub Actions to create a completely autonomous, zero-maintenance "monthly pulse."</p>
+<p>A scheduled Action kicks off every month. Because the engine is strictly incremental, it looks at the last snapshot date, checks the current calendar date, and knows it only needs to check out and process the missing months in between. Finally, if the resulting JSON payloads have changed, the GitHub Actions bot commits the diff and forces a write back to the <code>main</code> branch. </p>
+<p>However, this wasn't without its drawbacks. GitHub Actions for free users have a strict 6-hour execution cap per workflow. When you are processing repositories with millions of lines of code and tens of thousands of commits, you can easily hit this wall. This constraint forced me to optimize the Python engine aggressively to ensure it could catch up on missing months well within the limit.</p>
+<h2>Learnings &amp; Smart Hacks</h2>
+<p>Execution time was the main concern during development. If the script takes too long, the 6-hour CI cap kills the process. I solved it four ways:</p>
+<ul>
+<li><strong>Ditching Python Git Libraries</strong> - Shelling out directly to native <code>git</code> shell commands is orders of magnitude faster than Python wrappers because <code>git</code> is written in C.</li>
+<li><strong>Parallelizing <code>git blame</code></strong> - Taking a snapshot means blaming every tracked text file. Doing that sequentially for a large repo takes weeks. I filter out binary files with <code>git ls-files</code>, then use a <code>ThreadPoolExecutor</code> (see <a href="file:///D:/Theseus/scripts/analyse_repository.py#L134-L136"><code>analyse_repository.py</code></a>) to fire off concurrent blame processes.</li>
+<li><strong>Using <code>--line-porcelain</code></strong> - Standard <code>git blame</code> output is meant for humans and a pain to parse. <code>git blame --line-porcelain</code> gives a machine-readable format where each line gets a metadata block with a UNIX timestamp:
+   <code>text
+   8c3f2... 1 1
+   author-time 1684320000
+   summary Add initial config
+   filename src/config.js
+    const config = { ... };</code>
+   This let me strip timestamps with a fast regex and bin them into years without a brittle parser.</li>
+<li><strong>The Fossil Protocol and SVN Ghost Commits</strong> - Repos imported from SVN or Mercurial often have inaccurate committer timestamps. The Historical (Genesis) Protocol sorts all commits by <code>author-time</code> using <code>git log --all --pretty=format:%H %at</code> (<a href="file:///D:/Theseus/scripts/add_fossils.py#L121-L124"><code>add_fossils.py</code></a>), so the true origin is preserved regardless of wonky branch history.</li>
+</ul>
+<h2>Development Methodology: AI as a Thought Partner</h2>
+<p>The way this project was developed is a testament to the modern engineering workflow. Rather than solo-coding in a vacuum, I heavily leveraged AI agents throughout the process. I acted more as a systems architect and orchestrator, bouncing algorithmic ideas for the git parser off my AI partner, reviewing its proposed implementations, and tweaking the pipeline. This tight iterative loop drastically accelerated the core engine's development.</p>
+<h2>Vibe Coding the UI</h2>
+<p>I'm an engineer at heart, not a UI/UX designer. But I had a clear vision for the brand personality—atmospheric, bold, and narrative. To bridge my design gap, I "vibe coded" the UI. </p>
+<p>I started by using <strong>StitchMCP</strong> combined with the <strong>Frontend skill</strong> from the Awesome Antigravity Skills repository to rapidly scaffold out the visual identity and layout. Once the core foundation was there, I used <strong>impeccable</strong> to rapidly iterate, tweak micro-animations, and polish the accessibility until it matched the exact vibe I wanted. I'll be writing a dedicated follow-up blog post diving deep into the exact vibecoding process I used. Stay tuned for that!</p>
+<h2>How We Would Scale This</h2>
+<p>The current architecture is simple because it leans on GitHub Actions and a Git-based database. That works for a personal project. If I needed to track thousands of repos or provide real-time entropy, it would break.</p>
+<p>To scale it, I would stop writing JSON back to the repo and move datasets to an object store like S3 or Cloudflare R2. I would replace the single-machine thread pool with a distributed worker queue (Celery, BullMQ, SQS) for parallel blame operations. And I would add a real database, PostgreSQL or ClickHouse, so historical trends can be queried instantly.</p>
+<hr/>
+<p><strong>About the author</strong><br/>
+I am a developer focusing on data science and cybersecurity. <a href="https://sayyedasif.com">Check out my portfolio</a> or read my other deep-dives on <a href="https://sayyedasif.com/blogs/">my blog</a>.</p></div></section></article>
 </div>
 </main>
 <!-- FOOTER -->
