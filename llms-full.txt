@@ -419,27 +419,33 @@ What truly excites him isn't just analyzing data — it's building with it. He u
 
 ## 10. Blog Posts & Articles
 
+### How Averages Deceive Us: The Math and Meaning of Simpson's Paradox
+- **Platform:** sayyedasif.com
+- **Date:** June 22, 2026
+- **Category:** Data Science / Statistics
+- **Description:** A deep dive into Simpson's Paradox, exploring how aggregated data can mislead us and why subgroup analysis is crucial.
+- **URL:** https://sayyedasif.com/blogs/simpsons-paradox-how-averages-deceive-us/
+
+### Building the Ship of Theseus: Visualizing Codebase Entropy
+- **Platform:** sayyedasif.com
+- **Date:** June 22, 2026
+- **Category:** Data Science / Visualization
+- **Description:** A deep dive into how I built an interactive tool to visualize codebase entropy and answer the philosophical question: how much of the original code is left?
+- **URL:** https://sayyedasif.com/blogs/ship-of-theseus-codebase-entropy/
+
+### Google Search Console & AI Search Best Practices for Developers
+- **Platform:** sayyedasif.com
+- **Date:** June 22, 2026
+- **Category:** SEO / Webdev
+- **Description:** A guide to maintaining site health in Google Search Console, optimizing for AI overviews, and enforcing strict schema formatting.
+- **URL:** https://sayyedasif.com/blogs/google-search-console-best-practices/
+
 ### How We Used VBA to Make a Pathology Lab Application
 - **Platform:** Medium
 - **Date:** September 12, 2023
 - **Category:** VBA / Macros
 - **Description:** An in-depth case study exploring how Visual Basic for Applications (VBA) can streamline and automate reporting pipelines for medical labs, with real code walkthrough.
 - **URL:** https://medium.com/@asifdotexe/how-we-used-vba-to-make-a-pathology-lab-application-45acb35e6abf
-
-### Demystifying Cyber Risk with Machine Learning
-- **Platform:** LinkedIn
-- **Date:** May 10, 2024
-- **Category:** Cyber Risk & ML
-- **Description:** Connecting predictive modeling techniques with cyber risk scenarios. Visualizing threat models and scaling enterprise vulnerability assessments.
-- **URL:** https://www.linkedin.com/in/sayyedasif/
-
-### Exploratory Data Analysis: From Data Chaos to Business Opportunity
-- **Platform:** Medium
-- **Date:** January 20, 2024
-- **Category:** Data Science / EDA
-- **Description:** Discussing standard frameworks for dataset inspection, cleaning heuristics, and automation tools that accelerate time-to-insight.
-- **URL:** https://medium.com/@asifdotexe
-
 ---
 
 ## 11. Contact Information

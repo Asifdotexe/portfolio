@@ -114,6 +114,9 @@ def build_blogs():
         with open(os.path.join(blog_output_dir, 'index.html'), 'w', encoding='utf-8') as f:
             f.write(blog_html)
             
+    # Sort blogs by date descending
+    blogs.sort(key=lambda x: x.get('date', ''), reverse=True)
+
     # Now generate the main /blogs/index.html
     soup = BeautifulSoup(base_html, 'html.parser')
     
