@@ -6,7 +6,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>How Averages Deceive Us: The Math and Meaning of Simpson's Paradox | Asif Sayyed Portfolio</title>
 <meta content="How Averages Deceive Us: The Math and Meaning of Simpson's Paradox | Asif Sayyed Portfolio" name="title"/>
-<meta content="A deep dive into Simpson's Paradox, exploring how aggregated data can mislead us and why subgroup analysis is crucial." name="description"/>
+<meta content="How Simpson's Paradox works, why aggregated data can flip trends, and why subgroup analysis matters." name="description"/>
 <meta content="Asif Sayyed" name="author"/>
 <meta content="#2b2b2c" name="theme-color"/>
 <meta content="index, follow, max-snippet:-1, max-image-preview:large" name="robots"/>
@@ -19,14 +19,14 @@
 <meta content="website" property="og:type"/>
 <meta content="https://sayyedasif.com/blogs/simpsons-paradox-how-averages-deceive-us/" property="og:url"/>
 <meta content="How Averages Deceive Us: The Math and Meaning of Simpson's Paradox | Asif Sayyed Portfolio" property="og:title"/>
-<meta content="A deep dive into Simpson's Paradox, exploring how aggregated data can mislead us and why subgroup analysis is crucial." property="og:description"/>
+<meta content="How Simpson's Paradox works, why aggregated data can flip trends, and why subgroup analysis matters." property="og:description"/>
 <meta content="https://sayyedasif.com/assets/images/my-memoji.webp" property="og:image"/>
 <meta content="Asif Sayyed Portfolio" property="og:site_name"/>
 <meta content="en_US" property="og:locale"/>
 <!-- Twitter Card (also used by LinkedIn and other platforms for link previews) -->
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="How Averages Deceive Us: The Math and Meaning of Simpson's Paradox | Asif Sayyed Portfolio" name="twitter:title"/>
-<meta content="A deep dive into Simpson's Paradox, exploring how aggregated data can mislead us and why subgroup analysis is crucial." name="twitter:description"/>
+<meta content="How Simpson's Paradox works, why aggregated data can flip trends, and why subgroup analysis matters." name="twitter:description"/>
 <meta content="https://sayyedasif.com/assets/images/my-memoji.webp" name="twitter:image"/>
 <!-- favicon -->
 <link href="../../assets/images/icons/icon-job.svg" rel="shortcut icon" type="image/x-icon"/>
@@ -276,26 +276,24 @@
 </div>
 <!-- ABOUT -->
 <article class="blogs active" data-page="blog-post"><header><h2 class="h2 article-title">How Averages Deceive Us: The Math and Meaning of Simpson's Paradox</h2></header><section class="blog-content-section"><a class="blog-back-btn" href="/blogs/" style="display: inline-block; margin-bottom: 20px; color: var(--vibrant-green); text-decoration: none;">← Back to Blogs</a><div style="color: var(--light-gray-70); font-size: 14px; margin-bottom: 20px;">Published: 2025-10-18</div><div class="blog-post-content"><h2>Introduction</h2>
-<p>Imagine this: you're analysing data for a company's customer satisfaction survey. Last quarter, the overall satisfaction score dropped. But when you split the data by user type (new and existing customers), you find something strange… both groups individually show higher satisfaction than before.</p>
-<p>Well, that doesn't make sense right? How can everyone be happier, yet the average goes down?</p>
-<p>It sounds weird, but this is a well-known statistical trap called <strong>Simpson's Paradox</strong>; a phenomenon where trends that appear in separate groups disappear or even reverse when the groups are combined.</p>
+<p>Imagine this: you are analysing data for a company's customer satisfaction survey. Last quarter, the overall satisfaction score dropped. But when you split the data by user type (new and existing customers), you find something strange: both groups individually show higher satisfaction than before.</p>
+<p>How can everyone be happier, yet the average goes down?</p>
+<p>The answer is a statistical trap called Simpson's Paradox, where trends that appear in separate groups disappear or even reverse when the groups are combined.</p>
 <p><img alt="Simpson's Paradox" src="../../assets/images/blogs/simpsons-paradox-hero.webp"/></p>
-<h2>When Averages Betray You</h2>
-<p>Now, imagine you're presenting these results.
-You show the leadership team that both new and existing customers' satisfaction improved. They smile. Then you show the overall average, and suddenly it's worse.</p>
-<p>Someone questions your SQL query. Another blames a data refresh. But the data is correct; it's just that the summary is lying to your intuition.</p>
-<p>This happens because when you mix groups of different sizes, the combined picture can distort reality. That is Simpson's Paradox in action; a mathematical illusion where the overall trend contradicts the trends in the subgroups.</p>
-<p>It's not that the data is wrong, it's that we're looking at it from too far away. Zoom out too much, and the details blur.</p>
-<p>Think of two roads both sloping uphill. If you build a bridge connecting them, that bridge can slope downhill, even though both roads rise. That's exactly what happens when you merge groups with uneven weights in data.</p>
-<h2>Why Does It Happen?</h2>
-<p>Let's break this down from scratch.
-When you combine two groups, you don't just "average the averages." You weight each average by the group's size.</p>
+<h2>When averages betray you</h2>
+<p>Now imagine you are presenting these results. You show the leadership team that both new and existing customers' satisfaction improved. They smile. Then you show the overall average, and suddenly it is worse.</p>
+<p>Someone questions your SQL query. Another blames a data refresh. But the data is correct: the summary is misleading your intuition.</p>
+<p>This happens because mixing groups of different sizes distorts the combined picture. The overall trend says one thing, the subgroups say another, and both are correct.</p>
+<p>It is not that the data is wrong. You are looking at it from too far away.</p>
+<p>Think of two roads both sloping uphill. If you build a bridge connecting them, that bridge can slope downhill even though both roads rise. Merging groups with uneven weights in data does the same thing.</p>
+<h2>Why does it happen?</h2>
+<p>When you combine two groups, you do not just average the averages. You weight each average by the group's size.</p>
 <p>The combined mean looks like this:</p>
 <p><img alt="Simpson's Paradox" src="../../assets/images/blogs/simpsons-paradox-formula-mean.webp"/></p>
 <p>Where:
 - <code>n1</code>, <code>n2</code> = number of observations in each group
 - <code>x1_bar</code>, <code>x2_bar</code> = average for each group</p>
-<p>The larger the group, the more it drags the overall mean toward itself. Let's take a small example:</p>
+<p>The larger the group, the more it drags the overall mean toward itself. Here is a small example:</p>
 <table>
 <thead>
 <tr>
@@ -322,19 +320,17 @@ When you combine two groups, you don't just "average the averages." You weight e
 <td><strong>Overall</strong></td>
 <td><strong>7.5</strong></td>
 <td><strong>7.2</strong></td>
-<td><strong>-0.3</strong>❗</td>
+<td><strong>-0.3</strong></td>
 </tr>
 </tbody>
 </table>
-<p><strong>How can this happen?</strong>
-Because there are now far more new users, who start with lower scores. The increase in their numbers drags down the overall average, even though both groups individually improved.</p>
-<p>This imbalance of group sizes and base rates is exactly what creates Simpson's Paradox.</p>
+<p>How can this happen? There are now far more new users, who start with lower scores. The increase in their numbers drags down the overall average, even though both groups individually improved. That imbalance of group sizes and base rates is what creates Simpson's Paradox.</p>
 <h2>Demonstration</h2>
-<p>Let's see Simpson's Paradox in action with a simple simulated experiment:</p>
+<p>Here is Simpson's Paradox in a simple simulated experiment:</p>
 <p>Two treatments (A and B) are tested on two groups (Young and Old). Within each group, Treatment A performs better than B. But we assign A mostly to older patients, who naturally have lower success rates. That imbalance flips the overall result when we aggregate the data.</p>
-<h3>Exhibits A: Success Rate by Group</h3>
+<h3>Exhibits A: Success rate by group</h3>
 <p><img alt="Success Rate by Group" src="../../assets/images/blogs/simpsons-paradox-exhibit-a.webp"/></p>
-<p>Barplot for success rate by treatment and age group. Notice how A outperforms B in both groups individually.</p>
+<p>Barplot for success rate by treatment and age group. A outperforms B in both groups individually.</p>
 <table>
 <thead>
 <tr>
@@ -356,10 +352,10 @@ Because there are now far more new users, who start with lower scores. The incre
 </tr>
 </tbody>
 </table>
-<p><em>Within each age group, A is clearly better.</em></p>
-<h3>Exhibits B: Overall Success Rate (Aggregated)</h3>
+<p>Within each age group, A has a higher success rate.</p>
+<h3>Exhibits B: Overall success rate (aggregated)</h3>
 <p><img alt="Overall Success Rate" src="../../assets/images/blogs/simpsons-paradox-exhibit-b.webp"/></p>
-<p>When you ignore age, the aggregate data makes B look better; it is the paradox in action.</p>
+<p>When you ignore age, the aggregate data makes B look better.</p>
 <table>
 <thead>
 <tr>
@@ -378,34 +374,29 @@ Because there are now far more new users, who start with lower scores. The incre
 </tr>
 </tbody>
 </table>
-<p><em>But when we combine all patients, B now appears better overall.</em></p>
-<h2>The Math Behind the Illusion</h2>
-<p>So, what's happening mathematically?</p>
-<p><img alt="Simpson's Paradox Formula" src="../../assets/images/blogs/simpsons-paradox-conditional-probability.webp"/></p>
-<p>When we aggregate, we're effectively doing a weighted average. The key term here is <code>P(Group i | Treatment)</code>, i.e., the mix of groups under each treatment.</p>
-<p>If Treatment A has more "Old" patients, its overall probability of success gets pulled down, even if within every group, it outperforms B.</p>
-<p>That's why statisticians are obsessed with controlling for confounders, because failing to do so is how we get fooled by Simpson's Paradox.</p>
-<p><img alt="Simpson's Paradox Formula" src="../../assets/images/blogs/simpsons-paradox-confounding-variable.webp"/>
+<p>Combine all patients, and B appears better overall even though A won both subgroups.</p>
+<h2>The math behind the illusion</h2>
+<p>When we aggregate, we are effectively doing a weighted average. The key term is <code>P(Group i | Treatment)</code>, the mix of groups under each treatment.</p>
+<p><img alt="Conditional Probability" src="../../assets/images/blogs/simpsons-paradox-conditional-probability.webp"/></p>
+<p>If Treatment A has more Old patients, its overall probability of success gets pulled down even if it outperforms B within every group.</p>
+<p>That is why statisticians control for confounders and why unadjusted aggregates can be misleading.</p>
+<p><img alt="Simpson's Confounding Variable" src="../../assets/images/blogs/simpsons-paradox-confounding-variable.webp"/>
 <em>(Image credits: https://www.ztable.net/confounding-variable/)</em></p>
-<h2>Real-World Parallels</h2>
-<p>This paradox isn't just theoretical. It's haunted real-world analyses for decades.</p>
+<h2>Real-world parallels</h2>
+<p>This paradox has turned up in real analyses for decades.</p>
 <ul>
-<li><strong><a href="https://en.wikipedia.org/wiki/Simpson%27s_paradox#UC_Berkeley_gender_bias">University Admissions (Berkeley, 1973)</a>:</strong> Women seemed to have a lower overall acceptance rate. But when broken down by department, women were actually admitted at higher rates in most departments. The "bias" came from women applying to more competitive programs.</li>
-<li><strong><a href="https://en.wikipedia.org/wiki/Simpson%27s_paradox#Kidney_stone_treatment">Medical Treatments</a>:</strong> A drug may appear less effective overall because it's prescribed to patients with more severe conditions.</li>
-<li><strong><a href="https://en.wikipedia.org/wiki/Simpson%27s_paradox#Batting_averages">Sports Analytics</a>:</strong> A baseball player's batting average might be lower overall, yet higher against both left- and right-handed pitchers separately.</li>
+<li><a href="https://www.science.org/doi/10.1126/science.187.4175.398">University Admissions (Berkeley, 1973)</a>. Women seemed to have a lower overall acceptance rate. Broken down by department, women were admitted at higher rates in most departments. The bias came from women applying to more competitive programs.</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1339981/">Medical Treatments</a>. A drug may appear less effective overall because it is prescribed to patients with more severe conditions.</li>
+<li><a href="https://chance.amstat.org/2015/09/simpsons-paradox/">Sports Analytics</a>. A baseball player's batting average might be lower overall, yet higher against both left- and right-handed pitchers separately.</li>
 </ul>
-<h2>What Does It Teach Us?</h2>
-<p>It teaches three core lessons:</p>
-<ol>
-<li><strong>Never trust aggregates blindly.</strong> Always check the subgroups.</li>
-<li><strong>Control for confounding variables.</strong> Ask: what else could be influencing this trend?</li>
-<li><strong>Tell stories, not just statistics.</strong> Data alone doesn't reveal the truth; interpretation does.</li>
-</ol>
+<h2>What does it teach us?</h2>
+<p>Before you trust an aggregate, check the subgroups and control for confounding variables. Ask what else could be driving the trend. Data alone doesn't reveal the truth, interpretation does, so always pair your numbers with good context.</p>
 <h2>Conclusion</h2>
-<p>Data isn't deceptive, humans are hasty. Simpson's Paradox reminds us that even when every number is right, the story can still be wrong.</p>
-<p>It's a paradox not because it breaks math, but because it exposes our blind spots. Whenever you see a surprising trend, pause and ask: <em>"What happens if I split this data just one layer deeper?"</em></p>
-<p>That's often where the real truth hides. So the next time your dashboard surprises you, don't panic. Zoom in. Slice deeper. Because the truth might just be hiding in plain sight.</p>
-<p>If you want to experiment with this yourself? Check out the interactive notebook I’ve prepared: Simpson’s Paradox Notebook.</p>
+<p>Every number can be right and the story can still be wrong. That is what makes Simpson's Paradox so useful. It does not break math, it exposes our blind spots. When a trend surprises you, ask what happens if you split the data one layer deeper. That is often where the real explanation lives.</p>
+<p>If you want to experiment with this yourself, check out the <a href="https://github.com/Asifdotexe/playground-repo/blob/main/code/issue-17-as-simpsons-paradox.ipynb">interactive notebook</a>.</p>
+<hr/>
+<h3>About the Author</h3>
+<p>I'm a Data Scientist who enjoys breaking down complex statistical concepts and cybersecurity risks. If you found this breakdown of Simpson's Paradox helpful, check out my <a href="https://sayyedasif.com/blogs/">other blogs</a> or explore my <a href="https://sayyedasif.com/blogs/ship-of-theseus-codebase-entropy/">Ship of Theseus</a> project where I visualize codebase entropy.</p>
 <p>Thank you!</p></div></section></article>
 </div>
 </main>
