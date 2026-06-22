@@ -96,6 +96,11 @@ def build_blogs():
             back_btn.string = '← Back to Blogs'
             section.append(back_btn)
             
+            if date:
+                date_div = soup.new_tag('div', attrs={'style': 'color: var(--light-gray-70); font-size: 14px; margin-bottom: 20px;'})
+                date_div.string = f"Published: {date}"
+                section.append(date_div)
+            
             # The content
             content_div = soup.new_tag('div', attrs={'class': 'blog-post-content'})
             content_div.append(BeautifulSoup(html_content, 'html.parser'))
@@ -159,7 +164,15 @@ def build_blogs():
             a_tag = soup.new_tag('a', href=f"../blogs/{blog['slug']}/", attrs={
                 'class': 'pf-v6-c-simple-list__item-link'
             })
-            a_tag.string = blog['title']
+            if blog['date']:
+                title_span = soup.new_tag('span')
+                title_span.string = blog['title']
+                date_span = soup.new_tag('span', attrs={'style': 'color: var(--light-gray-70); font-size: 12px; margin-left: 10px;'})
+                date_span.string = blog['date']
+                a_tag.append(title_span)
+                a_tag.append(date_span)
+            else:
+                a_tag.string = blog['title']
             li.append(a_tag)
             ul.append(li)
             

@@ -2564,6 +2564,14 @@ textarea.form-input::-webkit-resizer {
   color: var(--vibrant-green);
 }
 
+.blog-post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 20px 0;
+  display: block;
+}
+
 /* Custom Scrollbar for Blog Section */
 #blog-modal,
 #blog-modal-body .codehilite,
