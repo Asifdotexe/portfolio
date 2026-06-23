@@ -2387,12 +2387,13 @@ textarea.form-input::-webkit-resizer {
   #BLOGS SECTION
 \*-----------------------------------*/
 
+/* Blog List Layout Update */
 .pf-v6-c-simple-list {
-  background: var(--bg-gradient-jet);
-  border: 1px solid var(--jet);
-  border-radius: 14px;
-  padding: 20px;
-  box-shadow: var(--shadow-1);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
 }
 
 .pf-v6-c-simple-list__list {
@@ -2401,7 +2402,7 @@ textarea.form-input::-webkit-resizer {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 16px;
 }
 
 .pf-v6-c-simple-list__item {
@@ -2413,15 +2414,18 @@ textarea.form-input::-webkit-resizer {
   text-align: left;
   background: var(--eerie-black-2);
   color: var(--light-gray);
-  padding: 15px 20px;
-  border-radius: 10px;
+  padding: 20px 24px;
+  border-radius: 14px;
   border: 1px solid var(--jet);
   font-family: var(--ff-poppins);
   font-size: var(--fs-4);
   font-weight: var(--fw-500);
   cursor: pointer;
   transition: var(--transition-1);
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 
 .pf-v6-c-simple-list__item-link:hover,
@@ -2430,6 +2434,28 @@ textarea.form-input::-webkit-resizer {
   color: var(--vibrant-green);
   border-color: var(--vibrant-green);
   box-shadow: var(--shadow-2);
+  transform: translateY(-2px);
+}
+
+.pf-v6-c-simple-list__item-title {
+  display: block;
+  flex: 1;
+}
+
+.pf-v6-c-simple-list__item-date {
+  color: var(--light-gray-70);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-300);
+  white-space: nowrap;
+}
+
+@media (max-width: 580px) {
+  .pf-v6-c-simple-list__item-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 16px 20px;
+  }
 }
 
 /* Modal styling overrides to match theme */

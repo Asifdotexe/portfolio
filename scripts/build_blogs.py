@@ -168,14 +168,16 @@ def build_blogs():
                 'class': 'pf-v6-c-simple-list__item-link'
             })
             if blog['date']:
-                title_span = soup.new_tag('span')
+                title_span = soup.new_tag('span', attrs={'class': 'pf-v6-c-simple-list__item-title'})
                 title_span.string = blog['title']
-                date_span = soup.new_tag('span', attrs={'style': 'color: var(--light-gray-70); font-size: 12px; margin-left: 10px;'})
+                date_span = soup.new_tag('span', attrs={'class': 'pf-v6-c-simple-list__item-date'})
                 date_span.string = blog['date']
                 a_tag.append(title_span)
                 a_tag.append(date_span)
             else:
-                a_tag.string = blog['title']
+                title_span = soup.new_tag('span', attrs={'class': 'pf-v6-c-simple-list__item-title'})
+                title_span.string = blog['title']
+                a_tag.append(title_span)
             li.append(a_tag)
             ul.append(li)
             
