@@ -9,3 +9,6 @@ build/
 coverage/
 issues/
 RULES/
+DESIGN.md
+PRODUCT.md
+.impeccable/

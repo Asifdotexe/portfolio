@@ -1,56 +1,58 @@
 ---
 title: "Building the Ship of Theseus: Visualizing Codebase Entropy"
 published: true
-date: "2026-06-22"
-description: "A deep dive into how I built an interactive tool to visualize codebase entropy and answer the philosophical question: how much of the original code is left?"
+date: "2026-06-25"
+description: "How I built an interactive tool to visualize codebase entropy and answer a simple question: how much of the original code is left?"
 tags: ["data-science", "software-engineering", "github-actions", "visualization", "d3js"]
 ---
 
-## Before We Begin...
+## The Live App
 
-Let's address the elephant in the room: this blog post dives deep into the technical guts of a tool. If you haven't seen what the tool actually is, a lot of this won't make sense! I highly recommend you take a moment to [look at the live website](https://asifdotexe.github.io/Theseus/), play around with the interactive charts, and explore the different repositories. Once you've seen codebase entropy in action, come back here to see how it was built. 
+This post covers the technical implementation of the tool. If you haven't seen the actual app yet, the technical details won't make much sense. I recommend taking a moment to [look at the live website](https://asifdotexe.github.io/Theseus/) and explore the different repositories. Come back here once you've seen how codebase entropy looks in action.
 
-## Abstract & The Philosophical Origin
+![Theseus](./assets/images/blogs/theseus.webp)
 
-Most developers, when looking at a massive legacy repository, are primarily interested in how the codebase grew to such an enormous extent. But my curiosity was slightly different: *how much of the original code is actually left?* 
+## The Origin
 
-This question came to me while I was reading about an ancient Greek thought experiment known as the *Ship of Theseus*. The paradox asks a profound question: if you have a famous wooden ship, and over the years you slowly replace every single decaying plank with a new one until no original wood remains, is it still the same ship?
+Most developers look at a massive legacy repository and wonder how it got so big. I had a different question: *how much of the original code is actually left?*
 
-It hit me that this exact paradox plays out daily in modern software engineering. Repositories live for years, sometimes decades. The original developers leave, entire architectural paradigms shift, and eventually, the very last line of the original "genesis" code is overwritten. Yet, the repository retains its name, its URL, and its identity. I wanted to build something that pulls back the curtain on this continuous decay and renewal, proving visually whether our software ships are entirely new constructs or if they still carry pieces of their original hulls.
+I was reading about the *[Ship of Theseus](https://second-brain.asifdotexe.workers.dev/?stackedNotes=ship-of-theseus)*. It is an ancient Greek thought experiment that asks a simple question. If you have a famous wooden ship and slowly replace every decaying plank until no original wood remains, is it still the same ship?
 
-## What Exactly Does Ship of Theseus Do?
+This happens in software engineering every day. Repositories live for years. The original developers leave, architectures change, and eventually the very last line of the original code gets overwritten. The repository keeps its name and its URL, but the contents are entirely new. I wanted to build something that visualizes this cycle of decay and renewal.
 
-At its core, the tool provides a visceral, data-driven understanding of how codebases are constantly being reborn. It helps us with a few distinct views:
+## What the Tool Does
 
-- **The Chronological View:** A stacked area chart showing the age composition of a repository over time. You can literally watch eras of code expand and get overwritten by newer refactors.
-- **The Identity View:** Answering the philosophical question—how much of the 2015 code is still alive in 2025? 
-- **Ancient Code Fragments & Fossils:** We track "Fossils"—the absolute oldest surviving lines of code. It's an incredibly fun insight to find a single comment or edge-case logic from 14 years ago that survived 10,000 commits of refactoring. It gives personality to the data.
+The app visualizes how codebases change over time. It includes a few distinct views:
 
-## The Architecture & Database as Code
+- **The Chronological View:** A stacked area chart showing the age composition of a repository over time. You can watch eras of code expand and get overwritten by newer refactors.
+- **The Identity View:** This answers the main question. How much of the 2015 code is still alive in 2025?
+- **Code Fossils:** The tool tracks the absolute oldest surviving lines of code. It is surprisingly fun to find a single comment or edge-case logic from 14 years ago that survived 10,000 commits. It gives some personality to the raw data.
 
-When designing the system, I wanted to keep it as accessible and cheap to run as possible. The architecture is split into a disconnected backend (the data generator) and frontend (the UI visualizer). They communicate entirely via an intermediary static JSON format. 
+## Architecture and Database as Code
 
-*(For a full breakdown of the system flow, you can check out the [ARCHITECTURE.md](file:///D:/Theseus/docs/ARCHITECTURE.md) file in the repo).*
+I wanted to keep the system cheap to run. The architecture splits into a disconnected data generator and a UI visualizer. They communicate through static JSON files.
 
-The frontend is intentionally lightweight—no React, no massive dependency chains, and no heavy bundlers. It's just Vanilla HTML, CSS, and JS fetching a centralized `theseus.config.json` to dynamically render a D3 chart.
+*(For a full breakdown of the system flow, check out the [ARCHITECTURE.md](https://github.com/Asifdotexe/Theseus/blob/main/docs/ARCHITECTURE.md) file in the repo).*
 
-Because this is a static site hosted for free on GitHub Pages, we essentially use the repository itself as the database. 
+The frontend is intentionally lightweight. There is no React or heavy bundler. It uses plain HTML, CSS, and JavaScript to fetch `theseus.config.json` and render a D3 chart.
 
-## Extensive GitHub Actions (and Fighting the Limits)
+Since this is a static site hosted on GitHub Pages, the repository itself acts as the database.
 
-Codebases never stop evolving, so the data generation relies on GitHub Actions to create a completely autonomous, zero-maintenance "monthly pulse."
+## GitHub Actions
 
-A scheduled Action kicks off every month. Because the engine is strictly incremental, it looks at the last snapshot date, checks the current calendar date, and knows it only needs to check out and process the missing months in between. Finally, if the resulting JSON payloads have changed, the GitHub Actions bot commits the diff and forces a write back to the `main` branch. 
+Codebases never stop evolving, so the data generation relies on GitHub Actions to create an autonomous monthly update.
 
-However, this wasn't without its drawbacks. GitHub Actions for free users have a strict 6-hour execution cap per workflow. When you are processing repositories with millions of lines of code and tens of thousands of commits, you can easily hit this wall. This constraint forced me to optimize the Python engine aggressively to ensure it could catch up on missing months well within the limit.
+A scheduled Action runs every month. The engine is strictly incremental. It checks the last snapshot date and the current calendar date, then processes the missing months in between. If the resulting JSON payloads change, a bot commits the diff back to the `main` branch.
 
-## Learnings & Smart Hacks
+This approach has limits. GitHub Actions gives free users a strict 6-hour execution cap per workflow. Processing repositories with millions of lines of code and tens of thousands of commits will easily hit this wall. I had to optimize the Python engine aggressively to ensure it could catch up on missing months within the limit.
 
-Execution time was the main concern during development. If the script takes too long, the 6-hour CI cap kills the process. I solved it four ways:
+## Performance Hacks
 
-- **Ditching Python Git Libraries** - Shelling out directly to native `git` shell commands is orders of magnitude faster than Python wrappers because `git` is written in C.
-- **Parallelizing `git blame`** - Taking a snapshot means blaming every tracked text file. Doing that sequentially for a large repo takes weeks. I filter out binary files with `git ls-files`, then use a `ThreadPoolExecutor` (see [`analyse_repository.py`](file:///D:/Theseus/scripts/analyse_repository.py#L134-L136)) to fire off concurrent blame processes.
-- **Using `--line-porcelain`** - Standard `git blame` output is meant for humans and a pain to parse. `git blame --line-porcelain` gives a machine-readable format where each line gets a metadata block with a UNIX timestamp:
+Execution time was the biggest problem. If the script takes too long, the CI cap kills the process. I solved it four ways:
+
+- **Ditching Python Git Libraries:** Shelling out directly to native `git` commands is much faster than using Python wrappers. Git is written in C and runs quickly on its own.
+- **Parallelizing `git blame`:** Taking a snapshot means blaming every tracked text file. Doing that sequentially for a large repo takes weeks. I filter out binary files with `git ls-files`, then use a `ThreadPoolExecutor` (see [`analyse_repository.py`](https://github.com/Asifdotexe/Theseus/blob/679ac75ecc2aa3956c7650b160ae6c6af1f1632e/scripts/analyse_repository.py#L134-L136)) to run concurrent blame processes.
+- **Using `--line-porcelain`:** Standard `git blame` output is a pain to parse. The `--line-porcelain` flag outputs a machine-readable format where each line gets a metadata block with a UNIX timestamp:
    ```text
    8c3f2... 1 1
    author-time 1684320000
@@ -58,24 +60,20 @@ Execution time was the main concern during development. If the script takes too 
    filename src/config.js
    	const config = { ... };
    ```
-   This let me strip timestamps with a fast regex and bin them into years without a brittle parser.
-- **The Fossil Protocol and SVN Ghost Commits** - Repos imported from SVN or Mercurial often have inaccurate committer timestamps. The Historical (Genesis) Protocol sorts all commits by `author-time` using `git log --all --pretty=format:%H %at` ([`add_fossils.py`](file:///D:/Theseus/scripts/add_fossils.py#L121-L124)), so the true origin is preserved regardless of wonky branch history.
+   This let me strip timestamps with a fast regex and bin them into years without writing a brittle parser.
+- **The Fossil Protocol:** Repos imported from SVN or Mercurial often have inaccurate committer timestamps. The script sorts all commits by `author-time` using `git log --all --pretty=format:%H %at` ([`add_fossils.py`](https://github.com/Asifdotexe/Theseus/blob/679ac75ecc2aa3956c7650b160ae6c6af1f1632e/scripts/add_fossils.py#L121-L124)). This preserves the true origin date regardless of messy branch history.
 
-## Development Methodology: AI as a Thought Partner
+## Building the UI
 
-The way this project was developed is a testament to the modern engineering workflow. Rather than solo-coding in a vacuum, I heavily leveraged AI agents throughout the process. I acted more as a systems architect and orchestrator, bouncing algorithmic ideas for the git parser off my AI partner, reviewing its proposed implementations, and tweaking the pipeline. This tight iterative loop drastically accelerated the core engine's development.
+I am an engineer, not a UI designer. But I knew I wanted an atmospheric, bold look for the app. To bridge my design gap, I built the UI using AI agents.
 
-## Vibe Coding the UI
+I started with **[StitchMCP](https://stitch.withgoogle.com/docs/mcp/setup)** and the **[Frontend skill](https://github.com/sickn33/antigravity-awesome-skills)** from the Awesome Antigravity Skills repository to scaffold the layout. Once the core foundation existed, I used **[impeccable](https://second-brain.asifdotexe.workers.dev/?stackedNotes=ship-of-theseus)** to iterate quickly, tweak micro-animations, and fix accessibility issues. I will write a follow-up post detailing this exact process later.
 
-I'm an engineer at heart, not a UI/UX designer. But I had a clear vision for the brand personality—atmospheric, bold, and narrative. To bridge my design gap, I "vibe coded" the UI. 
+## Scaling Up
 
-I started by using **StitchMCP** combined with the **Frontend skill** from the Awesome Antigravity Skills repository to rapidly scaffold out the visual identity and layout. Once the core foundation was there, I used **impeccable** to rapidly iterate, tweak micro-animations, and polish the accessibility until it matched the exact vibe I wanted. I'll be writing a dedicated follow-up blog post diving deep into the exact vibecoding process I used. Stay tuned for that!
+The current architecture works for a personal project because it leans on GitHub Actions and a Git-based database. If I needed to track thousands of repos or provide real time updates, it would break.
 
-## How We Would Scale This
-
-The current architecture is simple because it leans on GitHub Actions and a Git-based database. That works for a personal project. If I needed to track thousands of repos or provide real-time entropy, it would break.
-
-To scale it, I would stop writing JSON back to the repo and move datasets to an object store like S3 or Cloudflare R2. I would replace the single-machine thread pool with a distributed worker queue (Celery, BullMQ, SQS) for parallel blame operations. And I would add a real database, PostgreSQL or ClickHouse, so historical trends can be queried instantly.
+To scale it, I would stop writing JSON back to the repo and move the datasets to an object store like S3 or Cloudflare R2. I would replace the single machine thread pool with a distributed worker queue for parallel blame operations. I would also add a real database like PostgreSQL or ClickHouse to allow instant querying of historical trends.
 
 ---
 
