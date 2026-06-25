@@ -337,6 +337,30 @@ document.addEventListener('DOMContentLoaded', () => {
         projectList.appendChild(li);
       });
 
+      const counts = { all: projectsWithUpdates.length };
+      projectsWithUpdates.forEach(project => {
+        const cat = project.category.toLowerCase();
+        counts[cat] = (counts[cat] || 0) + 1;
+      });
+
+      const filterBtns = document.querySelectorAll("[data-filter-btn]");
+      filterBtns.forEach(btn => {
+        let baseText = btn.innerText.replace(/\s*\(\d+\)$/, '').trim();
+        const cat = baseText.toLowerCase();
+        if (counts[cat] !== undefined) {
+          btn.innerHTML = `${baseText}&nbsp;(${counts[cat]})`;
+        }
+      });
+      
+      const selectItems = document.querySelectorAll("[data-select-item]");
+      selectItems.forEach(item => {
+        let baseText = item.innerText.replace(/\s*\(\d+\)$/, '').trim();
+        const cat = baseText.toLowerCase();
+        if (counts[cat] !== undefined) {
+          item.innerHTML = `${baseText}&nbsp;(${counts[cat]})`;
+        }
+      });
+
       initializeProjectFilter();
       setTimeout(initTiltEffect, 500);
 
@@ -371,7 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lastClickedBtn) {
       for (let i = 0; i < filterBtns.length; i++) {
         filterBtns[i].addEventListener("click", function () {
-          let selectedValue = this.innerText.toLowerCase();
+          let selectedValue = this.innerText.replace(/\s*\(\d+\)$/, '').toLowerCase().trim();
           if (selectValue) selectValue.innerText = this.innerText;
           filterFunc(selectedValue);
 
@@ -387,12 +411,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       for (let i = 0; i < selectItems.length; i++) {
         selectItems[i].addEventListener("click", function () {
-          let selectedValue = this.innerText.toLowerCase();
+          let selectedCat = this.innerText.replace(/\s*\(\d+\)$/, '').toLowerCase().trim();
           if (selectValue) {
             selectValue.innerText = this.innerText;
           }
           elementToggleFunc(select);
-          filterFunc(selectedValue);
+          filterFunc(selectedCat);
         });
       }
     }
