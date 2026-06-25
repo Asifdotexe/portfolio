@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
       projectList.innerHTML = ''; // Clear skeletons
       projectsWithUpdates.forEach((project, index) => {
         const li = document.createElement("li");
-        li.className = "project-item active fade-in-up";
+        li.className = `project-item active fade-in-up ${index === 0 ? 'featured' : ''}`;
         li.style.animationDelay = `${index * 0.1}s`;
         li.setAttribute("data-filter-item", "");
         li.setAttribute("data-category", project.category.toLowerCase());

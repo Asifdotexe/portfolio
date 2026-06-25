@@ -159,6 +159,8 @@ html {
 
 body {
   background: var(--smoky-black);
+  background-image: radial-gradient(circle at top right, hsla(240, 5%, 15%, 1) 0%, var(--smoky-black) 50%);
+  background-attachment: fixed;
 }
 
 /*-----------------------------------*\
@@ -227,8 +229,10 @@ body {
 
 .sidebar,
 article {
-  background: var(--eerie-black-2);
-  border: 1px solid var(--jet);
+  background: hsla(240, 2%, 12%, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid hsla(0, 0%, 22%, 0.5);
   border-radius: 20px;
   padding: 15px;
   box-shadow: var(--shadow-1);
@@ -1184,6 +1188,23 @@ main {
   }
 }
 
+.project-item.featured {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 768px) {
+  .project-item.featured>a {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+  }
+  .project-item.featured .project-img {
+    height: 100%;
+    min-height: 300px;
+  }
+}
+
 .project-item>a {
   width: 100%;
 }
@@ -1199,8 +1220,8 @@ main {
 }
 
 .project-item>a:hover .project-img {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px hsla(160, 100%, 40%, 0.15);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px hsla(99, 76%, 56%, 0.15);
 }
 
 .project-img::before {
@@ -2464,6 +2485,20 @@ textarea.form-input::-webkit-resizer {
   font-size: var(--fs-7);
   font-weight: var(--fw-300);
   white-space: nowrap;
+}
+
+/* Editorial Layout for first blog post */
+.pf-v6-c-simple-list__item:first-child .pf-v6-c-simple-list__item-link {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px;
+  background: hsla(240, 2%, 18%, 0.5);
+  border-left: 4px solid var(--vibrant-green);
+}
+
+.pf-v6-c-simple-list__item:first-child .pf-v6-c-simple-list__item-title {
+  font-size: var(--fs-2);
+  margin-bottom: 15px;
 }
 
 @media (max-width: 580px) {
