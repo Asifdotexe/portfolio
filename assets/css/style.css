@@ -56,6 +56,7 @@
 
   /* font-family */
   --ff-poppins: 'Poppins', sans-serif;
+  --ff-mono: 'JetBrains Mono', monospace;
 
   /* font-size */
   --fs-1: 24px;
@@ -148,6 +149,12 @@ textarea {
 
 html {
   font-family: var(--ff-poppins);
+}
+
+.h1, .h2, .h3, .h4, .h5,
+.title, .contact-title, .timeline-item span, .navbar-link {
+  font-family: var(--ff-mono);
+  letter-spacing: -0.02em;
 }
 
 body {
@@ -1007,6 +1014,8 @@ main {
 
 .contribution-chart img {
   width: 100%;
+  filter: invert(1) hue-rotate(180deg) brightness(1.2);
+  opacity: 0.9;
 }
 
 /*-----------------------------------*\
