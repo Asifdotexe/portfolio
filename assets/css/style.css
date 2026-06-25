@@ -1,4 +1,4 @@
-/*-----------------------------------*\
+﻿/*-----------------------------------*\
   #style.css - ENHANCED VERSION
 \*-----------------------------------*/
 
@@ -1772,6 +1772,7 @@ textarea.form-input::-webkit-resizer {
   .article-title {
     font-weight: var(--fw-600);
     padding-bottom: 15px;
+    max-width: calc(100% - 400px); /* Prevent overlap with absolute navbar */
   }
 
   .article-title::after {
@@ -2750,30 +2751,14 @@ textarea.form-input::-webkit-resizer {
   background: var(--light-gray-70);
 }
 
-/* Fix: prevent navbar from overlapping article title on desktop */
-@media (min-width: 1024px) {
-  article {
-    padding-top: 65px;
-  }
-}
 
-/* Page Icon Box — large icon on desktop top-left to fill empty space */
-.page-icon-box {
-  display: none;
-}
 
-@media (min-width: 1024px) {
-  .page-icon-box {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 30px;
-    z-index: 5;
-    color: var(--vibrant-green);
-    font-size: 38px;
-  }
-}
 
+/* BLOG POST TITLE */
+.blog-post-title {
+  color: var(--white-2);
+  font-size: var(--fs-2);
+  font-weight: var(--fw-600);
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
