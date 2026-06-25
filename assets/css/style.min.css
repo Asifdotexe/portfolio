@@ -2585,7 +2585,7 @@ textarea.form-input::-webkit-resizer {
   color: var(--light-gray);
   font-family: var(--ff-poppins);
   line-height: 1.6;
-  font-size: var(--fs-5);
+  font-size: var(--fs-6);
 }
 
 .blog-post-content h1,
@@ -2741,3 +2741,4 @@ textarea.form-input::-webkit-resizer {
     font-size: 38px;
   }
 }
+
