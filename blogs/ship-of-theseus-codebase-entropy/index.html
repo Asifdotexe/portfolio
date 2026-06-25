@@ -273,7 +273,7 @@
 </ul>
 </nav>
 <!-- ABOUT -->
-<article class="blogs active" data-page="blog-post"><header><h2 class="h2 article-title">Blogs</h2></header><section class="blog-content-section"><h1 class="blog-post-title">Building the Ship of Theseus: Visualizing Codebase Entropy</h1><a class="blog-back-btn" href="/blogs/" style="display: inline-block; margin-bottom: 20px; color: var(--vibrant-green); text-decoration: none;">← Back to Blogs</a><div style="color: var(--light-gray-70); font-size: 14px; margin-bottom: 20px;">Published: 2026-06-22</div><div class="blog-post-content"><h2>The Live App</h2>
+<article class="blogs active" data-page="blog-post"><header><h2 class="h2 article-title">Blogs</h2></header><section class="blog-content-section"><h1 class="blog-post-title">Building the Ship of Theseus: Visualizing Codebase Entropy</h1><a class="blog-back-btn" href="/blogs/" style="display: inline-block; margin-bottom: 20px; color: var(--vibrant-green); text-decoration: none;">← Back to Blogs</a><div style="color: var(--light-gray-70); font-size: 14px; margin-bottom: 20px;">Published: 2026-06-25</div><div class="blog-post-content"><h2>The Live App</h2>
 <p>This post covers the technical implementation of the tool. If you haven't seen the actual app yet, the technical details won't make much sense. I recommend taking a moment to <a href="https://asifdotexe.github.io/Theseus/">look at the live website</a> and explore the different repositories. Come back here once you've seen how codebase entropy looks in action.</p>
 <p><img alt="Theseus" src="../../assets/images/blogs/theseus.webp"/></p>
 <h2>The Origin</h2>
@@ -289,7 +289,7 @@
 </ul>
 <h2>Architecture and Database as Code</h2>
 <p>I wanted to keep the system cheap to run. The architecture splits into a disconnected data generator and a UI visualizer. They communicate through static JSON files.</p>
-<p><em>(For a full breakdown of the system flow, check out the <a href="file:///D:/Theseus/docs/ARCHITECTURE.md">ARCHITECTURE.md</a> file in the repo).</em></p>
+<p><em>(For a full breakdown of the system flow, check out the <a href="https://github.com/Asifdotexe/Theseus/blob/main/docs/ARCHITECTURE.md">ARCHITECTURE.md</a> file in the repo).</em></p>
 <p>The frontend is intentionally lightweight. There is no React or heavy bundler. It uses plain HTML, CSS, and JavaScript to fetch <code>theseus.config.json</code> and render a D3 chart.</p>
 <p>Since this is a static site hosted on GitHub Pages, the repository itself acts as the database.</p>
 <h2>GitHub Actions</h2>
@@ -300,7 +300,7 @@
 <p>Execution time was the biggest problem. If the script takes too long, the CI cap kills the process. I solved it four ways:</p>
 <ul>
 <li><strong>Ditching Python Git Libraries:</strong> Shelling out directly to native <code>git</code> commands is much faster than using Python wrappers. Git is written in C and runs quickly on its own.</li>
-<li><strong>Parallelizing <code>git blame</code>:</strong> Taking a snapshot means blaming every tracked text file. Doing that sequentially for a large repo takes weeks. I filter out binary files with <code>git ls-files</code>, then use a <code>ThreadPoolExecutor</code> (see <a href="file:///D:/Theseus/scripts/analyse_repository.py#L134-L136"><code>analyse_repository.py</code></a>) to run concurrent blame processes.</li>
+<li><strong>Parallelizing <code>git blame</code>:</strong> Taking a snapshot means blaming every tracked text file. Doing that sequentially for a large repo takes weeks. I filter out binary files with <code>git ls-files</code>, then use a <code>ThreadPoolExecutor</code> (see <a href="https://github.com/Asifdotexe/Theseus/blob/679ac75ecc2aa3956c7650b160ae6c6af1f1632e/scripts/analyse_repository.py#L134-L136"><code>analyse_repository.py</code></a>) to run concurrent blame processes.</li>
 <li><strong>Using <code>--line-porcelain</code>:</strong> Standard <code>git blame</code> output is a pain to parse. The <code>--line-porcelain</code> flag outputs a machine-readable format where each line gets a metadata block with a UNIX timestamp:
    <code>text
    8c3f2... 1 1
@@ -309,7 +309,7 @@
    filename src/config.js
     const config = { ... };</code>
    This let me strip timestamps with a fast regex and bin them into years without writing a brittle parser.</li>
-<li><strong>The Fossil Protocol:</strong> Repos imported from SVN or Mercurial often have inaccurate committer timestamps. The script sorts all commits by <code>author-time</code> using <code>git log --all --pretty=format:%H %at</code> (<a href="file:///D:/Theseus/scripts/add_fossils.py#L121-L124"><code>add_fossils.py</code></a>). This preserves the true origin date regardless of messy branch history.</li>
+<li><strong>The Fossil Protocol:</strong> Repos imported from SVN or Mercurial often have inaccurate committer timestamps. The script sorts all commits by <code>author-time</code> using <code>git log --all --pretty=format:%H %at</code> (<a href="https://github.com/Asifdotexe/Theseus/blob/679ac75ecc2aa3956c7650b160ae6c6af1f1632e/scripts/add_fossils.py#L121-L124"><code>add_fossils.py</code></a>). This preserves the true origin date regardless of messy branch history.</li>
 </ul>
 <h2>Building the UI</h2>
 <p>I am an engineer, not a UI designer. But I knew I wanted an atmospheric, bold look for the app. To bridge my design gap, I built the UI using AI agents.</p>

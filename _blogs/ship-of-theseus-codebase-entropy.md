@@ -1,7 +1,7 @@
 ---
 title: "Building the Ship of Theseus: Visualizing Codebase Entropy"
 published: true
-date: "2026-06-22"
+date: "2026-06-25"
 description: "How I built an interactive tool to visualize codebase entropy and answer a simple question: how much of the original code is left?"
 tags: ["data-science", "software-engineering", "github-actions", "visualization", "d3js"]
 ---

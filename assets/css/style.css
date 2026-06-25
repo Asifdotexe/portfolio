@@ -2479,9 +2479,15 @@ textarea.form-input::-webkit-resizer {
   transform: translateY(-2px);
 }
 
+.pf-v6-c-simple-list__item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
 .pf-v6-c-simple-list__item-title {
   display: block;
-  flex: 1;
 }
 
 .pf-v6-c-simple-list__item-date {

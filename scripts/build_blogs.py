@@ -30,6 +30,7 @@ def build_blogs():
         title = post.get('title', slug)
         date = post.get('date', '')
         description = post.get('description', '')
+        tags = post.get('tags', [])
         
         # Convert markdown to html
         html_content = md.convert(post.content)
@@ -39,6 +40,7 @@ def build_blogs():
             'title': title,
             'date': date,
             'description': description,
+            'tags': tags,
             'html_content': html_content
         })
         
@@ -171,17 +173,26 @@ def build_blogs():
             a_tag = soup.new_tag('a', href=f"../blogs/{blog['slug']}/", attrs={
                 'class': 'pf-v6-c-simple-list__item-link'
             })
+            content_wrapper = soup.new_tag('div', attrs={'class': 'pf-v6-c-simple-list__item-content'})
+            
+            title_span = soup.new_tag('span', attrs={'class': 'pf-v6-c-simple-list__item-title'})
+            title_span.string = blog['title']
+            content_wrapper.append(title_span)
+            
+            if blog.get('tags'):
+                tags_div = soup.new_tag('div', attrs={'class': 'project-tags'})
+                for tag in blog['tags']:
+                    tag_span = soup.new_tag('span', attrs={'class': 'tag'})
+                    tag_span.string = tag
+                    tags_div.append(tag_span)
+                content_wrapper.append(tags_div)
+                
+            a_tag.append(content_wrapper)
+            
             if blog['date']:
-                title_span = soup.new_tag('span', attrs={'class': 'pf-v6-c-simple-list__item-title'})
-                title_span.string = blog['title']
                 date_span = soup.new_tag('span', attrs={'class': 'pf-v6-c-simple-list__item-date'})
                 date_span.string = blog['date']
-                a_tag.append(title_span)
                 a_tag.append(date_span)
-            else:
-                title_span = soup.new_tag('span', attrs={'class': 'pf-v6-c-simple-list__item-title'})
-                title_span.string = blog['title']
-                a_tag.append(title_span)
             li.append(a_tag)
             ul.append(li)
             
