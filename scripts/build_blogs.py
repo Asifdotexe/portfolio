@@ -86,10 +86,14 @@ def build_blogs():
             
             header = soup.new_tag('header')
             h2 = soup.new_tag('h2', attrs={'class': 'h2 article-title'})
-            h2.string = title
+            h2.string = 'Blogs'
             header.append(h2)
             
             section = soup.new_tag('section', attrs={'class': 'blog-content-section'})
+            
+            h1 = soup.new_tag('h1', attrs={'class': 'blog-post-title'})
+            h1.string = title
+            section.append(h1)
             
             # The back button
             back_btn = soup.new_tag('a', href='/blogs/', attrs={'class': 'blog-back-btn', 'style': 'display: inline-block; margin-bottom: 20px; color: var(--vibrant-green); text-decoration: none;'})

@@ -1,4 +1,4 @@
-﻿/*-----------------------------------*\
+/*-----------------------------------*\
   #style.css - ENHANCED VERSION
 \*-----------------------------------*/
 
@@ -1772,7 +1772,6 @@ textarea.form-input::-webkit-resizer {
   .article-title {
     font-weight: var(--fw-600);
     padding-bottom: 15px;
-    max-width: calc(100% - 400px); /* Prevent overlap with absolute navbar */
   }
 
   .article-title::after {
@@ -2337,6 +2336,10 @@ textarea.form-input::-webkit-resizer {
 
   article {
     min-height: 100%;
+  }
+
+  .article-title {
+    max-width: calc(100% - 400px); /* Prevent overlap with absolute navbar */
   }
 
   /* MAIN */
