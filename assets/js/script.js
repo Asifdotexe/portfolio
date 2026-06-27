@@ -486,4 +486,107 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+  // Fetch and render latest GitHub activity
+  (async function() {
+      var cacheKey = "latest_github_activity";
+      var cacheExpiry = 60 * 60 * 1000; // 1 hour
+  
+      function renderRepoCard(repo, commit) {
+        var el = document.getElementById('cwo-content');
+        if (!el) return;
+        
+        var repoUrl = repo.html_url;
+        var repoName = repo.name;
+        var commitMsg = commit.commit.message.split('\n')[0];
+        var commitUrl = commit.html_url;
+        var commitDate = new Date(commit.commit.author.date).toLocaleDateString(undefined, {
+          year: 'numeric', month: 'short', day: 'numeric'
+        });
+  
+        el.innerHTML = `
+          <div style="background: var(--eerie-black-2); border: 1px solid var(--jet); border-radius: 14px; padding: 20px; box-shadow: var(--shadow-2); transition: var(--transition-1);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+                  <h4 class="h4" style="margin: 0;"><a href="${repoUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--white-2); text-decoration: none; transition: var(--transition-1);">${repoName}</a></h4>
+                  <time style="color: var(--light-gray-70); font-size: var(--fs-6); display: flex; align-items: center; gap: 5px;">
+                      <ion-icon name="time-outline"></ion-icon> ${commitDate}
+                  </time>
+              </div>
+              <p class="timeline-text" style="margin: 0; padding: 0;">
+                  <a href="${commitUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--light-gray); text-decoration: none; display: flex; align-items: flex-start; gap: 8px;">
+                      <ion-icon name="git-commit-outline" style="margin-top: 3px; color: var(--vibrant-green); flex-shrink: 0;"></ion-icon>
+                      <span style="transition: var(--transition-1);">${commitMsg}</span>
+                  </a>
+              </p>
+          </div>
+        `;
+      }
+  
+      try {
+        var cached = localStorage.getItem(cacheKey);
+        if (cached) {
+          var parsed = JSON.parse(cached);
+          if (new Date().getTime() - parsed.timestamp < cacheExpiry) {
+            renderRepoCard(parsed.repo, parsed.commit);
+            return; // Exit early using cache
+          }
+        }
+      } catch(e) {
+        console.warn("Failed to read cache", e);
+      }
+  
+      try {
+        var r = await fetch('https://api.github.com/users/Asifdotexe/repos?sort=pushed&per_page=1');
+        if (!r.ok) throw new Error('repos API error');
+        var repos = await r.json();
+        if (!repos || repos.length === 0) throw new Error('no repos');
+        var repo = repos[0];
+        var branch = repo.default_branch || 'main';
+  
+        var c = await fetch('https://api.github.com/repos/Asifdotexe/' + repo.name + '/commits/' + branch);
+        if (!c.ok) throw new Error('commits API error');
+        var commit = await c.json();
+  
+        var msg = commit.commit.message;
+        if (msg.indexOf('Merge ') === 0) {
+          var cl = await fetch('https://api.github.com/repos/Asifdotexe/' + repo.name + '/commits?sha=' + branch + '&per_page=5');
+          if (cl.ok) {
+            var list = await cl.json();
+            for (var i = 0; i < list.length; i++) {
+              if (list[i].commit.message.indexOf('Merge ') !== 0) {
+                var cr = await fetch('https://api.github.com/repos/Asifdotexe/' + repo.name + '/commits/' + list[i].sha);
+                if (cr.ok) { commit = await cr.json(); break; }
+              }
+            }
+          }
+        }
+  
+        try {
+          localStorage.setItem(cacheKey, JSON.stringify({
+            timestamp: new Date().getTime(),
+            repo: repo,
+            commit: commit
+          }));
+        } catch(e) {
+          console.warn("Failed to write to cache", e);
+        }
+  
+        renderRepoCard(repo, commit);
+  
+      } catch (e) {
+        console.warn("GitHub API rate limit reached or error occurred. Hiding section.", e);
+        var el = document.getElementById('cwo-content');
+        if (el) {
+          var section = el.closest('.cwo-section');
+          if (section) {
+            section.style.display = 'none';
+            if (section.previousElementSibling && section.previousElementSibling.tagName === 'HR') {
+              section.previousElementSibling.style.display = 'none';
+            }
+          } else {
+            el.style.display = 'none';
+          }
+        }
+      }
+  })();
 });
