@@ -462,9 +462,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // Keyboard Accelerators
   document.addEventListener("keydown", function(e) {
     if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
-    if ((e.key === "t" || e.key === "T" || e.key === "d" || e.key === "D") && !e.ctrlKey && !e.metaKey) {
+    
+    // Theme toggle (M)
+    if ((e.key === "m" || e.key === "M") && !e.ctrlKey && !e.metaKey) {
       const themeBtn = document.querySelector("[data-theme-btn]");
       if (themeBtn) themeBtn.click();
+    }
+    
+    // Navigation (1-6)
+    if (!e.ctrlKey && !e.metaKey && !e.altKey) {
+      const navLinks = [
+        "/",               // 1: About
+        "/projects/",      // 2: Projects
+        "/certifications/",// 3: Certifications
+        "/events/",        // 4: Events
+        "/blogs/",         // 5: Blogs
+        "/contact/"        // 6: Contact
+      ];
+      
+      const num = parseInt(e.key);
+      if (num >= 1 && num <= 6) {
+        window.location.href = navLinks[num - 1];
+      }
     }
   });
 });
