@@ -509,41 +509,48 @@ main {
   transform: rotate(90deg) scale(0.5);
 }
 
-.info_more-btn {
+.sidebar-actions {
   position: absolute;
   top: -15px;
   right: -15px;
+  display: flex;
+  gap: 1px;
+  padding: 1px;
   border-radius: 0 15px;
-  font-size: 13px;
-  color: var(--vibrant-green);
   background: var(--border-gradient-onyx);
-  padding: 10px;
   box-shadow: var(--shadow-2);
-  transition: var(--transition-1);
   z-index: 1;
 }
 
-.info_more-btn::before {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  border-radius: inherit;
+.sidebar-actions button {
+  position: relative;
   background: var(--bg-gradient-jet);
+  color: var(--vibrant-green);
+  font-size: 13px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
   transition: var(--transition-1);
-  z-index: -1;
+  border: none;
+  cursor: pointer;
 }
 
-.info_more-btn:hover,
-.info_more-btn:focus {
-  background: var(--bg-gradient-green-1);
-}
-
-.info_more-btn:hover::before,
-.info_more-btn:focus::before {
+.sidebar-actions button:hover,
+.sidebar-actions button:focus {
   background: var(--bg-gradient-green-2);
 }
 
-.info_more-btn span {
+.sidebar-actions .sidebar-theme-btn {
+  border-radius: 0 0 0 14px;
+}
+
+.sidebar-actions .info_more-btn {
+  border-radius: 0 14px 0 0;
+}
+
+.sidebar-actions .info_more-btn span {
   display: none;
 }
 
@@ -1915,13 +1922,25 @@ textarea.form-input::-webkit-resizer {
     padding: 5px 18px;
   }
 
-  .info_more-btn {
+  .sidebar-actions {
     top: -30px;
     right: -30px;
+    border-radius: 0 30px;
+  }
+
+  .sidebar-actions button {
     padding: 10px 15px;
   }
 
-  .info_more-btn span {
+  .sidebar-actions .sidebar-theme-btn {
+    border-radius: 0 0 0 29px;
+  }
+
+  .sidebar-actions .info_more-btn {
+    border-radius: 0 29px 0 0;
+  }
+
+  .sidebar-actions .info_more-btn span {
     display: block;
     font-size: var(--fs-8);
     display: flex;
@@ -1929,7 +1948,7 @@ textarea.form-input::-webkit-resizer {
     align-items: center;
   }
 
-  .info_more-btn ion-icon {
+  .sidebar-actions .info_more-btn ion-icon {
     display: none;
   }
 
@@ -2470,7 +2489,7 @@ textarea.form-input::-webkit-resizer {
     margin: auto;
   }
 
-  .info_more-btn {
+  .sidebar-actions {
     display: none;
   }
 
@@ -2861,35 +2880,8 @@ textarea.form-input::-webkit-resizer {
 
 
 /* Theme Button Responsive Positioning */
-.sidebar-theme-btn {
-  position: absolute;
-  top: -15px;
-  right: 35px; /* Placed left of the info_more-btn */
-  border-radius: 0 0 15px 15px;
-  color: var(--vibrant-green);
-  background: var(--border-gradient-onyx);
-  padding: 10px;
-  box-shadow: var(--shadow-2);
-  z-index: 1;
-  width: auto;
-  height: auto;
-}
-
 @media (max-width: 1023px) {
   .navbar-theme-btn {
     display: none !important;
   }
-}
-
-@media (min-width: 1024px) {
-  .sidebar-theme-btn {
-    display: none !important;
-  }
-}
-.sidebar-theme-btn {
-  font-size: 13px !important;
-  padding: 10px !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
