@@ -437,4 +437,26 @@ document.addEventListener('DOMContentLoaded', () => {
     yearElement.textContent = new Date().getFullYear();
   }
 
+  // Theme Toggle Logic
+  const themeBtns = document.querySelectorAll("[data-theme-btn]");
+  if (themeBtns.length > 0) {
+    const currentTheme = localStorage.getItem("theme") || "dark";
+    if (currentTheme === "light") {
+      document.body.setAttribute("data-theme", "light");
+    }
+    
+    themeBtns.forEach(btn => {
+      btn.addEventListener("click", function () {
+        const isLight = document.body.getAttribute("data-theme") === "light";
+        if (isLight) {
+          document.body.removeAttribute("data-theme");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.body.setAttribute("data-theme", "light");
+          localStorage.setItem("theme", "light");
+        }
+      });
+    });
+  }
+
 });

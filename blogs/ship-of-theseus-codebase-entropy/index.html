@@ -190,7 +190,11 @@
                         </h1>
 <p class="title">Data Scientist</p>
 </div>
-<button class="info_more-btn" data-sidebar-btn="">
+<button class="theme-btn sidebar-theme-btn" data-theme-btn aria-label="Toggle Theme">
+                        <ion-icon name="moon" class="moon-icon"></ion-icon>
+                        <ion-icon name="sunny" class="sun-icon"></ion-icon>
+                    </button>
+                    <button class="info_more-btn" data-sidebar-btn="">
 <span>Show Contacts</span>
 <ion-icon aria-hidden="true" name="chevron-down"></ion-icon>
 </button>
@@ -216,7 +220,8 @@
 <address>Mumbai, Maharashtra, India</address>
 </div>
 </li>
-</ul>
+
+                    </ul>
 <div class="separator"></div>
 <ul class="social-list">
 <li class="social-item">
@@ -244,7 +249,8 @@
 <ion-icon aria-hidden="true" name="shield-checkmark"></ion-icon>
 </a>
 </li>
-</ul>
+
+                    </ul>
 </div>
 </aside>
 <!-- #main-content -->
@@ -270,7 +276,14 @@
 <li class="navbar-item">
 <a class="navbar-link" href="/contact/">Contact</a>
 </li>
-</ul>
+                        <li class="navbar-item">
+                            <button class="theme-btn navbar-theme-btn" data-theme-btn aria-label="Toggle Theme">
+                                <ion-icon name="moon" class="moon-icon"></ion-icon>
+                                <ion-icon name="sunny" class="sun-icon"></ion-icon>
+                            </button>
+                        </li>
+
+                    </ul>
 </nav>
 <!-- ABOUT -->
 <article class="blogs active" data-page="blog-post"><header><h2 class="h2 article-title">Blogs</h2></header><section class="blog-content-section"><h1 class="blog-post-title">Building the Ship of Theseus: Visualizing Codebase Entropy</h1><a class="blog-back-btn" href="/blogs/" style="display: inline-block; margin-bottom: 20px; color: var(--vibrant-green); text-decoration: none;">← Back to Blogs</a><div style="color: var(--light-gray-70); font-size: 14px; margin-bottom: 20px;">Published: 2026-06-25</div><div class="blog-post-content"><h2>The Live App</h2>
@@ -286,7 +299,8 @@
 <li><strong>The Chronological View:</strong> A stacked area chart showing the age composition of a repository over time. You can watch eras of code expand and get overwritten by newer refactors.</li>
 <li><strong>The Identity View:</strong> This answers the main question. How much of the 2015 code is still alive in 2025?</li>
 <li><strong>Code Fossils:</strong> The tool tracks the absolute oldest surviving lines of code. It is surprisingly fun to find a single comment or edge-case logic from 14 years ago that survived 10,000 commits. It gives some personality to the raw data.</li>
-</ul>
+
+                    </ul>
 <h2>Architecture and Database as Code</h2>
 <p>I wanted to keep the system cheap to run. The architecture splits into a disconnected data generator and a UI visualizer. They communicate through static JSON files.</p>
 <p><em>(For a full breakdown of the system flow, check out the <a href="https://github.com/Asifdotexe/Theseus/blob/main/docs/ARCHITECTURE.md">ARCHITECTURE.md</a> file in the repo).</em></p>
@@ -310,7 +324,8 @@
     const config = { ... };</code>
    This let me strip timestamps with a fast regex and bin them into years without writing a brittle parser.</li>
 <li><strong>The Fossil Protocol:</strong> Repos imported from SVN or Mercurial often have inaccurate committer timestamps. The script sorts all commits by <code>author-time</code> using <code>git log --all --pretty=format:%H %at</code> (<a href="https://github.com/Asifdotexe/Theseus/blob/679ac75ecc2aa3956c7650b160ae6c6af1f1632e/scripts/add_fossils.py#L121-L124"><code>add_fossils.py</code></a>). This preserves the true origin date regardless of messy branch history.</li>
-</ul>
+
+                    </ul>
 <h2>Building the UI</h2>
 <p>I am an engineer, not a UI designer. But I knew I wanted an atmospheric, bold look for the app. To bridge my design gap, I built the UI using AI agents.</p>
 <p>I started with <strong><a href="https://stitch.withgoogle.com/docs/mcp/setup">StitchMCP</a></strong> and the <strong><a href="https://github.com/sickn33/antigravity-awesome-skills">Frontend skill</a></strong> from the Awesome Antigravity Skills repository to scaffold the layout. Once the core foundation existed, I used <strong><a href="https://second-brain.asifdotexe.workers.dev/?stackedNotes=ship-of-theseus">impeccable</a></strong> to iterate quickly, tweak micro-animations, and fix accessibility issues. I will write a follow-up post detailing this exact process later.</p>
@@ -346,3 +361,8 @@ I am a developer focusing on data science and cybersecurity. <a href="https://sa
 </footer>
 </body>
 </html>
+
+
+
+
+
