@@ -1220,8 +1220,8 @@ main {
 }
 
 .project-item>a:hover .project-img {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px hsla(99, 76%, 56%, 0.15);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2);
 }
 
 .project-img::before {
@@ -1237,18 +1237,16 @@ main {
 }
 
 .project-item>a:hover .project-img::before {
-  background: hsla(0, 0%, 0%, 0.5);
+  background: hsla(0, 0%, 0%, 0.2);
 }
 
 .project-item-icon-box {
-  --scale: 0.8;
-
   background: var(--jet);
   color: var(--vibrant-green);
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(var(--scale));
+  transform: translate(-50%, -50%);
   font-size: 20px;
   padding: 18px;
   border-radius: 12px;
@@ -1258,7 +1256,6 @@ main {
 }
 
 .project-item>a:hover .project-item-icon-box {
-  --scale: 1;
   opacity: 1;
 }
 
@@ -2336,6 +2333,7 @@ textarea.form-input::-webkit-resizer {
 
   article {
     min-height: 100%;
+    padding: 60px 80px;
   }
 
   .article-title {
@@ -2349,7 +2347,7 @@ textarea.form-input::-webkit-resizer {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    gap: 60px;
+    gap: 25px;
   }
 
   .main-content {
