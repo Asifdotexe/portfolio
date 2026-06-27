@@ -188,12 +188,12 @@ textarea {
 }
 
 html {
-  font-family: var(--ff-poppins);
+  font-family: 'Poppins', sans-serif;
 }
 
-.h1, .h2, .h3, .h4, .h5,
+h1, h2, h3, h4, h5, h6,
 .title, .contact-title, .timeline-item span, .navbar-link {
-  font-family: var(--ff-mono);
+  font-family: 'JetBrains Mono', monospace;
   letter-spacing: -0.02em;
 }
 
@@ -516,7 +516,7 @@ main {
   display: flex;
   gap: 1px;
   padding: 1px;
-  border-radius: 0 15px;
+  border-radius: 0 19px 0 15px;
   background: var(--border-gradient-onyx);
   box-shadow: var(--shadow-2);
   z-index: 1;
@@ -526,8 +526,10 @@ main {
   position: relative;
   background: var(--bg-gradient-jet);
   color: var(--vibrant-green);
-  font-size: 13px;
-  padding: 10px 12px;
+  font-size: 15px;
+  width: 38px;
+  height: 38px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -547,7 +549,7 @@ main {
 }
 
 .sidebar-actions .info_more-btn {
-  border-radius: 0 14px 0 0;
+  border-radius: 0 18px 0 0;
 }
 
 .sidebar-actions .info_more-btn span {
@@ -1930,6 +1932,8 @@ textarea.form-input::-webkit-resizer {
 
   .sidebar-actions button {
     padding: 10px 15px;
+    width: auto;
+    height: auto;
   }
 
   .sidebar-actions .sidebar-theme-btn {
@@ -2606,7 +2610,6 @@ textarea.form-input::-webkit-resizer {
   align-items: flex-start;
   padding: 30px;
   background: var(--bg-blockquote, hsla(240, 2%, 18%, 0.5));
-  border-left: 4px solid var(--vibrant-green);
 }
 
 .pf-v6-c-simple-list__item:first-child .pf-v6-c-simple-list__item-title {
