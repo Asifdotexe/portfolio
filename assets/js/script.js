@@ -459,4 +459,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Keyboard Accelerators
+  document.addEventListener("keydown", function(e) {
+    if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+    if ((e.key === "t" || e.key === "T" || e.key === "d" || e.key === "D") && !e.ctrlKey && !e.metaKey) {
+      const themeBtn = document.querySelector("[data-theme-btn]");
+      if (themeBtn) themeBtn.click();
+    }
+  });
 });

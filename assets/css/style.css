@@ -320,7 +320,7 @@ article {
 
 article.active {
   display: block;
-  animation: fade 0.5s ease backwards;
+  animation: fadeInUp 0.35s cubic-bezier(0.2, 0, 0, 1) backwards;
 }
 
 @keyframes fade {
@@ -1115,6 +1115,11 @@ main {
   width: 100%;
   filter: invert(1) hue-rotate(180deg) brightness(1.2);
   opacity: 0.9;
+}
+
+[data-theme="light"] .contribution-chart img {
+  filter: none;
+  opacity: 1;
 }
 
 /*-----------------------------------*\
