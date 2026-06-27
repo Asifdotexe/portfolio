@@ -1686,6 +1686,10 @@ main {
   filter: grayscale(1) invert(1);
 }
 
+[data-theme="light"] .mapbox iframe {
+  filter: none;
+}
+
 .contact-form {
   margin-bottom: 10px;
 }
