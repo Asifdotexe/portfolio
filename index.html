@@ -85,7 +85,7 @@
         ></script>
 
         <!-- custom css link -->
-        <link rel="stylesheet" href="./assets/css/style.min.css" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
 
         <!-- google font link -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -249,7 +249,7 @@
             gtag("js", new Date());
             gtag("config", "G-52KQ8L4SQG");
         </script>
-    </head>
+    <style>h1, h2, h3, h4, h5, h6 { font-family: 'JetBrains Mono', monospace; }</style><style>h1, h2, h3, h4, h5, h6, .title, .contact-title, .timeline-item span, .navbar-link { font-family: 'JetBrains Mono', monospace; letter-spacing: -0.02em; }</style><meta name="view-transition" content="same-origin"></head>
 
     <body>
         <!-- MAIN -->
@@ -274,10 +274,18 @@
                         <p class="title">Data Scientist</p>
                     </div>
 
-                    <button class="info_more-btn" data-sidebar-btn>
-                        <span>Show Contacts</span>
-                        <ion-icon aria-hidden="true" name="chevron-down"></ion-icon>
-                    </button>
+
+
+                    <div class="sidebar-actions">
+                        <button class="theme-btn sidebar-theme-btn" data-theme-btn aria-label="Toggle Theme">
+                            <ion-icon name="moon" class="moon-icon"></ion-icon>
+                            <ion-icon name="sunny" class="sun-icon"></ion-icon>
+                        </button>
+                        <button class="info_more-btn" data-sidebar-btn>
+                            <span>Show Contacts</span>
+                            <ion-icon aria-hidden="true" name="chevron-down"></ion-icon>
+                        </button>
+                    </div>
                 </div>
 
                 <div class="sidebar-info_more">
@@ -307,6 +315,7 @@
                                 <address>Mumbai, Maharashtra, India</address>
                             </div>
                         </li>
+
                     </ul>
 
                     <div class="separator"></div>
@@ -371,6 +380,7 @@
                                 <ion-icon aria-hidden="true" name="shield-checkmark"></ion-icon>
                             </a>
                         </li>
+
                     </ul>
                 </div>
             </aside>
@@ -394,7 +404,7 @@
                         </li>
                         <li class="navbar-item">
                             <a href="/certifications/" class="navbar-link"
-                                >Certs</a
+                                >Certifications</a
                             >
                         </li>
                         <li class="navbar-item">
@@ -407,6 +417,13 @@
                         <li class="navbar-item">
                             <a href="/contact/" class="navbar-link">Contact</a>
                         </li>
+                        <li class="navbar-item">
+                            <button class="theme-btn navbar-theme-btn" data-theme-btn aria-label="Toggle Theme">
+                                <ion-icon name="moon" class="moon-icon"></ion-icon>
+                                <ion-icon name="sunny" class="sun-icon"></ion-icon>
+                            </button>
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- ABOUT -->
@@ -459,6 +476,7 @@
                                     <img
                                         src="./assets/images/icons/icon-job.svg"
                                         alt="Corporate role icon"
+                                        loading="lazy"
                                         width="40"
                                         height="40"
                                     />
@@ -507,7 +525,8 @@
                                     </p>
                                 </div>
                             </li>
-                        </ul>
+
+                    </ul>
                     </section>
 
                     <!--
@@ -551,6 +570,7 @@
                                         <img
                                             src="./assets/images/icons/icon-linkedin.svg"
                                             alt="Prof. Awesh Bhornya"
+                                            loading="lazy"
                                             width="60"
                                             data-testimonials-avatar
                                         />
@@ -587,7 +607,8 @@
                                     </div>
                                 </div>
                             </li>
-                        </ul>
+
+                    </ul>
                     </section>
 
                     <!~~
@@ -610,6 +631,7 @@
                                     <img
                                         src="./assets/images/my-memoji.webp"
                                         alt="Asif Sayyed"
+                                        loading="lazy"
                                         width="80"
                                         data-modal-img
                                     />
@@ -618,6 +640,7 @@
                                 <img
                                     src="./assets/images/icons/icon-quote.svg"
                                     alt="quote icon"
+                                    loading="lazy"
                                 />
                             </div>
 
@@ -645,6 +668,33 @@
                         </section>
                     </div>
 -->
+
+                    <section class="timeline">
+                        <div class="title-wrapper">
+                            <div class="icon-box">
+                                <ion-icon aria-hidden="true" name="logo-github"></ion-icon>
+                            </div>
+                            <h3 class="h3">GitHub Contributions</h3>
+                        </div>
+                        <div class="contribution-chart">
+                            <img
+                                src="http://ghchart.rshah.org/Asifdotexe"
+                                alt="Asifdotexe's Github chart"
+                                loading="lazy"
+                            />
+                        </div>
+                    </section>
+                    <section class="cwo-section timeline" style="margin-top: 30px;">
+                        <div class="title-wrapper">
+                            <div class="icon-box">
+                                <ion-icon aria-hidden="true" name="git-branch-outline"></ion-icon>
+                            </div>
+                            <h3 class="h3">Latest Activity</h3>
+                        </div>
+                        <div id="cwo-content">
+                            <!-- Populated by JS -->
+                        </div>
+                    </section>
 
                     <section class="timeline">
                         <div class="title-wrapper">
@@ -715,20 +765,8 @@
                         </noscript>
                     </section>
 
-                    <section class="timeline">
-                        <div class="title-wrapper">
-                            <div class="icon-box">
-                                <ion-icon aria-hidden="true" name="logo-github"></ion-icon>
-                            </div>
-                            <h3 class="h3">GitHub Contributions</h3>
-                        </div>
-                        <div class="contribution-chart">
-                            <img
-                                src="http://ghchart.rshah.org/Asifdotexe"
-                                alt="Asifdotexe's Github chart"
-                            />
-                        </div>
-                    </section>
+
+
                 </article>
             </div>
         </main>
@@ -763,4 +801,3 @@
         </footer>
     </body>
 </html>
-

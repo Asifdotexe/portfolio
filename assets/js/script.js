@@ -87,7 +87,7 @@ const initTypewriter = () => {
 };
 
 const initTiltEffect = () => {
-  const cards = document.querySelectorAll('.project-item, .certificate-item, .events-post-item');
+  const cards = document.querySelectorAll('.project-item, .certification-item, .events-post-item');
 
   cards.forEach(card => {
     // Add base style class
@@ -193,16 +193,38 @@ document.addEventListener('DOMContentLoaded', () => {
         return response.json();
       })
       .then(data => {
+        const counts = { all: data.length };
         data.forEach((event, index) => {
           const item = document.createElement('li');
           item.className = 'event-post-item active fade-in-up';
           item.style.animationDelay = `${index * 0.1}s`;
           item.setAttribute("data-filter-item", "");
-          item.setAttribute("data-category", event.type ? event.type.toLowerCase() : "organized");
+          const cat = event.type ? event.type.toLowerCase() : "organized";
+          item.setAttribute("data-category", cat);
+          counts[cat] = (counts[cat] || 0) + 1;
+          
           item.innerHTML = `<a href="${event.url}"><figure class="event-banner-box"><img src="${event.image}" alt="${event.title}" loading="lazy"></figure><div class="event-content"><div class="event-meta"><p class="event-category">${event.category}</p><span class="dot"></span><time datetime="${event.date}">${event.formattedDate}</time></div><h3 class="h3 event-item-title">${event.title}</h3><p class="event-text">${event.description}</p></div></a>`;
           eventsList.appendChild(item);
         });
         
+        const filterBtns = document.querySelectorAll("[data-filter-btn]");
+        filterBtns.forEach(btn => {
+          let baseText = btn.childNodes[0].nodeValue.trim();
+          const cat = baseText.toLowerCase();
+          if (counts[cat] !== undefined) {
+            btn.innerHTML = `${baseText} <span class="count-pill">${counts[cat]}</span>`;
+          }
+        });
+
+        const selectItems = document.querySelectorAll("[data-select-item]");
+        selectItems.forEach(item => {
+          let baseText = item.childNodes[0].nodeValue.trim();
+          const cat = baseText.toLowerCase();
+          if (counts[cat] !== undefined) {
+            item.innerHTML = `${baseText} <span class="count-pill">${counts[cat]}</span>`;
+          }
+        });
+
         initializeProjectFilter();
 
         // Initialize tilt after DOM injection
@@ -211,29 +233,29 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(error => console.error('Error fetching events data:', error));
   };
 
-  // Dynamically populate certificates section
+  // Dynamically populate certifications section
   
 
-  const populateCertificates = () => {
-    const certificatesGrid = document.getElementById('certificates-grid');
-    if (!certificatesGrid) return;
+  const populateCertifications = () => {
+    const certificationsGrid = document.getElementById('certifications-grid');
+    if (!certificationsGrid) return;
 
-    showSkeleton('certificates-grid', 6, '200px');
+    showSkeleton('certifications-grid', 6, '200px');
 
-    fetch('/assets/data/certificates.json')
+    fetch('/assets/data/certifications.json')
       .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching certificates.json`);
+        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching certifications.json`);
         return response.json();
       })
       .then(data => {
-        certificatesGrid.innerHTML = ''; // Clear skeletons
+        certificationsGrid.innerHTML = ''; // Clear skeletons
         data.forEach((cert, index) => {
-          const certificateItem = document.createElement('div');
-          certificateItem.className = 'certificate-item fade-in-up';
-          certificateItem.style.animationDelay = `${index * 0.05}s`; // Faster stagger
+          const certificationItem = document.createElement('div');
+          certificationItem.className = 'certification-item fade-in-up';
+          certificationItem.style.animationDelay = `${index * 0.05}s`; // Faster stagger
 
           // Removed style="display:block; height:100%;" from anchor to fix text offset issue
-          certificateItem.innerHTML = `
+          certificationItem.innerHTML = `
             <a href="${cert.url}" target="_blank" rel="noopener noreferrer">
               <img
                 src="${cert.image}"
@@ -241,18 +263,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 loading="lazy"
               >
             </a>
-            <div class="certificate-content">
-              <h3 class="h4 certificate-title">${cert.title}</h3>
-              <p class="certificate-issuer">${cert.issuer}</p>
-              <time class="certificate-date">${cert.date}</time>
+            <div class="certification-content">
+              <h3 class="h4 certification-title">${cert.title}</h3>
+              <p class="certification-issuer">${cert.issuer}</p>
+              <time class="certification-date">${cert.date}</time>
             </div>
           `;
 
-          certificatesGrid.appendChild(certificateItem);
+          certificationsGrid.appendChild(certificationItem);
         });
         setTimeout(initTiltEffect, 500);
       })
-      .catch(error => console.error('Error fetching certificates data:', error));
+      .catch(error => console.error('Error fetching certifications data:', error));
   };
 
   // Helper function to calculate relative time
@@ -317,13 +339,17 @@ document.addEventListener('DOMContentLoaded', () => {
           ? '<p class="project-category">Last updated: ' + timeAgo(project.updated_at) + '</p>'
           : "";
 
+        const isLight = document.body.getAttribute("data-theme") === "light";
+        const lightImage = project.image.replace('.webp', '_light.webp');
+        const currentImage = isLight ? lightImage : project.image;
+
         li.innerHTML = `
                 <a href="${project.url}" target="_blank" rel="noopener noreferrer" style="display: block; height: 100%;">
                     <figure class="project-img">
                         <div class="project-item-icon-box">
                             <ion-icon name="eye-outline"></ion-icon>
                         </div>
-                        <img src="${project.image}" alt="${project.alt}" loading="lazy">
+                        <img src="${currentImage}" data-dark-src="${project.image}" data-light-src="${lightImage}" class="theme-aware-img" alt="${project.alt}" loading="lazy">
                     </figure>
                     <div class="project-info">
                         <h3 class="project-title">${project.title}</h3>
@@ -348,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let baseText = btn.innerText.replace(/\s*\(\d+\)$/, '').trim();
         const cat = baseText.toLowerCase();
         if (counts[cat] !== undefined) {
-          btn.innerHTML = `${baseText}&nbsp;(${counts[cat]})`;
+          btn.innerHTML = `${baseText} <span class="count-pill">${counts[cat]}</span>`;
         }
       });
       
@@ -357,7 +383,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let baseText = item.innerText.replace(/\s*\(\d+\)$/, '').trim();
         const cat = baseText.toLowerCase();
         if (counts[cat] !== undefined) {
-          item.innerHTML = `${baseText}&nbsp;(${counts[cat]})`;
+          item.innerHTML = `${baseText} <span class="count-pill">${counts[cat]}</span>`;
         }
       });
 
@@ -395,8 +421,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lastClickedBtn) {
       for (let i = 0; i < filterBtns.length; i++) {
         filterBtns[i].addEventListener("click", function () {
-          let selectedValue = this.innerText.replace(/\s*\(\d+\)$/, '').toLowerCase().trim();
-          if (selectValue) selectValue.innerText = this.innerText;
+          let selectedValue = this.childNodes[0].nodeValue.trim().toLowerCase();
+          if (selectValue) selectValue.innerHTML = this.innerHTML;
           filterFunc(selectedValue);
 
           lastClickedBtn.classList.remove("active");
@@ -411,9 +437,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       for (let i = 0; i < selectItems.length; i++) {
         selectItems[i].addEventListener("click", function () {
-          let selectedCat = this.innerText.replace(/\s*\(\d+\)$/, '').toLowerCase().trim();
+          let selectedCat = this.childNodes[0].nodeValue.trim().toLowerCase();
           if (selectValue) {
-            selectValue.innerText = this.innerText;
+            selectValue.innerHTML = this.innerHTML;
           }
           elementToggleFunc(select);
           filterFunc(selectedCat);
@@ -428,7 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
   populateExperience();
   populateEvents();
 
-  populateCertificates();
+  populateCertifications();
   populateProjects();
 
   // Update footer year dynamically
@@ -437,4 +463,165 @@ document.addEventListener('DOMContentLoaded', () => {
     yearElement.textContent = new Date().getFullYear();
   }
 
+  // Theme Toggle Logic
+  const themeBtns = document.querySelectorAll("[data-theme-btn]");
+  if (themeBtns.length > 0) {
+    const currentTheme = localStorage.getItem("theme") || "dark";
+    if (currentTheme === "light") {
+      document.body.setAttribute("data-theme", "light");
+    }
+    
+    themeBtns.forEach(btn => {
+      btn.addEventListener("click", function () {
+        const isLight = document.body.getAttribute("data-theme") === "light";
+        if (isLight) {
+          document.body.removeAttribute("data-theme");
+          localStorage.setItem("theme", "dark");
+          document.querySelectorAll('.theme-aware-img').forEach(img => {
+            if (img.hasAttribute('data-dark-src')) img.src = img.getAttribute('data-dark-src');
+          });
+        } else {
+          document.body.setAttribute("data-theme", "light");
+          localStorage.setItem("theme", "light");
+          document.querySelectorAll('.theme-aware-img').forEach(img => {
+            if (img.hasAttribute('data-light-src')) img.src = img.getAttribute('data-light-src');
+          });
+        }
+      });
+    });
+  }
+
+  // Keyboard Accelerators
+  document.addEventListener("keydown", function(e) {
+    if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+    
+    // Theme toggle (M)
+    if ((e.key === "m" || e.key === "M") && !e.ctrlKey && !e.metaKey) {
+      const themeBtn = document.querySelector("[data-theme-btn]");
+      if (themeBtn) themeBtn.click();
+    }
+    
+    // Navigation (1-6)
+    if (!e.ctrlKey && !e.metaKey && !e.altKey) {
+      const navLinks = [
+        "/",               // 1: About
+        "/projects/",      // 2: Projects
+        "/certifications/",// 3: Certifications
+        "/events/",        // 4: Events
+        "/blogs/",         // 5: Blogs
+        "/contact/"        // 6: Contact
+      ];
+      
+      const num = parseInt(e.key);
+      if (num >= 1 && num <= 6) {
+        window.location.href = navLinks[num - 1];
+      }
+    }
+  });
+
+  // Fetch and render latest GitHub activity
+  (async function() {
+      var cacheKey = "latest_github_activity";
+      var cacheExpiry = 60 * 60 * 1000; // 1 hour
+  
+      function renderRepoCard(repo, commit) {
+        var el = document.getElementById('cwo-content');
+        if (!el) return;
+        
+        var repoUrl = repo.html_url;
+        var repoName = repo.name;
+        var commitMsg = commit.commit.message.split('\n')[0];
+        var commitUrl = commit.html_url;
+        var commitDate = new Date(commit.commit.author.date).toLocaleDateString(undefined, {
+          year: 'numeric', month: 'short', day: 'numeric'
+        });
+  
+        el.innerHTML = `
+          <div style="background: var(--eerie-black-2); border: 1px solid var(--jet); border-radius: 14px; padding: 20px; box-shadow: var(--shadow-2); transition: var(--transition-1);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+              <h4 class="h4" style="margin: 0;">
+                <a href="${repoUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--white-2); text-decoration: none; transition: var(--transition-1);">${repoName}</a>
+              </h4>
+              <time style="color: var(--light-gray-70); font-size: var(--fs-6); display: flex; align-items: center; gap: 5px;">
+                <ion-icon name="time-outline"></ion-icon>${commitDate}
+              </time>
+            </div>
+            <p class="timeline-text" style="margin: 0; padding: 0;">
+              <a href="${commitUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--light-gray); text-decoration: none; display: flex; align-items: flex-start; gap: 8px;">
+                <ion-icon name="git-commit-outline" style="margin-top: 3px; color: var(--vibrant-green); flex-shrink: 0;"></ion-icon>
+                <span style="transition: var(--transition-1);">${commitMsg}</span>
+              </a>
+            </p>
+          </div>
+        `;
+      }
+  
+      try {
+        var cached = localStorage.getItem(cacheKey);
+        if (cached) {
+          var parsed = JSON.parse(cached);
+          if (new Date().getTime() - parsed.timestamp < cacheExpiry) {
+            renderRepoCard(parsed.repo, parsed.commit);
+            return; // Exit early using cache
+          }
+        }
+      } catch(e) {
+        console.warn("Failed to read cache", e);
+      }
+  
+      try {
+        var r = await fetch('https://api.github.com/users/Asifdotexe/repos?sort=pushed&per_page=1');
+        if (!r.ok) throw new Error('repos API error');
+        var repos = await r.json();
+        if (!repos || repos.length === 0) throw new Error('no repos');
+        var repo = repos[0];
+        var branch = repo.default_branch || 'main';
+  
+        var c = await fetch('https://api.github.com/repos/Asifdotexe/' + repo.name + '/commits/' + branch);
+        if (!c.ok) throw new Error('commits API error');
+        var commit = await c.json();
+  
+        var msg = commit.commit.message;
+        if (msg.indexOf('Merge ') === 0) {
+          var cl = await fetch('https://api.github.com/repos/Asifdotexe/' + repo.name + '/commits?sha=' + branch + '&per_page=5');
+          if (cl.ok) {
+            var list = await cl.json();
+            for (var i = 0; i < list.length; i++) {
+              if (list[i].commit.message.indexOf('Merge ') !== 0) {
+                var cr = await fetch('https://api.github.com/repos/Asifdotexe/' + repo.name + '/commits/' + list[i].sha);
+                if (cr.ok) { commit = await cr.json(); break; }
+              }
+            }
+          }
+        }
+  
+        try {
+          localStorage.setItem(cacheKey, JSON.stringify({
+            timestamp: new Date().getTime(),
+            repo: repo,
+            commit: commit
+          }));
+        } catch(e) {
+          console.warn("Failed to write to cache", e);
+        }
+  
+        renderRepoCard(repo, commit);
+  
+      } catch (e) {
+        console.warn("GitHub API rate limit reached or error occurred. Showing fallback.", e);
+        var el = document.getElementById('cwo-content');
+        if (el) {
+          el.innerHTML = `
+            <div style="background: var(--eerie-black-2); border: 1px solid var(--jet); border-radius: 14px; padding: 20px; box-shadow: var(--shadow-2);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h4 class="h4" style="margin: 0; color: var(--white-2);">GitHub Activity</h4>
+              </div>
+              <p class="timeline-text" style="margin: 0; color: var(--light-gray-70);">
+                API rate limit exceeded. Please check back later.
+              </p>
+            </div>
+          `;
+        }
+      }
+  })();
 });

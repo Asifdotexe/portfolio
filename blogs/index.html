@@ -34,7 +34,7 @@
 <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" type="module"></script>
 <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <!-- custom css link -->
-<link href="../assets/css/style.min.css" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
 <!-- google font link -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -174,7 +174,7 @@
             gtag("js", new Date());
             gtag("config", "G-52KQ8L4SQG");
         </script>
-</head>
+<style>h1, h2, h3, h4, h5, h6, .title, .contact-title, .timeline-item span, .navbar-link { font-family: 'JetBrains Mono', monospace; letter-spacing: -0.02em; }</style><meta name="view-transition" content="same-origin"></head>
 <body>
 <!-- MAIN -->
 <main>
@@ -190,10 +190,16 @@
                         </h1>
 <p class="title">Data Scientist</p>
 </div>
-<button class="info_more-btn" data-sidebar-btn="">
+<div class="sidebar-actions">
+<button class="theme-btn sidebar-theme-btn" data-theme-btn aria-label="Toggle Theme">
+                        <ion-icon name="moon" class="moon-icon"></ion-icon>
+                        <ion-icon name="sunny" class="sun-icon"></ion-icon>
+                    </button>
+                    <button class="info_more-btn" data-sidebar-btn="">
 <span>Show Contacts</span>
 <ion-icon aria-hidden="true" name="chevron-down"></ion-icon>
 </button>
+                    </div>
 </div>
 <div class="sidebar-info_more">
 <div class="separator"></div>
@@ -216,7 +222,8 @@
 <address>Mumbai, Maharashtra, India</address>
 </div>
 </li>
-</ul>
+
+                    </ul>
 <div class="separator"></div>
 <ul class="social-list">
 <li class="social-item">
@@ -244,7 +251,8 @@
 <ion-icon aria-hidden="true" name="shield-checkmark"></ion-icon>
 </a>
 </li>
-</ul>
+
+                    </ul>
 </div>
 </aside>
 <!-- #main-content -->
@@ -259,7 +267,7 @@
 <a class="navbar-link" href="/projects/">Projects</a>
 </li>
 <li class="navbar-item">
-<a class="navbar-link" href="/certifications/">Certs</a>
+<a class="navbar-link" href="/certifications/">Certifications</a>
 </li>
 <li class="navbar-item">
 <a class="navbar-link" href="/events/">Events</a>
@@ -270,10 +278,18 @@
 <li class="navbar-item">
 <a class="navbar-link" href="/contact/">Contact</a>
 </li>
-</ul>
+                        <li class="navbar-item">
+                            <button class="theme-btn navbar-theme-btn" data-theme-btn aria-label="Toggle Theme">
+                                <ion-icon name="moon" class="moon-icon"></ion-icon>
+                                <ion-icon name="sunny" class="sun-icon"></ion-icon>
+                            </button>
+                        </li>
+
+                    </ul>
 </nav>
 <!-- ABOUT -->
-<article class="blogs active" data-page="blogs"><header><h2 class="h2 article-title">Blogs</h2></header><section class="blogs"><div class="pf-v6-c-simple-list"><ul class="pf-v6-c-simple-list__list" role="list"><li class="pf-v6-c-simple-list__item"><a class="pf-v6-c-simple-list__item-link" href="../blogs/ship-of-theseus-codebase-entropy/"><div class="pf-v6-c-simple-list__item-content"><span class="pf-v6-c-simple-list__item-title">Building the Ship of Theseus: Visualizing Codebase Entropy</span><div class="project-tags"><span class="tag">data-science</span><span class="tag">software-engineering</span><span class="tag">github-actions</span><span class="tag">visualization</span><span class="tag">d3js</span></div></div><span class="pf-v6-c-simple-list__item-date">2026-06-25</span></a></li><li class="pf-v6-c-simple-list__item"><a class="pf-v6-c-simple-list__item-link" href="../blogs/google-search-console-best-practices/"><div class="pf-v6-c-simple-list__item-content"><span class="pf-v6-c-simple-list__item-title">Google Search Console &amp; AI Search Best Practices for Developers</span><div class="project-tags"><span class="tag">seo</span><span class="tag">google-search-console</span><span class="tag">webdev</span><span class="tag">troubleshooting</span><span class="tag">ai-search</span></div></div><span class="pf-v6-c-simple-list__item-date">2026-06-22</span></a></li><li class="pf-v6-c-simple-list__item"><a class="pf-v6-c-simple-list__item-link" href="../blogs/seo-geo-aeo-guide/"><div class="pf-v6-c-simple-list__item-content"><span class="pf-v6-c-simple-list__item-title">Implementing SEO, AEO, and GEO in a Developer Portfolio</span><div class="project-tags"><span class="tag">seo</span><span class="tag">webdev</span><span class="tag">ai</span><span class="tag">tutorial</span></div></div><span class="pf-v6-c-simple-list__item-date">2026-06-20</span></a></li><li class="pf-v6-c-simple-list__item"><a class="pf-v6-c-simple-list__item-link" href="../blogs/simpsons-paradox-how-averages-deceive-us/"><div class="pf-v6-c-simple-list__item-content"><span class="pf-v6-c-simple-list__item-title">How Averages Deceive Us: The Math and Meaning of Simpson's Paradox</span><div class="project-tags"><span class="tag">data-science</span><span class="tag">statistics</span><span class="tag">math</span><span class="tag">analysis</span><span class="tag">simpsons-paradox</span></div></div><span class="pf-v6-c-simple-list__item-date">2025-10-18</span></a></li></ul></div></section></article>
+<article class="blogs active" data-page="blogs"><header><h2 class="h2 article-title">Blogs</h2></header><section class="blogs"><div class="pf-v6-c-simple-list"><ul class="pf-v6-c-simple-list__list" role="list"><li class="pf-v6-c-simple-list__item"><a class="pf-v6-c-simple-list__item-link" href="../blogs/ship-of-theseus-codebase-entropy/"><div class="pf-v6-c-simple-list__item-content"><span class="pf-v6-c-simple-list__item-title">Building the Ship of Theseus: Visualizing Codebase Entropy</span><div class="project-tags"><span class="tag">data-science</span><span class="tag">software-engineering</span><span class="tag">github-actions</span><span class="tag">visualization</span><span class="tag">d3js</span></div></div><span class="pf-v6-c-simple-list__item-date">2026-06-25</span></a></li><li class="pf-v6-c-simple-list__item"><a class="pf-v6-c-simple-list__item-link" href="../blogs/google-search-console-best-practices/"><div class="pf-v6-c-simple-list__item-content"><span class="pf-v6-c-simple-list__item-title">Google Search Console &amp; AI Search Best Practices for Developers</span><div class="project-tags"><span class="tag">seo</span><span class="tag">google-search-console</span><span class="tag">webdev</span><span class="tag">troubleshooting</span><span class="tag">ai-search</span></div></div><span class="pf-v6-c-simple-list__item-date">2026-06-22</span></a></li><li class="pf-v6-c-simple-list__item"><a class="pf-v6-c-simple-list__item-link" href="../blogs/seo-geo-aeo-guide/"><div class="pf-v6-c-simple-list__item-content"><span class="pf-v6-c-simple-list__item-title">Implementing SEO, AEO, and GEO in a Developer Portfolio</span><div class="project-tags"><span class="tag">seo</span><span class="tag">webdev</span><span class="tag">ai</span><span class="tag">tutorial</span></div></div><span class="pf-v6-c-simple-list__item-date">2026-06-20</span></a></li><li class="pf-v6-c-simple-list__item"><a class="pf-v6-c-simple-list__item-link" href="../blogs/simpsons-paradox-how-averages-deceive-us/"><div class="pf-v6-c-simple-list__item-content"><span class="pf-v6-c-simple-list__item-title">How Averages Deceive Us: The Math and Meaning of Simpson's Paradox</span><div class="project-tags"><span class="tag">data-science</span><span class="tag">statistics</span><span class="tag">math</span><span class="tag">analysis</span><span class="tag">simpsons-paradox</span></div></div><span class="pf-v6-c-simple-list__item-date">2025-10-18</span></a></li>
+                    </ul></div></section></article>
 </div>
 </main>
 <!-- FOOTER -->
@@ -300,3 +316,9 @@
 </footer>
 </body>
 </html>
+
+
+
+
+
+
