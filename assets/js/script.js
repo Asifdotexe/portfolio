@@ -193,16 +193,38 @@ document.addEventListener('DOMContentLoaded', () => {
         return response.json();
       })
       .then(data => {
+        const counts = { all: data.length };
         data.forEach((event, index) => {
           const item = document.createElement('li');
           item.className = 'event-post-item active fade-in-up';
           item.style.animationDelay = `${index * 0.1}s`;
           item.setAttribute("data-filter-item", "");
-          item.setAttribute("data-category", event.type ? event.type.toLowerCase() : "organized");
+          const cat = event.type ? event.type.toLowerCase() : "organized";
+          item.setAttribute("data-category", cat);
+          counts[cat] = (counts[cat] || 0) + 1;
+          
           item.innerHTML = `<a href="${event.url}"><figure class="event-banner-box"><img src="${event.image}" alt="${event.title}" loading="lazy"></figure><div class="event-content"><div class="event-meta"><p class="event-category">${event.category}</p><span class="dot"></span><time datetime="${event.date}">${event.formattedDate}</time></div><h3 class="h3 event-item-title">${event.title}</h3><p class="event-text">${event.description}</p></div></a>`;
           eventsList.appendChild(item);
         });
         
+        const filterBtns = document.querySelectorAll("[data-filter-btn]");
+        filterBtns.forEach(btn => {
+          let baseText = btn.childNodes[0].nodeValue.trim();
+          const cat = baseText.toLowerCase();
+          if (counts[cat] !== undefined) {
+            btn.innerHTML = `${baseText} <span class="count-pill">${counts[cat]}</span>`;
+          }
+        });
+
+        const selectItems = document.querySelectorAll("[data-select-item]");
+        selectItems.forEach(item => {
+          let baseText = item.childNodes[0].nodeValue.trim();
+          const cat = baseText.toLowerCase();
+          if (counts[cat] !== undefined) {
+            item.innerHTML = `${baseText} <span class="count-pill">${counts[cat]}</span>`;
+          }
+        });
+
         initializeProjectFilter();
 
         // Initialize tilt after DOM injection
@@ -317,13 +339,17 @@ document.addEventListener('DOMContentLoaded', () => {
           ? '<p class="project-category">Last updated: ' + timeAgo(project.updated_at) + '</p>'
           : "";
 
+        const isLight = document.body.getAttribute("data-theme") === "light";
+        const lightImage = project.image.replace('.webp', '_light.webp');
+        const currentImage = isLight ? lightImage : project.image;
+
         li.innerHTML = `
                 <a href="${project.url}" target="_blank" rel="noopener noreferrer" style="display: block; height: 100%;">
                     <figure class="project-img">
                         <div class="project-item-icon-box">
                             <ion-icon name="eye-outline"></ion-icon>
                         </div>
-                        <img src="${project.image}" alt="${project.alt}" loading="lazy">
+                        <img src="${currentImage}" data-dark-src="${project.image}" data-light-src="${lightImage}" class="theme-aware-img" alt="${project.alt}" loading="lazy">
                     </figure>
                     <div class="project-info">
                         <h3 class="project-title">${project.title}</h3>
@@ -348,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let baseText = btn.innerText.replace(/\s*\(\d+\)$/, '').trim();
         const cat = baseText.toLowerCase();
         if (counts[cat] !== undefined) {
-          btn.innerHTML = `${baseText}&nbsp;(${counts[cat]})`;
+          btn.innerHTML = `${baseText} <span class="count-pill">${counts[cat]}</span>`;
         }
       });
       
@@ -357,7 +383,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let baseText = item.innerText.replace(/\s*\(\d+\)$/, '').trim();
         const cat = baseText.toLowerCase();
         if (counts[cat] !== undefined) {
-          item.innerHTML = `${baseText}&nbsp;(${counts[cat]})`;
+          item.innerHTML = `${baseText} <span class="count-pill">${counts[cat]}</span>`;
         }
       });
 
@@ -395,8 +421,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lastClickedBtn) {
       for (let i = 0; i < filterBtns.length; i++) {
         filterBtns[i].addEventListener("click", function () {
-          let selectedValue = this.innerText.replace(/\s*\(\d+\)$/, '').toLowerCase().trim();
-          if (selectValue) selectValue.innerText = this.innerText;
+          let selectedValue = this.childNodes[0].nodeValue.trim().toLowerCase();
+          if (selectValue) selectValue.innerHTML = this.innerHTML;
           filterFunc(selectedValue);
 
           lastClickedBtn.classList.remove("active");
@@ -411,9 +437,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       for (let i = 0; i < selectItems.length; i++) {
         selectItems[i].addEventListener("click", function () {
-          let selectedCat = this.innerText.replace(/\s*\(\d+\)$/, '').toLowerCase().trim();
+          let selectedCat = this.childNodes[0].nodeValue.trim().toLowerCase();
           if (selectValue) {
-            selectValue.innerText = this.innerText;
+            selectValue.innerHTML = this.innerHTML;
           }
           elementToggleFunc(select);
           filterFunc(selectedCat);
@@ -451,9 +477,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isLight) {
           document.body.removeAttribute("data-theme");
           localStorage.setItem("theme", "dark");
+          document.querySelectorAll('.theme-aware-img').forEach(img => {
+            if (img.hasAttribute('data-dark-src')) img.src = img.getAttribute('data-dark-src');
+          });
         } else {
           document.body.setAttribute("data-theme", "light");
           localStorage.setItem("theme", "light");
+          document.querySelectorAll('.theme-aware-img').forEach(img => {
+            if (img.hasAttribute('data-light-src')) img.src = img.getAttribute('data-light-src');
+          });
         }
       });
     });
@@ -505,20 +537,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
   
         el.innerHTML = `
-          <ol class="timeline-list">
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">
-                  <a href="${repoUrl}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">${repoName}</a>
+          <div style="background: var(--eerie-black-2); border: 1px solid var(--jet); border-radius: 14px; padding: 20px; box-shadow: var(--shadow-2); transition: var(--transition-1);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+              <h4 class="h4" style="margin: 0;">
+                <a href="${repoUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--white-2); text-decoration: none; transition: var(--transition-1);">${repoName}</a>
               </h4>
-              <span>${commitDate}</span>
-              <p class="timeline-text" style="margin-top: 10px;">
-                  <a href="${commitUrl}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; display: flex; align-items: flex-start; gap: 8px;">
-                      <ion-icon name="git-commit-outline" style="margin-top: 3px; color: var(--vibrant-green); flex-shrink: 0;"></ion-icon>
-                      <span>${commitMsg}</span>
-                  </a>
-              </p>
-            </li>
-          </ol>
+              <time style="color: var(--light-gray-70); font-size: var(--fs-6); display: flex; align-items: center; gap: 5px;">
+                <ion-icon name="time-outline"></ion-icon>${commitDate}
+              </time>
+            </div>
+            <p class="timeline-text" style="margin: 0; padding: 0;">
+              <a href="${commitUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--light-gray); text-decoration: none; display: flex; align-items: flex-start; gap: 8px;">
+                <ion-icon name="git-commit-outline" style="margin-top: 3px; color: var(--vibrant-green); flex-shrink: 0;"></ion-icon>
+                <span style="transition: var(--transition-1);">${commitMsg}</span>
+              </a>
+            </p>
+          </div>
         `;
       }
   
@@ -578,18 +612,14 @@ document.addEventListener('DOMContentLoaded', () => {
         var el = document.getElementById('cwo-content');
         if (el) {
           el.innerHTML = `
-            <ol class="timeline-list">
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title" style="color: var(--light-gray);">
-                    API Rate Limit Exceeded
-                </h4>
-                <span>Just now</span>
-                <p class="timeline-text" style="margin-top: 10px; display: flex; align-items: flex-start; gap: 8px;">
-                    <ion-icon name="alert-circle-outline" style="margin-top: 3px; color: var(--light-gray); flex-shrink: 0;"></ion-icon>
-                    <span>Unable to fetch latest activity right now. Please check back later or view contributions on GitHub directly.</span>
-                </p>
-              </li>
-            </ol>
+            <div style="background: var(--eerie-black-2); border: 1px solid var(--jet); border-radius: 14px; padding: 20px; box-shadow: var(--shadow-2);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h4 class="h4" style="margin: 0; color: var(--white-2);">GitHub Activity</h4>
+              </div>
+              <p class="timeline-text" style="margin: 0; color: var(--light-gray-70);">
+                API rate limit exceeded. Please check back later.
+              </p>
+            </div>
           `;
         }
       }
