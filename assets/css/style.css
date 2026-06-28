@@ -1220,6 +1220,11 @@ main {
   font-weight: var(--fw-300);
 }
 
+.filter-select:focus-visible {
+  outline: 2px solid var(--vibrant-green);
+  outline-offset: 2px;
+}
+
 .filter-select.active .select-icon {
   transform: rotate(0.5turn);
 }
@@ -1237,6 +1242,7 @@ main {
   visibility: hidden;
   pointer-events: none;
   transition: 0.15s ease-in-out;
+  box-shadow: var(--shadow-5);
 }
 
 .filter-select.active+.select-list {
@@ -1249,16 +1255,22 @@ main {
   background: var(--eerie-black-2);
   color: var(--light-gray);
   font-size: var(--fs-6);
-  font-weight: var(--fw-300);
+  font-weight: var(--fw-500);
   text-transform: capitalize;
   width: 100%;
-  padding: 8px 10px;
+  padding: 10px;
   border-radius: 8px;
+  transition: var(--transition-1);
 }
 
-
 .select-item button:hover {
-  --eerie-black-2: hsl(240, 2%, 20%);
+  color: var(--white-1);
+  background: var(--onyx);
+}
+
+.select-item button:focus-visible {
+  outline: 2px solid var(--vibrant-green);
+  outline-offset: -2px;
 }
 
 .project-list {
@@ -1390,27 +1402,27 @@ main {
   font-weight: var(--fw-300);
 }
 
-/* Certificates */
-/* Certificates Section Styles */
-.certificates-grid {
+/* Certifications */
+/* Certifications Section Styles */
+.certifications-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
   padding: 20px 0;
 }
 
-.certificate-item {
+.certification-item {
   display: flex;
   flex-direction: column;
   gap: 16px;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.certificate-item:hover {
+.certification-item:hover {
   transform: translateY(-4px);
 }
 
-.certificate-item img {
+.certification-item img {
   width: 100%;
   border-radius: 12px;
   box-shadow: var(--shadow-2);
@@ -1419,36 +1431,36 @@ main {
   transition: var(--transition-1);
 }
 
-.certificate-item:hover img {
+.certification-item:hover img {
   border-color: var(--vibrant-green);
   box-shadow: 0 8px 24px hsla(160, 100%, 40%, 0.15);
 }
 
-.certificate-content {
+.certification-content {
   display: flex;
   flex-direction: column;
   gap: 6px;
   padding: 0 4px;
 }
 
-.certificate-title {
+.certification-title {
   color: var(--white-2);
   margin-bottom: 5px;
 }
 
-.certificate-issuer {
+.certification-issuer {
   color: var(--light-gray);
   font-size: var(--fs-6);
   margin-bottom: 5px;
 }
 
-.certificate-date {
+.certification-date {
   color: var(--light-gray-70);
   font-size: var(--fs-7);
 }
 
 @media (min-width: 1024px) {
-  .certificates-grid {
+  .certifications-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -2273,23 +2285,40 @@ textarea.form-input::-webkit-resizer {
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-    gap: 25px;
-    padding-left: 5px;
-    margin-bottom: 30px;
+    gap: 8px;
+    margin-bottom: 32px;
+    background: var(--eerie-black-2);
+    padding: 8px;
+    border-radius: 16px;
+    border: 1px solid var(--jet);
+    width: fit-content;
+    box-shadow: var(--shadow-1);
   }
 
   .filter-item button {
     color: var(--light-gray);
-    font-size: var(--fs-5);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-500);
+    padding: 8px 18px;
+    border-radius: 10px;
     transition: var(--transition-1);
+    background: transparent;
   }
 
   .filter-item button:hover {
-    color: var(--light-gray-70);
+    color: var(--white-1);
+    background: var(--onyx);
+  }
+
+  .filter-item button:focus-visible {
+    outline: 2px solid var(--vibrant-green);
+    outline-offset: 2px;
   }
 
   .filter-item button.active {
     color: var(--vibrant-green);
+    background: var(--jet);
+    box-shadow: 0 4px 10px hsla(0, 0%, 0%, 0.15);
   }
 
   /* portfolio and blog grid */

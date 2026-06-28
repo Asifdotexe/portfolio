@@ -87,7 +87,7 @@ const initTypewriter = () => {
 };
 
 const initTiltEffect = () => {
-  const cards = document.querySelectorAll('.project-item, .certificate-item, .events-post-item');
+  const cards = document.querySelectorAll('.project-item, .certification-item, .events-post-item');
 
   cards.forEach(card => {
     // Add base style class
@@ -211,29 +211,29 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(error => console.error('Error fetching events data:', error));
   };
 
-  // Dynamically populate certificates section
+  // Dynamically populate certifications section
   
 
-  const populateCertificates = () => {
-    const certificatesGrid = document.getElementById('certificates-grid');
-    if (!certificatesGrid) return;
+  const populateCertifications = () => {
+    const certificationsGrid = document.getElementById('certifications-grid');
+    if (!certificationsGrid) return;
 
-    showSkeleton('certificates-grid', 6, '200px');
+    showSkeleton('certifications-grid', 6, '200px');
 
-    fetch('/assets/data/certificates.json')
+    fetch('/assets/data/certifications.json')
       .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching certificates.json`);
+        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching certifications.json`);
         return response.json();
       })
       .then(data => {
-        certificatesGrid.innerHTML = ''; // Clear skeletons
+        certificationsGrid.innerHTML = ''; // Clear skeletons
         data.forEach((cert, index) => {
-          const certificateItem = document.createElement('div');
-          certificateItem.className = 'certificate-item fade-in-up';
-          certificateItem.style.animationDelay = `${index * 0.05}s`; // Faster stagger
+          const certificationItem = document.createElement('div');
+          certificationItem.className = 'certification-item fade-in-up';
+          certificationItem.style.animationDelay = `${index * 0.05}s`; // Faster stagger
 
           // Removed style="display:block; height:100%;" from anchor to fix text offset issue
-          certificateItem.innerHTML = `
+          certificationItem.innerHTML = `
             <a href="${cert.url}" target="_blank" rel="noopener noreferrer">
               <img
                 src="${cert.image}"
@@ -241,18 +241,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 loading="lazy"
               >
             </a>
-            <div class="certificate-content">
-              <h3 class="h4 certificate-title">${cert.title}</h3>
-              <p class="certificate-issuer">${cert.issuer}</p>
-              <time class="certificate-date">${cert.date}</time>
+            <div class="certification-content">
+              <h3 class="h4 certification-title">${cert.title}</h3>
+              <p class="certification-issuer">${cert.issuer}</p>
+              <time class="certification-date">${cert.date}</time>
             </div>
           `;
 
-          certificatesGrid.appendChild(certificateItem);
+          certificationsGrid.appendChild(certificationItem);
         });
         setTimeout(initTiltEffect, 500);
       })
-      .catch(error => console.error('Error fetching certificates data:', error));
+      .catch(error => console.error('Error fetching certifications data:', error));
   };
 
   // Helper function to calculate relative time
@@ -428,7 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
   populateExperience();
   populateEvents();
 
-  populateCertificates();
+  populateCertifications();
   populateProjects();
 
   // Update footer year dynamically
@@ -505,20 +505,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
   
         el.innerHTML = `
-          <div style="background: var(--eerie-black-2); border: 1px solid var(--jet); border-radius: 14px; padding: 20px; box-shadow: var(--shadow-2); transition: var(--transition-1);">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
-                  <h4 class="h4" style="margin: 0;"><a href="${repoUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--white-2); text-decoration: none; transition: var(--transition-1);">${repoName}</a></h4>
-                  <time style="color: var(--light-gray-70); font-size: var(--fs-6); display: flex; align-items: center; gap: 5px;">
-                      <ion-icon name="time-outline"></ion-icon> ${commitDate}
-                  </time>
-              </div>
-              <p class="timeline-text" style="margin: 0; padding: 0;">
-                  <a href="${commitUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--light-gray); text-decoration: none; display: flex; align-items: flex-start; gap: 8px;">
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">
+                  <a href="${repoUrl}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">${repoName}</a>
+              </h4>
+              <span>${commitDate}</span>
+              <p class="timeline-text" style="margin-top: 10px;">
+                  <a href="${commitUrl}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; display: flex; align-items: flex-start; gap: 8px;">
                       <ion-icon name="git-commit-outline" style="margin-top: 3px; color: var(--vibrant-green); flex-shrink: 0;"></ion-icon>
-                      <span style="transition: var(--transition-1);">${commitMsg}</span>
+                      <span>${commitMsg}</span>
                   </a>
               </p>
-          </div>
+            </li>
+          </ol>
         `;
       }
   
@@ -574,18 +574,23 @@ document.addEventListener('DOMContentLoaded', () => {
         renderRepoCard(repo, commit);
   
       } catch (e) {
-        console.warn("GitHub API rate limit reached or error occurred. Hiding section.", e);
+        console.warn("GitHub API rate limit reached or error occurred. Showing fallback.", e);
         var el = document.getElementById('cwo-content');
         if (el) {
-          var section = el.closest('.cwo-section');
-          if (section) {
-            section.style.display = 'none';
-            if (section.previousElementSibling && section.previousElementSibling.tagName === 'HR') {
-              section.previousElementSibling.style.display = 'none';
-            }
-          } else {
-            el.style.display = 'none';
-          }
+          el.innerHTML = `
+            <ol class="timeline-list">
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title" style="color: var(--light-gray);">
+                    API Rate Limit Exceeded
+                </h4>
+                <span>Just now</span>
+                <p class="timeline-text" style="margin-top: 10px; display: flex; align-items: flex-start; gap: 8px;">
+                    <ion-icon name="alert-circle-outline" style="margin-top: 3px; color: var(--light-gray); flex-shrink: 0;"></ion-icon>
+                    <span>Unable to fetch latest activity right now. Please check back later or view contributions on GitHub directly.</span>
+                </p>
+              </li>
+            </ol>
+          `;
         }
       }
   })();
