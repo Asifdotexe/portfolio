@@ -514,18 +514,20 @@ main {
   top: -15px;
   right: -15px;
   display: flex;
-  gap: 1px;
-  padding: 1px;
+  gap: 6px;
+  padding: 6px;
   border-radius: 0 19px 0 15px;
-  background: var(--border-gradient-onyx);
-  box-shadow: var(--shadow-2);
+  background: var(--smoky-black);
+  border-bottom: 1px solid var(--jet);
+  border-left: 1px solid var(--jet);
+  box-shadow: inset 0 -2px 6px hsla(0, 0%, 0%, 0.4);
   z-index: 1;
 }
 
 .sidebar-actions button {
   position: relative;
-  background: var(--bg-gradient-jet);
-  color: var(--vibrant-green);
+  background: transparent;
+  color: var(--light-gray-70);
   font-size: 15px;
   width: 38px;
   height: 38px;
@@ -534,22 +536,26 @@ main {
   align-items: center;
   justify-content: center;
   gap: 5px;
-  transition: var(--transition-1);
-  border: none;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
 .sidebar-actions button:hover,
 .sidebar-actions button:focus {
-  background: var(--bg-gradient-green-2);
+  color: var(--white-1);
+  background: var(--eerie-black-1);
+  border-color: var(--jet);
+  box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.1);
 }
 
 .sidebar-actions .sidebar-theme-btn {
-  border-radius: 0 0 0 14px;
+  /* removed */
 }
 
 .sidebar-actions .info_more-btn {
-  border-radius: 0 18px 0 0;
+  /* removed */
 }
 
 .sidebar-actions .info_more-btn span {
@@ -643,23 +649,34 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 0 10px;
+  gap: 6px;
+  padding: 6px;
 }
 
 .navbar-link {
-  color: var(--light-gray);
+  color: var(--light-gray-70);
   font-size: var(--fs-8);
-  padding: 20px 7px;
-  transition: color var(--transition-1);
+  font-weight: var(--fw-500);
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar-link:hover,
 .navbar-link:focus {
-  color: var(--light-gray-70);
+  color: var(--white-1);
+  background: var(--eerie-black-1);
+  border-color: var(--jet);
+  box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.1);
 }
 
 .navbar-link.active {
   color: var(--vibrant-green);
+  background: var(--eerie-black-2);
+  border-color: var(--onyx);
+  box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.2), inset 0 1px 0 hsla(0, 0%, 100%, 0.05);
 }
 
 
@@ -878,32 +895,22 @@ main {
 }
 
 .form-btn {
-  position: relative;
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 10px;
-  padding: 10px 20px;
-  background: var(--border-gradient-onyx);
-  /* Or any custom color */
-  color: white;
-  /* Set font color to white */
+  padding: 13px 20px;
+  background: var(--smoky-black);
+  color: var(--light-gray-70);
+  border: 1px solid var(--jet);
   border-radius: 14px;
   font-size: var(--fs-6);
+  font-weight: var(--fw-500);
   text-transform: capitalize;
   text-decoration: none;
-  box-shadow: var(--shadow-3);
-  transition: var(--transition-1);
+  box-shadow: inset 0 2px 6px hsla(0, 0%, 0%, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-}
-
-.form-btn::before {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  background: var(--bg-gradient-jet);
-  border-radius: inherit;
-  z-index: -1;
-  transition: var(--transition-1);
 }
 
 .form-btn ion-icon {
@@ -911,11 +918,10 @@ main {
 }
 
 .form-btn:hover {
-  background: var(--bg-gradient-green-1);
-}
-
-.form-btn:hover::before {
-  background: var(--bg-gradient-green-2);
+  color: var(--white-1);
+  background: var(--eerie-black-1);
+  border-color: var(--jet);
+  box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.1);
 }
 
 .modal-container.active .testimonials-modal {
@@ -927,21 +933,26 @@ main {
   position: absolute;
   top: 15px;
   right: 15px;
-  background: var(--onyx);
-  border-radius: 8px;
+  background: var(--smoky-black);
+  border: 1px solid var(--jet);
+  border-radius: 10px;
   width: 32px;
   height: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--white-2);
+  color: var(--light-gray-70);
   font-size: 18px;
-  opacity: 0.7;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
 
 .modal-close-btn:hover,
 .modal-close-btn:focus {
-  opacity: 1;
+  color: var(--white-1);
+  background: var(--eerie-black-1);
+  border-color: var(--jet);
+  box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.1);
 }
 
 .modal-close-btn ion-icon {
@@ -1220,6 +1231,11 @@ main {
   font-weight: var(--fw-300);
 }
 
+.filter-select:focus-visible {
+  outline: 2px solid var(--vibrant-green);
+  outline-offset: 2px;
+}
+
 .filter-select.active .select-icon {
   transform: rotate(0.5turn);
 }
@@ -1237,6 +1253,7 @@ main {
   visibility: hidden;
   pointer-events: none;
   transition: 0.15s ease-in-out;
+  box-shadow: var(--shadow-5);
 }
 
 .filter-select.active+.select-list {
@@ -1249,16 +1266,44 @@ main {
   background: var(--eerie-black-2);
   color: var(--light-gray);
   font-size: var(--fs-6);
-  font-weight: var(--fw-300);
+  font-weight: var(--fw-500);
   text-transform: capitalize;
   width: 100%;
-  padding: 8px 10px;
+  padding: 10px;
   border-radius: 8px;
+  transition: var(--transition-1);
 }
 
-
 .select-item button:hover {
-  --eerie-black-2: hsl(240, 2%, 20%);
+  color: var(--white-1);
+  background: var(--onyx);
+}
+
+.count-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--eerie-black-2);
+  color: var(--light-gray-70);
+  font-size: var(--fs-8);
+  font-family: var(--ff-mono);
+  font-weight: var(--fw-500);
+  padding: 3px 8px;
+  border-radius: 12px;
+  margin-left: 8px;
+  line-height: 1;
+  transition: var(--transition-1);
+}
+
+.filter-select:hover .count-pill,
+.select-item button:hover .count-pill {
+  background: var(--onyx);
+  color: var(--white-1);
+}
+
+.select-item button:focus-visible {
+  outline: 2px solid var(--vibrant-green);
+  outline-offset: -2px;
 }
 
 .project-list {
@@ -1390,27 +1435,27 @@ main {
   font-weight: var(--fw-300);
 }
 
-/* Certificates */
-/* Certificates Section Styles */
-.certificates-grid {
+/* Certifications */
+/* Certifications Section Styles */
+.certifications-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
   padding: 20px 0;
 }
 
-.certificate-item {
+.certification-item {
   display: flex;
   flex-direction: column;
   gap: 16px;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.certificate-item:hover {
+.certification-item:hover {
   transform: translateY(-4px);
 }
 
-.certificate-item img {
+.certification-item img {
   width: 100%;
   border-radius: 12px;
   box-shadow: var(--shadow-2);
@@ -1419,36 +1464,36 @@ main {
   transition: var(--transition-1);
 }
 
-.certificate-item:hover img {
+.certification-item:hover img {
   border-color: var(--vibrant-green);
   box-shadow: 0 8px 24px hsla(160, 100%, 40%, 0.15);
 }
 
-.certificate-content {
+.certification-content {
   display: flex;
   flex-direction: column;
   gap: 6px;
   padding: 0 4px;
 }
 
-.certificate-title {
+.certification-title {
   color: var(--white-2);
   margin-bottom: 5px;
 }
 
-.certificate-issuer {
+.certification-issuer {
   color: var(--light-gray);
   font-size: var(--fs-6);
   margin-bottom: 5px;
 }
 
-.certificate-date {
+.certification-date {
   color: var(--light-gray-70);
   font-size: var(--fs-7);
 }
 
 @media (min-width: 1024px) {
-  .certificates-grid {
+  .certifications-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -1740,31 +1785,23 @@ textarea.form-input::-webkit-resizer {
 }
 
 .form-btn {
-  position: relative;
   width: 100%;
-  background: var(--border-gradient-onyx);
-  color: var(--vibrant-green);
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
   padding: 13px 20px;
+  background: var(--smoky-black);
+  color: var(--light-gray-70);
+  border: 1px solid var(--jet);
   border-radius: 14px;
   font-size: var(--fs-6);
+  font-weight: var(--fw-500);
   text-transform: capitalize;
-  box-shadow: var(--shadow-3);
-  z-index: 1;
-  transition: var(--transition-1);
-}
-
-.form-btn::before {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  background: var(--bg-gradient-jet);
-  border-radius: inherit;
-  z-index: -1;
-  transition: var(--transition-1);
+  text-decoration: none;
+  box-shadow: inset 0 2px 6px hsla(0, 0%, 0%, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
 
 .form-btn ion-icon {
@@ -1772,24 +1809,26 @@ textarea.form-input::-webkit-resizer {
 }
 
 .form-btn:hover {
-  background: var(--bg-gradient-green-1);
-}
-
-.form-btn:hover::before {
-  background: var(--bg-gradient-green-2);
+  color: var(--white-1);
+  background: var(--eerie-black-1);
+  border-color: var(--jet);
+  box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.1);
 }
 
 .form-btn:disabled {
   opacity: 0.7;
   cursor: not-allowed;
+  background: var(--smoky-black);
+  border-color: var(--jet);
+  color: var(--light-gray-70);
+  box-shadow: inset 0 2px 6px hsla(0, 0%, 0%, 0.4);
 }
 
 .form-btn:disabled:hover {
-  background: var(--border-gradient-onyx);
-}
-
-.form-btn:disabled:hover::before {
-  background: var(--bg-gradient-jet);
+  color: var(--light-gray-70);
+  background: var(--smoky-black);
+  border-color: var(--jet);
+  box-shadow: inset 0 2px 6px hsla(0, 0%, 0%, 0.4);
 }
 
 
@@ -2273,23 +2312,56 @@ textarea.form-input::-webkit-resizer {
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-    gap: 25px;
-    padding-left: 5px;
-    margin-bottom: 30px;
+    gap: 6px;
+    margin-bottom: 35px;
+    background: var(--smoky-black);
+    padding: 6px;
+    border-radius: 14px;
+    border: 1px solid var(--jet);
+    width: fit-content;
+    box-shadow: inset 0 2px 6px hsla(0, 0%, 0%, 0.4);
   }
 
   .filter-item button {
-    color: var(--light-gray);
-    font-size: var(--fs-5);
-    transition: var(--transition-1);
+    display: flex;
+    align-items: center;
+    color: var(--light-gray-70);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-500);
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+    border: 1px solid transparent;
   }
 
   .filter-item button:hover {
-    color: var(--light-gray-70);
+    color: var(--white-1);
+    background: var(--eerie-black-1);
+    border-color: var(--jet);
+    box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.1);
+  }
+
+  .filter-item button:focus-visible {
+    outline: 2px solid var(--vibrant-green);
+    outline-offset: 2px;
   }
 
   .filter-item button.active {
     color: var(--vibrant-green);
+    background: var(--eerie-black-2);
+    border-color: var(--onyx);
+    box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.2), inset 0 1px 0 hsla(0, 0%, 100%, 0.05);
+  }
+
+  .filter-item button:hover .count-pill {
+    background: var(--jet);
+    color: var(--white-1);
+  }
+
+  .filter-item button.active .count-pill {
+    background: var(--jet);
+    color: var(--white-1);
   }
 
   /* portfolio and blog grid */
@@ -2365,14 +2437,16 @@ textarea.form-input::-webkit-resizer {
     left: auto;
     right: 0;
     width: max-content;
-    border-radius: 0 20px;
-    padding: 0 20px;
-    box-shadow: none;
+    border-radius: 0 20px 0 20px;
+    padding: 6px;
+    background: var(--smoky-black);
+    border: 1px solid var(--jet);
+    box-shadow: inset 0 2px 6px hsla(0, 0%, 0%, 0.4);
   }
 
   .navbar-list {
-    gap: 30px;
-    padding: 0 20px;
+    gap: 8px;
+    padding: 0;
   }
 
   .navbar-link {
