@@ -491,34 +491,41 @@ document.addEventListener('DOMContentLoaded', () => {
   // Theme Toggle Logic
   const themeBtns = document.querySelectorAll("[data-theme-btn]");
   if (themeBtns.length > 0) {
+    const applyTheme = (theme) => {
+      const isLight = theme === "light";
+      if (isLight) {
+        document.body.setAttribute("data-theme", "light");
+      } else {
+        document.body.removeAttribute("data-theme");
+      }
+      localStorage.setItem("theme", theme);
+      themeBtns.forEach(btn => btn.setAttribute("aria-pressed", isLight));
+      
+      document.querySelectorAll('.theme-aware-img').forEach(img => {
+        if (isLight && img.hasAttribute('data-light-src')) {
+          img.src = img.getAttribute('data-light-src');
+        } else if (!isLight && img.hasAttribute('data-dark-src')) {
+          img.src = img.getAttribute('data-dark-src');
+        }
+      });
+    };
+
     const currentTheme = localStorage.getItem("theme") || "dark";
-    if (currentTheme === "light") {
-      document.body.setAttribute("data-theme", "light");
-    }
+    applyTheme(currentTheme);
     
     themeBtns.forEach(btn => {
       btn.addEventListener("click", function () {
         const isLight = document.body.getAttribute("data-theme") === "light";
-        if (isLight) {
-          document.body.removeAttribute("data-theme");
-          localStorage.setItem("theme", "dark");
-          document.querySelectorAll('.theme-aware-img').forEach(img => {
-            if (img.hasAttribute('data-dark-src')) img.src = img.getAttribute('data-dark-src');
-          });
-        } else {
-          document.body.setAttribute("data-theme", "light");
-          localStorage.setItem("theme", "light");
-          document.querySelectorAll('.theme-aware-img').forEach(img => {
-            if (img.hasAttribute('data-light-src')) img.src = img.getAttribute('data-light-src');
-          });
-        }
+        applyTheme(isLight ? "dark" : "light");
       });
     });
   }
 
   // Keyboard Accelerators
   document.addEventListener("keydown", function(e) {
-    if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+    const tag = e.target.tagName;
+    const isEditable = e.target.isContentEditable;
+    if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || tag === "BUTTON" || tag === "A" || isEditable) return;
     
     // Theme toggle (M)
     if ((e.key === "m" || e.key === "M") && !e.ctrlKey && !e.metaKey) {
