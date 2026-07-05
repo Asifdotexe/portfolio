@@ -162,6 +162,29 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(error => console.error('Error fetching education data:', error));
   };
 
+  const escapeHTML = (str) => {
+    if (!str) return '';
+    return String(str).replace(/[&<>'"]/g, 
+      tag => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+      }[tag] || tag)
+    );
+  };
+
+  const safeUrl = (url) => {
+    try {
+      const parsed = new URL(url, window.location.origin);
+      if (parsed.protocol === 'http:' || parsed.protocol === 'https:') return parsed.href;
+    } catch (e) {
+      // ignore
+    }
+    return '#';
+  };
+
   // Function to populate the Experience section
   const populateExperience = () => {
     const experienceList = document.getElementById('experience-list');
@@ -203,7 +226,9 @@ document.addEventListener('DOMContentLoaded', () => {
           item.setAttribute("data-category", cat);
           counts[cat] = (counts[cat] || 0) + 1;
           
-          item.innerHTML = `<a href="${event.url}"><figure class="event-banner-box"><img src="${event.image}" alt="${event.title}" loading="lazy"></figure><div class="event-content"><div class="event-meta"><p class="event-category">${event.category}</p><span class="dot"></span><time datetime="${event.date}">${event.formattedDate}</time></div><h3 class="h3 event-item-title">${event.title}</h3><p class="event-text">${event.description}</p></div></a>`;
+          const sUrl = safeUrl(event.url);
+          const sImage = safeUrl(event.image);
+          item.innerHTML = `<a href="${sUrl}"><figure class="event-banner-box"><img src="${sImage}" alt="${escapeHTML(event.title)}" loading="lazy"></figure><div class="event-content"><div class="event-meta"><p class="event-category">${escapeHTML(event.category)}</p><span class="dot"></span><time datetime="${escapeHTML(event.date)}">${escapeHTML(event.formattedDate)}</time></div><h3 class="h3 event-item-title">${escapeHTML(event.title)}</h3><p class="event-text">${escapeHTML(event.description)}</p></div></a>`;
           eventsList.appendChild(item);
         });
         
@@ -256,17 +281,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
           // Removed style="display:block; height:100%;" from anchor to fix text offset issue
           certificationItem.innerHTML = `
-            <a href="${cert.url}" target="_blank" rel="noopener noreferrer">
+            <a href="${safeUrl(cert.url)}" target="_blank" rel="noopener noreferrer">
               <img
-                src="${cert.image}"
-                alt="${cert.title}"
+                src="${safeUrl(cert.image)}"
+                alt="${escapeHTML(cert.title)}"
                 loading="lazy"
               >
             </a>
             <div class="certification-content">
-              <h3 class="h4 certification-title">${cert.title}</h3>
-              <p class="certification-issuer">${cert.issuer}</p>
-              <time class="certification-date">${cert.date}</time>
+              <h3 class="h4 certification-title">${escapeHTML(cert.title)}</h3>
+              <p class="certification-issuer">${escapeHTML(cert.issuer)}</p>
+              <time class="certification-date">${escapeHTML(cert.date)}</time>
             </div>
           `;
 
@@ -528,13 +553,13 @@ document.addEventListener('DOMContentLoaded', () => {
         var el = document.getElementById('cwo-content');
         if (!el) return;
         
-        var repoUrl = repo.html_url;
-        var repoName = repo.name;
-        var commitMsg = commit.commit.message.split('\n')[0];
-        var commitUrl = commit.html_url;
-        var commitDate = new Date(commit.commit.author.date).toLocaleDateString(undefined, {
+        var repoUrl = safeUrl(repo.html_url);
+        var repoName = escapeHTML(repo.name);
+        var commitMsg = escapeHTML(commit.commit.message.split('\n')[0]);
+        var commitUrl = safeUrl(commit.html_url);
+        var commitDate = escapeHTML(new Date(commit.commit.author.date).toLocaleDateString(undefined, {
           year: 'numeric', month: 'short', day: 'numeric'
-        });
+        }));
   
         el.innerHTML = `
           <div style="background: var(--eerie-black-2); border: 1px solid var(--jet); border-radius: 14px; padding: 20px; box-shadow: var(--shadow-2); transition: var(--transition-1);">

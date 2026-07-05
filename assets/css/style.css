@@ -1784,7 +1784,7 @@ textarea.form-input::-webkit-resizer {
   border-color: var(--bittersweet-shimmer);
 }
 
-.form-btn {
+.contact-form .form-btn {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -1804,18 +1804,18 @@ textarea.form-input::-webkit-resizer {
   cursor: pointer;
 }
 
-.form-btn ion-icon {
+.contact-form .form-btn ion-icon {
   font-size: 16px;
 }
 
-.form-btn:hover {
+.contact-form .form-btn:hover {
   color: var(--white-1);
   background: var(--eerie-black-1);
   border-color: var(--jet);
   box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.1);
 }
 
-.form-btn:disabled {
+.contact-form .form-btn:disabled {
   opacity: 0.7;
   cursor: not-allowed;
   background: var(--smoky-black);
@@ -1824,7 +1824,7 @@ textarea.form-input::-webkit-resizer {
   box-shadow: inset 0 2px 6px hsla(0, 0%, 0%, 0.4);
 }
 
-.form-btn:disabled:hover {
+.contact-form .form-btn:disabled:hover {
   color: var(--light-gray-70);
   background: var(--smoky-black);
   border-color: var(--jet);
