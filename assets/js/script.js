@@ -560,13 +560,20 @@ document.addEventListener('DOMContentLoaded', () => {
         var el = document.getElementById('cwo-content');
         if (!el) return;
         
-        var repoUrl = safeUrl(repo.html_url);
-        var repoName = escapeHTML(repo.name);
-        var commitMsg = escapeHTML(commit.commit.message.split('\n')[0]);
-        var commitUrl = safeUrl(commit.html_url);
-        var commitDate = escapeHTML(new Date(commit.commit.author.date).toLocaleDateString(undefined, {
-          year: 'numeric', month: 'short', day: 'numeric'
-        }));
+        var repoUrl = safeUrl(repo && repo.html_url);
+        var repoName = escapeHTML(repo && repo.name ? repo.name : "Unknown Repo");
+        
+        var safeCommitMsg = (commit && commit.commit && commit.commit.message) 
+            ? commit.commit.message.split('\n')[0] 
+            : "No commit message available";
+        var commitMsg = escapeHTML(safeCommitMsg);
+        
+        var commitUrl = safeUrl(commit && commit.html_url);
+        
+        var safeCommitDate = (commit && commit.commit && commit.commit.author && commit.commit.author.date)
+            ? new Date(commit.commit.author.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })
+            : "Unknown date";
+        var commitDate = escapeHTML(safeCommitDate);
   
         el.innerHTML = `
           <div style="background: var(--eerie-black-2); border: 1px solid var(--jet); border-radius: 14px; padding: 20px; box-shadow: var(--shadow-2); transition: var(--transition-1);">
