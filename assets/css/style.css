@@ -2981,3 +2981,23 @@ textarea.form-input::-webkit-resizer {
     padding-bottom: 20px !important;
   }
 }
+
+/* 404 PAGE LINK FIXES */
+.service-item.as-link {
+  cursor: pointer;
+  transition: var(--transition-1);
+}
+.service-item.as-link:hover, .service-item.as-link:focus-within {
+  border-color: var(--vibrant-green);
+}
+.service-item-anchor {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.service-item-anchor::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 10;
+}

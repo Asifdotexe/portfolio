@@ -1,55 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>How Averages Deceive Us: The Math and Meaning of Simpson's Paradox | Asif Sayyed Portfolio</title>
-<meta content="How Averages Deceive Us: The Math and Meaning of Simpson's Paradox | Asif Sayyed Portfolio" name="title"/>
-<meta content="How Simpson's Paradox works, why aggregated data can flip trends, and why subgroup analysis matters." name="description"/>
-<meta content="Asif Sayyed, Data Scientist, Python Developer, Machine Learning Engineer, AI Portfolio, NLP, Deep Learning, Cyber Risk, Marsh McLennan, Mumbai, Data Science Portfolio" name="keywords"/>
-<meta content="Asif Sayyed" name="author"/>
-<meta content="#2b2b2c" name="theme-color"/>
-<meta content="index, follow, max-snippet:-1, max-image-preview:large" name="robots"/>
-<meta content="English" name="language"/>
-<meta content="telephone=no" name="format-detection"/>
-<link href="https://sayyedasif.com/blogs/simpsons-paradox-how-averages-deceive-us/" rel="canonical"/>
-<!-- Google Search Console verification (replace YOUR_VERIFICATION_CODE after signing up at https://search.google.com/search-console) -->
-<meta content="mZ4YTDxw_emCHo0t3exypc7baNm8gDdt_ci72uqK1aY" name="google-site-verification"/>
-<!-- Open Graph (used by LinkedIn, Facebook, Discord, Slack, etc.) -->
-<meta content="website" property="og:type"/>
-<meta content="https://sayyedasif.com/blogs/simpsons-paradox-how-averages-deceive-us/" property="og:url"/>
-<meta content="How Averages Deceive Us: The Math and Meaning of Simpson's Paradox | Asif Sayyed Portfolio" property="og:title"/>
-<meta content="How Simpson's Paradox works, why aggregated data can flip trends, and why subgroup analysis matters." property="og:description"/>
-<meta content="https://sayyedasif.com/assets/images/my-memoji.webp" property="og:image"/>
-<meta content="Asif Sayyed Portfolio" property="og:site_name"/>
-<meta content="en_US" property="og:locale"/>
-<!-- Twitter Card (also used by LinkedIn and other platforms for link previews) -->
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="How Averages Deceive Us: The Math and Meaning of Simpson's Paradox | Asif Sayyed Portfolio" name="twitter:title"/>
-<meta content="How Simpson's Paradox works, why aggregated data can flip trends, and why subgroup analysis matters." name="twitter:description"/>
-<meta content="https://sayyedasif.com/assets/images/my-memoji.webp" name="twitter:image"/>
-<!-- favicon -->
-<link href="../../assets/images/icons/icon-job.svg" rel="shortcut icon" type="image/x-icon"/>
-<script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" type="module"></script>
-<script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-<!-- custom css link -->
-<link href="../../assets/css/style.css" rel="stylesheet"/>
-<!-- google font link -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" rel="stylesheet" type="text/css"/>
-<!-- preload LCP image -->
-<link as="image" href="../../assets/images/my-memoji.webp" rel="preload"/>
-<!-- preload critical resources -->
-<link as="script" href="../../assets/js/script.min.js" rel="preload"/>
-<link as="fetch" crossorigin="" href="../../assets/data/projects.json" rel="preload"/>
-<link as="fetch" crossorigin="" href="../../assets/data/last_updated.json" rel="preload"/>
-<!-- custom js link -->
-<script defer="" src="../../assets/js/script.min.js"></script>
-<!-- Structured Data (JSON-LD) â€” Person -->
-<script type="application/ld+json">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>
+            How Averages Deceive Us: The Math and Meaning of Simpson's Paradox |
+            Asif Sayyed Portfolio
+        </title>
+        <meta
+            content="How Averages Deceive Us: The Math and Meaning of Simpson's Paradox | Asif Sayyed Portfolio"
+            name="title"
+        />
+        <meta
+            content="How Simpson's Paradox works, why aggregated data can flip trends, and why subgroup analysis matters."
+            name="description"
+        />
+        <meta
+            content="Asif Sayyed, Data Scientist, Python Developer, Machine Learning Engineer, AI Portfolio, NLP, Deep Learning, Cyber Risk, Marsh McLennan, Mumbai, Data Science Portfolio"
+            name="keywords"
+        />
+        <meta content="Asif Sayyed" name="author" />
+        <meta content="#2b2b2c" name="theme-color" />
+        <meta
+            content="index, follow, max-snippet:-1, max-image-preview:large"
+            name="robots"
+        />
+        <meta content="English" name="language" />
+        <meta content="telephone=no" name="format-detection" />
+        <link
+            href="https://sayyedasif.com/blogs/simpsons-paradox-how-averages-deceive-us/"
+            rel="canonical"
+        />
+        <!-- Google Search Console verification (replace YOUR_VERIFICATION_CODE after signing up at https://search.google.com/search-console) -->
+        <meta
+            content="mZ4YTDxw_emCHo0t3exypc7baNm8gDdt_ci72uqK1aY"
+            name="google-site-verification"
+        />
+        <!-- Open Graph (used by LinkedIn, Facebook, Discord, Slack, etc.) -->
+        <meta content="website" property="og:type" />
+        <meta
+            content="https://sayyedasif.com/blogs/simpsons-paradox-how-averages-deceive-us/"
+            property="og:url"
+        />
+        <meta
+            content="How Averages Deceive Us: The Math and Meaning of Simpson's Paradox | Asif Sayyed Portfolio"
+            property="og:title"
+        />
+        <meta
+            content="How Simpson's Paradox works, why aggregated data can flip trends, and why subgroup analysis matters."
+            property="og:description"
+        />
+        <meta
+            content="https://sayyedasif.com/assets/images/og/blogs/portfolio-opengraph-simpsons.webp"
+            property="og:image"
+        />
+        <meta content="Asif Sayyed Portfolio" property="og:site_name" />
+        <meta content="en_US" property="og:locale" />
+        <!-- Twitter Card (also used by LinkedIn and other platforms for link previews) -->
+        <meta content="summary_large_image" name="twitter:card" />
+        <meta
+            content="How Averages Deceive Us: The Math and Meaning of Simpson's Paradox | Asif Sayyed Portfolio"
+            name="twitter:title"
+        />
+        <meta
+            content="How Simpson's Paradox works, why aggregated data can flip trends, and why subgroup analysis matters."
+            name="twitter:description"
+        />
+        <meta
+            content="https://sayyedasif.com/assets/images/og/blogs/portfolio-opengraph-simpsons.webp"
+            name="twitter:image"
+        />
+        <!-- favicon -->
+        <link
+            href="../../assets/images/icons/icon-job.svg"
+            rel="shortcut icon"
+            type="image/x-icon"
+        />
+        <script
+            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+            type="module"
+        ></script>
+        <script
+            nomodule=""
+            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+        ></script>
+        <!-- custom css link -->
+        <link href="../../assets/css/style.css" rel="stylesheet" />
+        <!-- google font link -->
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link
+            crossorigin=""
+            href="https://fonts.gstatic.com"
+            rel="preconnect"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <!-- preload LCP image -->
+        <link
+            as="image"
+            href="../../assets/images/my-memoji.webp"
+            rel="preload"
+        />
+        <!-- preload critical resources -->
+        <link as="script" href="../../assets/js/script.min.js" rel="preload" />
+        <link
+            as="fetch"
+            crossorigin=""
+            href="../../assets/data/projects.json"
+            rel="preload"
+        />
+        <link
+            as="fetch"
+            crossorigin=""
+            href="../../assets/data/last_updated.json"
+            rel="preload"
+        />
+        <!-- custom js link -->
+        <script defer="" src="../../assets/js/script.min.js"></script>
+        <!-- Structured Data (JSON-LD) â€” Person -->
+        <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
                 "@type": "Person",
@@ -137,8 +214,8 @@
                 ]
             }
         </script>
-<!-- Structured Data (JSON-LD) â€” WebSite -->
-<script type="application/ld+json">
+        <!-- Structured Data (JSON-LD) â€” WebSite -->
+        <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
@@ -150,8 +227,8 @@
                 "inLanguage": "en-US"
             }
         </script>
-<!-- Structured Data (JSON-LD) â€” ProfilePage -->
-<script type="application/ld+json">
+        <!-- Structured Data (JSON-LD) â€” ProfilePage -->
+        <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
                 "@type": "ProfilePage",
@@ -164,9 +241,12 @@
                 "dateModified": "2026-06-22T12:00:00+05:30"
             }
         </script>
-<!-- Google Analytics (GA4) â€” https://analytics.google.com -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-52KQ8L4SQG"></script>
-<script>
+        <!-- Google Analytics (GA4) â€” https://analytics.google.com -->
+        <script
+            async=""
+            src="https://www.googletagmanager.com/gtag/js?id=G-52KQ8L4SQG"
+        ></script>
+        <script>
             window.dataLayer = window.dataLayer || [];
             function gtag() {
                 dataLayer.push(arguments);
@@ -174,273 +254,598 @@
             gtag("js", new Date());
             gtag("config", "G-52KQ8L4SQG");
         </script>
-<style>h1, h2, h3, h4, h5, h6, .title, .contact-title, .timeline-item span, .navbar-link { font-family: 'JetBrains Mono', monospace; letter-spacing: -0.02em; }</style><meta name="view-transition" content="same-origin"></head>
-<body>
-<!-- MAIN -->
-<main>
-<!-- SIDEBAR -->
-<aside class="sidebar" data-sidebar="">
-<div class="sidebar-info">
-<figure class="avatar-box">
-<img alt="Asif Sayyed" fetchpriority="high" loading="eager" src="../../assets/images/my-memoji.webp" width="80"/>
-</figure>
-<div class="info-content">
-<h1 class="name" title="Asif Sayyed - Data Scientist">
+        <style>
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            .title,
+            .contact-title,
+            .timeline-item span,
+            .navbar-link {
+                font-family: "JetBrains Mono", monospace;
+                letter-spacing: -0.02em;
+            }
+        </style>
+        <meta name="view-transition" content="same-origin" />
+    </head>
+    <body>
+        <!-- MAIN -->
+        <main>
+            <!-- SIDEBAR -->
+            <aside class="sidebar" data-sidebar="">
+                <div class="sidebar-info">
+                    <figure class="avatar-box">
+                        <img
+                            alt="Asif Sayyed"
+                            fetchpriority="high"
+                            loading="eager"
+                            src="../../assets/images/my-memoji.webp"
+                            width="80"
+                        />
+                    </figure>
+                    <div class="info-content">
+                        <h1 class="name" title="Asif Sayyed - Data Scientist">
                             Asif Sayyed
                         </h1>
-<p class="title">Data Scientist</p>
-</div>
-<div class="sidebar-actions">
-<button class="theme-btn sidebar-theme-btn" data-theme-btn aria-label="Toggle Theme">
-                        <ion-icon name="moon" class="moon-icon"></ion-icon>
-                        <ion-icon name="sunny" class="sun-icon"></ion-icon>
-                    </button>
-                    <button class="info_more-btn" data-sidebar-btn="">
-<span>Show Contacts</span>
-<ion-icon aria-hidden="true" name="chevron-down"></ion-icon>
-</button>
+                        <p class="title">Data Scientist</p>
                     </div>
-</div>
-<div class="sidebar-info_more">
-<div class="separator"></div>
-<ul class="contacts-list">
-<li class="contact-item">
-<div class="icon-box">
-<ion-icon aria-hidden="true" name="mail-outline"></ion-icon>
-</div>
-<div class="contact-info">
-<p class="contact-title">Email</p>
-<a class="contact-link" href="mailto:hello@sayyedasif.com">hello@sayyedasif.com</a>
-</div>
-</li>
-<li class="contact-item">
-<div class="icon-box">
-<ion-icon aria-hidden="true" name="location"></ion-icon>
-</div>
-<div class="contact-info">
-<p class="contact-title">Location</p>
-<address>Mumbai, Maharashtra, India</address>
-</div>
-</li>
-
+                    <div class="sidebar-actions">
+                        <button
+                            class="theme-btn sidebar-theme-btn"
+                            data-theme-btn
+                            aria-label="Toggle Theme"
+                        >
+                            <ion-icon name="moon" class="moon-icon"></ion-icon>
+                            <ion-icon name="sunny" class="sun-icon"></ion-icon>
+                        </button>
+                        <button class="info_more-btn" data-sidebar-btn="">
+                            <span>Show Contacts</span>
+                            <ion-icon
+                                aria-hidden="true"
+                                name="chevron-down"
+                            ></ion-icon>
+                        </button>
+                    </div>
+                </div>
+                <div class="sidebar-info_more">
+                    <div class="separator"></div>
+                    <ul class="contacts-list">
+                        <li class="contact-item">
+                            <div class="icon-box">
+                                <ion-icon
+                                    aria-hidden="true"
+                                    name="mail-outline"
+                                ></ion-icon>
+                            </div>
+                            <div class="contact-info">
+                                <p class="contact-title">Email</p>
+                                <a
+                                    class="contact-link"
+                                    href="mailto:hello@sayyedasif.com"
+                                    >hello@sayyedasif.com</a
+                                >
+                            </div>
+                        </li>
+                        <li class="contact-item">
+                            <div class="icon-box">
+                                <ion-icon
+                                    aria-hidden="true"
+                                    name="location"
+                                ></ion-icon>
+                            </div>
+                            <div class="contact-info">
+                                <p class="contact-title">Location</p>
+                                <address>Mumbai, Maharashtra, India</address>
+                            </div>
+                        </li>
                     </ul>
-<div class="separator"></div>
-<ul class="social-list">
-<li class="social-item">
-<a aria-label="GitHub Profile" class="social-link" href="https://github.com/Asifdotexe" rel="noopener noreferrer" target="_blank">
-<ion-icon aria-hidden="true" name="logo-github"></ion-icon>
-</a>
-</li>
-<li class="social-item">
-<a aria-label="LinkedIn Profile" class="social-link" href="https://www.linkedin.com/in/sayyedasif/" rel="noopener noreferrer" target="_blank">
-<ion-icon aria-hidden="true" name="logo-linkedin"></ion-icon>
-</a>
-</li>
-<li class="social-item">
-<a aria-label="Medium Blog" class="social-link" href="https://medium.com/@asifdotexe" rel="noopener noreferrer" target="_blank">
-<ion-icon aria-hidden="true" name="logo-medium"></ion-icon>
-</a>
-</li>
-<li class="social-item">
-<a aria-label="dev.to Profile" class="social-link" href="https://dev.to/asifdotexe" rel="noopener noreferrer" target="_blank">
-<ion-icon aria-hidden="true" name="code-slash-outline"></ion-icon>
-</a>
-</li>
-<li class="social-item">
-<a aria-label="KC7 Cyber Profile" class="social-link" href="https://kc7cyber.com/profile/asifdotexe" rel="noopener noreferrer" target="_blank">
-<ion-icon aria-hidden="true" name="shield-checkmark"></ion-icon>
-</a>
-</li>
-
+                    <div class="separator"></div>
+                    <ul class="social-list">
+                        <li class="social-item">
+                            <a
+                                aria-label="GitHub Profile"
+                                class="social-link"
+                                href="https://github.com/Asifdotexe"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                <ion-icon
+                                    aria-hidden="true"
+                                    name="logo-github"
+                                ></ion-icon>
+                            </a>
+                        </li>
+                        <li class="social-item">
+                            <a
+                                aria-label="LinkedIn Profile"
+                                class="social-link"
+                                href="https://www.linkedin.com/in/sayyedasif/"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                <ion-icon
+                                    aria-hidden="true"
+                                    name="logo-linkedin"
+                                ></ion-icon>
+                            </a>
+                        </li>
+                        <li class="social-item">
+                            <a
+                                aria-label="Medium Blog"
+                                class="social-link"
+                                href="https://medium.com/@asifdotexe"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                <ion-icon
+                                    aria-hidden="true"
+                                    name="logo-medium"
+                                ></ion-icon>
+                            </a>
+                        </li>
+                        <li class="social-item">
+                            <a
+                                aria-label="dev.to Profile"
+                                class="social-link"
+                                href="https://dev.to/asifdotexe"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                <ion-icon
+                                    aria-hidden="true"
+                                    name="code-slash-outline"
+                                ></ion-icon>
+                            </a>
+                        </li>
+                        <li class="social-item">
+                            <a
+                                aria-label="KC7 Cyber Profile"
+                                class="social-link"
+                                href="https://kc7cyber.com/profile/asifdotexe"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                <ion-icon
+                                    aria-hidden="true"
+                                    name="shield-checkmark"
+                                ></ion-icon>
+                            </a>
+                        </li>
                     </ul>
-</div>
-</aside>
-<!-- #main-content -->
-<div class="main-content">
-<!-- #NAVBAR -->
-<nav aria-label="Main navigation" class="navbar" role="navigation">
-<ul class="navbar-list">
-<li class="navbar-item">
-<a class="navbar-link" href="/">About</a>
-</li>
-<li class="navbar-item">
-<a class="navbar-link" href="/projects/">Projects</a>
-</li>
-<li class="navbar-item">
-<a class="navbar-link" href="/certifications/">Certifications</a>
-</li>
-<li class="navbar-item">
-<a class="navbar-link" href="/events/">Events</a>
-</li>
-<li class="navbar-item">
-<a class="navbar-link" href="/blogs/">Blogs</a>
-</li>
-<li class="navbar-item">
-<a class="navbar-link" href="/contact/">Contact</a>
-</li>
+                </div>
+            </aside>
+            <!-- #main-content -->
+            <div class="main-content">
+                <!-- #NAVBAR -->
+                <nav
+                    aria-label="Main navigation"
+                    class="navbar"
+                    role="navigation"
+                >
+                    <ul class="navbar-list">
                         <li class="navbar-item">
-                            <button class="theme-btn navbar-theme-btn" data-theme-btn aria-label="Toggle Theme">
-                                <ion-icon name="moon" class="moon-icon"></ion-icon>
-                                <ion-icon name="sunny" class="sun-icon"></ion-icon>
+                            <a class="navbar-link" href="/">About</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="/projects/"
+                                >Projects</a
+                            >
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="/certifications/"
+                                >Certifications</a
+                            >
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="/events/">Events</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="/blogs/">Blogs</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="/contact/">Contact</a>
+                        </li>
+                        <li class="navbar-item">
+                            <button
+                                class="theme-btn navbar-theme-btn"
+                                data-theme-btn
+                                aria-label="Toggle Theme"
+                            >
+                                <ion-icon
+                                    name="moon"
+                                    class="moon-icon"
+                                ></ion-icon>
+                                <ion-icon
+                                    name="sunny"
+                                    class="sun-icon"
+                                ></ion-icon>
                             </button>
                         </li>
-
                     </ul>
-</nav>
-<!-- ABOUT -->
-<article class="blogs active" data-page="blog-post"><header><h2 class="h2 article-title">Blogs</h2></header><section class="blog-content-section"><h1 class="blog-post-title">How Averages Deceive Us: The Math and Meaning of Simpson's Paradox</h1><a class="blog-back-btn" href="/blogs/" style="display: inline-block; margin-bottom: 20px; color: var(--vibrant-green); text-decoration: none;">← Back to Blogs</a><div style="color: var(--light-gray-70); font-size: 14px; margin-bottom: 20px;">Published: 2025-10-18</div><div class="blog-post-content"><h2>Introduction</h2>
-<p>Imagine this: you are analysing data for a company's customer satisfaction survey. Last quarter, the overall satisfaction score dropped. But when you split the data by user type (new and existing customers), you find something strange: both groups individually show higher satisfaction than before.</p>
-<p>How can everyone be happier, yet the average goes down?</p>
-<p>The answer is a statistical trap called Simpson's Paradox, where trends that appear in separate groups disappear or even reverse when the groups are combined.</p>
-<p><img alt="Simpson's Paradox" src="../../assets/images/blogs/simpsons-paradox-hero.webp"/></p>
-<h2>When averages betray you</h2>
-<p>Now imagine you are presenting these results. You show the leadership team that both new and existing customers' satisfaction improved. They smile. Then you show the overall average, and suddenly it is worse.</p>
-<p>Someone questions your SQL query. Another blames a data refresh. But the data is correct: the summary is misleading your intuition.</p>
-<p>This happens because mixing groups of different sizes distorts the combined picture. The overall trend says one thing, the subgroups say another, and both are correct.</p>
-<p>It is not that the data is wrong. You are looking at it from too far away.</p>
-<p>Think of two roads both sloping uphill. If you build a bridge connecting them, that bridge can slope downhill even though both roads rise. Merging groups with uneven weights in data does the same thing.</p>
-<h2>Why does it happen?</h2>
-<p>When you combine two groups, you do not just average the averages. You weight each average by the group's size.</p>
-<p>The combined mean looks like this:</p>
-<p><img alt="Simpson's Paradox" src="../../assets/images/blogs/simpsons-paradox-formula-mean.webp"/></p>
-<p>Where:
-- <code>n1</code>, <code>n2</code> = number of observations in each group
-- <code>x1_bar</code>, <code>x2_bar</code> = average for each group</p>
-<p>The larger the group, the more it drags the overall mean toward itself. Here is a small example:</p>
-<table>
-<thead>
-<tr>
-<th>Group</th>
-<th>Avg. Satisfaction (Last Quarter)</th>
-<th>Avg. Satisfaction (This Quarter)</th>
-<th>Change</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>New Users</td>
-<td>6.0</td>
-<td>7.0</td>
-<td>+1.0</td>
-</tr>
-<tr>
-<td>Existing Users</td>
-<td>8.0</td>
-<td>8.5</td>
-<td>+0.5</td>
-</tr>
-<tr>
-<td><strong>Overall</strong></td>
-<td><strong>7.5</strong></td>
-<td><strong>7.2</strong></td>
-<td><strong>-0.3</strong></td>
-</tr>
-</tbody>
-</table>
-<p>How can this happen? There are now far more new users, who start with lower scores. The increase in their numbers drags down the overall average, even though both groups individually improved. That imbalance of group sizes and base rates is what creates Simpson's Paradox.</p>
-<h2>Demonstration</h2>
-<p>Here is Simpson's Paradox in a simple simulated experiment:</p>
-<p>Two treatments (A and B) are tested on two groups (Young and Old). Within each group, Treatment A performs better than B. But we assign A mostly to older patients, who naturally have lower success rates. That imbalance flips the overall result when we aggregate the data.</p>
-<h3>Exhibits A: Success rate by group</h3>
-<p><img alt="Success Rate by Group" src="../../assets/images/blogs/simpsons-paradox-exhibit-a.webp"/></p>
-<p>Barplot for success rate by treatment and age group. A outperforms B in both groups individually.</p>
-<table>
-<thead>
-<tr>
-<th>AgeGroup</th>
-<th>A</th>
-<th>B</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Young</td>
-<td>0.90</td>
-<td>0.80</td>
-</tr>
-<tr>
-<td>Old</td>
-<td>0.60</td>
-<td>0.50</td>
-</tr>
-</tbody>
-</table>
-<p>Within each age group, A has a higher success rate.</p>
-<h3>Exhibits B: Overall success rate (aggregated)</h3>
-<p><img alt="Overall Success Rate" src="../../assets/images/blogs/simpsons-paradox-exhibit-b.webp"/></p>
-<p>When you ignore age, the aggregate data makes B look better.</p>
-<table>
-<thead>
-<tr>
-<th>Treatment</th>
-<th>Success Rate</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A</td>
-<td>0.65</td>
-</tr>
-<tr>
-<td>B</td>
-<td>0.75</td>
-</tr>
-</tbody>
-</table>
-<p>Combine all patients, and B appears better overall even though A won both subgroups.</p>
-<h2>The math behind the illusion</h2>
-<p>When we aggregate, we are effectively doing a weighted average. The key term is <code>P(Group i | Treatment)</code>, the mix of groups under each treatment.</p>
-<p><img alt="Conditional Probability" src="../../assets/images/blogs/simpsons-paradox-conditional-probability.webp"/></p>
-<p>If Treatment A has more Old patients, its overall probability of success gets pulled down even if it outperforms B within every group.</p>
-<p>That is why statisticians control for confounders and why unadjusted aggregates can be misleading.</p>
-<p><img alt="Simpson's Confounding Variable" src="../../assets/images/blogs/simpsons-paradox-confounding-variable.webp"/>
-<em>(Image credits: https://www.ztable.net/confounding-variable/)</em></p>
-<h2>Real-world parallels</h2>
-<p>This paradox has turned up in real analyses for decades.</p>
-<ul>
-<li><a href="https://www.science.org/doi/10.1126/science.187.4175.398">University Admissions (Berkeley, 1973)</a>. Women seemed to have a lower overall acceptance rate. Broken down by department, women were admitted at higher rates in most departments. The bias came from women applying to more competitive programs.</li>
-<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1339981/">Medical Treatments</a>. A drug may appear less effective overall because it is prescribed to patients with more severe conditions.</li>
-<li><a href="https://chance.amstat.org/2015/09/simpsons-paradox/">Sports Analytics</a>. A baseball player's batting average might be lower overall, yet higher against both left- and right-handed pitchers separately.</li>
-
-                    </ul>
-<h2>What does it teach us?</h2>
-<p>Before you trust an aggregate, check the subgroups and control for confounding variables. Ask what else could be driving the trend. Data alone doesn't reveal the truth, interpretation does, so always pair your numbers with good context.</p>
-<h2>Conclusion</h2>
-<p>Every number can be right and the story can still be wrong. That is what makes Simpson's Paradox so useful. It does not break math, it exposes our blind spots. When a trend surprises you, ask what happens if you split the data one layer deeper. That is often where the real explanation lives.</p>
-<p>If you want to experiment with this yourself, check out the <a href="https://github.com/Asifdotexe/playground-repo/blob/main/code/issue-17-as-simpsons-paradox.ipynb">interactive notebook</a>.</p>
-<hr/>
-<h3>About the Author</h3>
-<p>I'm a Data Scientist who enjoys breaking down complex statistical concepts and cybersecurity risks. If you found this breakdown of Simpson's Paradox helpful, check out my <a href="https://sayyedasif.com/blogs/">other blogs</a> or explore my <a href="https://sayyedasif.com/blogs/ship-of-theseus-codebase-entropy/">Ship of Theseus</a> project where I visualize codebase entropy.</p>
-<p>Thank you!</p></div></section></article>
-</div>
-</main>
-<!-- FOOTER -->
-<footer style="
+                </nav>
+                <!-- ABOUT -->
+                <article class="blogs active" data-page="blog-post">
+                    <header><h2 class="h2 article-title">Blogs</h2></header>
+                    <section class="blog-content-section">
+                        <h1 class="blog-post-title">
+                            How Averages Deceive Us: The Math and Meaning of
+                            Simpson's Paradox
+                        </h1>
+                        <a
+                            class="blog-back-btn"
+                            href="/blogs/"
+                            style="
+                                display: inline-block;
+                                margin-bottom: 20px;
+                                color: var(--vibrant-green);
+                                text-decoration: none;
+                            "
+                            >← Back to Blogs</a
+                        >
+                        <div
+                            style="
+                                color: var(--light-gray-70);
+                                font-size: 14px;
+                                margin-bottom: 20px;
+                            "
+                        >
+                            Published: 2025-10-18
+                        </div>
+                        <div class="blog-post-content">
+                            <h2>Introduction</h2>
+                            <p>
+                                Imagine this: you are analysing data for a
+                                company's customer satisfaction survey. Last
+                                quarter, the overall satisfaction score dropped.
+                                But when you split the data by user type (new
+                                and existing customers), you find something
+                                strange: both groups individually show higher
+                                satisfaction than before.
+                            </p>
+                            <p>
+                                How can everyone be happier, yet the average
+                                goes down?
+                            </p>
+                            <p>
+                                The answer is a statistical trap called
+                                Simpson's Paradox, where trends that appear in
+                                separate groups disappear or even reverse when
+                                the groups are combined.
+                            </p>
+                            <p>
+                                <img
+                                    alt="Simpson's Paradox"
+                                    src="../../assets/images/blogs/simpsons-paradox-hero.webp"
+                                />
+                            </p>
+                            <h2>When averages betray you</h2>
+                            <p>
+                                Now imagine you are presenting these results.
+                                You show the leadership team that both new and
+                                existing customers' satisfaction improved. They
+                                smile. Then you show the overall average, and
+                                suddenly it is worse.
+                            </p>
+                            <p>
+                                Someone questions your SQL query. Another blames
+                                a data refresh. But the data is correct: the
+                                summary is misleading your intuition.
+                            </p>
+                            <p>
+                                This happens because mixing groups of different
+                                sizes distorts the combined picture. The overall
+                                trend says one thing, the subgroups say another,
+                                and both are correct.
+                            </p>
+                            <p>
+                                It is not that the data is wrong. You are
+                                looking at it from too far away.
+                            </p>
+                            <p>
+                                Think of two roads both sloping uphill. If you
+                                build a bridge connecting them, that bridge can
+                                slope downhill even though both roads rise.
+                                Merging groups with uneven weights in data does
+                                the same thing.
+                            </p>
+                            <h2>Why does it happen?</h2>
+                            <p>
+                                When you combine two groups, you do not just
+                                average the averages. You weight each average by
+                                the group's size.
+                            </p>
+                            <p>The combined mean looks like this:</p>
+                            <p>
+                                <img
+                                    alt="Simpson's Paradox"
+                                    src="../../assets/images/blogs/simpsons-paradox-formula-mean.webp"
+                                />
+                            </p>
+                            <p>
+                                Where: - <code>n1</code>, <code>n2</code> =
+                                number of observations in each group -
+                                <code>x1_bar</code>, <code>x2_bar</code> =
+                                average for each group
+                            </p>
+                            <p>
+                                The larger the group, the more it drags the
+                                overall mean toward itself. Here is a small
+                                example:
+                            </p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Group</th>
+                                        <th>
+                                            Avg. Satisfaction (Last Quarter)
+                                        </th>
+                                        <th>
+                                            Avg. Satisfaction (This Quarter)
+                                        </th>
+                                        <th>Change</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>New Users</td>
+                                        <td>6.0</td>
+                                        <td>7.0</td>
+                                        <td>+1.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Existing Users</td>
+                                        <td>8.0</td>
+                                        <td>8.5</td>
+                                        <td>+0.5</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Overall</strong></td>
+                                        <td><strong>7.5</strong></td>
+                                        <td><strong>7.2</strong></td>
+                                        <td><strong>-0.3</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>
+                                How can this happen? There are now far more new
+                                users, who start with lower scores. The increase
+                                in their numbers drags down the overall average,
+                                even though both groups individually improved.
+                                That imbalance of group sizes and base rates is
+                                what creates Simpson's Paradox.
+                            </p>
+                            <h2>Demonstration</h2>
+                            <p>
+                                Here is Simpson's Paradox in a simple simulated
+                                experiment:
+                            </p>
+                            <p>
+                                Two treatments (A and B) are tested on two
+                                groups (Young and Old). Within each group,
+                                Treatment A performs better than B. But we
+                                assign A mostly to older patients, who naturally
+                                have lower success rates. That imbalance flips
+                                the overall result when we aggregate the data.
+                            </p>
+                            <h3>Exhibits A: Success rate by group</h3>
+                            <p>
+                                <img
+                                    alt="Success Rate by Group"
+                                    src="../../assets/images/blogs/simpsons-paradox-exhibit-a.webp"
+                                />
+                            </p>
+                            <p>
+                                Barplot for success rate by treatment and age
+                                group. A outperforms B in both groups
+                                individually.
+                            </p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>AgeGroup</th>
+                                        <th>A</th>
+                                        <th>B</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Young</td>
+                                        <td>0.90</td>
+                                        <td>0.80</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Old</td>
+                                        <td>0.60</td>
+                                        <td>0.50</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>
+                                Within each age group, A has a higher success
+                                rate.
+                            </p>
+                            <h3>
+                                Exhibits B: Overall success rate (aggregated)
+                            </h3>
+                            <p>
+                                <img
+                                    alt="Overall Success Rate"
+                                    src="../../assets/images/blogs/simpsons-paradox-exhibit-b.webp"
+                                />
+                            </p>
+                            <p>
+                                When you ignore age, the aggregate data makes B
+                                look better.
+                            </p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Treatment</th>
+                                        <th>Success Rate</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>A</td>
+                                        <td>0.65</td>
+                                    </tr>
+                                    <tr>
+                                        <td>B</td>
+                                        <td>0.75</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>
+                                Combine all patients, and B appears better
+                                overall even though A won both subgroups.
+                            </p>
+                            <h2>The math behind the illusion</h2>
+                            <p>
+                                When we aggregate, we are effectively doing a
+                                weighted average. The key term is
+                                <code>P(Group i | Treatment)</code>, the mix of
+                                groups under each treatment.
+                            </p>
+                            <p>
+                                <img
+                                    alt="Conditional Probability"
+                                    src="../../assets/images/blogs/simpsons-paradox-conditional-probability.webp"
+                                />
+                            </p>
+                            <p>
+                                If Treatment A has more Old patients, its
+                                overall probability of success gets pulled down
+                                even if it outperforms B within every group.
+                            </p>
+                            <p>
+                                That is why statisticians control for
+                                confounders and why unadjusted aggregates can be
+                                misleading.
+                            </p>
+                            <p>
+                                <img
+                                    alt="Simpson's Confounding Variable"
+                                    src="../../assets/images/blogs/simpsons-paradox-confounding-variable.webp"
+                                />
+                                <em
+                                    >(Image credits:
+                                    https://www.ztable.net/confounding-variable/)</em
+                                >
+                            </p>
+                            <h2>Real-world parallels</h2>
+                            <p>
+                                This paradox has turned up in real analyses for
+                                decades.
+                            </p>
+                            <ul>
+                                <li>
+                                    <a
+                                        href="https://www.science.org/doi/10.1126/science.187.4175.398"
+                                        >University Admissions (Berkeley,
+                                        1973)</a
+                                    >. Women seemed to have a lower overall
+                                    acceptance rate. Broken down by department,
+                                    women were admitted at higher rates in most
+                                    departments. The bias came from women
+                                    applying to more competitive programs.
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1339981/"
+                                        >Medical Treatments</a
+                                    >. A drug may appear less effective overall
+                                    because it is prescribed to patients with
+                                    more severe conditions.
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://chance.amstat.org/2015/09/simpsons-paradox/"
+                                        >Sports Analytics</a
+                                    >. A baseball player's batting average might
+                                    be lower overall, yet higher against both
+                                    left- and right-handed pitchers separately.
+                                </li>
+                            </ul>
+                            <h2>What does it teach us?</h2>
+                            <p>
+                                Before you trust an aggregate, check the
+                                subgroups and control for confounding variables.
+                                Ask what else could be driving the trend. Data
+                                alone doesn't reveal the truth, interpretation
+                                does, so always pair your numbers with good
+                                context.
+                            </p>
+                            <h2>Conclusion</h2>
+                            <p>
+                                Every number can be right and the story can
+                                still be wrong. That is what makes Simpson's
+                                Paradox so useful. It does not break math, it
+                                exposes our blind spots. When a trend surprises
+                                you, ask what happens if you split the data one
+                                layer deeper. That is often where the real
+                                explanation lives.
+                            </p>
+                            <p>
+                                If you want to experiment with this yourself,
+                                check out the
+                                <a
+                                    href="https://github.com/Asifdotexe/playground-repo/blob/main/code/issue-17-as-simpsons-paradox.ipynb"
+                                    >interactive notebook</a
+                                >.
+                            </p>
+                            <hr />
+                            <h3>About the Author</h3>
+                            <p>
+                                I'm a Data Scientist who enjoys breaking down
+                                complex statistical concepts and cybersecurity
+                                risks. If you found this breakdown of Simpson's
+                                Paradox helpful, check out my
+                                <a href="https://sayyedasif.com/blogs/"
+                                    >other blogs</a
+                                >
+                                or explore my
+                                <a
+                                    href="https://sayyedasif.com/blogs/ship-of-theseus-codebase-entropy/"
+                                    >Ship of Theseus</a
+                                >
+                                project where I visualize codebase entropy.
+                            </p>
+                            <p>Thank you!</p>
+                        </div>
+                    </section>
+                </article>
+            </div>
+        </main>
+        <!-- FOOTER -->
+        <footer
+            style="
                 text-align: center;
                 padding: 20px 15px;
                 color: var(--light-gray-70);
                 font-size: var(--fs-8);
-            ">
-<p>
-                © <span id="current-year">2025</span> Asif Sayyed. All
-                rights reserved.
+            "
+        >
+            <p>
+                © <span id="current-year">2025</span> Asif Sayyed. All rights
+                reserved.
             </p>
-<p style="margin-top: 6px">
+            <p style="margin-top: 6px">
                 Data Scientist at Marsh • Mumbai, India
             </p>
-<p style="margin-top: 6px">
-<a href="/llms.txt" style="
+            <p style="margin-top: 6px">
+                <a
+                    href="/llms.txt"
+                    style="
                         color: var(--light-gray-70);
                         text-decoration: none;
                         font-size: 10px;
-                    ">llms.txt</a>
-</p>
-</footer>
-</body>
+                    "
+                    >llms.txt</a
+                >
+            </p>
+        </footer>
+    </body>
 </html>
-
-
-
-
-
-
