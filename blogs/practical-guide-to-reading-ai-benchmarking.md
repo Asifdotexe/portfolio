@@ -36,7 +36,7 @@ These test a model’s academic knowledge and ability to reason through difficul
 
 ### 2. Software engineering and coding
 
-Coding benchmarks test whether a model can navigate entire repositories rather than just writing a single function. Because real-world codebases naturally degrade over time (a concept explored in our deep-dive on [codebase entropy and the Ship of Theseus](ship-of-theseus-codebase-entropy.md)), being able to resolve complex issues across multiple files is the truest test of an AI coding assistant.
+Coding benchmarks test whether a model can navigate entire repositories rather than just writing a single function. Because real-world codebases naturally degrade over time (a concept explored in our deep-dive on [codebase entropy and the Ship of Theseus](/blogs/ship-of-theseus-codebase-entropy/)), being able to resolve complex issues across multiple files is the truest test of an AI coding assistant.
 
 | Benchmark | Focus | What it measures | Score metric |
 | :--- | :--- | :--- | :--- |
@@ -48,7 +48,7 @@ Coding benchmarks test whether a model can navigate entire repositories rather t
 
 ### 3. Autonomous agents and tool use
 
-These tests evaluate if an AI model can operate a computer or browse the web. Models scoring high on web browsing tasks are increasingly being used to [power AI search engines (GEO/AEO)](seo-geo-aeo-guide.md), meaning they must accurately synthesize information without breaking workflows.
+These tests evaluate if an AI model can operate a computer or browse the web. Models scoring high on web browsing tasks are increasingly being used to [power AI search engines (GEO/AEO)](/blogs/seo-geo-aeo-guide/), meaning they must accurately synthesize information without breaking workflows.
 
 | Benchmark | Focus | What it measures | Score metric |
 | :--- | :--- | :--- | :--- |
@@ -105,7 +105,7 @@ Because high benchmark scores drive enterprise adoption, companies heavily optim
 
 - **Data contamination:** Models are trained on massive swaths of the internet, and benchmark test questions sometimes accidentally end up in the training data. When this happens, a high score just means the model memorized the answer key rather than understanding the concept. For instance, a model might flawlessly solve a difficult math problem from a known dataset, but fail completely if you simply change the numbers in the prompt.
 - **Over-specialization:** An AI with a record-breaking SAT math score might be terrible at summarizing legal contracts. You should only pay attention to the benchmarks that resemble the actual work you need the model to do.
-- **The leaderboard illusion:** Being number one on a leaderboard does not mean a model is significantly better. A model leading by a fraction of a percentage point is effectively tied with the runner-up. Furthermore, top-line averages can obscure fatal flaws in specific sub-categories. This is similar to how [Simpson's paradox can hide the real story behind aggregated data](simpsons-paradox-how-averages-deceive-us.md).
+- **The leaderboard illusion:** Being number one on a leaderboard does not mean a model is significantly better. A model leading by a fraction of a percentage point is effectively tied with the runner-up. Furthermore, top-line averages can obscure fatal flaws in specific sub-categories. This is similar to how [Simpson's paradox can hide the real story behind aggregated data](/blogs/simpsons-paradox-how-averages-deceive-us/).
 - **Test-taking strategies:** Models can be prompted differently during a test. If a company claims a high score but gave their model unlimited time to try multiple answers (using techniques like Monte Carlo Tree Search or best-of-N sampling), it is not a fair comparison against a model restricted to a single attempt.
 
 ## The bottom line

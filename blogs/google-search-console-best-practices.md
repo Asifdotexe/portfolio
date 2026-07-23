@@ -18,13 +18,13 @@ The **Pages** report under the "Indexing" tab shows you which pages Google has i
 
 I focus on 404s first. You can largely ignore "Discovered - currently not indexed" for brand new pages, as Google is simply managing its crawl budget. This is especially true for non-HTML files like `llms.txt`. Traditional search engines might never prioritize indexing raw text files meant for AI crawlers, but that is perfectly fine. Answer engines and LLM bots will still find and read them.
 
-![GSC Discovered - Currently not indexed](./assets/images/blogs/gsc_discovered_not_indexed.webp)
+![GSC Discovered - Currently not indexed](/assets/images/blogs/gsc_discovered_not_indexed.webp)
 
 However, you should always dig into any 404 (Not Found) or Soft 404 errors. If a page moved, set up a 301 redirect. Before you click "Request Indexing," run the "Test Live URL" feature to confirm the page renders correctly and isn't blocked by `robots.txt`.
 
 Similarly, if you see a "Page with redirect" status, don't worry. This is usually exactly what you want to see. It means Google found alternate versions of your site (like `http://www.yoursite.com` or `http://yoursite.com`) and successfully followed your server's 301 redirect to your secure, canonical domain (`https://yoursite.com`). Google lists these to inform you, but it naturally chooses not to index the alternate URLs to prevent duplicate content issues. It's a sign of a healthy, perfectly configured site.
 
-![GSC Page with Redirect](./assets/images/blogs/gsc_page_with_redirect.webp)
+![GSC Page with Redirect](/assets/images/blogs/gsc_page_with_redirect.webp)
 
 ---
 
@@ -32,7 +32,7 @@ Similarly, if you see a "Page with redirect" status, don't worry. This is usuall
 
 When GSC flags an issue like a Schema validation error, it lets you download the error data as a zip. Inside are three CSV files, and each one serves a different purpose.
 
-![GSC Datetime Error](./assets/images/blogs/gsc_datetime_error.webp)
+![GSC Datetime Error](/assets/images/blogs/gsc_datetime_error.webp)
 
 `Metadata.csv` tells you what the rule violation is, like `Issue: Invalid datetime value for 'dateModified'`. `Table.csv` lists the exact URLs that triggered it. `Chart.csv` shows how often Googlebot has been hitting that error over time. Between the three, you can trace what broke, which URL caused it, and whether it just started or has been sitting there for weeks.
 
@@ -96,7 +96,7 @@ Append your sitemap URL at the bottom: `Sitemap: https://yourdomain.com/sitemap.
 
 You do not need an SEO agency to rank well. I treat GSC errors and AI optimization rules the same way I treat compile-time errors. Validate your structured data with the [Rich Results Test](https://search.google.com/test/rich-results). Keep your content machine-readable. Control which crawlers can access your portfolio. If you do those things, you will probably be fine.
 
-*(The companion guide on implementing SEO, AEO, and GEO tags from scratch is here: [Implementing SEO, AEO, and GEO in a Developer Portfolio](./seo-geo-aeo-guide.md))*
+*(The companion guide on implementing SEO, AEO, and GEO tags from scratch is here: [Implementing SEO, AEO, and GEO in a Developer Portfolio](/blogs/seo-geo-aeo-guide/))*
 
 ---
 

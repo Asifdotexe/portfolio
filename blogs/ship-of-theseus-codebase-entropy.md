@@ -10,7 +10,7 @@ tags: ["data-science", "software-engineering", "github-actions", "visualization"
 
 This post covers the technical implementation of the tool. If you haven't seen the actual app yet, the technical details won't make much sense. I recommend taking a moment to [look at the live website](https://asifdotexe.github.io/Theseus/) and explore the different repositories. Come back here once you've seen how codebase entropy looks in action.
 
-![Theseus](./assets/images/blogs/theseus.webp)
+![Theseus](/assets/images/blogs/theseus.webp)
 
 ## The Origin
 

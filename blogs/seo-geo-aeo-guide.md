@@ -30,7 +30,7 @@ Search engines need to know your site exists. After deploying:
 3. Verify ownership. I added a `<meta name="google-site-verification" content="..." />` tag in the HTML.
 4. In the **Sitemaps** section, submit your `sitemap.xml` URL so Google knows what pages to crawl.
 
-*Note: Once your site is submitted, you'll need to actively monitor its indexing health and fix any structured data errors. I've compiled my learnings on how to do this as a developer in my companion guide: [Google Search Console & AI Search Best Practices for Developers](./google-search-console-best-practices.md).*
+*Note: Once your site is submitted, you'll need to actively monitor its indexing health and fix any structured data errors. I've compiled my learnings on how to do this as a developer in my companion guide: [Google Search Console & AI Search Best Practices for Developers](/blogs/google-search-console-best-practices/).*
 
 ### Meta tags and Open Graph
 Open Graph and Twitter Card tags make the site look right when shared on LinkedIn or Twitter and help search engines index it.

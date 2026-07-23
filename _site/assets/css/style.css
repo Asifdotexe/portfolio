@@ -2907,6 +2907,19 @@ textarea.form-input::-webkit-resizer {
   color: var(--vibrant-green);
 }
 
+.blog-post-content pre {
+  background: var(--eerie-black-1);
+  border: 1px solid var(--jet);
+  border-radius: 10px;
+  padding: 20px;
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+.blog-post-content pre code {
+  color: var(--light-gray);
+}
+
 .blog-post-content img {
   max-width: 100%;
   height: auto;

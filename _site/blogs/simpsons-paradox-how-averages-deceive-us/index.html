@@ -479,7 +479,7 @@
 <p>Imagine this: you are analysing data for a company's customer satisfaction survey. Last quarter, the overall satisfaction score dropped. But when you split the data by user type (new and existing customers), you find something strange: both groups individually show higher satisfaction than before.</p>
 <p>How can everyone be happier, yet the average goes down?</p>
 <p>The answer is a statistical trap called Simpson's Paradox, where trends that appear in separate groups disappear or even reverse when the groups are combined.</p>
-<p><img src="./assets/images/blogs/simpsons-paradox-hero.webp" alt="Simpson's Paradox"></p>
+<p><img src="/assets/images/blogs/simpsons-paradox-hero.webp" alt="Simpson's Paradox"></p>
 <h2>When averages betray you</h2>
 <p>Now imagine you are presenting these results. You show the leadership team that both new and existing customers' satisfaction improved. They smile. Then you show the overall average, and suddenly it is worse.</p>
 <p>Someone questions your SQL query. Another blames a data refresh. But the data is correct: the summary is misleading your intuition.</p>
@@ -489,7 +489,7 @@
 <h2>Why does it happen?</h2>
 <p>When you combine two groups, you do not just average the averages. You weight each average by the group's size.</p>
 <p>The combined mean looks like this:</p>
-<p><img src="./assets/images/blogs/simpsons-paradox-formula-mean.webp" alt="Simpson's Paradox"></p>
+<p><img src="/assets/images/blogs/simpsons-paradox-formula-mean.webp" alt="Simpson's Paradox"></p>
 <p>Where:</p>
 <ul>
 <li><code>n1</code>, <code>n2</code> = number of observations in each group</li>
@@ -531,7 +531,7 @@
 <p>Here is Simpson's Paradox in a simple simulated experiment:</p>
 <p>Two treatments (A and B) are tested on two groups (Young and Old). Within each group, Treatment A performs better than B. But we assign A mostly to older patients, who naturally have lower success rates. That imbalance flips the overall result when we aggregate the data.</p>
 <h3>Exhibits A: Success rate by group</h3>
-<p><img src="./assets/images/blogs/simpsons-paradox-exhibit-a.webp" alt="Success Rate by Group"></p>
+<p><img src="/assets/images/blogs/simpsons-paradox-exhibit-a.webp" alt="Success Rate by Group"></p>
 <p>Barplot for success rate by treatment and age group. A outperforms B in both groups individually.</p>
 <table>
 <thead>
@@ -556,7 +556,7 @@
 </table>
 <p>Within each age group, A has a higher success rate.</p>
 <h3>Exhibits B: Overall success rate (aggregated)</h3>
-<p><img src="./assets/images/blogs/simpsons-paradox-exhibit-b.webp" alt="Overall Success Rate"></p>
+<p><img src="/assets/images/blogs/simpsons-paradox-exhibit-b.webp" alt="Overall Success Rate"></p>
 <p>When you ignore age, the aggregate data makes B look better.</p>
 <table>
 <thead>
@@ -579,10 +579,10 @@
 <p>Combine all patients, and B appears better overall even though A won both subgroups.</p>
 <h2>The math behind the illusion</h2>
 <p>When we aggregate, we are effectively doing a weighted average. The key term is <code>P(Group i | Treatment)</code>, the mix of groups under each treatment.</p>
-<p><img src="./assets/images/blogs/simpsons-paradox-conditional-probability.webp" alt="Conditional Probability"></p>
+<p><img src="/assets/images/blogs/simpsons-paradox-conditional-probability.webp" alt="Conditional Probability"></p>
 <p>If Treatment A has more Old patients, its overall probability of success gets pulled down even if it outperforms B within every group.</p>
 <p>That is why statisticians control for confounders and why unadjusted aggregates can be misleading.</p>
-<p><img src="./assets/images/blogs/simpsons-paradox-confounding-variable.webp" alt="Simpson's Confounding Variable">
+<p><img src="/assets/images/blogs/simpsons-paradox-confounding-variable.webp" alt="Simpson's Confounding Variable">
 <em>(Image credits: https://www.ztable.net/confounding-variable/)</em></p>
 <h2>Real-world parallels</h2>
 <p>This paradox has turned up in real analyses for decades.</p>

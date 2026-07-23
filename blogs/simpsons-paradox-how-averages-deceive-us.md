@@ -14,7 +14,7 @@ How can everyone be happier, yet the average goes down?
 
 The answer is a statistical trap called Simpson's Paradox, where trends that appear in separate groups disappear or even reverse when the groups are combined.
 
-![Simpson's Paradox](./assets/images/blogs/simpsons-paradox-hero.webp)
+![Simpson's Paradox](/assets/images/blogs/simpsons-paradox-hero.webp)
 
 ## When averages betray you
 
@@ -34,7 +34,7 @@ When you combine two groups, you do not just average the averages. You weight ea
 
 The combined mean looks like this:
 
-![Simpson's Paradox](./assets/images/blogs/simpsons-paradox-formula-mean.webp)
+![Simpson's Paradox](/assets/images/blogs/simpsons-paradox-formula-mean.webp)
 
 Where:
 - `n1`, `n2` = number of observations in each group
@@ -58,7 +58,7 @@ Two treatments (A and B) are tested on two groups (Young and Old). Within each g
 
 ### Exhibits A: Success rate by group
 
-![Success Rate by Group](./assets/images/blogs/simpsons-paradox-exhibit-a.webp)
+![Success Rate by Group](/assets/images/blogs/simpsons-paradox-exhibit-a.webp)
 
 Barplot for success rate by treatment and age group. A outperforms B in both groups individually.
 
@@ -71,7 +71,7 @@ Within each age group, A has a higher success rate.
 
 ### Exhibits B: Overall success rate (aggregated)
 
-![Overall Success Rate](./assets/images/blogs/simpsons-paradox-exhibit-b.webp)
+![Overall Success Rate](/assets/images/blogs/simpsons-paradox-exhibit-b.webp)
 
 When you ignore age, the aggregate data makes B look better.
 
@@ -86,13 +86,13 @@ Combine all patients, and B appears better overall even though A won both subgro
 
 When we aggregate, we are effectively doing a weighted average. The key term is `P(Group i | Treatment)`, the mix of groups under each treatment.
 
-![Conditional Probability](./assets/images/blogs/simpsons-paradox-conditional-probability.webp)
+![Conditional Probability](/assets/images/blogs/simpsons-paradox-conditional-probability.webp)
 
 If Treatment A has more Old patients, its overall probability of success gets pulled down even if it outperforms B within every group.
 
 That is why statisticians control for confounders and why unadjusted aggregates can be misleading.
 
-![Simpson's Confounding Variable](./assets/images/blogs/simpsons-paradox-confounding-variable.webp)
+![Simpson's Confounding Variable](/assets/images/blogs/simpsons-paradox-confounding-variable.webp)
 *(Image credits: https://www.ztable.net/confounding-variable/)*
 
 ## Real-world parallels

@@ -481,14 +481,14 @@
 <h2>1. Regularly Monitor and Debug Indexing Status</h2>
 <p>The <strong>Pages</strong> report under the &quot;Indexing&quot; tab shows you which pages Google has indexed, ignored, or rejected.</p>
 <p>I focus on 404s first. You can largely ignore &quot;Discovered - currently not indexed&quot; for brand new pages, as Google is simply managing its crawl budget. This is especially true for non-HTML files like <code>llms.txt</code>. Traditional search engines might never prioritize indexing raw text files meant for AI crawlers, but that is perfectly fine. Answer engines and LLM bots will still find and read them.</p>
-<p><img src="./assets/images/blogs/gsc_discovered_not_indexed.webp" alt="GSC Discovered - Currently not indexed"></p>
+<p><img src="/assets/images/blogs/gsc_discovered_not_indexed.webp" alt="GSC Discovered - Currently not indexed"></p>
 <p>However, you should always dig into any 404 (Not Found) or Soft 404 errors. If a page moved, set up a 301 redirect. Before you click &quot;Request Indexing,&quot; run the &quot;Test Live URL&quot; feature to confirm the page renders correctly and isn't blocked by <code>robots.txt</code>.</p>
 <p>Similarly, if you see a &quot;Page with redirect&quot; status, don't worry. This is usually exactly what you want to see. It means Google found alternate versions of your site (like <code>http://www.yoursite.com</code> or <code>http://yoursite.com</code>) and successfully followed your server's 301 redirect to your secure, canonical domain (<code>https://yoursite.com</code>). Google lists these to inform you, but it naturally chooses not to index the alternate URLs to prevent duplicate content issues. It's a sign of a healthy, perfectly configured site.</p>
-<p><img src="./assets/images/blogs/gsc_page_with_redirect.webp" alt="GSC Page with Redirect"></p>
+<p><img src="/assets/images/blogs/gsc_page_with_redirect.webp" alt="GSC Page with Redirect"></p>
 <hr>
 <h2>2. Decode GSC Error Exports for Quick Triage</h2>
 <p>When GSC flags an issue like a Schema validation error, it lets you download the error data as a zip. Inside are three CSV files, and each one serves a different purpose.</p>
-<p><img src="./assets/images/blogs/gsc_datetime_error.webp" alt="GSC Datetime Error"></p>
+<p><img src="/assets/images/blogs/gsc_datetime_error.webp" alt="GSC Datetime Error"></p>
 <p><code>Metadata.csv</code> tells you what the rule violation is, like <code>Issue: Invalid datetime value for 'dateModified'</code>. <code>Table.csv</code> lists the exact URLs that triggered it. <code>Chart.csv</code> shows how often Googlebot has been hitting that error over time. Between the three, you can trace what broke, which URL caused it, and whether it just started or has been sitting there for weeks.</p>
 <hr>
 <h2>3. Enforce Strict Schema.org Validation (The ISO 8601 Issue)</h2>
@@ -524,7 +524,7 @@ Disallow: /
 <hr>
 <h2>Conclusion</h2>
 <p>You do not need an SEO agency to rank well. I treat GSC errors and AI optimization rules the same way I treat compile-time errors. Validate your structured data with the <a href="https://search.google.com/test/rich-results">Rich Results Test</a>. Keep your content machine-readable. Control which crawlers can access your portfolio. If you do those things, you will probably be fine.</p>
-<p><em>(The companion guide on implementing SEO, AEO, and GEO tags from scratch is here: <a href="./seo-geo-aeo-guide.md">Implementing SEO, AEO, and GEO in a Developer Portfolio</a>)</em></p>
+<p><em>(The companion guide on implementing SEO, AEO, and GEO tags from scratch is here: <a href="/blogs/seo-geo-aeo-guide/">Implementing SEO, AEO, and GEO in a Developer Portfolio</a>)</em></p>
 <hr>
 <h3>About the Author</h3>
 <p><strong>Asif Sayyed</strong> is a Data Science Specialist at Marsh McLennan's Cyber Risk Intelligence Center, specializing in Python, Machine Learning, and Cyber Risk Analytics. He actively builds applications and open-source tools.</p>
