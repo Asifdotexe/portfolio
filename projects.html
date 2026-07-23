@@ -1,0 +1,271 @@
+---
+layout: base.njk
+title: Projects
+permalink: /projects/
+---
+<!-- ABOUT -->
+                <article class="projects active" data-page="projects">
+                    <header>
+                        <h2 class="h2 article-title">Projects</h2>
+                    </header>
+
+                    <section class="projects">
+                        <ul class="filter-list">
+                            <li class="filter-item">
+                                <button class="active" data-filter-btn>
+                                    All
+                                </button>
+                            </li>
+                            <li class="filter-item">
+                                <button data-filter-btn>Tools</button>
+                            </li>
+                            <li class="filter-item">
+                                <button data-filter-btn>Models</button>
+                            </li>
+                            <li class="filter-item">
+                                <button data-filter-btn>Analytics</button>
+                            </li>
+                            <li class="filter-item">
+                                <button data-filter-btn>Knowledge</button>
+                            </li>
+                        </ul>
+
+                        <!-- The select box is kept in HTML but can be hidden with CSS if not needed on desktop -->
+                        <div class="filter-select-box">
+                            <button class="filter-select" data-select>
+                                <div class="select-value" data-selecct-value>
+                                    Select category
+                                </div>
+                                <div class="select-icon">
+                                    <!-- Ionicon would require an external script, using text as fallback -->
+                                    <span>&#9660;</span>
+                                </div>
+                            </button>
+                            <ul class="select-list">
+                                <li class="select-item">
+                                    <button data-select-item>All</button>
+                                </li>
+                                <li class="select-item">
+                                    <button data-select-item>Tools</button>
+                                </li>
+                                <li class="select-item">
+                                    <button data-select-item>Models</button>
+                                </li>
+                                <li class="select-item">
+                                    <button data-select-item>Analytics</button>
+                                </li>
+                                <li class="select-item">
+                                    <button data-select-item>Knowledge</button>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="projects-grid">
+                            <!-- Project list will be dynamically populated here -->
+                            <ul class="project-list" id="project-list">
+                                <!-- Content loaded dynamically via JS; noscript fallback below for crawlers -->
+                            </ul>
+                            <noscript>
+                                <ul class="project-list">
+                                    <li class="project-item">
+                                        <a
+                                            href="https://github.com/Asifdotexe/yoink"
+                                        >
+                                            <h3>Yoink</h3>
+                                            <p>
+                                                Developer Tools & API - python,
+                                                fastapi, cli-tool,
+                                                llm-optimization, ast,
+                                                tokenization
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="project-item">
+                                        <a
+                                            href="https://github.com/Asifdotexe/Theseus"
+                                        >
+                                            <h3>Ship of Theseus</h3>
+                                            <p>
+                                                Data Visualization & Analysis -
+                                                python, javascript, d3js,
+                                                data-visualization,
+                                                github-actions, git-history
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="project-item">
+                                        <a
+                                            href="https://github.com/Asifdotexe/second-brain"
+                                            ><h3>Second Brain</h3>
+                                            <p>
+                                                Knowledge base website - blog,
+                                                CSS, HTML, JavaScript, Markdown,
+                                                Python
+                                            </p></a
+                                        >
+                                    </li>
+                                    <li class="project-item">
+                                        <a
+                                            href="https://github.com/Asifdotexe/LittleLogger"
+                                            ><h3>LittleLogger</h3>
+                                            <p>
+                                                Machine Learning Experiment
+                                                Tracker - developer-tools,
+                                                logging, PyPI, Python,
+                                                Scikit-learn
+                                            </p></a
+                                        >
+                                    </li>
+                                    <li class="project-item">
+                                        <a
+                                            href="https://github.com/Asifdotexe/SERPENT"
+                                            ><h3>
+                                                SERPENT: Code to Flowchart
+                                                Application
+                                            </h3>
+                                            <p>
+                                                Code Documentation Tools - AST,
+                                                code-to-flowchart, Graphviz,
+                                                Python, Streamlit
+                                            </p></a
+                                        >
+                                    </li>
+                                    <li class="project-item">
+                                        <a
+                                            href="https://github.com/Asifdotexe/MNISTify"
+                                            ><h3>
+                                                MNISTify: Digit Recognition App
+                                            </h3>
+                                            <p>
+                                                Deep Learning - Python,
+                                                Streamlit, TensorFlow, OpenCV,
+                                                CNN
+                                            </p></a
+                                        >
+                                    </li>
+                                    <li class="project-item">
+                                        <a
+                                            href="https://github.com/Asifdotexe/QuickVU"
+                                            ><h3>QuickVU: No-code Data Tool</h3>
+                                            <p>
+                                                Data Cleaning and Analysis -
+                                                automation, data-analysis,
+                                                data-visualization, Python,
+                                                Streamlit
+                                            </p></a
+                                        >
+                                    </li>
+                                    <li class="project-item">
+                                        <a
+                                            href="https://github.com/Asifdotexe/DORA"
+                                            ><h3>DORA: Report Automator</h3>
+                                            <p>
+                                                Data Analysis Tool - CLI,
+                                                exploratory-analysis,
+                                                HTML-report, PyPI, Python,
+                                                Streamlit
+                                            </p></a
+                                        >
+                                    </li>
+                                    <li class="project-item">
+                                        <a
+                                            href="https://github.com/Asifdotexe/RecommendationHaki"
+                                            ><h3>
+                                                RecommendationHaki: Anime
+                                                Recommendation Engine
+                                            </h3>
+                                            <p>
+                                                Natural Language Processing -
+                                                machine-learning, NLP, Python,
+                                                recommendation-system, Streamlit
+                                            </p></a
+                                        >
+                                    </li>
+                                    <li class="project-item">
+                                        <a
+                                            href="https://github.com/Asifdotexe/StoDir"
+                                            ><h3>
+                                                StoDir: Stock Direction
+                                                Forecasting Model
+                                            </h3>
+                                            <p>
+                                                Machine Learning - Python,
+                                                Scikit-learn, Streamlit,
+                                                time-series-forecasting
+                                            </p></a
+                                        >
+                                    </li>
+                                    <li class="project-item">
+                                        <a
+                                            href="https://github.com/Asifdotexe/PlateScribe"
+                                            ><h3>
+                                                PlateScribe: License Plate
+                                                Detection and OCR
+                                            </h3>
+                                            <p>
+                                                Deep Learning - deep-learning,
+                                                OCR, OpenCV, Pytesseract,
+                                                Python, Streamlit
+                                            </p></a
+                                        >
+                                    </li>
+                                    <li class="project-item">
+                                        <a
+                                            href="https://github.com/Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews"
+                                            ><h3>
+                                                Sentimental Scoring Model on
+                                                Amazon Reviews
+                                            </h3>
+                                            <p>
+                                                Natural Language Processing -
+                                                data-analysis,
+                                                sentiment-analysis
+                                            </p></a
+                                        >
+                                    </li>
+                                    <li class="project-item">
+                                        <a
+                                            href="https://github.com/Asifdotexe/real-estate-price-prediction"
+                                            ><h3>
+                                                Real Estate Price Prediction
+                                                Model
+                                            </h3>
+                                            <p>
+                                                Machine Learning - Python,
+                                                Scikit-learn
+                                            </p></a
+                                        >
+                                    </li>
+                                    <li class="project-item">
+                                        <a
+                                            href="https://github.com/Asifdotexe/Air-Quality-Analysis-AQA"
+                                            ><h3>
+                                                AQA: Air Quality Analysis Case
+                                                Study
+                                            </h3>
+                                            <p>
+                                                Data Analysis - AQI analysis,
+                                                data-preprocessing,
+                                                data-science, data-visualization
+                                            </p></a
+                                        >
+                                    </li>
+                                    <li class="project-item">
+                                        <a
+                                            href="https://github.com/Asifdotexe/flipkart-electric-scooter-data-analysis"
+                                            ><h3>
+                                                Flipkart Electric Scooter Data
+                                                Analysis
+                                            </h3>
+                                            <p>
+                                                Data Analysis - BeautifulSoup,
+                                                data-science, webscraping
+                                            </p></a
+                                        >
+                                    </li>
+                                </ul>
+                            </noscript>
+                        </div>
+                    </section>
+                </article>
+            

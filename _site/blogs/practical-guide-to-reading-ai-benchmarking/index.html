@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title> | Asif Sayyed Portfolio</title>
+        <meta
+            name="title"
+            content="Asif Sayyed | Data Scientist, Public Speaker & Tech Educator"
+        />
+        <meta
+            name="description"
+            content="Data Scientist at Marsh specializing in Python, Machine Learning, NLP, and Cyber Risk Analytics. Explore my projects and experience."
+        />
+        <meta
+            name="keywords"
+            content="Asif Sayyed, Data Scientist, Python Developer, Machine Learning Engineer, AI Portfolio, NLP, Deep Learning, Cyber Risk, Marsh, Mumbai, Data Science Portfolio"
+        />
+        <meta name="author" content="Asif Sayyed" />
+        <meta name="theme-color" content="#2b2b2c" />
+        <meta
+            name="robots"
+            content="index, follow, max-snippet:-1, max-image-preview:large"
+        />
+        <meta name="language" content="English" />
+        <meta name="format-detection" content="telephone=no" />
+        <link rel="canonical" href="https://sayyedasif.com/" />
+
+        <!-- Google Search Console verification (replace YOUR_VERIFICATION_CODE after signing up at https://search.google.com/search-console) -->
+        <meta
+            name="google-site-verification"
+            content="mZ4YTDxw_emCHo0t3exypc7baNm8gDdt_ci72uqK1aY"
+        />
+
+        <!-- Open Graph (used by LinkedIn, Facebook, Discord, Slack, etc.) -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://sayyedasif.com/" />
+        <meta
+            property="og:title"
+            content="Asif Sayyed | Data Scientist, Public Speaker & Tech Educator"
+        />
+        <meta
+            property="og:description"
+            content="Data Scientist at Marsh specializing in Python, Machine Learning, NLP, and Cyber Risk Analytics. Explore my projects and experience."
+        />
+        <meta
+            property="og:image"
+            content="https://sayyedasif.com/assets/images/og/portfolio-opengraph-index.webp"
+        />
+        <meta property="og:site_name" content="Asif Sayyed Portfolio" />
+        <meta property="og:locale" content="en_US" />
+
+        <!-- Twitter Card (also used by LinkedIn and other platforms for link previews) -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="Asif Sayyed | Data Scientist, Public Speaker & Tech Educator"
+        />
+        <meta
+            name="twitter:description"
+            content="Data Scientist at Marsh specializing in Python, Machine Learning, NLP, and Cyber Risk Analytics. Explore my projects and experience."
+        />
+        <meta
+            name="twitter:image"
+            content="https://sayyedasif.com/assets/images/og/portfolio-opengraph-index.webp"
+        />
+
+        <!-- favicon -->
+        <link
+            rel="shortcut icon"
+            href="/assets/images/icons/icon-job.svg"
+            type="image/x-icon"
+        />
+        <script
+            type="module"
+            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+        ></script>
+        <script
+            nomodule
+            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+        ></script>
+
+        <!-- custom css link -->
+        <link rel="stylesheet" href="/assets/css/style.css" />
+
+        <!-- google font link -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
+        <!-- preload LCP image -->
+        <link rel="preload" as="image" href="/assets/images/my-memoji.webp" />
+
+        <!-- preload critical resources -->
+        <link rel="preload" href="/assets/js/script.min.js" as="script" />
+        <link
+            rel="preload"
+            href="/assets/data/projects.json"
+            as="fetch"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="/assets/data/last_updated.json"
+            as="fetch"
+            crossorigin
+        />
+
+        <!-- custom js link -->
+        <script src="/assets/js/script.min.js" defer></script>
+
+        <!-- Structured Data (JSON-LD) â€” Person -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "@id": "https://sayyedasif.com/#person",
+                "name": "Asif Sayyed",
+                "givenName": "Asif",
+                "familyName": "Sayyed",
+                "jobTitle": "Specialist - Data Science",
+                "url": "https://sayyedasif.com/",
+                "image": "https://sayyedasif.com/assets/images/my-memoji.webp",
+                "description": "Data Scientist at Marsh's Cyber Risk Intelligence Center (CRIC), specializing in Python, Machine Learning, NLP, Computer Vision, and Cyber Risk Analytics. B.Sc. in Data Science & Business Analytics from Mumbai University.",
+                "email": "hello@sayyedasif.com",
+                "nationality": {
+                    "@type": "Country",
+                    "name": "India"
+                },
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Mumbai",
+                    "addressRegion": "Maharashtra",
+                    "addressCountry": "IN"
+                },
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Marsh",
+                    "url": "https://www.marshmclennan.com/",
+                    "department": {
+                        "@type": "Organization",
+                        "name": "Cyber Risk Intelligence Center (CRIC)"
+                    }
+                },
+                "alumniOf": {
+                    "@type": "EducationalOrganization",
+                    "name": "School of Data Science and Business Intelligence (SDBI)",
+                    "parentOrganization": {
+                        "@type": "EducationalOrganization",
+                        "name": "Mumbai University"
+                    }
+                },
+                "knowsAbout": [
+                    "Data Science",
+                    "Python",
+                    "Machine Learning",
+                    "Natural Language Processing",
+                    "Deep Learning",
+                    "Computer Vision",
+                    "SQL",
+                    "R Programming",
+                    "TensorFlow",
+                    "PyTorch",
+                    "Scikit-learn",
+                    "Pandas",
+                    "NumPy",
+                    "Data Visualization",
+                    "Tableau",
+                    "Power BI",
+                    "Streamlit",
+                    "PySpark",
+                    "Databricks",
+                    "AWS",
+                    "Cyber Risk Analytics",
+                    "XGBoost",
+                    "Keras",
+                    "MongoDB",
+                    "Web Scraping"
+                ],
+                "hasCredential": [
+                    {
+                        "@type": "EducationalOccupationalCredential",
+                        "name": "IBM Data Science Professional Certificate",
+                        "credentialCategory": "Professional Certificate",
+                        "recognizedBy": {
+                            "@type": "Organization",
+                            "name": "IBM"
+                        },
+                        "url": "https://coursera.org/verify/professional-cert/MJD36RK7GYSD"
+                    }
+                ],
+                "sameAs": [
+                    "https://github.com/Asifdotexe",
+                    "https://www.linkedin.com/in/sayyedasif/",
+                    "https://medium.com/@asifdotexe",
+                    "https://dev.to/asifdotexe",
+                    "https://kc7cyber.com/profile/asifdotexe"
+                ]
+            }
+        </script>
+
+        <!-- Structured Data (JSON-LD) â€” WebSite -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "@id": "https://sayyedasif.com/#website",
+                "name": "Asif Sayyed Portfolio",
+                "url": "https://sayyedasif.com/",
+                "description": "Portfolio website of Asif Sayyed, Data Scientist at Marsh.",
+                "author": { "@id": "https://sayyedasif.com/#person" },
+                "inLanguage": "en-US"
+            }
+        </script>
+
+        <!-- Structured Data (JSON-LD) â€” ProfilePage -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "ProfilePage",
+                "@id": "https://sayyedasif.com/#profilepage",
+                "url": "https://sayyedasif.com/",
+                "name": "Asif Sayyed | Data Scientist Portfolio",
+                "isPartOf": { "@id": "https://sayyedasif.com/#website" },
+                "mainEntity": { "@id": "https://sayyedasif.com/#person" },
+                "inLanguage": "en-US",
+                "dateModified": "2026-06-22T12:00:00+05:30"
+            }
+        </script>
+
+        <!-- Google Analytics (GA4) â€” https://analytics.google.com -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-52KQ8L4SQG"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-52KQ8L4SQG");
+        </script>
+        <meta name="view-transition" content="same-origin" />
+    </head>
+
+    <body>
+        <!-- MAIN -->
+        <main>
+            <!-- SIDEBAR -->
+            <aside class="sidebar" data-sidebar>
+                <div class="sidebar-info">
+                    <figure class="avatar-box">
+                        <img
+                            src="/assets/images/my-memoji.webp"
+                            alt="Asif Sayyed"
+                            width="80"
+                            loading="eager"
+                            fetchpriority="high"
+                        />
+                    </figure>
+
+                    <div class="info-content">
+                        <h1 class="name" title="Asif Sayyed - Data Scientist">
+                            Asif Sayyed
+                        </h1>
+                        <p class="title">Data Scientist</p>
+                    </div>
+
+                    <div class="sidebar-actions">
+                        <button
+                            class="theme-btn sidebar-theme-btn"
+                            data-theme-btn
+                            aria-label="Toggle Theme"
+                        >
+                            <ion-icon name="moon" class="moon-icon"></ion-icon>
+                            <ion-icon name="sunny" class="sun-icon"></ion-icon>
+                        </button>
+                        <button class="info_more-btn" data-sidebar-btn>
+                            <span>Show Contacts</span>
+                            <ion-icon
+                                aria-hidden="true"
+                                name="chevron-down"
+                            ></ion-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="sidebar-info_more">
+                    <div class="separator"></div>
+
+                    <ul class="contacts-list">
+                        <li class="contact-item">
+                            <div class="icon-box">
+                                <ion-icon
+                                    aria-hidden="true"
+                                    name="mail-outline"
+                                ></ion-icon>
+                            </div>
+                            <div class="contact-info">
+                                <p class="contact-title">Email</p>
+                                <a
+                                    href="mailto:hello@sayyedasif.com"
+                                    class="contact-link"
+                                    >hello@sayyedasif.com</a
+                                >
+                            </div>
+                        </li>
+
+                        <li class="contact-item">
+                            <div class="icon-box">
+                                <ion-icon
+                                    aria-hidden="true"
+                                    name="location"
+                                ></ion-icon>
+                            </div>
+                            <div class="contact-info">
+                                <p class="contact-title">Location</p>
+                                <address>Mumbai, Maharashtra, India</address>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="separator"></div>
+
+                    <ul class="social-list">
+                        <li class="social-item">
+                            <a
+                                href="https://github.com/Asifdotexe"
+                                class="social-link"
+                                aria-label="GitHub Profile"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                <ion-icon
+                                    aria-hidden="true"
+                                    name="logo-github"
+                                ></ion-icon>
+                            </a>
+                        </li>
+
+                        <li class="social-item">
+                            <a
+                                href="https://www.linkedin.com/in/sayyedasif/"
+                                class="social-link"
+                                aria-label="LinkedIn Profile"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                <ion-icon
+                                    aria-hidden="true"
+                                    name="logo-linkedin"
+                                ></ion-icon>
+                            </a>
+                        </li>
+
+                        <li class="social-item">
+                            <a
+                                href="https://medium.com/@asifdotexe"
+                                class="social-link"
+                                aria-label="Medium Blog"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                <ion-icon
+                                    aria-hidden="true"
+                                    name="logo-medium"
+                                ></ion-icon>
+                            </a>
+                        </li>
+
+                        <li class="social-item">
+                            <a
+                                href="https://dev.to/asifdotexe"
+                                class="social-link"
+                                aria-label="dev.to Profile"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                <ion-icon
+                                    aria-hidden="true"
+                                    name="code-slash-outline"
+                                ></ion-icon>
+                            </a>
+                        </li>
+
+                        <li class="social-item">
+                            <a
+                                href="https://kc7cyber.com/profile/asifdotexe"
+                                class="social-link"
+                                aria-label="KC7 Cyber Profile"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                <ion-icon
+                                    aria-hidden="true"
+                                    name="shield-checkmark"
+                                ></ion-icon>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- #main-content -->
+            <div class="main-content">
+                <!-- #NAVBAR -->
+                <nav
+                    class="navbar"
+                    role="navigation"
+                    aria-label="Main navigation"
+                >
+                    <ul class="navbar-list">
+                        <li class="navbar-item">
+                            <a href="/" class="navbar-link ">About</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a href="/projects/" class="navbar-link"
+                                >Projects</a
+                            >
+                        </li>
+                        <li class="navbar-item">
+                            <a href="/certifications/" class="navbar-link"
+                                >Certifications</a
+                            >
+                        </li>
+                        <li class="navbar-item">
+                            <a href="/events/" class="navbar-link ">Events</a>
+                        </li>
+
+                        <li class="navbar-item">
+                            <a href="/blogs/" class="navbar-link active">Blogs</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a href="/contact/" class="navbar-link ">Contact</a>
+                        </li>
+                        <li class="navbar-item">
+                            <button
+                                class="theme-btn navbar-theme-btn"
+                                data-theme-btn
+                                aria-label="Toggle Theme"
+                            >
+                                <ion-icon
+                                    name="moon"
+                                    class="moon-icon"
+                                ></ion-icon>
+                                <ion-icon
+                                    name="sunny"
+                                    class="sun-icon"
+                                ></ion-icon>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+                <article class="blogs active" data-page="blog-post">
+    <header>
+        <h2 class="h2 article-title">Blogs</h2>
+    </header>
+    <section class="blog-content-section">
+        <h1 class="blog-post-title"></h1>
+        <a href="/blogs/" class="blog-back-btn" style="display: inline-block; margin-bottom: 20px; color: var(--vibrant-green); text-decoration: none;">← Back to Blogs</a>
+        
+        
+        
+        <div class="blog-post-content">
+            <h1>Beyond the hype: A practical guide to AI model benchmarks in 2026</h1>
+<p><em>Last updated: June 2026</em></p>
+<p>If you follow the AI space, you have probably seen charts from tech companies claiming their new model is the smartest or fastest. They use benchmark scores as objective proof, but you have to look past the headline numbers to understand these claims.</p>
+<p>Understanding AI model benchmarks is like understanding standardized test scores for students. A benchmark is a standardized exam designed to measure how an AI model performs on specific tasks.</p>
+<h2>The anatomy of an AI benchmark</h2>
+<p>Every AI benchmark typically consists of three main components:</p>
+<ul>
+<li>The dataset, which is a fixed set of questions or tasks with known correct answers.</li>
+<li>The evaluation method, which dictates how the model's output is scored (like using exact matches or having another LLM act as a judge).</li>
+<li>The leaderboard, which is the public ranking system that stacks different models against each other.</li>
+</ul>
+<p>You will see several different scoring scales depending on the test. Many benchmarks use a simple accuracy percentage (0 to 100%). Coding tests often use a &quot;Pass@1&quot; metric, which measures the percentage of times a model generates the correct code on its first try. Human preference benchmarks usually use an Elo rating system, similar to chess rankings, where a higher score means the model wins more blind matchups against other models.</p>
+<h2>How benchmarks are changing</h2>
+<p>The tests change quickly. Older benchmarks that relied on simple multiple-choice questions or basic code generation are largely saturated now. Frontier models score so high that the tests cannot tell them apart.</p>
+<p>By 2026, the industry shifted toward evaluating complex reasoning and long-term problem solving. The major benchmarks used today fall into several categories.</p>
+<h3>1. General knowledge and frontier reasoning</h3>
+<p>These test a model’s academic knowledge and ability to reason through difficult concepts without hallucinating.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Benchmark</th>
+<th style="text-align:left">Focus</th>
+<th style="text-align:left">What it measures</th>
+<th style="text-align:left">Score metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="https://doi.org/10.48550/arxiv.2402.11548">MMLU / KMMLU</a></td>
+<td style="text-align:left">General knowledge</td>
+<td style="text-align:left">Academic questions across 50+ subjects.</td>
+<td style="text-align:left">Accuracy (0 to 100%)</td>
+</tr>
+<tr>
+<td style="text-align:left">GPQA Diamond</td>
+<td style="text-align:left">Scientific reasoning</td>
+<td style="text-align:left">PhD-level physics, biology, and chemistry.</td>
+<td style="text-align:left">Accuracy (0 to 100%)</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://doi.org/10.48550/arxiv.2501.14249">Humanity's Last Exam</a></td>
+<td style="text-align:left">Frontier knowledge</td>
+<td style="text-align:left">Extremely difficult questions at the edge of human knowledge.</td>
+<td style="text-align:left">Accuracy (0 to 100%)</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://doi.org/10.18653/v1/p19-1472">HellaSwag</a></td>
+<td style="text-align:left">Common sense</td>
+<td style="text-align:left">Predicting logical outcomes in everyday scenarios.</td>
+<td style="text-align:left">Accuracy (0 to 100%)</td>
+</tr>
+<tr>
+<td style="text-align:left">TruthfulQA</td>
+<td style="text-align:left">Hallucination resistance</td>
+<td style="text-align:left">Tendency to repeat common misconceptions.</td>
+<td style="text-align:left">Accuracy (0 to 100%)</td>
+</tr>
+</tbody>
+</table>
+<h3>2. Software engineering and coding</h3>
+<p>Coding benchmarks test whether a model can navigate entire repositories rather than just writing a single function. Because real-world codebases naturally degrade over time (a concept explored in our deep-dive on <a href="/blogs/ship-of-theseus-codebase-entropy/">codebase entropy and the Ship of Theseus</a>), being able to resolve complex issues across multiple files is the truest test of an AI coding assistant.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Benchmark</th>
+<th style="text-align:left">Focus</th>
+<th style="text-align:left">What it measures</th>
+<th style="text-align:left">Score metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="https://doi.org/10.48550/arxiv.2310.06770">SWE-bench</a> / <a href="https://doi.org/10.48550/arxiv.2410.06992">SWE-Bench+</a></td>
+<td style="text-align:left">Real-world coding</td>
+<td style="text-align:left">Resolving actual GitHub issues in multi-file codebases.</td>
+<td style="text-align:left">Resolution rate (0 to 100%)</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://doi.org/10.48550/arxiv.2403.07974">LiveCodeBench</a></td>
+<td style="text-align:left">Contamination resistance</td>
+<td style="text-align:left">Live competitive programming problems harvested continuously.</td>
+<td style="text-align:left">Pass@1 (0 to 100%)</td>
+</tr>
+<tr>
+<td style="text-align:left">Terminal-Bench</td>
+<td style="text-align:left">DevOps tasks</td>
+<td style="text-align:left">Executing terminal-heavy workflows and infrastructure commands.</td>
+<td style="text-align:left">Success rate (0 to 100%)</td>
+</tr>
+<tr>
+<td style="text-align:left">BigCodeBench</td>
+<td style="text-align:left">Complex logic</td>
+<td style="text-align:left">Broad coding tasks assessing software architecture.</td>
+<td style="text-align:left">Pass@1 (0 to 100%)</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://doi.org/10.48550/arxiv.2107.03374">HumanEval</a> / MBPP</td>
+<td style="text-align:left">Basic code gen</td>
+<td style="text-align:left">Older standards testing simple Python functions (mostly saturated).</td>
+<td style="text-align:left">Pass@1 (0 to 100%)</td>
+</tr>
+</tbody>
+</table>
+<h3>3. Autonomous agents and tool use</h3>
+<p>These tests evaluate if an AI model can operate a computer or browse the web. Models scoring high on web browsing tasks are increasingly being used to <a href="/blogs/seo-geo-aeo-guide/">power AI search engines (GEO/AEO)</a>, meaning they must accurately synthesize information without breaking workflows.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Benchmark</th>
+<th style="text-align:left">Focus</th>
+<th style="text-align:left">What it measures</th>
+<th style="text-align:left">Score metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">GDPval</td>
+<td style="text-align:left">Knowledge work</td>
+<td style="text-align:left">Completing professional tasks like drafting memos and analyzing data.</td>
+<td style="text-align:left">Success rate (0 to 100%)</td>
+</tr>
+<tr>
+<td style="text-align:left">OSWorld</td>
+<td style="text-align:left">Desktop navigation</td>
+<td style="text-align:left">Natively operating a computer desktop and clicking icons.</td>
+<td style="text-align:left">Success rate (0 to 100%)</td>
+</tr>
+<tr>
+<td style="text-align:left">WebArena</td>
+<td style="text-align:left">Web browsing</td>
+<td style="text-align:left">Navigating websites and extracting data in a simulated internet.</td>
+<td style="text-align:left">Success rate (0 to 100%)</td>
+</tr>
+<tr>
+<td style="text-align:left">BFCL</td>
+<td style="text-align:left">Function calling</td>
+<td style="text-align:left">Accuracy in triggering external APIs and tools.</td>
+<td style="text-align:left">Accuracy (0 to 100%)</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://doi.org/10.48550/arxiv.2504.12516">BrowseComp</a></td>
+<td style="text-align:left">AI research</td>
+<td style="text-align:left">Using search engines to compile comprehensive research reports.</td>
+<td style="text-align:left">Quality score (0 to 100%)</td>
+</tr>
+</tbody>
+</table>
+<h3>4. Mathematics and abstract logic</h3>
+<p>These focus strictly on algorithmic reasoning and fluid intelligence.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Benchmark</th>
+<th style="text-align:left">Focus</th>
+<th style="text-align:left">What it measures</th>
+<th style="text-align:left">Score metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="https://doi.org/10.48550/arxiv.2103.03874">MATH</a> / MATH 500</td>
+<td style="text-align:left">Competition math</td>
+<td style="text-align:left">Step-by-step reasoning for advanced algebra and calculus.</td>
+<td style="text-align:left">Accuracy (0 to 100%)</td>
+</tr>
+<tr>
+<td style="text-align:left">AIME</td>
+<td style="text-align:left">Elite mathematics</td>
+<td style="text-align:left">Deep, multi-step mathematical deduction.</td>
+<td style="text-align:left">Score (0 to 15)</td>
+</tr>
+<tr>
+<td style="text-align:left">FrontierMath</td>
+<td style="text-align:left">Extreme complexity</td>
+<td style="text-align:left">Research-level math problems that AI currently struggles with.</td>
+<td style="text-align:left">Accuracy (0 to 100%)</td>
+</tr>
+<tr>
+<td style="text-align:left">ARC-AGI</td>
+<td style="text-align:left">Abstract reasoning</td>
+<td style="text-align:left">Spatial and visual logic puzzles testing fluid intelligence.</td>
+<td style="text-align:left">Accuracy (0 to 100%)</td>
+</tr>
+</tbody>
+</table>
+<h3>5. Multimodal and context processing</h3>
+<p>These evaluate how well a model handles massive documents, audio, and images.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Benchmark</th>
+<th style="text-align:left">Focus</th>
+<th style="text-align:left">What it measures</th>
+<th style="text-align:left">Score metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="https://doi.org/10.48550/arxiv.2311.16502">MMMU</a></td>
+<td style="text-align:left">Multimodal reasoning</td>
+<td style="text-align:left">Understanding charts, diagrams, and complex images.</td>
+<td style="text-align:left">Accuracy (0 to 100%)</td>
+</tr>
+<tr>
+<td style="text-align:left">VQA / MSCOCO</td>
+<td style="text-align:left">Image understanding</td>
+<td style="text-align:left">Visual Question Answering and image captioning.</td>
+<td style="text-align:left">Accuracy (0 to 100%)</td>
+</tr>
+<tr>
+<td style="text-align:left">Needle In A Haystack</td>
+<td style="text-align:left">Context retrieval</td>
+<td style="text-align:left">Finding specific facts buried deep within massive documents.</td>
+<td style="text-align:left">Retrieval accuracy (0 to 100%)</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://doi.org/10.48550/arxiv.2404.06654">RULER</a></td>
+<td style="text-align:left">Usable context limit</td>
+<td style="text-align:left">Testing if a model can accurately reason over a large document.</td>
+<td style="text-align:left">Accuracy (0 to 100%)</td>
+</tr>
+</tbody>
+</table>
+<h3>6. Human preference</h3>
+<p>Because objective tests do not always capture how helpful a model feels to a user, the industry relies on crowdsourced voting.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Benchmark</th>
+<th style="text-align:left">Focus</th>
+<th style="text-align:left">What it measures</th>
+<th style="text-align:left">Score metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="https://doi.org/10.48550/arxiv.2309.11998">LMSYS Chatbot Arena</a></td>
+<td style="text-align:left">Human preference</td>
+<td style="text-align:left">Blind A/B testing where humans chat with two models and vote.</td>
+<td style="text-align:left">Elo rating (typically 800 to 1350)</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://doi.org/10.48550/arxiv.2306.05685">MT-Bench</a></td>
+<td style="text-align:left">Conversational flow</td>
+<td style="text-align:left">Holding a coherent, helpful, multi-turn conversation over time.</td>
+<td style="text-align:left">Score (1 to 10)</td>
+</tr>
+</tbody>
+</table>
+<h2>The new generation: Specialized &quot;deep&quot; benchmarks</h2>
+<p>As AI models become specialized agents, highly specific and complex benchmarks are replacing older tests. A prime example is <a href="https://deepresearch-bench.github.io/">DeepResearch Bench</a>, which evaluates Deep Research Agents across 100 PhD-level research tasks. Instead of just answering a question, models are judged on their ability to autonomously browse the web, retrieve relevant documents, and write reports with citations. The project later expanded into <a href="https://agentresearchlab.com/benchmarks/deepresearch-bench-ii/index.html">DeepResearch Bench II</a>, featuring over 9,000 fine-grained rubrics derived from expert-written reports. This benchmark is already reshaping how organizations evaluate AI for procurement, as noted in recent <a href="https://medium.com/@tuhinsharma121/enterprise-deep-research-agents-a-strategic-analysis-32fb3ee6325d">strategic analyses on enterprise adoption</a>.</p>
+<p>Similarly, tools like <a href="https://arxiv.org/html/2502.18726v1">Deep-Bench</a> evaluate function-level code generation across the entire machine learning pipeline. The push for these more complex, function-level evaluations is driven by the growing recognition that <a href="https://openreview.net/forum?id=VfR1x8W2p0">code benchmarks should prioritize rigor, reliability, and reproducibility (HOW2BENCH)</a> rather than focusing on simple, saturated coding puzzles.</p>
+<h2>How to read the scores (and why Goodhart's law matters)</h2>
+<p>You should read benchmark scores with skepticism. The most important concept to keep in mind is Goodhart's law: &quot;When a measure becomes a target, it ceases to be a good measure.&quot;</p>
+<p><em>When organizations fixate on beating a benchmark, the score detaches from real-world utility.</em></p>
+<p>Because high benchmark scores drive enterprise adoption, companies heavily optimize their models to excel at these specific tests. This leads to a few major pitfalls:</p>
+<ul>
+<li><strong>Data contamination:</strong> Models are trained on massive swaths of the internet, and benchmark test questions sometimes accidentally end up in the training data. When this happens, a high score just means the model memorized the answer key rather than understanding the concept. For instance, a model might flawlessly solve a difficult math problem from a known dataset, but fail completely if you simply change the numbers in the prompt.</li>
+<li><strong>Over-specialization:</strong> An AI with a record-breaking SAT math score might be terrible at summarizing legal contracts. You should only pay attention to the benchmarks that resemble the actual work you need the model to do.</li>
+<li><strong>The leaderboard illusion:</strong> Being number one on a leaderboard does not mean a model is significantly better. A model leading by a fraction of a percentage point is effectively tied with the runner-up. Furthermore, top-line averages can obscure fatal flaws in specific sub-categories. This is similar to how <a href="/blogs/simpsons-paradox-how-averages-deceive-us/">Simpson's paradox can hide the real story behind aggregated data</a>.</li>
+<li><strong>Test-taking strategies:</strong> Models can be prompted differently during a test. If a company claims a high score but gave their model unlimited time to try multiple answers (using techniques like Monte Carlo Tree Search or best-of-N sampling), it is not a fair comparison against a model restricted to a single attempt.</li>
+</ul>
+<h2>The bottom line</h2>
+<p>Benchmarks are imperfect proxies for real-world performance. You can use them as a starting point to narrow down your options, but the only reliable benchmark is how well the model handles your actual data.</p>
+<hr>
+<p><strong>About the Author:</strong>
+I am a cybersecurity and data science professional specializing in evaluating AI risk and technical architecture. I help organizations navigate the noise of enterprise AI adoption.</p>
+<p><strong>Want more deep-dives into AI and technical analysis?</strong>
+Subscribe to my weekly newsletter to get these insights delivered straight to your inbox, or connect with me on <a href="#">LinkedIn</a>.</p>
+<hr>
+<h2>References</h2>
+<ul>
+<li>Aleithan, R., Xue, H., Mohajer, M. M., et al. (2024). <em>SWE-Bench+: Enhanced Coding Benchmark for LLMs</em>. arXiv. <a href="https://doi.org/10.48550/arxiv.2410.06992">https://doi.org/10.48550/arxiv.2410.06992</a></li>
+<li>Chen, M., Tworek, J., Jun, H., Yuan, Q., Pinto, H. P. d. O., Kaplan, J., Edwards, H., Burda, Y., Joseph, N., Brockman, G., Ray, A., Puri, R., Krueger, G., Petrov, M., Khlaaf, H., Sastry, G., Mishkin, P., Chan, B., Gray, S., ... Winter, C. (2021). <em>Evaluating Large Language Models Trained on Code</em>. arXiv. <a href="https://doi.org/10.48550/arxiv.2107.03374">https://doi.org/10.48550/arxiv.2107.03374</a></li>
+<li>Deep-Bench: <em>Deep Learning Benchmark Dataset for Code Generation</em>. <a href="https://arxiv.org/html/2502.18726v1">https://arxiv.org/html/2502.18726v1</a></li>
+<li>DeepResearch Bench Official Project Page. <a href="https://deepresearch-bench.github.io/">https://deepresearch-bench.github.io/</a></li>
+<li>DeepResearch Bench II (Agent Research Lab). <a href="https://agentresearchlab.com/benchmarks/deepresearch-bench-ii/index.html">https://agentresearchlab.com/benchmarks/deepresearch-bench-ii/index.html</a></li>
+<li>Hendrycks, D., Burns, C., Kadavath, S., Arora, A., Basart, S., Tang, E., Song, D., &amp; Steinhardt, J. (2021). <em>Measuring Mathematical Problem Solving With the MATH Dataset</em>. arXiv. <a href="https://doi.org/10.48550/arxiv.2103.03874">https://doi.org/10.48550/arxiv.2103.03874</a></li>
+<li>Hsieh, C.-P., Sun, S., Kriman, S., Acharya, S., Rekesh, D., Jia, F., Zhang, Y., &amp; Ginsburg, B. (2024). <em>RULER: What's the Real Context Size of Your Long-Context Language Models?</em> arXiv. <a href="https://doi.org/10.48550/arxiv.2404.06654">https://doi.org/10.48550/arxiv.2404.06654</a></li>
+<li>Jain, N., Han, K., Gu, A., Li, W.-D., Yan, F., Zhang, T., Wang, S., Solar-Lezama, A., Sen, K., &amp; Stoica, I. (2024). <em>LiveCodeBench: Holistic and Contamination Free Evaluation of Large Language Models for Code</em>. arXiv. <a href="https://doi.org/10.48550/arxiv.2403.07974">https://doi.org/10.48550/arxiv.2403.07974</a></li>
+<li>Jimenez, C. E., Yang, J., Wettig, A., et al. (2023). <em>SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</em>. arXiv. <a href="https://doi.org/10.48550/arxiv.2310.06770">https://doi.org/10.48550/arxiv.2310.06770</a></li>
+<li>Phan, L., Gatti, A., Han, Z., et al. (2025). <em>Humanity's Last Exam</em>. arXiv. <a href="https://doi.org/10.48550/arxiv.2501.14249">https://doi.org/10.48550/arxiv.2501.14249</a></li>
+<li><em>Position: Code Benchmarks Should Prioritize Rigor, Reliability, and Reproducibility (HOW2BENCH)</em>. OpenReview. <a href="https://openreview.net/forum?id=VfR1x8W2p0">https://openreview.net/forum?id=VfR1x8W2p0</a></li>
+<li>Sharma, T. <em>Enterprise Deep Research Agents: A Strategic Analysis</em>. Medium. <a href="https://medium.com/@tuhinsharma121/enterprise-deep-research-agents-a-strategic-analysis-32fb3ee6325d">https://medium.com/@tuhinsharma121/enterprise-deep-research-agents-a-strategic-analysis-32fb3ee6325d</a></li>
+<li>Son, G., Lee, H., Kim, S., et al. (2024). <em>KMMLU: Measuring Massive Multitask Language Understanding in Korean</em>. arXiv. <a href="https://doi.org/10.48550/arxiv.2402.11548">https://doi.org/10.48550/arxiv.2402.11548</a></li>
+<li>Wei, J., Sun, Z., Papay, S., McKinney, S., Han, J., Fulford, I., Chung, H. W., Passos, A. T., Fedus, W., &amp; Glaese, A. (2025). <em>BrowseComp: A Simple Yet Challenging Benchmark for Browsing Agents</em>. arXiv. <a href="https://doi.org/10.48550/arxiv.2504.12516">https://doi.org/10.48550/arxiv.2504.12516</a></li>
+<li>Yue, X., Ni, Y., Zhang, K., Zheng, T., Liu, R., Zhang, G., Stevens, S., Jiang, D., Ren, W., Sun, Y., Wei, C., Yu, B., Yuan, R., Sun, R., Yin, M., Zheng, B., Yang, Z., Liu, Y., Huang, W., ... Chen, W. (2023). <em>MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI</em>. arXiv. <a href="https://doi.org/10.48550/arxiv.2311.16502">https://doi.org/10.48550/arxiv.2311.16502</a></li>
+<li>Zellers, R., Holtzman, A., Bisk, Y., Farhadi, A., &amp; Choi, Y. (2019). <em>HellaSwag: Can a Machine Really Finish Your Sentence?</em> Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics. <a href="https://doi.org/10.18653/v1/p19-1472">https://doi.org/10.18653/v1/p19-1472</a></li>
+<li>Zheng, L., Chiang, W., Sheng, Y., et al. (2023). <em>LMSYS-Chat-1M: A Large-Scale Real-World LLM Conversation Dataset</em>. arXiv. <a href="https://doi.org/10.48550/arxiv.2309.11998">https://doi.org/10.48550/arxiv.2309.11998</a></li>
+<li>Zheng, L., Chiang, W.-L., Sheng, Y., Zhuang, S., Wu, Z., Zhuang, Y., Lin, Z., Li, Z., Li, D., Xing, E. P., Zhang, H., Gonzalez, J. E., &amp; Stoica, I. (2023). <em>Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena</em>. arXiv. <a href="https://doi.org/10.48550/arxiv.2306.05685">https://doi.org/10.48550/arxiv.2306.05685</a></li>
+</ul>
+
+        </div>
+    </section>
+</article>
+
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer
+            class="site-footer"
+            style="
+                text-align: center;
+                padding: 20px 15px;
+                color: var(--light-gray-70);
+                font-size: var(--fs-8);
+            "
+        >
+            <p>
+                &copy; <span id="current-year">2025</span> Asif Sayyed. All
+                rights reserved.
+            </p>
+            <p style="margin-top: 6px">
+                Data Scientist at Marsh &bull; Mumbai, India
+            </p>
+            <p style="margin-top: 6px">
+                <a
+                    href="/llms.txt"
+                    style="
+                        color: var(--light-gray-70);
+                        text-decoration: none;
+                        font-size: 10px;
+                    "
+                    >llms.txt</a
+                >
+            </p>
+        </footer>
+    </body>
+</html>
