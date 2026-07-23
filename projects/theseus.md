@@ -104,18 +104,9 @@ The pipeline only evaluates missing months and updates the "Living Fossil" point
     Read DevOps Docs
 </a>
 
-## Quick Start
+## Source Code & Documentation
 
-You will need `git`, `python (3.12+)`, and `poetry`.
-
-```bash
-git clone https://github.com/Asifdotexe/Theseus.git
-cd Theseus
-poetry install
-
-# Run full analysis
-poetry run python scripts/analyse_repository.py
-```
+To see the code, read the full API documentation, or run this project locally, head over to the [GitHub Repository](https://github.com/Asifdotexe/Theseus).
 
 ## What's Next
 

@@ -30,6 +30,13 @@ image: /assets/images/og-banner.webp
 ### 3. Write the Content
 Write your project details below the frontmatter using standard Markdown. 
 
+**Recommended Structure for Portfolio Projects:**
+Instead of copying your GitHub README, tailor your portfolio page to highlight your engineering skills. Keep the focus on *why* and *how* you built it, rather than *how to use it*.
+- **The Problem:** What is this and why did you build it?
+- **Architecture:** High-level system design (Mermaid diagrams work great here).
+- **Challenges Overcome:** What went wrong and how did you engineer your way out of it?
+- **Source Code / Call to Action:** End the page with a link out to your GitHub repository for installation and quick-start instructions, so you don't have to duplicate them here.
+
 If you need a Mermaid diagram, use a standard markdown code block with the `mermaid` language identifier:
 ```markdown
     ```mermaid
