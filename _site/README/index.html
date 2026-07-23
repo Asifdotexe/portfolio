@@ -1,0 +1,28 @@
+<h1>Asif Sayyed Portfolio</h1>
+<p>This is the source code for the personal portfolio of Asif Sayyed.</p>
+<h2>How to Add a New Blog Post</h2>
+<p>Since each blog is rendered as a standalone HTML page, adding a new one takes just a few steps:</p>
+<h3>1. Create a New Directory</h3>
+<p>Inside the <code>blogs/</code> folder, create a new directory for your new blog post. The name of the directory will become the URL slug for your post.</p>
+<ul>
+<li>Example: <code>blogs/my-new-blog/</code></li>
+</ul>
+<h3>2. Create the Blog's <code>index.html</code> File</h3>
+<p>Inside the newly created directory, create an <code>index.html</code> file. This file will hold the actual content of your blog post.</p>
+<ul>
+<li><strong>Tip:</strong> The easiest way to get started is to copy an existing blog post (such as <code>blogs/seo-geo-aeo-guide/index.html</code>) and use it as a template. This ensures that the sidebar, navigation, and relative paths to CSS/JS (which should be <code>../../assets/...</code>) remain correct.</li>
+<li>Update the <code>&lt;title&gt;</code>, <code>&lt;meta&gt;</code> tags, <code>&lt;h2 class=&quot;h2 article-title&quot;&gt;</code>, and the actual content inside the <code>&lt;div class=&quot;blog-post-content&quot;&gt;</code>.</li>
+</ul>
+<h3>3. Link the Blog in <code>blogs/index.html</code></h3>
+<p>For visitors to find your new blog, you need to add a link to it on the main Blogs page.</p>
+<ul>
+<li>Open <code>blogs/index.html</code>.</li>
+<li>Locate the unordered list with the class <code>&lt;ul class=&quot;pf-v6-c-simple-list__list&quot;&gt;</code>.</li>
+<li>Add a new list item (<code>&lt;li&gt;</code>) containing an anchor tag (<code>&lt;a&gt;</code>) pointing to your new blog's directory. For example:<pre><code class="language-html">&lt;li class=&quot;pf-v6-c-simple-list__item&quot;&gt;
+    &lt;a class=&quot;pf-v6-c-simple-list__item-link&quot; href=&quot;/blogs/my-new-blog/&quot;&gt;Your New Blog Title&lt;/a&gt;
+&lt;/li&gt;
+</code></pre>
+</li>
+</ul>
+<h3>4. Update the Sitemap</h3>
+<p>Add the new URL to <code>sitemap.xml</code> in the root directory so search engines index the new post.</p>

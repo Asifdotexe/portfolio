@@ -1,0 +1,336 @@
+[
+  {
+    "github": "Asifdotexe/yoink",
+    "url": "https://github.com/Asifdotexe/yoink",
+    "image": "/assets/images/projects/yoink.webp",
+    "alt": "Yoink",
+    "title": "Yoink: LLM Codebase Packer",
+    "category_desc": "Tools",
+    "category": "tools",
+    "tags": [
+      "ast-parsing",
+      "cli-tool",
+      "codebase-analysis",
+      "docker",
+      "fastapi",
+      "llm-optimization",
+      "pre-commit",
+      "pydantic",
+      "python",
+      "render-deployment",
+      "tokenization",
+      "typer"
+    ]
+  },
+  {
+    "github": "Asifdotexe/Theseus",
+    "url": "https://github.com/Asifdotexe/Theseus",
+    "image": "/assets/images/projects/theseus.webp",
+    "alt": "Ship of Theseus",
+    "title": "Ship of Theseus: Software Entropy Visualizer",
+    "category_desc": "Analytics",
+    "category": "analytics",
+    "tags": [
+      "automation",
+      "codebase-analysis",
+      "d3js",
+      "data-visualization",
+      "git",
+      "git-history",
+      "github-actions",
+      "javascript",
+      "python",
+      "software-engineering"
+    ]
+  },
+  {
+    "github": "Asifdotexe/second-brain",
+    "url": "https://github.com/Asifdotexe/second-brain",
+    "image": "/assets/images/projects/second-brain.webp",
+    "alt": "Second Brain",
+    "title": "Second Brain",
+    "category_desc": "Knowledge",
+    "category": "knowledge",
+    "tags": [
+      "blog",
+      "css",
+      "html",
+      "javascript",
+      "knowledge-bank",
+      "markdown",
+      "python"
+    ]
+  },
+  {
+    "github": "Asifdotexe/LittleLogger",
+    "url": "https://github.com/Asifdotexe/LittleLogger",
+    "image": "/assets/images/projects/little-logger.webp",
+    "alt": "LittleLogger",
+    "title": "LittleLogger",
+    "category_desc": "Tools",
+    "category": "tools",
+    "tags": [
+      "developer-tools",
+      "logging",
+      "pypi",
+      "python",
+      "scikit-learn"
+    ]
+  },
+  {
+    "github": "Asifdotexe/playground-repo",
+    "url": "https://github.com/Asifdotexe/playground-repo/issues/9",
+    "image": "/assets/images/projects/python-v-cython.webp",
+    "alt": "Python vs Cython Benchmarking",
+    "title": "Python vs Cython Benchmarking",
+    "category_desc": "Knowledge",
+    "category": "knowledge",
+    "tags": [
+      "Python",
+      "Cython",
+      "NumPy",
+      "Seaborn",
+      "Matplotlib"
+    ]
+  },
+  {
+    "github": "Asifdotexe/SERPENT",
+    "url": "https://github.com/Asifdotexe/SERPENT",
+    "image": "/assets/images/projects/serpent.webp",
+    "alt": "SERPENT",
+    "title": "SERPENT: Code to flowchart application",
+    "category_desc": "Tools",
+    "category": "tools",
+    "tags": [
+      "ast",
+      "code-documentation",
+      "code-to-flowchart",
+      "developer-tools",
+      "graphviz",
+      "python",
+      "streamlit"
+    ]
+  },
+  {
+    "github": "Asifdotexe/MNISTify",
+    "url": "https://github.com/Asifdotexe/MNISTify",
+    "image": "/assets/images/projects/mnistify.webp",
+    "alt": "MNISTify",
+    "title": "MNISTify: Digit Recognition App",
+    "category_desc": "Models",
+    "category": "models",
+    "tags": [
+      "Python",
+      "Streamlit",
+      "TensorFlow",
+      "OpenCV",
+      "CNN"
+    ]
+  },
+  {
+    "github": "Asifdotexe/QuickVU",
+    "url": "https://github.com/Asifdotexe/QuickVU",
+    "image": "/assets/images/projects/quickvu.webp",
+    "alt": "QuickVU",
+    "title": "QuickVU: No-code data tool",
+    "category_desc": "Tools",
+    "category": "tools",
+    "tags": [
+      "automation",
+      "data-analysis",
+      "data-cleaning",
+      "data-visualization",
+      "python3",
+      "streamlit-application",
+      "toolkit"
+    ]
+  },
+  {
+    "github": "Asifdotexe/DORA",
+    "url": "https://github.com/Asifdotexe/DORA",
+    "image": "/assets/images/projects/dora.webp",
+    "alt": "DORA",
+    "title": "DORA: Report Automator",
+    "category_desc": "Tools",
+    "category": "tools",
+    "tags": [
+      "cli-tool",
+      "exploratory-analysis",
+      "html-report",
+      "pypi",
+      "python",
+      "streamlit"
+    ]
+  },
+  {
+    "github": "Asifdotexe/RecommendationHaki",
+    "url": "https://github.com/Asifdotexe/RecommendationHaki",
+    "image": "/assets/images/projects/recommendation-haki.webp",
+    "alt": "RecommendationHaki",
+    "title": "RecommendationHaki: Anime Recommendation Engine",
+    "category_desc": "Models",
+    "category": "models",
+    "tags": [
+      "css",
+      "html",
+      "machine-learning",
+      "natural-language-procressing",
+      "python",
+      "recommendation-system",
+      "streamlit"
+    ]
+  },
+  {
+    "github": "Asifdotexe/StoDir",
+    "url": "https://github.com/Asifdotexe/StoDir",
+    "image": "/assets/images/projects/StoDir.webp",
+    "alt": "StoDir",
+    "title": "StoDir: Stock Direction Forecasting Model",
+    "category_desc": "Models",
+    "category": "models",
+    "tags": [
+      "python",
+      "scikit-learn",
+      "streamlit",
+      "time-series-forecasting",
+      "yfinance"
+    ]
+  },
+  {
+    "github": "Asifdotexe/Natural-LangWiz",
+    "url": "https://github.com/Asifdotexe/Natural-LangWiz",
+    "image": "/assets/images/projects/natural-langwiz.webp",
+    "alt": "Natural LangWiz",
+    "title": "Natural LangWiz: NLP Learning Repository",
+    "category_desc": "Knowledge",
+    "category": "knowledge",
+    "tags": [
+      "learning-repository",
+      "machine-learning",
+      "natural-language-preprocessing",
+      "python"
+    ]
+  },
+  {
+    "github": "Asifdotexe/open-see-wee",
+    "url": "https://github.com/Asifdotexe/open-see-wee",
+    "image": "/assets/images/projects/open-cv.webp",
+    "alt": "Open See Wee",
+    "title": "Open See Wee: Computer Vision Learning Repository",
+    "category_desc": "Knowledge",
+    "category": "knowledge",
+    "tags": [
+      "computer-vision",
+      "image-analysis",
+      "learning-repository",
+      "opencv",
+      "python"
+    ]
+  },
+  {
+    "github": "Asifdotexe/PlateScribe",
+    "url": "https://github.com/Asifdotexe/PlateScribe",
+    "image": "/assets/images/projects/platescribe.webp",
+    "alt": "PlateScribe",
+    "title": "PlateScribe: License Plate Detection and OCR Tool",
+    "category_desc": "Models",
+    "category": "models",
+    "tags": [
+      "deep-learning",
+      "ocr",
+      "opencv-python",
+      "pytesseract",
+      "python",
+      "streamlit"
+    ]
+  },
+  {
+    "github": "Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews",
+    "url": "https://github.com/Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews",
+    "image": "/assets/images/projects/nlp-amazon-sentiment-scoring-model.webp",
+    "alt": "Amazon Sentiment Analysis",
+    "title": "Sentimental Scoring Model on Amazon Reviews",
+    "category_desc": "Models",
+    "category": "models",
+    "tags": [
+      "data-analysis",
+      "data-visualization",
+      "natural-language-processing",
+      "sentiment-analysis"
+    ]
+  },
+  {
+    "github": "Asifdotexe/real-estate-price-prediction",
+    "url": "https://github.com/Asifdotexe/real-estate-price-prediction",
+    "image": "/assets/images/projects/real-estate-price-prediction-model.webp",
+    "alt": "Real Estate Price Prediction",
+    "title": "Real Estate Price Prediction Model",
+    "category_desc": "Models",
+    "category": "models",
+    "tags": [
+      "machine-learning",
+      "python",
+      "scikit-learn"
+    ]
+  },
+  {
+    "github": "Asifdotexe/Air-Quality-Analysis-AQA",
+    "url": "https://github.com/Asifdotexe/Air-Quality-Analysis-AQA",
+    "image": "/assets/images/projects/aqa-air-quality-study.webp",
+    "alt": "AQA Air Quality Analysis",
+    "title": "AQA: Air Quality Analysis Case Study",
+    "category_desc": "Analytics",
+    "category": "analytics",
+    "tags": [
+      "aqi-analysis",
+      "data-analysis",
+      "data-preprocessing",
+      "data-science",
+      "data-visualization",
+      "presentation"
+    ]
+  },
+  {
+    "github": "Asifdotexe/flipkart-electric-scooter-data-analysis",
+    "url": "https://github.com/Asifdotexe/flipkart-electric-scooter-data-analysis",
+    "image": "/assets/images/projects/ev-scooter-analysis.webp",
+    "alt": "Flipkart Electric Scooter Analysis",
+    "title": "Flipkart Electric Scooter Data Analysis",
+    "category_desc": "Analytics",
+    "category": "analytics",
+    "tags": [
+      "beautifulsoup4",
+      "data-analysis",
+      "data-science",
+      "flipkart",
+      "webscraping"
+    ]
+  },
+  {
+    "url": "https://medium.com/@asifdotexe/how-we-used-vba-to-make-a-pathology-lab-application-45acb35e6abf",
+    "image": "/assets/images/projects/vba-pathology-lab-application.webp",
+    "alt": "VBA Pathology Lab Application",
+    "title": "VBA: Pathology Lab Application",
+    "category_desc": "Tools",
+    "category": "tools",
+    "tags": [
+      "Microsoft Excel",
+      "Macros",
+      "Visual Basic for Application",
+      "Userforms"
+    ]
+  },
+  {
+    "url": "https://public.tableau.com/app/profile/sayyed.asif/viz/Covid19Dashboard_16783477991420/Dashboard1",
+    "image": "/assets/images/projects/covid-19-tableau-dashboard.webp",
+    "alt": "Covid-19 Dashboard",
+    "title": "Covid-19 Dashboard",
+    "category_desc": "Analytics",
+    "category": "analytics",
+    "tags": [
+      "SQL",
+      "Tableau",
+      "Microsoft Excel"
+    ]
+  }
+]
