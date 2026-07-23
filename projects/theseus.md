@@ -10,8 +10,8 @@ badges:
   - GitHub Actions
   - Black Style
 github_link: https://github.com/Asifdotexe/Theseus.git
-live_link: "#"
-doc_link: "#"
+live_link: "https://theseus.asifdotexe.workers.dev/"
+doc_link: "https://github.com/Asifdotexe/Theseus/tree/main/docs"
 image: /assets/images/projects/theseus.webp
 ---
 
