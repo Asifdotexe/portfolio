@@ -1,30 +1,99 @@
 # Asif Sayyed Portfolio
 
-This is the source code for the personal portfolio of Asif Sayyed.
+This repository contains the source code for my personal portfolio. The site uses **Eleventy (11ty)**, so you can write content in Markdown while keeping a unified HTML layout.
 
-## How to Add a New Blog Post
+## Adding a New Project
 
-Since each blog is rendered as a standalone HTML page, adding a new one takes just a few steps:
+### 1. Create a Markdown File
+Create a new `.md` file inside the `projects/` directory (e.g., `projects/my-new-app.md`). 
 
-### 1. Create a New Directory
-Inside the `blogs/` folder, create a new directory for your new blog post. The name of the directory will become the URL slug for your post. 
-- Example: `blogs/my-new-blog/`
+### 2. Add the Frontmatter
+At the very top of your file, add a YAML frontmatter block to define your project's metadata. 
 
-### 2. Create the Blog's `index.html` File
-Inside the newly created directory, create an `index.html` file. This file will hold the actual content of your blog post.
-- **Tip:** The easiest way to get started is to copy an existing blog post (such as `blogs/seo-geo-aeo-guide/index.html`) and use it as a template. This ensures that the sidebar, navigation, and relative paths to CSS/JS (which should be `../../assets/...`) remain correct.
-- Update the `<title>`, `<meta>` tags, `<h2 class="h2 article-title">`, and the actual content inside the `<div class="blog-post-content">`.
+```markdown
+---
+title: My Cool AI App
+subtitle: An AI application that does cool things
+permalink: /projects/my-cool-ai-app/
+badges: 
+  - Python
+  - NextJS
+  - OpenAI
+github_link: https://github.com/Asifdotexe/repo-name
+live_link: https://example.com
+doc_link: https://example.com/docs
+image: /assets/images/og-banner.webp
+---
+```
+*(Note: You can omit `github_link`, `live_link`, or `doc_link` if you don't have them, and the buttons will automatically hide!)*
 
-### 3. Link the Blog in `blogs/index.html`
-For visitors to find your new blog, you need to add a link to it on the main Blogs page.
-- Open `blogs/index.html`.
-- Locate the unordered list with the class `<ul class="pf-v6-c-simple-list__list">`.
-- Add a new list item (`<li>`) containing an anchor tag (`<a>`) pointing to your new blog's directory. For example:
-  ```html
-  <li class="pf-v6-c-simple-list__item">
-      <a class="pf-v6-c-simple-list__item-link" href="/blogs/my-new-blog/">Your New Blog Title</a>
-  </li>
-  ```
-### 4. Update the Sitemap
+### 3. Write the Content
+Write your project details below the frontmatter using standard Markdown. 
 
-Add the new URL to `sitemap.xml` in the root directory so search engines index the new post.
+If you need a Mermaid diagram, use a standard markdown code block with the `mermaid` language identifier:
+```markdown
+    ```mermaid
+    flowchart TD
+        A[Start] --> B[End]
+    ```
+```
+Note: Ensure there are no empty lines inside the mermaid block to avoid markdown parser issues.
+
+### 4. Link the Project
+To make the project appear in the main "Projects" grid:
+1. Open `assets/data/projects.json`.
+2. Add a new JSON object for your project at the top of the array so it shows up first. 
+3. Set the `"url"` field to match your new project page (like `"/projects/my-cool-ai-app/"`). The UI uses this to route clicks to your Markdown page.
+
+
+---
+
+## Adding a Blog Post
+
+The steps to add a blog post are mostly identical to adding a project.
+
+### 1. Create a Markdown File
+Create a new `.md` file inside the `blogs/` directory (e.g., `blogs/new-tech-post.md`).
+
+### 2. Add the Frontmatter
+Add the following block to the top of the file:
+```markdown
+---
+title: "My New Tech Post: A Deep Dive"
+date: 2026-08-01
+tags: ["seo", "webdev", "ai"]
+permalink: /blogs/new-tech-post/
+---
+```
+
+### 3. Write the Content
+Write the article using standard Markdown. Code blocks, headers, and lists will inherit the site's default styles.
+
+### 4. Link the Blog
+To add the blog to the main "Blogs" list:
+1. Open `blogs.html`.
+2. Add a new `<li>` entry into the `<ul class="pf-v6-c-simple-list__list">` that matches the existing entries.
+
+
+---
+
+## Local Development & Deployment
+
+### Running Locally
+Start a local server with hot-reloading:
+```bash
+npm start
+```
+*This runs `eleventy --serve`. The site will be available at `http://localhost:8080`.*
+
+### Building for Production
+To build the static HTML files for deployment:
+```bash
+npm run build
+```
+*This generates all files into the `_site/` directory.*
+
+### Deployment (GitHub Pages, Cloudflare Pages, Vercel, etc.)
+When configuring your hosting provider:
+- **Build Command:** `npm run build`
+- **Output/Publish Directory:** `_site`

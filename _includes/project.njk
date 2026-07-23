@@ -1,0 +1,59 @@
+---
+layout: base.njk
+---
+<article class="project-details active">
+    <header class="project-header">
+        <a href="/projects/" style="color: var(--light-gray-70); text-decoration: none; font-size: var(--fs-7); display: flex; align-items: center; gap: 5px; margin-bottom: 20px;">
+            <ion-icon name="arrow-back-outline"></ion-icon> Back to Projects
+        </a>
+        <h1 class="project-title" style="margin-bottom: 10px;">{{ title }}</h1>
+        {% if subtitle %}
+        <p class="project-subtitle" style="color: var(--light-gray-70); font-size: var(--fs-6); margin-bottom: 20px;">{{ subtitle }}</p>
+        {% endif %}
+        
+        {% if badges %}
+        <div class="project-badges" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+            {% for badge in badges %}
+            <span class="project-badge" style="background: var(--onyx); color: var(--light-gray); padding: 5px 10px; border-radius: 5px; font-size: var(--fs-8);">{{ badge }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="project-links" style="display: flex; gap: 15px; margin-bottom: 30px;">
+            {% if github_link %}
+            <a href="{{ github_link }}" target="_blank" style="color: var(--vibrant-green); text-decoration: none; display: flex; align-items: center; gap: 5px;"><ion-icon name="logo-github"></ion-icon> GitHub</a>
+            {% endif %}
+            {% if live_link %}
+            <a href="{{ live_link }}" target="_blank" style="color: var(--vibrant-green); text-decoration: none; display: flex; align-items: center; gap: 5px;"><ion-icon name="globe-outline"></ion-icon> Live Demo</a>
+            {% endif %}
+            {% if doc_link %}
+            <a href="{{ doc_link }}" target="_blank" style="color: var(--vibrant-green); text-decoration: none; display: flex; align-items: center; gap: 5px;"><ion-icon name="document-text-outline"></ion-icon> Docs</a>
+            {% endif %}
+        </div>
+    </header>
+
+    {% if image %}
+    <div class="project-image-container" style="margin-bottom: 30px;">
+        <img src="{{ image }}" alt="{{ title }}" style="width: 100%; border-radius: 10px; border: 1px solid var(--jet);" />
+    </div>
+    {% endif %}
+
+    <div class="project-post-content blog-post-content" style="color: var(--light-gray); font-size: var(--fs-6); line-height: 1.6;">
+        {{ content | safe }}
+    </div>
+</article>
+
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    
+    // Automatically convert markdown mermaid code blocks to div.mermaid
+    document.querySelectorAll('code.language-mermaid').forEach((block) => {
+        const div = document.createElement('div');
+        div.className = 'mermaid';
+        div.textContent = block.textContent;
+        block.parentNode.replaceWith(div);
+    });
+
+    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+</script>
+

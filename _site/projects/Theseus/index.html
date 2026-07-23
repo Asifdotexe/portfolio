@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>Theseus | Asif Sayyed Portfolio</title>
+        <title>Ship of Theseus | Asif Sayyed Portfolio</title>
         <meta
             name="title"
             content="Asif Sayyed | Data Scientist, Public Speaker & Tech Educator"
@@ -461,49 +461,60 @@
                     </ul>
                 </nav>
                 <article class="project-details active">
-                    <header class="project-header">
-                        <a href="../../projects/" style="color: var(--light-gray-70); text-decoration: none; font-size: var(--fs-7); display: flex; align-items: center; gap: 5px;">
-                            <ion-icon name="arrow-back-outline"></ion-icon> Back to Projects
-                        </a>
-                        <h1 class="project-title">Ship of Theseus</h1>
-                        <p class="project-subtitle">Does a codebase remain the same if every line is replaced? A monthly pulse on software entropy.</p>
-                        
-                        <div class="project-badges">
-                            <span class="project-badge">Python 3.12+</span>
-                            <span class="project-badge">Vanilla JS</span>
-                            <span class="project-badge">GitHub Pages</span>
-                            <span class="project-badge">GitHub Actions</span>
-                            <span class="project-badge">Black Style</span>
-                        </div>
+    <header class="project-header">
+        <a href="/projects/" style="color: var(--light-gray-70); text-decoration: none; font-size: var(--fs-7); display: flex; align-items: center; gap: 5px; margin-bottom: 20px;">
+            <ion-icon name="arrow-back-outline"></ion-icon> Back to Projects
+        </a>
+        <h1 class="project-title" style="margin-bottom: 10px;">Ship of Theseus</h1>
+        
+        <p class="project-subtitle" style="color: var(--light-gray-70); font-size: var(--fs-6); margin-bottom: 20px;">Does a codebase remain the same if every line is replaced? A monthly pulse on software entropy.</p>
+        
+        
+        
+        <div class="project-badges" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+            
+            <span class="project-badge" style="background: var(--onyx); color: var(--light-gray); padding: 5px 10px; border-radius: 5px; font-size: var(--fs-8);">Python 3.12+</span>
+            
+            <span class="project-badge" style="background: var(--onyx); color: var(--light-gray); padding: 5px 10px; border-radius: 5px; font-size: var(--fs-8);">Vanilla JS</span>
+            
+            <span class="project-badge" style="background: var(--onyx); color: var(--light-gray); padding: 5px 10px; border-radius: 5px; font-size: var(--fs-8);">GitHub Pages</span>
+            
+            <span class="project-badge" style="background: var(--onyx); color: var(--light-gray); padding: 5px 10px; border-radius: 5px; font-size: var(--fs-8);">GitHub Actions</span>
+            
+            <span class="project-badge" style="background: var(--onyx); color: var(--light-gray); padding: 5px 10px; border-radius: 5px; font-size: var(--fs-8);">Black Style</span>
+            
+        </div>
+        
 
-                        <div class="project-links">
-                            <a href="https://github.com/Asifdotexe/Theseus.git" target="_blank"><ion-icon name="logo-github"></ion-icon> GitHub Repository</a>
-                            <a href="#" target="_blank"><ion-icon name="globe-outline"></ion-icon> Live Deployment</a>
-                            <a href="#" target="_blank"><ion-icon name="document-text-outline"></ion-icon> Documentation</a>
-                        </div>
-                    </header>
+        <div class="project-links" style="display: flex; gap: 15px; margin-bottom: 30px;">
+            
+            <a href="https://github.com/Asifdotexe/Theseus.git" target="_blank" style="color: var(--vibrant-green); text-decoration: none; display: flex; align-items: center; gap: 5px;"><ion-icon name="logo-github"></ion-icon> GitHub</a>
+            
+            
+            <a href="#" target="_blank" style="color: var(--vibrant-green); text-decoration: none; display: flex; align-items: center; gap: 5px;"><ion-icon name="globe-outline"></ion-icon> Live Demo</a>
+            
+            
+            <a href="#" target="_blank" style="color: var(--vibrant-green); text-decoration: none; display: flex; align-items: center; gap: 5px;"><ion-icon name="document-text-outline"></ion-icon> Docs</a>
+            
+        </div>
+    </header>
 
-                    <div class="project-image-container">
-                        <img src="../../assets/images/og-banner.webp" alt="Ship of Theseus Architecture or Dashboard" />
-                    </div>
+    
+    <div class="project-image-container" style="margin-bottom: 30px;">
+        <img src="/assets/images/projects/theseus.webp" alt="Ship of Theseus" style="width: 100%; border-radius: 10px; border: 1px solid var(--jet);" />
+    </div>
+    
 
-                    <section class="project-section">
-                        <h2>The Philosophy & Problem</h2>
-                        <ul>
-                            <li><strong>The Challenge:</strong> Software projects constantly evolve. A repository can live for decades, developers leave, and architectures shift, making it hard to track codebase churn and the survival of original code.</li>
-                            <li><strong>The Solution:</strong> A visualization engine that measures codebase entropy through the lens of the Ship of Theseus paradox. It tracks when lines of code were written and how long they survive.</li>
-                            <li><strong>The Outcome:</strong> Provides a visceral, data-driven understanding of codebase health, helping teams identify "fossils" (oldest surviving lines of code) and track the true timeline of major rewrites and architectural shifts.</li>
-                        </ul>
-                    </section>
-                    
-                    <section class="project-section">
-                        <h2>Architecture & Internals</h2>
-                        <p>The system separates the data generation (Python) from the frontend display (Vanilla JS), communicating strictly via static JSON files. This allows the entire dashboard to be hosted serverlessly on GitHub Pages.</p>
-
-                        <div style="margin-top: 30px;">
-                            <h3 style="color: var(--white-2); font-size: var(--fs-4); margin-bottom: 10px;">1. The Data Pipeline</h3>
-                            <p>To maximize performance, the pipeline invokes the native <code>git</code> binary directly rather than relying on Python wrappers. The extraction works incrementally, skipping months that have already been analyzed.</p>
-                            <div class="mermaid" style="background: var(--onyx); padding: 20px; border-radius: 10px; margin: 20px 0; border: 1px solid var(--jet); overflow-x: auto; max-width: 100%;">
+    <div class="project-post-content blog-post-content" style="color: var(--light-gray); font-size: var(--fs-6); line-height: 1.6;">
+        <h2>The Problem</h2>
+<p>Software projects change over time. Repositories can live for decades as developers leave and architectures shift, which makes it hard to track codebase churn and see if any original code survives.</p>
+<p>This project is a visualization engine that measures codebase entropy using the Ship of Theseus paradox. It tracks when lines of code were written and how long they survive.</p>
+<p>The visualization shows teams their codebase health. It helps them find &quot;fossils&quot; (the oldest surviving lines of code) and see the actual timeline of major rewrites.</p>
+<h2>Architecture</h2>
+<p>The system separates data generation in Python from the Vanilla JS frontend. They communicate through static JSON files, which means the entire dashboard can be hosted for free on GitHub Pages without a backend server.</p>
+<h3>1. Data Pipeline</h3>
+<p>The pipeline calls the native <code>git</code> binary directly instead of using Python wrappers to improve speed. The extraction runs incrementally, skipping months the system has already analyzed.</p>
+<div class="mermaid" style="background: var(--onyx); padding: 20px; border-radius: 10px; margin: 20px 0; border: 1px solid var(--jet); overflow-x: auto; max-width: 100%;">
 flowchart TD
     A[Start: read `theseus.config.json`] --> B{Has Data File?}
     B -- No --> C[Full Clone & 1st Commit]
@@ -515,87 +526,83 @@ flowchart TD
     F --> H
     H --> I[Count Lines by Authorship Year]
     I --> J[Append Snapshot to JSON]
-                            </div>
-                            <p>For parallelization, it uses ThreadPools to run <code>git blame --line-porcelain</code> concurrently across all tracked files, using Regex to extract line ages.</p>
-                            <a href="https://github.com/Asifdotexe/Theseus/blob/main/docs/ARCHITECTURE.md" target="_blank" class="read-more-btn">
-                                Read Pipeline Docs <ion-icon name="arrow-forward-outline"></ion-icon>
-                            </a>
-                        </div>
-
-                        <div style="margin-top: 30px;">
-                            <h3 style="color: var(--white-2); font-size: var(--fs-4); margin-bottom: 10px;">2. Fossil Extraction</h3>
-                            <p>Fossils (pointers to the oldest surviving code) are calculated independently. The <strong>Genesis</strong> protocol finds the first line of code pushed to history, while the <strong>Survivor</strong> protocol recursively blames <code>HEAD</code> to find the oldest line still in use.</p>
-                            <div class="mermaid" style="background: var(--onyx); padding: 20px; border-radius: 10px; margin: 20px 0; border: 1px solid var(--jet); overflow-x: auto; max-width: 100%;">
+</div>
+<p>It uses ThreadPools to run <code>git blame --line-porcelain</code> concurrently across all tracked files and extracts line ages with regular expressions.</p>
+<a href="https://github.com/Asifdotexe/Theseus/blob/main/docs/ARCHITECTURE.md" target="_blank" class="read-more-btn">
+    Read Pipeline Docs
+</a>
+<h3>2. Fossil Extraction</h3>
+<p>The system calculates fossils (pointers to the oldest surviving code) independently from the main timeline. The <strong>Genesis</strong> protocol finds the first line of code pushed to the repository. The <strong>Survivor</strong> protocol recursively blames <code>HEAD</code> to find the oldest line that is still in use today.</p>
+<div class="mermaid" style="background: var(--onyx); padding: 20px; border-radius: 10px; margin: 20px 0; border: 1px solid var(--jet); overflow-x: auto; max-width: 100%;">
 stateDiagram-v2
     direction LR
     [*] --> ReadManifest
-    
     state "Fossil Extractor" as extractor {
         GenesisFossil: Historical Genesis
         SurvivorFossil: Living Survivor
-        
         GenesisFossil --> SortCommits
         SortCommits --> FindOldestBlamedLine
-        
         SurvivorFossil --> CheckoutHEAD
         CheckoutHEAD --> FindOldestStillAlive
     }
-    
     ReadManifest --> extractor
     extractor --> AppendMetadataJSON
-                            </div>
-                        </div>
-
-                        <div style="margin-top: 30px;">
-                            <h3 style="color: var(--white-2); font-size: var(--fs-4); margin-bottom: 10px;">3. Data Delivery (UI)</h3>
-                            <p>The UI fetches the configuration and dynamically builds the repository selection grid. When a repository is clicked, it fetches the corresponding dataset asynchronously and renders the D3.js chart.</p>
-                            <div class="mermaid" style="background: var(--onyx); padding: 20px; border-radius: 10px; margin: 20px 0; border: 1px solid var(--jet); overflow-x: auto; max-width: 100%;">
+</div>
+<h3>3. UI and Data Delivery</h3>
+<p>The frontend fetches the configuration file and builds the repository selection grid. When you click a repository, the app fetches that dataset and renders the D3.js chart.</p>
+<div class="mermaid" style="background: var(--onyx); padding: 20px; border-radius: 10px; margin: 20px 0; border: 1px solid var(--jet); overflow-x: auto; max-width: 100%;">
 sequenceDiagram
     participant Browser
     participant app.js
     participant config.json
     participant data.json
-    
     Browser->>app.js: Load index.html
     app.js->>config.json: fetch("theseus.config.json")
     config.json-->>app.js: Returns [{repo1}, {repo2}]
     app.js->>Browser: Renders UI Selection Grid
-    
     Browser->>app.js: Click Repo 1
     app.js->>Browser: Shows CSS Skeleton Loader Overlay
     app.js->>data.json: fetch("data/repo1_data.json")
     data.json-->>app.js: Loads Timeseries + Fossils
     app.js->>Browser: Computes D3/DOM Chart & Hides Skeleton
-                            </div>
-                        </div>
-                    </section>
-
-                    <section class="project-section">
-                        <h2>DevOps & CI/CD</h2>
-                        <p>The system uses GitHub Actions to run automated monthly updates on configured repositories. The primary workflow generates incremental JSON snapshots and automatically commits the new data back to the repository.</p>
-                        <p>The pipeline execution consists of three main phases: <strong>Bootstrapping</strong> (cloning and configuration), <strong>Analysis</strong> (incremental snapshots and updating survivor fossils), and <strong>Persistence</strong> (minifying data payloads and committing diffs back to the origin).</p>
-                        <p>To optimize for CI environments, the pipeline only evaluates missing months and updates the "Living Fossil" pointer without re-evaluating the entire historical genesis. Once changes are generated, a bot commits and pushes the updated payloads to <code>main</code>.</p>
-                        <a href="https://github.com/Asifdotexe/Theseus/blob/main/docs/DEVOPS.md" target="_blank" class="read-more-btn">
-                            Read DevOps Docs <ion-icon name="arrow-forward-outline"></ion-icon>
-                        </a>
-                    </section>
-
-                    <section class="project-section">
-                        <h2>Quick Start</h2>
-                        <p>You will need <code>git</code>, <code>python (3.12+)</code>, and <code>poetry</code>.</p>
-                        <pre><code>git clone https://github.com/Asifdotexe/Theseus.git
+</div>
+<h2>Automation</h2>
+<p>GitHub Actions runs monthly updates on the configured repositories. The workflow generates incremental JSON snapshots and commits the new data back to the repository.</p>
+<p>The pipeline runs in three steps. First, it clones the repo and loads the configuration. Second, it runs the incremental analysis and updates the survivor fossils. Finally, it minifies the data payloads and commits the changes back to the origin.</p>
+<p>The pipeline only evaluates missing months and updates the &quot;Living Fossil&quot; pointer. It skips re-evaluating the entire history to save time in CI environments. A bot then pushes the updated payloads to the <code>main</code> branch.</p>
+<a href="https://github.com/Asifdotexe/Theseus/blob/main/docs/DEVOPS.md" target="_blank" class="read-more-btn">
+    Read DevOps Docs
+</a>
+<h2>Quick Start</h2>
+<p>You will need <code>git</code>, <code>python (3.12+)</code>, and <code>poetry</code>.</p>
+<pre><code class="language-bash">git clone https://github.com/Asifdotexe/Theseus.git
 cd Theseus
 poetry install
 
 # Run full analysis
-poetry run python scripts/analyse_repository.py</code></pre>
-                    </section>
+poetry run python scripts/analyse_repository.py
+</code></pre>
+<h2>What's Next</h2>
+<p>I plan to integrate the tool more deeply into CI/CD pipelines so it can track fossils on every major release. I also want to add support for tracking architecture changes across multiple repositories at once.</p>
 
-                    <section class="project-section">
-                        <h2>Next Steps / Future Scope</h2>
-                        <p>Future enhancements include deeper integration with CI/CD pipelines to automate fossil tracking on every major release, and expanding support for multi-repository architectural tracking.</p>
-                    </section>
-                </article>
+    </div>
+</article>
+
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    
+    // Automatically convert markdown mermaid code blocks to div.mermaid
+    document.querySelectorAll('code.language-mermaid').forEach((block) => {
+        const div = document.createElement('div');
+        div.className = 'mermaid';
+        div.textContent = block.textContent;
+        block.parentNode.replaceWith(div);
+    });
+
+    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+</script>
+
+
             </div>
         </main>
 

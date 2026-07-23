@@ -73,7 +73,11 @@ I rewrote my "About" section as a direct third-person statement: *"Asif Sayyed i
 
 LLMs do not parse raw HTML well. A clean markdown file in your root directory gives AI crawlers something they can actually read.
 
-I placed an `llms.txt` with a high-level summary of my profile. For project links, I use explicit mapping instead of standard markdown links: `- Project Name -> https://link-to-project.com: Description of the project.`
+I placed an `llms.txt` with a high-level summary of my profile. For project links, I use explicit mapping instead of standard markdown links:
+
+```text
+- Project Name -> https://link-to-project.com: Description of the project.
+```
 
 I also added an `llms-full.txt` with deeper context, architecture details, and dependency lists for RAG pipelines. [The full version is at `/llms.txt` lines 22 through 43.](https://github.com/Asifdotexe/portfolio/blob/09056967ce623d69fe4d94c9d14a48f024cc1994/llms.txt#L22-L43)
 
