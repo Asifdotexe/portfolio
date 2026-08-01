@@ -1,0 +1,28 @@
+---
+layout: base.njk
+title: Journal
+permalink: /journal/
+---
+<article class="journal active" data-page="journal">
+    <header><h2 class="h2 article-title">Journal</h2></header>
+    <section class="journal-list">
+        <p style="color: var(--light-gray); margin-bottom: 30px;">Notes, thoughts, and learnings during project development.</p>
+        <ul style="list-style: none; padding: 0;">
+            {% for post in collections.journal | reverse %}
+                <li style="margin-bottom: 20px; padding: 20px; background: var(--eerie-black-2); border: 1px solid var(--jet); border-radius: 14px; box-shadow: var(--shadow-2); transition: var(--transition-1);">
+                    <span style="color: var(--light-gray-70); font-size: 14px;">
+                        {{ post.date }}
+                    </span>
+                    <a href="{{ post.url }}" style="color: var(--vibrant-green); text-decoration: none; display: block; font-size: 18px; font-weight: 500; margin: 8px 0;">
+                        {{ post.data.title }}
+                    </a>
+                    {% if post.data.excerpt %}
+                        <p style="color: var(--light-gray); font-size: 14px; margin: 0; margin-top: 8px;">{{ post.data.excerpt }}</p>
+                    {% endif %}
+                </li>
+            {% else %}
+                <li style="color: var(--light-gray);">No journal entries found.</li>
+            {% endfor %}
+        </ul>
+    </section>
+</article>
