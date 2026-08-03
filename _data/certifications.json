@@ -1,0 +1,72 @@
+[
+  {
+    "title": "IBM Data Science Specialization",
+    "issuer": "IBM | Coursera",
+    "date": "26 November 2023",
+    "image": "/assets/images/certificates/dsspecialization.webp",
+    "url": "https://coursera.org/verify/professional-cert/MJD36RK7GYSD"
+  },
+  {
+    "title": "Machine Learning with Python",
+    "issuer": "IBM | Coursera",
+    "date": "14 November 2023",
+    "image": "/assets/images/certificates/mlwpython.webp",
+    "url": "https://coursera.org/verify/GWPQEUHRCBFU"
+  },
+  {
+    "title": "Data Visualization with Python",
+    "issuer": "IBM | Coursera",
+    "date": "20 September 2023",
+    "image": "/assets/images/certificates/datavisualizationwpython.webp",
+    "url": "https://coursera.org/verify/RHHC3MT8KPYF"
+  },
+  {
+    "title": "Data Analysis with Python",
+    "issuer": "IBM | Coursera",
+    "date": "26 July 2023",
+    "image": "/assets/images/certificates/datanalysiswpython.webp",
+    "url": "https://coursera.org/verify/JKRUYFGA72KC"
+  },
+  {
+    "title": "Databases and SQL for Data Science with Python",
+    "issuer": "IBM | Coursera",
+    "date": "24 July 2023",
+    "image": "/assets/images/certificates/dbsqlwpython.webp",
+    "url": "https://coursera.org/verify/8WUMVP9EXJAG"
+  },
+  {
+    "title": "Pandas Essential Training",
+    "issuer": "LinkedIn Learning",
+    "date": "03 May 2023",
+    "image": "/assets/images/certificates/pdessential.webp",
+    "url": "https://www.linkedin.com/learning/certificates/b88fde906daa0f50f8301bf50b8bee72318e78f791292097daf0525b071b18df"
+  },
+  {
+    "title": "GitHub for Data Scientists",
+    "issuer": "LinkedIn Learning",
+    "date": "01 May 2023",
+    "image": "/assets/images/certificates/githubfords.webp",
+    "url": "https://www.linkedin.com/learning/certificates/c440b48bd67da7cf0e8327592f8377cb7b0343a9d44963cfc2122e2c859389eb"
+  },
+  {
+    "title": "Introduction to Business Analytics",
+    "issuer": "LinkedIn Learning",
+    "date": "22 February 2023",
+    "image": "/assets/images/certificates/intro2businessanalytics.webp",
+    "url": "https://www.linkedin.com/learning/certificates/d84ecfb77aa3b4d4ff381153cdcaa7dcbd2ba9fcf71f233f6b2d999fb977c731"
+  },
+  {
+    "title": "SQL Essential Training",
+    "issuer": "LinkedIn Learning",
+    "date": "18 February 2023",
+    "image": "/assets/images/certificates/sqlessential.webp",
+    "url": "https://www.linkedin.com/learning/certificates/e6fa1d2bad07da0a1f7ba4c67c2db9b11e87c0b0c43e57cbe5295a0f4736ca6a"
+  },
+  {
+    "title": "Time Management Fundamentals",
+    "issuer": "LinkedIn Learning",
+    "date": "25 November 2022",
+    "image": "/assets/images/certificates/timemanagementfunda.webp",
+    "url": "https://www.linkedin.com/learning/certificates/29ff4fbf07fe7d6b3ba7e9e0abf2358aee0b7e425103cae1aae27d9823500159"
+  }
+]

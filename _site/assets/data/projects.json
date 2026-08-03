@@ -112,22 +112,6 @@
     ]
   },
   {
-    "github": "Asifdotexe/MNISTify",
-    "url": "/projects/mnistify/",
-    "image": "/assets/images/projects/mnistify.webp",
-    "alt": "MNISTify",
-    "title": "MNISTify: Digit Recognition App",
-    "category_desc": "Models",
-    "category": "models",
-    "tags": [
-      "Python",
-      "Streamlit",
-      "TensorFlow",
-      "OpenCV",
-      "CNN"
-    ]
-  },
-  {
     "github": "Asifdotexe/QuickVU",
     "url": "/projects/quickvu/",
     "image": "/assets/images/projects/quickvu.webp",
@@ -181,22 +165,6 @@
     ]
   },
   {
-    "github": "Asifdotexe/StoDir",
-    "url": "/projects/stodir/",
-    "image": "/assets/images/projects/StoDir.webp",
-    "alt": "StoDir",
-    "title": "StoDir: Stock Direction Forecasting Model",
-    "category_desc": "Models",
-    "category": "models",
-    "tags": [
-      "python",
-      "scikit-learn",
-      "streamlit",
-      "time-series-forecasting",
-      "yfinance"
-    ]
-  },
-  {
     "github": "Asifdotexe/Natural-LangWiz",
     "url": "/projects/natural-langwiz/",
     "image": "/assets/images/projects/natural-langwiz.webp",
@@ -228,23 +196,6 @@
     ]
   },
   {
-    "github": "Asifdotexe/PlateScribe",
-    "url": "/projects/platescribe/",
-    "image": "/assets/images/projects/platescribe.webp",
-    "alt": "PlateScribe",
-    "title": "PlateScribe: License Plate Detection and OCR Tool",
-    "category_desc": "Models",
-    "category": "models",
-    "tags": [
-      "deep-learning",
-      "ocr",
-      "opencv-python",
-      "pytesseract",
-      "python",
-      "streamlit"
-    ]
-  },
-  {
     "github": "Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews",
     "url": "/projects/amazon-sentiment-analysis/",
     "image": "/assets/images/projects/nlp-amazon-sentiment-scoring-model.webp",
@@ -257,80 +208,6 @@
       "data-visualization",
       "natural-language-processing",
       "sentiment-analysis"
-    ]
-  },
-  {
-    "github": "Asifdotexe/real-estate-price-prediction",
-    "url": "/projects/real-estate-price-prediction/",
-    "image": "/assets/images/projects/real-estate-price-prediction-model.webp",
-    "alt": "Real Estate Price Prediction",
-    "title": "Real Estate Price Prediction Model",
-    "category_desc": "Models",
-    "category": "models",
-    "tags": [
-      "machine-learning",
-      "python",
-      "scikit-learn"
-    ]
-  },
-  {
-    "github": "Asifdotexe/Air-Quality-Analysis-AQA",
-    "url": "/projects/aqa-air-quality-analysis/",
-    "image": "/assets/images/projects/aqa-air-quality-study.webp",
-    "alt": "AQA Air Quality Analysis",
-    "title": "AQA: Air Quality Analysis Case Study",
-    "category_desc": "Analytics",
-    "category": "analytics",
-    "tags": [
-      "aqi-analysis",
-      "data-analysis",
-      "data-preprocessing",
-      "data-science",
-      "data-visualization",
-      "presentation"
-    ]
-  },
-  {
-    "github": "Asifdotexe/flipkart-electric-scooter-data-analysis",
-    "url": "/projects/flipkart-electric-scooter-analysis/",
-    "image": "/assets/images/projects/ev-scooter-analysis.webp",
-    "alt": "Flipkart Electric Scooter Analysis",
-    "title": "Flipkart Electric Scooter Data Analysis",
-    "category_desc": "Analytics",
-    "category": "analytics",
-    "tags": [
-      "beautifulsoup4",
-      "data-analysis",
-      "data-science",
-      "flipkart",
-      "webscraping"
-    ]
-  },
-  {
-    "url": "/projects/vba-pathology-lab-application/",
-    "image": "/assets/images/projects/vba-pathology-lab-application.webp",
-    "alt": "VBA Pathology Lab Application",
-    "title": "VBA: Pathology Lab Application",
-    "category_desc": "Tools",
-    "category": "tools",
-    "tags": [
-      "Microsoft Excel",
-      "Macros",
-      "Visual Basic for Application",
-      "Userforms"
-    ]
-  },
-  {
-    "url": "/projects/covid-19-dashboard/",
-    "image": "/assets/images/projects/covid-19-tableau-dashboard.webp",
-    "alt": "Covid-19 Dashboard",
-    "title": "Covid-19 Dashboard",
-    "category_desc": "Analytics",
-    "category": "analytics",
-    "tags": [
-      "SQL",
-      "Tableau",
-      "Microsoft Excel"
     ]
   }
 ]

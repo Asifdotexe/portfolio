@@ -1,19 +1,14 @@
----
-layout: base.njk
-title: Certifications
-permalink: /certifications/
----
 <!-- ABOUT -->
                 <article
-                    class="certifications active"
-                    data-page="certifications"
+                    class="certifications"
+                    data-page="certifications" id="certifications"
                 >
                     <header>
                         <h2 class="h2 article-title">Certifications</h2>
                     </header>
                     <section class="certifications-grid" id="certifications-grid">
                         {% for cert in certifications %}
-                        <div class="certification-item fade-in-up" style="animation-delay: {{ loop.index0 * 0.05 }}s;">
+                        <div class="certification-item fade-in-up">
                             <a href="{{ cert.url }}" target="_blank" rel="noopener noreferrer">
                                 <img src="{{ cert.image }}" alt="{{ cert.title }}" loading="lazy">
                             </a>

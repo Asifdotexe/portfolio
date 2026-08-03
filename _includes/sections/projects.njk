@@ -1,10 +1,5 @@
----
-layout: base.njk
-title: Projects
-permalink: /projects/
----
 <!-- ABOUT -->
-                <article class="projects active" data-page="projects">
+                <article class="projects" data-page="projects" id="projects">
                     <header>
                         <h2 class="h2 article-title">Projects</h2>
                     </header>
@@ -61,23 +56,33 @@ permalink: /projects/
                         </div>
 
                         <div class="projects-grid">
-                            <ul class="project-list" id="project-list">
-                                {% for project in projects %}
-                                <li class="project-item active" data-filter-item data-category="{{ project.category | default('tools') | lower }}">
-                                    <a href="{{ project.url }}">
-                                        <figure class="project-img">
-                                            <div class="project-item-icon-box">
-                                                <ion-icon name="eye-outline"></ion-icon>
-                                            </div>
-                                            <img src="{{ project.image }}" alt="{{ project.alt | default(project.title) }}" loading="lazy" />
-                                        </figure>
-                                        <h3 class="project-title">{{ project.title }}</h3>
-                                        <p class="project-category">{{ project.category_desc | default(project.category) }}</p>
-                                    </a>
-                                </li>
-                                {% endfor %}
-                            </ul>
+                            <!-- Project list will be dynamically populated here -->
+                            
+<ul class="project-list">
+    {% for project in projects %}
+    <li class="project-item" data-filter-item data-category="{{ project.category | lower }}">
+        <a href="{{ project.url }}" target="_blank" rel="noopener noreferrer" style="display: block; height: 100%;">
+            <figure class="project-img">
+                <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                </div>
+                <img src="{{ project.image }}" alt="{{ project.alt }}" loading="lazy">
+            </figure>
+            <div class="project-info">
+                <h3 class="project-title">{{ project.title }}</h3>
+                <p class="project-category">{{ project.category_desc }}</p>
+                <div class="project-tags">
+                    {% for tag in project.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+
                         </div>
                     </section>
                 </article>
-            
