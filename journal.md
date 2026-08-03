@@ -13,8 +13,6 @@
 - It let us drop the empty `<noscript>` tags.
 - The site now actually follows standard Eleventy patterns instead of fighting the framework.
 
-### 2026-08-03 (Part 2)
-
 **Goal:** Clean up the codebase, fix a few bugs, and make it easier to run locally.
 
 **What we did:**
@@ -29,3 +27,12 @@
 - To drop dead code and cut down the client bundle.
 - The JSON parsing bug was stopping dynamic content from loading. 
 - JS shouldn't be doing work that a standard HTML link handles out of the box.
+
+**Goal:** Finish migrating the last pieces of hardcoded HTML to static loops.
+
+**What we did:**
+- Replaced the hardcoded blog entries in `_includes/sections/blogs.njk` with a Nunjucks loop pointing to `blogs.json`.
+- Dropped a loop into `_includes/sections/certifications.njk`. It was still an empty shell from the old JS setup, so we gave it the proper markup to render cards at build time.
+
+**Why:**
+- The SSG migration wasn't complete until these were fixed. Now all content grids actually render out of the box without client-side fetches.
