@@ -164,57 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  // Function to populate the Events section
-  const populateEvents = () => {
-    const eventsList = document.getElementById('events-list');
-    if (!eventsList) return;
-    fetch('/assets/data/events.json')
-      .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching events.json`);
-        return response.json();
-      })
-      .then(data => {
-        const counts = { all: data.length };
-        data.forEach((event, index) => {
-          const item = document.createElement('li');
-          item.className = 'event-post-item active fade-in-up';
-          item.style.animationDelay = `${index * 0.1}s`;
-          item.setAttribute("data-filter-item", "");
-          const cat = event.type ? event.type.toLowerCase() : "organized";
-          item.setAttribute("data-category", cat);
-          counts[cat] = (counts[cat] || 0) + 1;
-          
-          const sUrl = safeUrl(event.url);
-          const sImage = safeUrl(event.image);
-          item.innerHTML = `<a href="${sUrl}"><figure class="event-banner-box"><img src="${sImage}" alt="${escapeHTML(event.title)}" loading="lazy"></figure><div class="event-content"><div class="event-meta"><p class="event-category">${escapeHTML(event.category)}</p><span class="dot"></span><time datetime="${escapeHTML(event.date)}">${escapeHTML(event.formattedDate)}</time></div><h3 class="h3 event-item-title">${escapeHTML(event.title)}</h3><p class="event-text">${escapeHTML(event.description)}</p></div></a>`;
-          eventsList.appendChild(item);
-        });
-        
-        const filterBtns = document.querySelectorAll("[data-filter-btn]");
-        filterBtns.forEach(btn => {
-          let baseText = btn.childNodes[0].nodeValue.trim();
-          const cat = baseText.toLowerCase();
-          if (counts[cat] !== undefined) {
-            btn.innerHTML = `${baseText} <span class="count-pill">${counts[cat]}</span>`;
-          }
-        });
 
-        const selectItems = document.querySelectorAll("[data-select-item]");
-        selectItems.forEach(item => {
-          let baseText = item.childNodes[0].nodeValue.trim();
-          const cat = baseText.toLowerCase();
-          if (counts[cat] !== undefined) {
-            item.innerHTML = `${baseText} <span class="count-pill">${counts[cat]}</span>`;
-          }
-        });
-
-        initializeProjectFilter();
-
-        // Initialize tilt after DOM injection
-        setTimeout(initTiltEffect, 500);
-      })
-      .catch(error => console.error('Error fetching events data:', error));
-  };
 
 
 
@@ -393,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Call all the functions to load your dynamic content
   // populateEducation();
   // populateExperience();
-  populateEvents();
+
 
   // populateCertifications();
   populateProjects();
