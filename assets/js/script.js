@@ -137,30 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Function to populate the Education section
-  const populateEducation = () => {
-    const educationList = document.getElementById('education-list');
-    if (!educationList) return;
 
-    showSkeleton('education-list', 3, '80px'); // Optional: enable if fetch is slow
-
-    fetch('/assets/data/education.json')
-      .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching education.json`);
-        return response.json();
-      })
-      .then(data => {
-        educationList.innerHTML = ''; // Clear skeleton
-        data.forEach((edu, index) => {
-          const item = document.createElement('li');
-          item.className = 'timeline-item fade-in-up';
-          item.style.animationDelay = `${index * 0.1}s`;
-          item.innerHTML = `<h4 class="h4 timeline-item-title">${edu.institution}</h4><span>${edu.duration}</span><p class="timeline-text">${edu.description}</p>`;
-          educationList.appendChild(item);
-        });
-      })
-      .catch(error => console.error('Error fetching education data:', error));
-  };
 
   const escapeHTML = (str) => {
     if (!str) return '';
@@ -185,26 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return '#';
   };
 
-  // Function to populate the Experience section
-  const populateExperience = () => {
-    const experienceList = document.getElementById('experience-list');
-    if (!experienceList) return;
-    fetch('/assets/data/experience.json')
-      .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching experience.json`);
-        return response.json();
-      })
-      .then(data => {
-        data.forEach((exp, index) => {
-          const item = document.createElement('li');
-          item.className = 'timeline-item fade-in-up';
-          item.style.animationDelay = `${index * 0.1}s`;
-          item.innerHTML = `<h4 class="h4 timeline-item-title">${exp.role}</h4><span>${exp.date}</span><p class="timeline-text">${exp.description}</p>`;
-          experienceList.appendChild(item);
-        });
-      })
-      .catch(error => console.error('Error fetching experience data:', error));
-  };
+
 
   // Function to populate the Events section
   const populateEvents = () => {
@@ -258,49 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(error => console.error('Error fetching events data:', error));
   };
 
-  // Dynamically populate certifications section
-  
 
-  const populateCertifications = () => {
-    const certificationsGrid = document.getElementById('certifications-grid');
-    if (!certificationsGrid) return;
-
-    showSkeleton('certifications-grid', 6, '200px');
-
-    fetch('/assets/data/certifications.json')
-      .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status} while fetching certifications.json`);
-        return response.json();
-      })
-      .then(data => {
-        certificationsGrid.innerHTML = ''; // Clear skeletons
-        data.forEach((cert, index) => {
-          const certificationItem = document.createElement('div');
-          certificationItem.className = 'certification-item fade-in-up';
-          certificationItem.style.animationDelay = `${index * 0.05}s`; // Faster stagger
-
-          // Removed style="display:block; height:100%;" from anchor to fix text offset issue
-          certificationItem.innerHTML = `
-            <a href="${safeUrl(cert.url)}" target="_blank" rel="noopener noreferrer">
-              <img
-                src="${safeUrl(cert.image)}"
-                alt="${escapeHTML(cert.title)}"
-                loading="lazy"
-              >
-            </a>
-            <div class="certification-content">
-              <h3 class="h4 certification-title">${escapeHTML(cert.title)}</h3>
-              <p class="certification-issuer">${escapeHTML(cert.issuer)}</p>
-              <time class="certification-date">${escapeHTML(cert.date)}</time>
-            </div>
-          `;
-
-          certificationsGrid.appendChild(certificationItem);
-        });
-        setTimeout(initTiltEffect, 500);
-      })
-      .catch(error => console.error('Error fetching certifications data:', error));
-  };
 
   // Helper function to calculate relative time
   const timeAgo = (dateString) => {
@@ -475,11 +391,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // Call all the functions to load your dynamic content
-  populateEducation();
-  populateExperience();
+  // populateEducation();
+  // populateExperience();
   populateEvents();
 
-  populateCertifications();
+  // populateCertifications();
   populateProjects();
 
   // Update footer year dynamically
