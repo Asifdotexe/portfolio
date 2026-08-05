@@ -374,25 +374,9 @@ article.active {
   border-radius: 3px;
 }
 
-.has-scrollbar::-webkit-scrollbar {
-  width: 5px;
-  /* for vertical scrollbar */
-  height: 5px;
-  /* for horizontal scrollbar */
-}
-
-.has-scrollbar::-webkit-scrollbar-track {
-  background: var(--onyx);
-  border-radius: 5px;
-}
-
-.has-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--vibrant-green);
-  border-radius: 5px;
-}
-
-.has-scrollbar::-webkit-scrollbar-button {
-  width: 20px;
+.has-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--vibrant-green) var(--onyx);
 }
 
 .content-card {
@@ -828,10 +812,7 @@ main {
   z-index: 20;
   pointer-events: none;
   visibility: hidden;
-}
-
-.modal-container::-webkit-scrollbar {
-  display: none;
+  scrollbar-width: none;
 }
 
 .modal-container.active {
@@ -1392,6 +1373,8 @@ main {
   overflow: hidden;
   box-shadow: 0 8px 16px hsla(0, 0%, 0%, 0.3);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: grid;
+  place-items: center;
 }
 
 .project-item>a:hover .project-img {
@@ -1419,9 +1402,6 @@ main {
   background: var(--jet);
   color: var(--vibrant-green);
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   font-size: 20px;
   padding: 18px;
   border-radius: 12px;
@@ -2281,9 +2261,7 @@ textarea.form-input::-webkit-resizer {
     width: 700px;
   }
 
-  .has-scrollbar::-webkit-scrollbar-button {
-    width: 100px;
-  }
+
 
 
 
@@ -2522,28 +2500,9 @@ textarea.form-input::-webkit-resizer {
 
   /* RESET */
 
-  body::-webkit-scrollbar {
-    width: 20px;
-  }
-
-  body::-webkit-scrollbar-track {
-    background: var(--smoky-black);
-  }
-
-  body::-webkit-scrollbar-thumb {
-    border: 5px solid var(--smoky-black);
-    background: hsla(0, 0%, 100%, 0.1);
-    border-radius: 20px;
-    box-shadow: inset 1px 1px 0 hsla(0, 0%, 100%, 0.11),
-      inset -1px -1px 0 hsla(0, 0%, 100%, 0.11);
-  }
-
-  body::-webkit-scrollbar-thumb:hover {
-    background: hsla(0, 0%, 100%, 0.15);
-  }
-
-  body::-webkit-scrollbar-button {
-    height: 60px;
+  body {
+    scrollbar-color: hsla(0, 0%, 100%, 0.1) var(--smoky-black);
+    scrollbar-width: auto;
   }
 
   /* REUSED STYLE */
@@ -2966,31 +2925,7 @@ textarea.form-input::-webkit-resizer {
   scrollbar-color: var(--jet) transparent;
 }
 
-#blog-modal::-webkit-scrollbar,
-#blog-modal-body .codehilite::-webkit-scrollbar,
-.blog-post-content .codehilite::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
 
-#blog-modal::-webkit-scrollbar-track,
-#blog-modal-body .codehilite::-webkit-scrollbar-track,
-.blog-post-content .codehilite::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-#blog-modal::-webkit-scrollbar-thumb,
-#blog-modal-body .codehilite::-webkit-scrollbar-thumb,
-.blog-post-content .codehilite::-webkit-scrollbar-thumb {
-  background: var(--jet);
-  border-radius: 10px;
-}
-
-#blog-modal::-webkit-scrollbar-thumb:hover,
-#blog-modal-body .codehilite::-webkit-scrollbar-thumb:hover,
-.blog-post-content .codehilite::-webkit-scrollbar-thumb:hover {
-  background: var(--light-gray-70);
-}
 
 
 
