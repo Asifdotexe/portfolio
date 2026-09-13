@@ -8,8 +8,8 @@ import os
 import requests
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROJECTS_SOURCE_PATH = os.path.join(BASE_DIR, 'assets', 'data', 'projects.json')
-OUTPUT_PATH = os.path.join(BASE_DIR, 'assets', 'data', 'last_updated.json')
+PROJECTS_SOURCE_PATH = os.path.join(BASE_DIR, '_data', 'projects.json')
+OUTPUT_PATH = os.path.join(BASE_DIR, '_data', 'last_updated.json')
 PR_BODY_PATH = os.path.join(BASE_DIR, 'pr_body.txt')
 
 

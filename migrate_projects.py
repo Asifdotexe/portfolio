@@ -2,7 +2,7 @@ import json
 import os
 import re
 
-with open('assets/data/projects.json', 'r', encoding='utf-8') as f:
+with open('_data/projects.json', 'r', encoding='utf-8') as f:
     projects = json.load(f)
 
 for p in projects:
@@ -52,7 +52,7 @@ In the meantime, you can check out the source code on [GitHub]({github_link}).
         with open(md_path, 'w', encoding='utf-8') as mf:
             mf.write(content)
 
-with open('assets/data/projects.json', 'w', encoding='utf-8') as f:
+with open('_data/projects.json', 'w', encoding='utf-8') as f:
     json.dump(projects, f, indent=2)
 
 print("Migration complete!")

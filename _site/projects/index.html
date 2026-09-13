@@ -101,18 +101,7 @@
 
         <!-- preload critical resources -->
         <link rel="preload" href="/assets/js/script.min.js" as="script" />
-        <link
-            rel="preload"
-            href="/assets/data/projects.json"
-            as="fetch"
-            crossorigin
-        />
-        <link
-            rel="preload"
-            href="/assets/data/last_updated.json"
-            as="fetch"
-            crossorigin
-        />
+
 
         <!-- custom js link -->
         <script src="/assets/js/script.min.js" defer></script>
@@ -423,14 +412,10 @@
                             <a href="/" class="navbar-link ">About</a>
                         </li>
                         <li class="navbar-item">
-                            <a href="/projects/" class="navbar-link"
-                                >Projects</a
-                            >
+                            <a href="/projects/" class="navbar-link active">Projects</a>
                         </li>
                         <li class="navbar-item">
-                            <a href="/certifications/" class="navbar-link"
-                                >Certifications</a
-                            >
+                            <a href="/certifications/" class="navbar-link ">Certifications</a>
                         </li>
                         <li class="navbar-item">
                             <a href="/events/" class="navbar-link ">Events</a>
@@ -520,159 +505,401 @@
                         <div class="projects-grid">
                             <ul class="project-list" id="project-list">
                                 
-                                <li class="project-item active" data-filter-item data-category="tools">
-                                    <a href="/projects/yoink/">
+                                <li class="project-item active fade-in-up" style="animation-delay: 0s;" data-filter-item data-category="tools">
+                                    <a href="/projects/yoink/" style="display: block; height: 100%;">
                                         <figure class="project-img">
                                             <div class="project-item-icon-box">
                                                 <ion-icon name="eye-outline"></ion-icon>
                                             </div>
                                             <img src="/assets/images/projects/yoink.webp" alt="Yoink" loading="lazy" />
                                         </figure>
-                                        <h3 class="project-title">Yoink: LLM Codebase Packer</h3>
-                                        <p class="project-category">Tools</p>
+                                        <div class="project-info">
+                                            <h3 class="project-title">Yoink: LLM Codebase Packer</h3>
+                                            <p class="project-category">Tools</p>
+                                            
+                                            <div class="project-tags">
+                                                
+                                                <span class="tag">ast-parsing</span>
+                                                
+                                                <span class="tag">cli-tool</span>
+                                                
+                                                <span class="tag">codebase-analysis</span>
+                                                
+                                                <span class="tag">docker</span>
+                                                
+                                                <span class="tag">fastapi</span>
+                                                
+                                                <span class="tag">llm-optimization</span>
+                                                
+                                                <span class="tag">pre-commit</span>
+                                                
+                                                <span class="tag">pydantic</span>
+                                                
+                                                <span class="tag">python</span>
+                                                
+                                                <span class="tag">render-deployment</span>
+                                                
+                                                <span class="tag">tokenization</span>
+                                                
+                                                <span class="tag">typer</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
                                     </a>
                                 </li>
                                 
-                                <li class="project-item active" data-filter-item data-category="analytics">
-                                    <a href="/projects/Theseus/">
+                                <li class="project-item active fade-in-up" style="animation-delay: 0.05s;" data-filter-item data-category="analytics">
+                                    <a href="/projects/Theseus/" style="display: block; height: 100%;">
                                         <figure class="project-img">
                                             <div class="project-item-icon-box">
                                                 <ion-icon name="eye-outline"></ion-icon>
                                             </div>
                                             <img src="/assets/images/projects/theseus.webp" alt="Ship of Theseus" loading="lazy" />
                                         </figure>
-                                        <h3 class="project-title">Ship of Theseus: Software Entropy Visualizer</h3>
-                                        <p class="project-category">Analytics</p>
+                                        <div class="project-info">
+                                            <h3 class="project-title">Ship of Theseus: Software Entropy Visualizer</h3>
+                                            <p class="project-category">Analytics</p>
+                                            
+                                            <div class="project-tags">
+                                                
+                                                <span class="tag">automation</span>
+                                                
+                                                <span class="tag">codebase-analysis</span>
+                                                
+                                                <span class="tag">d3js</span>
+                                                
+                                                <span class="tag">data-visualization</span>
+                                                
+                                                <span class="tag">git</span>
+                                                
+                                                <span class="tag">git-history</span>
+                                                
+                                                <span class="tag">github-actions</span>
+                                                
+                                                <span class="tag">javascript</span>
+                                                
+                                                <span class="tag">python</span>
+                                                
+                                                <span class="tag">software-engineering</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
                                     </a>
                                 </li>
                                 
-                                <li class="project-item active" data-filter-item data-category="knowledge">
-                                    <a href="/projects/second-brain/">
+                                <li class="project-item active fade-in-up" style="animation-delay: 0.1s;" data-filter-item data-category="knowledge">
+                                    <a href="/projects/second-brain/" style="display: block; height: 100%;">
                                         <figure class="project-img">
                                             <div class="project-item-icon-box">
                                                 <ion-icon name="eye-outline"></ion-icon>
                                             </div>
                                             <img src="/assets/images/projects/second-brain.webp" alt="Second Brain" loading="lazy" />
                                         </figure>
-                                        <h3 class="project-title">Second Brain</h3>
-                                        <p class="project-category">Knowledge</p>
+                                        <div class="project-info">
+                                            <h3 class="project-title">Second Brain</h3>
+                                            <p class="project-category">Knowledge</p>
+                                            
+                                            <div class="project-tags">
+                                                
+                                                <span class="tag">blog</span>
+                                                
+                                                <span class="tag">css</span>
+                                                
+                                                <span class="tag">html</span>
+                                                
+                                                <span class="tag">javascript</span>
+                                                
+                                                <span class="tag">knowledge-bank</span>
+                                                
+                                                <span class="tag">markdown</span>
+                                                
+                                                <span class="tag">python</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
                                     </a>
                                 </li>
                                 
-                                <li class="project-item active" data-filter-item data-category="tools">
-                                    <a href="/projects/littlelogger/">
+                                <li class="project-item active fade-in-up" style="animation-delay: 0.15000000000000002s;" data-filter-item data-category="tools">
+                                    <a href="/projects/littlelogger/" style="display: block; height: 100%;">
                                         <figure class="project-img">
                                             <div class="project-item-icon-box">
                                                 <ion-icon name="eye-outline"></ion-icon>
                                             </div>
                                             <img src="/assets/images/projects/little-logger.webp" alt="LittleLogger" loading="lazy" />
                                         </figure>
-                                        <h3 class="project-title">LittleLogger</h3>
-                                        <p class="project-category">Tools</p>
+                                        <div class="project-info">
+                                            <h3 class="project-title">LittleLogger</h3>
+                                            <p class="project-category">Tools</p>
+                                            
+                                            <div class="project-tags">
+                                                
+                                                <span class="tag">developer-tools</span>
+                                                
+                                                <span class="tag">logging</span>
+                                                
+                                                <span class="tag">pypi</span>
+                                                
+                                                <span class="tag">python</span>
+                                                
+                                                <span class="tag">scikit-learn</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
                                     </a>
                                 </li>
                                 
-                                <li class="project-item active" data-filter-item data-category="knowledge">
-                                    <a href="/projects/python-vs-cython-benchmarking/">
+                                <li class="project-item active fade-in-up" style="animation-delay: 0.2s;" data-filter-item data-category="knowledge">
+                                    <a href="/projects/python-vs-cython-benchmarking/" style="display: block; height: 100%;">
                                         <figure class="project-img">
                                             <div class="project-item-icon-box">
                                                 <ion-icon name="eye-outline"></ion-icon>
                                             </div>
                                             <img src="/assets/images/projects/python-v-cython.webp" alt="Python vs Cython Benchmarking" loading="lazy" />
                                         </figure>
-                                        <h3 class="project-title">Python vs Cython Benchmarking</h3>
-                                        <p class="project-category">Knowledge</p>
+                                        <div class="project-info">
+                                            <h3 class="project-title">Python vs Cython Benchmarking</h3>
+                                            <p class="project-category">Knowledge</p>
+                                            
+                                            <div class="project-tags">
+                                                
+                                                <span class="tag">Python</span>
+                                                
+                                                <span class="tag">Cython</span>
+                                                
+                                                <span class="tag">NumPy</span>
+                                                
+                                                <span class="tag">Seaborn</span>
+                                                
+                                                <span class="tag">Matplotlib</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
                                     </a>
                                 </li>
                                 
-                                <li class="project-item active" data-filter-item data-category="tools">
-                                    <a href="/projects/serpent/">
+                                <li class="project-item active fade-in-up" style="animation-delay: 0.25s;" data-filter-item data-category="tools">
+                                    <a href="/projects/serpent/" style="display: block; height: 100%;">
                                         <figure class="project-img">
                                             <div class="project-item-icon-box">
                                                 <ion-icon name="eye-outline"></ion-icon>
                                             </div>
                                             <img src="/assets/images/projects/serpent.webp" alt="SERPENT" loading="lazy" />
                                         </figure>
-                                        <h3 class="project-title">SERPENT: Code to flowchart application</h3>
-                                        <p class="project-category">Tools</p>
+                                        <div class="project-info">
+                                            <h3 class="project-title">SERPENT: Code to flowchart application</h3>
+                                            <p class="project-category">Tools</p>
+                                            
+                                            <div class="project-tags">
+                                                
+                                                <span class="tag">ast</span>
+                                                
+                                                <span class="tag">code-documentation</span>
+                                                
+                                                <span class="tag">code-to-flowchart</span>
+                                                
+                                                <span class="tag">developer-tools</span>
+                                                
+                                                <span class="tag">graphviz</span>
+                                                
+                                                <span class="tag">python</span>
+                                                
+                                                <span class="tag">streamlit</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
                                     </a>
                                 </li>
                                 
-                                <li class="project-item active" data-filter-item data-category="tools">
-                                    <a href="/projects/quickvu/">
+                                <li class="project-item active fade-in-up" style="animation-delay: 0.30000000000000004s;" data-filter-item data-category="tools">
+                                    <a href="/projects/quickvu/" style="display: block; height: 100%;">
                                         <figure class="project-img">
                                             <div class="project-item-icon-box">
                                                 <ion-icon name="eye-outline"></ion-icon>
                                             </div>
                                             <img src="/assets/images/projects/quickvu.webp" alt="QuickVU" loading="lazy" />
                                         </figure>
-                                        <h3 class="project-title">QuickVU: No-code data tool</h3>
-                                        <p class="project-category">Tools</p>
+                                        <div class="project-info">
+                                            <h3 class="project-title">QuickVU: No-code data tool</h3>
+                                            <p class="project-category">Tools</p>
+                                            
+                                            <div class="project-tags">
+                                                
+                                                <span class="tag">automation</span>
+                                                
+                                                <span class="tag">data-analysis</span>
+                                                
+                                                <span class="tag">data-cleaning</span>
+                                                
+                                                <span class="tag">data-visualization</span>
+                                                
+                                                <span class="tag">python3</span>
+                                                
+                                                <span class="tag">streamlit-application</span>
+                                                
+                                                <span class="tag">toolkit</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
                                     </a>
                                 </li>
                                 
-                                <li class="project-item active" data-filter-item data-category="tools">
-                                    <a href="/projects/dora/">
+                                <li class="project-item active fade-in-up" style="animation-delay: 0.35000000000000003s;" data-filter-item data-category="tools">
+                                    <a href="/projects/dora/" style="display: block; height: 100%;">
                                         <figure class="project-img">
                                             <div class="project-item-icon-box">
                                                 <ion-icon name="eye-outline"></ion-icon>
                                             </div>
                                             <img src="/assets/images/projects/dora.webp" alt="DORA" loading="lazy" />
                                         </figure>
-                                        <h3 class="project-title">DORA: Report Automator</h3>
-                                        <p class="project-category">Tools</p>
+                                        <div class="project-info">
+                                            <h3 class="project-title">DORA: Report Automator</h3>
+                                            <p class="project-category">Tools</p>
+                                            
+                                            <div class="project-tags">
+                                                
+                                                <span class="tag">cli-tool</span>
+                                                
+                                                <span class="tag">exploratory-analysis</span>
+                                                
+                                                <span class="tag">html-report</span>
+                                                
+                                                <span class="tag">pypi</span>
+                                                
+                                                <span class="tag">python</span>
+                                                
+                                                <span class="tag">streamlit</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
                                     </a>
                                 </li>
                                 
-                                <li class="project-item active" data-filter-item data-category="models">
-                                    <a href="/projects/recommendationhaki/">
+                                <li class="project-item active fade-in-up" style="animation-delay: 0.4s;" data-filter-item data-category="models">
+                                    <a href="/projects/recommendationhaki/" style="display: block; height: 100%;">
                                         <figure class="project-img">
                                             <div class="project-item-icon-box">
                                                 <ion-icon name="eye-outline"></ion-icon>
                                             </div>
                                             <img src="/assets/images/projects/recommendation-haki.webp" alt="RecommendationHaki" loading="lazy" />
                                         </figure>
-                                        <h3 class="project-title">RecommendationHaki: Anime Recommendation Engine</h3>
-                                        <p class="project-category">Models</p>
+                                        <div class="project-info">
+                                            <h3 class="project-title">RecommendationHaki: Anime Recommendation Engine</h3>
+                                            <p class="project-category">Models</p>
+                                            
+                                            <div class="project-tags">
+                                                
+                                                <span class="tag">css</span>
+                                                
+                                                <span class="tag">html</span>
+                                                
+                                                <span class="tag">machine-learning</span>
+                                                
+                                                <span class="tag">natural-language-procressing</span>
+                                                
+                                                <span class="tag">python</span>
+                                                
+                                                <span class="tag">recommendation-system</span>
+                                                
+                                                <span class="tag">streamlit</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
                                     </a>
                                 </li>
                                 
-                                <li class="project-item active" data-filter-item data-category="knowledge">
-                                    <a href="/projects/natural-langwiz/">
+                                <li class="project-item active fade-in-up" style="animation-delay: 0.45s;" data-filter-item data-category="knowledge">
+                                    <a href="/projects/natural-langwiz/" style="display: block; height: 100%;">
                                         <figure class="project-img">
                                             <div class="project-item-icon-box">
                                                 <ion-icon name="eye-outline"></ion-icon>
                                             </div>
                                             <img src="/assets/images/projects/natural-langwiz.webp" alt="Natural LangWiz" loading="lazy" />
                                         </figure>
-                                        <h3 class="project-title">Natural LangWiz: NLP Learning Repository</h3>
-                                        <p class="project-category">Knowledge</p>
+                                        <div class="project-info">
+                                            <h3 class="project-title">Natural LangWiz: NLP Learning Repository</h3>
+                                            <p class="project-category">Knowledge</p>
+                                            
+                                            <div class="project-tags">
+                                                
+                                                <span class="tag">learning-repository</span>
+                                                
+                                                <span class="tag">machine-learning</span>
+                                                
+                                                <span class="tag">natural-language-preprocessing</span>
+                                                
+                                                <span class="tag">python</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
                                     </a>
                                 </li>
                                 
-                                <li class="project-item active" data-filter-item data-category="knowledge">
-                                    <a href="/projects/open-see-wee/">
+                                <li class="project-item active fade-in-up" style="animation-delay: 0.5s;" data-filter-item data-category="knowledge">
+                                    <a href="/projects/open-see-wee/" style="display: block; height: 100%;">
                                         <figure class="project-img">
                                             <div class="project-item-icon-box">
                                                 <ion-icon name="eye-outline"></ion-icon>
                                             </div>
                                             <img src="/assets/images/projects/open-cv.webp" alt="Open See Wee" loading="lazy" />
                                         </figure>
-                                        <h3 class="project-title">Open See Wee: Computer Vision Learning Repository</h3>
-                                        <p class="project-category">Knowledge</p>
+                                        <div class="project-info">
+                                            <h3 class="project-title">Open See Wee: Computer Vision Learning Repository</h3>
+                                            <p class="project-category">Knowledge</p>
+                                            
+                                            <div class="project-tags">
+                                                
+                                                <span class="tag">computer-vision</span>
+                                                
+                                                <span class="tag">image-analysis</span>
+                                                
+                                                <span class="tag">learning-repository</span>
+                                                
+                                                <span class="tag">opencv</span>
+                                                
+                                                <span class="tag">python</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
                                     </a>
                                 </li>
                                 
-                                <li class="project-item active" data-filter-item data-category="models">
-                                    <a href="/projects/amazon-sentiment-analysis/">
+                                <li class="project-item active fade-in-up" style="animation-delay: 0.55s;" data-filter-item data-category="models">
+                                    <a href="/projects/amazon-sentiment-analysis/" style="display: block; height: 100%;">
                                         <figure class="project-img">
                                             <div class="project-item-icon-box">
                                                 <ion-icon name="eye-outline"></ion-icon>
                                             </div>
                                             <img src="/assets/images/projects/nlp-amazon-sentiment-scoring-model.webp" alt="Amazon Sentiment Analysis" loading="lazy" />
                                         </figure>
-                                        <h3 class="project-title">Sentimental Scoring Model on Amazon Reviews</h3>
-                                        <p class="project-category">Models</p>
+                                        <div class="project-info">
+                                            <h3 class="project-title">Sentimental Scoring Model on Amazon Reviews</h3>
+                                            <p class="project-category">Models</p>
+                                            
+                                            <div class="project-tags">
+                                                
+                                                <span class="tag">data-analysis</span>
+                                                
+                                                <span class="tag">data-visualization</span>
+                                                
+                                                <span class="tag">natural-language-processing</span>
+                                                
+                                                <span class="tag">sentiment-analysis</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
                                     </a>
                                 </li>
                                 

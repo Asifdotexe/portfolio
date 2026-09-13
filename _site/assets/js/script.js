@@ -123,20 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initTypewriter();
 
-  // Helper to add skeleton loading state
-  const showSkeleton = (elementId, count = 3, height = '100px') => {
-    const container = document.getElementById(elementId);
-    if (!container) return;
-    container.innerHTML = '';
-    for (let i = 0; i < count; i++) {
-      const div = document.createElement('div');
-      div.classList.add('skeleton');
-      div.style.height = height;
-      div.style.marginBottom = '20px';
-      container.appendChild(div);
-    }
-  }
-
+  initTiltEffect();
 
 
   const escapeHTML = (str) => {
@@ -168,151 +155,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  // Helper function to calculate relative time
-  const timeAgo = (dateString) => {
-    if (!dateString) return '';
-    const diff = (new Date() - new Date(dateString)) / 1000;
-    if (diff < 60) return 'just now';
-    const units = [['year', 31536000], ['month', 2592000], ['day', 86400], ['hour', 3600], ['minute', 60]];
-    const [unit, secs] = units.find(([, s]) => diff >= s);
-    return new Intl.RelativeTimeFormat('en', { numeric: 'auto' }).format(-Math.floor(diff / secs), unit);
-  };
-
   /**
-   * Populates the project list by combining data from local JSON files.
+   * Sets up filtering for projects, events, etc.
    */
-  const populateProjects = async () => {
-    const projectList = document.getElementById("project-list");
-    if (!projectList) return;
-
-    showSkeleton('project-list', 4, '150px');
-
-    try {
-      const [projectsResponse, updatesResponse] = await Promise.all([
-        fetch("/assets/data/projects.json"),
-        fetch("/assets/data/last_updated.json")
-      ]);
-
-      if (!projectsResponse.ok) {
-        throw new Error(`Failed to load projects.json: ${projectsResponse.statusText}`);
-      }
-
-      const projects = await projectsResponse.json();
-      const updates = updatesResponse.ok ? await updatesResponse.json() : {};
-
-      const projectsWithUpdates = projects.map(project => {
-        const lastUpdated = project.github ? updates[project.github] : null;
-        return { ...project, updated_at: lastUpdated };
-      });
-
-      projectsWithUpdates.sort((a, b) => {
-        if (a.updated_at && b.updated_at) {
-          return new Date(b.updated_at) - new Date(a.updated_at);
-        }
-        if (a.updated_at) return -1;
-        if (b.updated_at) return 1;
-        return 0;
-      });
-
-      projectList.innerHTML = ''; // Clear skeletons
-      projectsWithUpdates.forEach((project, index) => {
-        const li = document.createElement("li");
-        li.className = `project-item active fade-in-up ${index === 0 ? 'featured' : ''}`;
-        li.style.animationDelay = `${index * 0.1}s`;
-        li.setAttribute("data-filter-item", "");
-        li.setAttribute("data-category", project.category.toLowerCase());
-
-        const tagsHtml = project.tags
-          .map((tag) => `<span class="tag">${tag}</span>`)
-          .join("");
-
-        const updatedHtml = project.updated_at
-          ? '<p class="project-category">Last updated: ' + timeAgo(project.updated_at) + '</p>'
-          : "";
-
-        const isLight = document.body.getAttribute("data-theme") === "light";
-        const lightImage = project.image.replace('.webp', '_light.webp');
-        const currentImage = isLight ? lightImage : project.image;
-
-        li.innerHTML = `
-                <a href="${project.url}" target="_blank" rel="noopener noreferrer" style="display: block; height: 100%;">
-                    <figure class="project-img">
-                        <div class="project-item-icon-box">
-                            <ion-icon name="eye-outline"></ion-icon>
-                        </div>
-                        <img src="${currentImage}" data-dark-src="${project.image}" data-light-src="${lightImage}" class="theme-aware-img" alt="${project.alt}" loading="lazy">
-                    </figure>
-                    <div class="project-info">
-                        <h3 class="project-title">${project.title}</h3>
-                        <p class="project-category">${project.category_desc}</p>
-                        ${updatedHtml}
-                        <div class="project-tags">${tagsHtml}</div>
-                    </div>
-                </a>
-            `;
-
-        projectList.appendChild(li);
-      });
-
-      const counts = { all: projectsWithUpdates.length };
-      projectsWithUpdates.forEach(project => {
-        const cat = project.category.toLowerCase();
-        counts[cat] = (counts[cat] || 0) + 1;
-      });
-
-      const filterBtns = document.querySelectorAll("[data-filter-btn]");
-      filterBtns.forEach(btn => {
-        let baseText = btn.innerText.replace(/\s*\(\d+\)$/, '').trim();
-        const cat = baseText.toLowerCase();
-        if (counts[cat] !== undefined) {
-          btn.innerHTML = `${baseText} <span class="count-pill">${counts[cat]}</span>`;
-        }
-      });
-      
-      const selectItems = document.querySelectorAll("[data-select-item]");
-      selectItems.forEach(item => {
-        let baseText = item.innerText.replace(/\s*\(\d+\)$/, '').trim();
-        const cat = baseText.toLowerCase();
-        if (counts[cat] !== undefined) {
-          item.innerHTML = `${baseText} <span class="count-pill">${counts[cat]}</span>`;
-        }
-      });
-
-      initializeProjectFilter();
-      setTimeout(initTiltEffect, 500);
-
-    } catch (error) {
-      console.error("Error loading or processing projects:", error);
-      projectList.innerHTML = '<li><p>Could not load projects. Please try again later.</p></li>';
-    }
-  };
-
-
-  /**
-   * Sets up event listeners for project category filtering.
-   */
-  const initializeProjectFilter = () => {
-    const select = document.querySelector("[data-select]");
-    const selectItems = document.querySelectorAll("[data-select-item]");
-    const selectValue = document.querySelector("[data-selecct-value]");
-    const filterBtns = document.querySelectorAll("[data-filter-btn]");
+  const initializeCategoryFilter = () => {
     const filterItems = document.querySelectorAll("[data-filter-item]");
+    if (filterItems.length === 0) return;
+
+    const counts = { all: filterItems.length };
+    filterItems.forEach(item => {
+      const cat = (item.dataset.category || '').toLowerCase();
+      if (cat) counts[cat] = (counts[cat] || 0) + 1;
+    });
+
+    const filterBtns = document.querySelectorAll("[data-filter-btn]");
+    filterBtns.forEach(btn => {
+      const baseText = btn.innerText.replace(/\s*\(\d+\)$/, '').trim();
+      const cat = baseText.toLowerCase();
+      if (counts[cat] !== undefined) {
+        btn.innerHTML = `${baseText} <span class="count-pill">${counts[cat]}</span>`;
+      }
+    });
+
+    const selectItems = document.querySelectorAll("[data-select-item]");
+    selectItems.forEach(item => {
+      const baseText = item.innerText.replace(/\s*\(\d+\)$/, '').trim();
+      const cat = baseText.toLowerCase();
+      if (counts[cat] !== undefined) {
+        item.innerHTML = `${baseText} <span class="count-pill">${counts[cat]}</span>`;
+      }
+    });
+
+    const select = document.querySelector("[data-select]");
+    const selectValue = document.querySelector("[data-selecct-value]");
 
     const filterFunc = function (selectedValue) {
       for (let i = 0; i < filterItems.length; i++) {
-        if (selectedValue === "all" || selectedValue === filterItems[i].dataset.category) {
+        if (selectedValue === "all" || selectedValue === (filterItems[i].dataset.category || '').toLowerCase()) {
           filterItems[i].classList.add("active");
         } else {
           filterItems[i].classList.remove("active");
         }
       }
-    }
+    };
 
     let lastClickedBtn = filterBtns.length > 0 ? filterBtns[0] : null;
     if (lastClickedBtn) {
       for (let i = 0; i < filterBtns.length; i++) {
         filterBtns[i].addEventListener("click", function () {
-          let selectedValue = this.childNodes[0].nodeValue.trim().toLowerCase();
+          const selectedValue = this.childNodes[0].nodeValue.trim().toLowerCase();
           if (selectValue) selectValue.innerHTML = this.innerHTML;
           filterFunc(selectedValue);
 
@@ -328,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       for (let i = 0; i < selectItems.length; i++) {
         selectItems[i].addEventListener("click", function () {
-          let selectedCat = this.childNodes[0].nodeValue.trim().toLowerCase();
+          const selectedCat = this.childNodes[0].nodeValue.trim().toLowerCase();
           if (selectValue) {
             selectValue.innerHTML = this.innerHTML;
           }
@@ -339,14 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-
-  // Call all the functions to load your dynamic content
-  // populateEducation();
-  // populateExperience();
-
-
-  // populateCertifications();
-  populateProjects();
+  initializeCategoryFilter();
 
   // Update footer year dynamically
   const yearElement = document.getElementById('current-year');
