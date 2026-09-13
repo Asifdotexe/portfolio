@@ -4,19 +4,18 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>How Averages Deceive Us: The Math and Meaning of Simpson&#39;s Paradox | Asif Sayyed Portfolio</title>
-        <meta
-            name="title"
-            content="Asif Sayyed | Data Scientist, Public Speaker & Tech Educator"
-        />
-        <meta
-            name="description"
-            content="Data Scientist at Marsh specializing in Python, Machine Learning, NLP, and Cyber Risk Analytics. Explore my projects and experience."
-        />
-        <meta
-            name="keywords"
-            content="Asif Sayyed, Data Scientist, Python Developer, Machine Learning Engineer, AI Portfolio, NLP, Deep Learning, Cyber Risk, Marsh, Mumbai, Data Science Portfolio"
-        />
+        
+        
+        
+        
+            
+        
+        
+
+        <title>How Averages Deceive Us: The Math and Meaning of Simpson&#39;s Paradox | Asif Sayyed</title>
+        <meta name="title" content="How Averages Deceive Us: The Math and Meaning of Simpson&#39;s Paradox | Asif Sayyed" />
+        <meta name="description" content="How Simpson&#39;s Paradox works, why aggregated data can flip trends, and why subgroup analysis matters." />
+        <meta name="keywords" content="Asif Sayyed, Data Scientist, Python Developer, Machine Learning Engineer, AI Portfolio, NLP, Deep Learning, Cyber Risk, Marsh, Mumbai, Data Science Portfolio" />
         <meta name="author" content="Asif Sayyed" />
         <meta name="theme-color" content="#2b2b2c" />
         <meta
@@ -25,52 +24,42 @@
         />
         <meta name="language" content="English" />
         <meta name="format-detection" content="telephone=no" />
-        <link rel="canonical" href="https://sayyedasif.com/" />
+        <link rel="canonical" href="https://sayyedasif.com/blogs/simpsons-paradox-how-averages-deceive-us/" />
 
-        <!-- Google Search Console verification (replace YOUR_VERIFICATION_CODE after signing up at https://search.google.com/search-console) -->
+        <!-- Google Search Console verification -->
         <meta
             name="google-site-verification"
             content="mZ4YTDxw_emCHo0t3exypc7baNm8gDdt_ci72uqK1aY"
         />
 
         <!-- Open Graph (used by LinkedIn, Facebook, Discord, Slack, etc.) -->
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://sayyedasif.com/" />
-        <meta
-            property="og:title"
-            content="Asif Sayyed | Data Scientist, Public Speaker & Tech Educator"
-        />
-        <meta
-            property="og:description"
-            content="Data Scientist at Marsh specializing in Python, Machine Learning, NLP, and Cyber Risk Analytics. Explore my projects and experience."
-        />
-        <meta
-            property="og:image"
-            content="https://sayyedasif.com/assets/images/og/portfolio-opengraph-index.webp"
-        />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://sayyedasif.com/blogs/simpsons-paradox-how-averages-deceive-us/" />
+        <meta property="og:title" content="How Averages Deceive Us: The Math and Meaning of Simpson&#39;s Paradox | Asif Sayyed" />
+        <meta property="og:description" content="How Simpson&#39;s Paradox works, why aggregated data can flip trends, and why subgroup analysis matters." />
+        <meta property="og:image" content="https://sayyedasif.com/assets/images/og/portfolio-opengraph-index.webp" />
         <meta property="og:site_name" content="Asif Sayyed Portfolio" />
         <meta property="og:locale" content="en_US" />
 
-        <!-- Twitter Card (also used by LinkedIn and other platforms for link previews) -->
+        <!-- Twitter Card -->
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-            name="twitter:title"
-            content="Asif Sayyed | Data Scientist, Public Speaker & Tech Educator"
-        />
-        <meta
-            name="twitter:description"
-            content="Data Scientist at Marsh specializing in Python, Machine Learning, NLP, and Cyber Risk Analytics. Explore my projects and experience."
-        />
-        <meta
-            name="twitter:image"
-            content="https://sayyedasif.com/assets/images/og/portfolio-opengraph-index.webp"
-        />
+        <meta name="twitter:title" content="How Averages Deceive Us: The Math and Meaning of Simpson&#39;s Paradox | Asif Sayyed" />
+        <meta name="twitter:description" content="How Simpson&#39;s Paradox works, why aggregated data can flip trends, and why subgroup analysis matters." />
+        <meta name="twitter:image" content="https://sayyedasif.com/assets/images/og/portfolio-opengraph-index.webp" />
 
         <!-- favicon -->
         <link
             rel="shortcut icon"
             href="/assets/images/icons/icon-job.svg"
             type="image/x-icon"
+        />
+
+        <!-- RSS Feed -->
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="Asif Sayyed Blog Feed"
+            href="https://sayyedasif.com/feed.xml"
         />
         <script
             type="module"
@@ -82,7 +71,7 @@
         ></script>
 
         <!-- custom css link -->
-        <link rel="stylesheet" href="/assets/css/style.css" />
+        <link rel="stylesheet" href="/assets/css/style.min.css" />
 
         <!-- google font link -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -101,18 +90,7 @@
 
         <!-- preload critical resources -->
         <link rel="preload" href="/assets/js/script.min.js" as="script" />
-        <link
-            rel="preload"
-            href="/assets/data/projects.json"
-            as="fetch"
-            crossorigin
-        />
-        <link
-            rel="preload"
-            href="/assets/data/last_updated.json"
-            as="fetch"
-            crossorigin
-        />
+
 
         <!-- custom js link -->
         <script src="/assets/js/script.min.js" defer></script>
@@ -221,20 +199,7 @@
             }
         </script>
 
-        <!-- Structured Data (JSON-LD) â€” ProfilePage -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "ProfilePage",
-                "@id": "https://sayyedasif.com/#profilepage",
-                "url": "https://sayyedasif.com/",
-                "name": "Asif Sayyed | Data Scientist Portfolio",
-                "isPartOf": { "@id": "https://sayyedasif.com/#website" },
-                "mainEntity": { "@id": "https://sayyedasif.com/#person" },
-                "inLanguage": "en-US",
-                "dateModified": "2026-06-22T12:00:00+05:30"
-            }
-        </script>
+        
 
         <!-- Google Analytics (GA4) â€” https://analytics.google.com -->
         <script
@@ -423,14 +388,10 @@
                             <a href="/" class="navbar-link ">About</a>
                         </li>
                         <li class="navbar-item">
-                            <a href="/projects/" class="navbar-link"
-                                >Projects</a
-                            >
+                            <a href="/projects/" class="navbar-link ">Projects</a>
                         </li>
                         <li class="navbar-item">
-                            <a href="/certifications/" class="navbar-link"
-                                >Certifications</a
-                            >
+                            <a href="/certifications/" class="navbar-link ">Certifications</a>
                         </li>
                         <li class="navbar-item">
                             <a href="/events/" class="navbar-link ">Events</a>
@@ -604,6 +565,32 @@
         </div>
     </section>
 </article>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How Averages Deceive Us: The Math and Meaning of Simpson's Paradox",
+    "description": "How Simpson's Paradox works, why aggregated data can flip trends, and why subgroup analysis matters.",
+    "image": "https://sayyedasif.com/assets/images/og/portfolio-opengraph-index.webp",
+    "datePublished": "2025-10-18",
+    "author": {
+        "@type": "Person",
+        "name": "Asif Sayyed",
+        "url": "https://sayyedasif.com/"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Asif Sayyed",
+        "url": "https://sayyedasif.com/"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sayyedasif.com/blogs/simpsons-paradox-how-averages-deceive-us/"
+    }
+}
+</script>
+
 
             </div>
         </main>

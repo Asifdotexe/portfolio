@@ -295,19 +295,24 @@ permalink: /
                             <h3 class="h3">Latest Activity</h3>
                         </div>
                         <div id="cwo-content">
-                            <!-- Populated by JS -->
-                            <noscript>
-                                <p
-                                    class="timeline-text"
-                                    style="
-                                        color: var(--light-gray-70);
-                                        margin-top: 15px;
-                                    "
-                                >
-                                    Please enable JavaScript to view latest
-                                    GitHub activity.
+                            {% if github_activity and github_activity.repo_name %}
+                            <div style="background: var(--eerie-black-2); border: 1px solid var(--jet); border-radius: 14px; padding: 20px; box-shadow: var(--shadow-2); transition: var(--transition-1);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+                                    <h4 class="h4" style="margin: 0;">
+                                        <a href="{{ github_activity.repo_url }}" target="_blank" rel="noopener noreferrer" style="color: var(--white-2); text-decoration: none; transition: var(--transition-1);">{{ github_activity.repo_name }}</a>
+                                    </h4>
+                                    <time style="color: var(--light-gray-70); font-size: var(--fs-6); display: flex; align-items: center; gap: 5px;">
+                                        <ion-icon name="time-outline"></ion-icon>{{ github_activity.commit_date }}
+                                    </time>
+                                </div>
+                                <p class="timeline-text" style="margin: 0; padding: 0;">
+                                    <a href="{{ github_activity.commit_url }}" target="_blank" rel="noopener noreferrer" style="color: var(--light-gray); text-decoration: none; display: flex; align-items: flex-start; gap: 8px;">
+                                        <ion-icon name="git-commit-outline" style="margin-top: 3px; color: var(--vibrant-green); flex-shrink: 0;"></ion-icon>
+                                        <span style="transition: var(--transition-1);">{{ github_activity.commit_message }}</span>
+                                    </a>
                                 </p>
-                            </noscript>
+                            </div>
+                            {% endif %}
                         </div>
                     </section>
 

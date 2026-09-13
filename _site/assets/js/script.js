@@ -40,6 +40,22 @@ if (modalContainer && modalCloseBtn && overlay) {
   overlay.addEventListener("click", testimonialsModalFunc);
 }
 
+// Contact form validation
+const form = document.querySelector("[data-form]");
+const formInputs = document.querySelectorAll("[data-form-input]");
+const formBtn = document.querySelector("[data-form-btn]");
+if (form && formInputs.length > 0 && formBtn) {
+  formInputs.forEach(input => {
+    input.addEventListener("input", function () {
+      if (form.checkValidity()) {
+        formBtn.removeAttribute("disabled");
+      } else {
+        formBtn.setAttribute("disabled", "");
+      }
+    });
+  });
+}
+
 
 
 // --------------------------------------------------------------------
@@ -123,196 +139,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initTypewriter();
 
-  // Helper to add skeleton loading state
-  const showSkeleton = (elementId, count = 3, height = '100px') => {
-    const container = document.getElementById(elementId);
-    if (!container) return;
-    container.innerHTML = '';
-    for (let i = 0; i < count; i++) {
-      const div = document.createElement('div');
-      div.classList.add('skeleton');
-      div.style.height = height;
-      div.style.marginBottom = '20px';
-      container.appendChild(div);
-    }
-  }
-
-
-
-  const escapeHTML = (str) => {
-    if (!str) return '';
-    return String(str).replace(/[&<>'"]/g, 
-      tag => ({
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        "'": '&#39;',
-        '"': '&quot;'
-      }[tag] || tag)
-    );
-  };
-
-  const safeUrl = (url) => {
-    try {
-      const parsed = new URL(url, window.location.origin);
-      if (parsed.protocol === 'http:' || parsed.protocol === 'https:') return parsed.href;
-    } catch (e) {
-      // ignore
-    }
-    return '#';
-  };
+  initTiltEffect();
 
 
 
 
 
 
-
-  // Helper function to calculate relative time
-  const timeAgo = (dateString) => {
-    if (!dateString) return '';
-    const diff = (new Date() - new Date(dateString)) / 1000;
-    if (diff < 60) return 'just now';
-    const units = [['year', 31536000], ['month', 2592000], ['day', 86400], ['hour', 3600], ['minute', 60]];
-    const [unit, secs] = units.find(([, s]) => diff >= s);
-    return new Intl.RelativeTimeFormat('en', { numeric: 'auto' }).format(-Math.floor(diff / secs), unit);
-  };
-
-  /**
-   * Populates the project list by combining data from local JSON files.
-   */
-  const populateProjects = async () => {
-    const projectList = document.getElementById("project-list");
-    if (!projectList) return;
-
-    showSkeleton('project-list', 4, '150px');
-
-    try {
-      const [projectsResponse, updatesResponse] = await Promise.all([
-        fetch("/assets/data/projects.json"),
-        fetch("/assets/data/last_updated.json")
-      ]);
-
-      if (!projectsResponse.ok) {
-        throw new Error(`Failed to load projects.json: ${projectsResponse.statusText}`);
-      }
-
-      const projects = await projectsResponse.json();
-      const updates = updatesResponse.ok ? await updatesResponse.json() : {};
-
-      const projectsWithUpdates = projects.map(project => {
-        const lastUpdated = project.github ? updates[project.github] : null;
-        return { ...project, updated_at: lastUpdated };
-      });
-
-      projectsWithUpdates.sort((a, b) => {
-        if (a.updated_at && b.updated_at) {
-          return new Date(b.updated_at) - new Date(a.updated_at);
-        }
-        if (a.updated_at) return -1;
-        if (b.updated_at) return 1;
-        return 0;
-      });
-
-      projectList.innerHTML = ''; // Clear skeletons
-      projectsWithUpdates.forEach((project, index) => {
-        const li = document.createElement("li");
-        li.className = `project-item active fade-in-up ${index === 0 ? 'featured' : ''}`;
-        li.style.animationDelay = `${index * 0.1}s`;
-        li.setAttribute("data-filter-item", "");
-        li.setAttribute("data-category", project.category.toLowerCase());
-
-        const tagsHtml = project.tags
-          .map((tag) => `<span class="tag">${tag}</span>`)
-          .join("");
-
-        const updatedHtml = project.updated_at
-          ? '<p class="project-category">Last updated: ' + timeAgo(project.updated_at) + '</p>'
-          : "";
-
-        const isLight = document.body.getAttribute("data-theme") === "light";
-        const lightImage = project.image.replace('.webp', '_light.webp');
-        const currentImage = isLight ? lightImage : project.image;
-
-        li.innerHTML = `
-                <a href="${project.url}" target="_blank" rel="noopener noreferrer" style="display: block; height: 100%;">
-                    <figure class="project-img">
-                        <div class="project-item-icon-box">
-                            <ion-icon name="eye-outline"></ion-icon>
-                        </div>
-                        <img src="${currentImage}" data-dark-src="${project.image}" data-light-src="${lightImage}" class="theme-aware-img" alt="${project.alt}" loading="lazy">
-                    </figure>
-                    <div class="project-info">
-                        <h3 class="project-title">${project.title}</h3>
-                        <p class="project-category">${project.category_desc}</p>
-                        ${updatedHtml}
-                        <div class="project-tags">${tagsHtml}</div>
-                    </div>
-                </a>
-            `;
-
-        projectList.appendChild(li);
-      });
-
-      const counts = { all: projectsWithUpdates.length };
-      projectsWithUpdates.forEach(project => {
-        const cat = project.category.toLowerCase();
-        counts[cat] = (counts[cat] || 0) + 1;
-      });
-
-      const filterBtns = document.querySelectorAll("[data-filter-btn]");
-      filterBtns.forEach(btn => {
-        let baseText = btn.innerText.replace(/\s*\(\d+\)$/, '').trim();
-        const cat = baseText.toLowerCase();
-        if (counts[cat] !== undefined) {
-          btn.innerHTML = `${baseText} <span class="count-pill">${counts[cat]}</span>`;
-        }
-      });
-      
-      const selectItems = document.querySelectorAll("[data-select-item]");
-      selectItems.forEach(item => {
-        let baseText = item.innerText.replace(/\s*\(\d+\)$/, '').trim();
-        const cat = baseText.toLowerCase();
-        if (counts[cat] !== undefined) {
-          item.innerHTML = `${baseText} <span class="count-pill">${counts[cat]}</span>`;
-        }
-      });
-
-      initializeProjectFilter();
-      setTimeout(initTiltEffect, 500);
-
-    } catch (error) {
-      console.error("Error loading or processing projects:", error);
-      projectList.innerHTML = '<li><p>Could not load projects. Please try again later.</p></li>';
-    }
-  };
 
 
   /**
-   * Sets up event listeners for project category filtering.
+   * Sets up filtering for projects, events, etc.
    */
-  const initializeProjectFilter = () => {
-    const select = document.querySelector("[data-select]");
-    const selectItems = document.querySelectorAll("[data-select-item]");
-    const selectValue = document.querySelector("[data-selecct-value]");
-    const filterBtns = document.querySelectorAll("[data-filter-btn]");
+  const initializeCategoryFilter = () => {
     const filterItems = document.querySelectorAll("[data-filter-item]");
+    if (filterItems.length === 0) return;
+
+    const counts = { all: filterItems.length };
+    filterItems.forEach(item => {
+      const cat = (item.dataset.category || '').toLowerCase();
+      if (cat) counts[cat] = (counts[cat] || 0) + 1;
+    });
+
+    const filterBtns = document.querySelectorAll("[data-filter-btn]");
+    filterBtns.forEach(btn => {
+      const baseText = btn.innerText.replace(/\s*\(\d+\)$/, '').trim();
+      const cat = baseText.toLowerCase();
+      if (counts[cat] !== undefined) {
+        btn.innerHTML = `${baseText} <span class="count-pill">${counts[cat]}</span>`;
+      }
+    });
+
+    const selectItems = document.querySelectorAll("[data-select-item]");
+    selectItems.forEach(item => {
+      const baseText = item.innerText.replace(/\s*\(\d+\)$/, '').trim();
+      const cat = baseText.toLowerCase();
+      if (counts[cat] !== undefined) {
+        item.innerHTML = `${baseText} <span class="count-pill">${counts[cat]}</span>`;
+      }
+    });
+
+    const select = document.querySelector("[data-select]");
+    const selectValue = document.querySelector("[data-selecct-value]");
 
     const filterFunc = function (selectedValue) {
       for (let i = 0; i < filterItems.length; i++) {
-        if (selectedValue === "all" || selectedValue === filterItems[i].dataset.category) {
+        if (selectedValue === "all" || selectedValue === (filterItems[i].dataset.category || '').toLowerCase()) {
           filterItems[i].classList.add("active");
         } else {
           filterItems[i].classList.remove("active");
         }
       }
-    }
+    };
 
     let lastClickedBtn = filterBtns.length > 0 ? filterBtns[0] : null;
     if (lastClickedBtn) {
       for (let i = 0; i < filterBtns.length; i++) {
         filterBtns[i].addEventListener("click", function () {
-          let selectedValue = this.childNodes[0].nodeValue.trim().toLowerCase();
+          const selectedValue = this.childNodes[0].nodeValue.trim().toLowerCase();
           if (selectValue) selectValue.innerHTML = this.innerHTML;
           filterFunc(selectedValue);
 
@@ -328,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       for (let i = 0; i < selectItems.length; i++) {
         selectItems[i].addEventListener("click", function () {
-          let selectedCat = this.childNodes[0].nodeValue.trim().toLowerCase();
+          const selectedCat = this.childNodes[0].nodeValue.trim().toLowerCase();
           if (selectValue) {
             selectValue.innerHTML = this.innerHTML;
           }
@@ -339,14 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-
-  // Call all the functions to load your dynamic content
-  // populateEducation();
-  // populateExperience();
-
-
-  // populateCertifications();
-  populateProjects();
+  initializeCategoryFilter();
 
   // Update footer year dynamically
   const yearElement = document.getElementById('current-year');
@@ -417,116 +294,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Fetch and render latest GitHub activity
-  (async function() {
-      var cacheKey = "latest_github_activity";
-      var cacheExpiry = 60 * 60 * 1000; // 1 hour
-  
-      function renderRepoCard(repo, commit) {
-        var el = document.getElementById('cwo-content');
-        if (!el) return;
-        
-        var repoUrl = safeUrl(repo && repo.html_url);
-        var repoName = escapeHTML(repo && repo.name ? repo.name : "Unknown Repo");
-        
-        var safeCommitMsg = (commit && commit.commit && commit.commit.message) 
-            ? commit.commit.message.split('\n')[0] 
-            : "No commit message available";
-        var commitMsg = escapeHTML(safeCommitMsg);
-        
-        var commitUrl = safeUrl(commit && commit.html_url);
-        
-        var safeCommitDate = (commit && commit.commit && commit.commit.author && commit.commit.author.date)
-            ? new Date(commit.commit.author.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })
-            : "Unknown date";
-        var commitDate = escapeHTML(safeCommitDate);
-  
-        el.innerHTML = `
-          <div style="background: var(--eerie-black-2); border: 1px solid var(--jet); border-radius: 14px; padding: 20px; box-shadow: var(--shadow-2); transition: var(--transition-1);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
-              <h4 class="h4" style="margin: 0;">
-                <a href="${repoUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--white-2); text-decoration: none; transition: var(--transition-1);">${repoName}</a>
-              </h4>
-              <time style="color: var(--light-gray-70); font-size: var(--fs-6); display: flex; align-items: center; gap: 5px;">
-                <ion-icon name="time-outline"></ion-icon>${commitDate}
-              </time>
-            </div>
-            <p class="timeline-text" style="margin: 0; padding: 0;">
-              <a href="${commitUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--light-gray); text-decoration: none; display: flex; align-items: flex-start; gap: 8px;">
-                <ion-icon name="git-commit-outline" style="margin-top: 3px; color: var(--vibrant-green); flex-shrink: 0;"></ion-icon>
-                <span style="transition: var(--transition-1);">${commitMsg}</span>
-              </a>
-            </p>
-          </div>
-        `;
-      }
-  
-      try {
-        var cached = localStorage.getItem(cacheKey);
-        if (cached) {
-          var parsed = JSON.parse(cached);
-          if (new Date().getTime() - parsed.timestamp < cacheExpiry) {
-            renderRepoCard(parsed.repo, parsed.commit);
-            return; // Exit early using cache
-          }
-        }
-      } catch(e) {
-        console.warn("Failed to read cache", e);
-      }
-  
-      try {
-        var r = await fetch('https://api.github.com/users/Asifdotexe/repos?sort=pushed&per_page=1');
-        if (!r.ok) throw new Error('repos API error');
-        var repos = await r.json();
-        if (!repos || repos.length === 0) throw new Error('no repos');
-        var repo = repos[0];
-        var branch = repo.default_branch || 'main';
-  
-        var c = await fetch('https://api.github.com/repos/Asifdotexe/' + repo.name + '/commits/' + branch);
-        if (!c.ok) throw new Error('commits API error');
-        var commit = await c.json();
-  
-        var msg = commit.commit.message;
-        if (msg.indexOf('Merge ') === 0) {
-          var cl = await fetch('https://api.github.com/repos/Asifdotexe/' + repo.name + '/commits?sha=' + branch + '&per_page=5');
-          if (cl.ok) {
-            var list = await cl.json();
-            for (var i = 0; i < list.length; i++) {
-              if (list[i].commit.message.indexOf('Merge ') !== 0) {
-                var cr = await fetch('https://api.github.com/repos/Asifdotexe/' + repo.name + '/commits/' + list[i].sha);
-                if (cr.ok) { commit = await cr.json(); break; }
-              }
-            }
-          }
-        }
-  
-        try {
-          localStorage.setItem(cacheKey, JSON.stringify({
-            timestamp: new Date().getTime(),
-            repo: repo,
-            commit: commit
-          }));
-        } catch(e) {
-          console.warn("Failed to write to cache", e);
-        }
-  
-        renderRepoCard(repo, commit);
-  
-      } catch (e) {
-        console.warn("GitHub API rate limit reached or error occurred. Showing fallback.", e);
-        var el = document.getElementById('cwo-content');
-        if (el) {
-          el.innerHTML = `
-            <div style="background: var(--eerie-black-2); border: 1px solid var(--jet); border-radius: 14px; padding: 20px; box-shadow: var(--shadow-2);">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                <h4 class="h4" style="margin: 0; color: var(--white-2);">GitHub Activity</h4>
-              </div>
-              <p class="timeline-text" style="margin: 0; color: var(--light-gray-70);">
-                API rate limit exceeded. Please check back later.
-              </p>
-            </div>
-          `;
-        }
-      }
-  })();
 });

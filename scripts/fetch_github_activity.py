@@ -3,13 +3,15 @@ This script fetches the latest 'pushed_at' date from GitHub for each project
 and updates the local 'last_updated.json' file.
 """
 
+from datetime import datetime
 import json
 import os
 import requests
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROJECTS_SOURCE_PATH = os.path.join(BASE_DIR, 'assets', 'data', 'projects.json')
-OUTPUT_PATH = os.path.join(BASE_DIR, 'assets', 'data', 'last_updated.json')
+PROJECTS_SOURCE_PATH = os.path.join(BASE_DIR, '_data', 'projects.json')
+OUTPUT_PATH = os.path.join(BASE_DIR, '_data', 'last_updated.json')
+ACTIVITY_OUTPUT_PATH = os.path.join(BASE_DIR, '_data', 'github_activity.json')
 PR_BODY_PATH = os.path.join(BASE_DIR, 'pr_body.txt')
 
 
@@ -112,6 +114,75 @@ def fetch_and_save_updates():
     except IOError as e:
         print(f"Error writing PR body: {e}")
 
+def fetch_latest_activity(headers):
+    """
+    Fetches the most recently pushed repo and its latest non-merge commit.
+    Saves the data to _data/github_activity.json for Eleventy build-time rendering.
+    """
+    print("Fetching latest overall GitHub activity...")
+    try:
+        r = requests.get('https://api.github.com/users/Asifdotexe/repos?sort=pushed&per_page=1', headers=headers)
+        if not r.ok:
+            print(f"Failed to fetch user repos: {r.status_code}")
+            return
+        repos = r.json()
+        if not repos:
+            return
+        repo = repos[0]
+        repo_name = repo.get('name', 'portfolio')
+        repo_url = repo.get('html_url', f'https://github.com/Asifdotexe/{repo_name}')
+        branch = repo.get('default_branch', 'main')
+
+        commits_url = f'https://api.github.com/repos/Asifdotexe/{repo_name}/commits'
+        c = requests.get(f'{commits_url}/{branch}', headers=headers)
+        if not c.ok:
+            print(f"Failed to fetch branch commit: {c.status_code}")
+            return
+        commit = c.json()
+
+        # If merge commit, look for first non-merge commit
+        msg = commit.get('commit', {}).get('message', '')
+        if msg.startswith('Merge '):
+            cl = requests.get(f'{commits_url}?sha={branch}&per_page=5', headers=headers)
+            if cl.ok:
+                for item in cl.json():
+                    commit_msg = item.get('commit', {}).get('message', '')
+                    if not commit_msg.startswith('Merge '):
+                        commit = item
+                        break
+
+        clean_msg = commit.get('commit', {}).get('message', 'Latest update').split('\n')[0]
+        raw_date = commit.get('commit', {}).get('author', {}).get('date', '')
+        commit_url = commit.get('html_url', repo_url)
+
+        formatted_date = ""
+        if raw_date:
+            try:
+                dt = datetime.fromisoformat(raw_date.replace('Z', '+00:00'))
+                formatted_date = dt.strftime('%b %d, %Y')
+            except Exception:
+                formatted_date = raw_date
+
+        activity_data = {
+            "repo_name": repo_name,
+            "repo_url": repo_url,
+            "commit_message": clean_msg,
+            "commit_url": commit_url,
+            "commit_date": formatted_date
+        }
+
+        with open(ACTIVITY_OUTPUT_PATH, 'w', encoding='utf-8') as f:
+            json.dump(activity_data, f, indent=2)
+        print(f"Successfully saved latest activity to: {ACTIVITY_OUTPUT_PATH}")
+
+    except Exception as e:
+        print(f"Error fetching latest GitHub activity: {e}")
+
 
 if __name__ == "__main__":
+    headers = {'Accept': 'application/vnd.github.v3+json'}
+    token = os.environ.get('GITHUB_TOKEN')
+    if token:
+        headers['Authorization'] = f'Bearer {token}'
     fetch_and_save_updates()
+    fetch_latest_activity(headers)

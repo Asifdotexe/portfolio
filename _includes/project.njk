@@ -57,3 +57,19 @@ layout: base.njk
     mermaid.initialize({ startOnLoad: true, theme: 'dark' });
 </script>
 
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": {{ title | dump | safe }},
+    "description": {{ (subtitle or description or "") | dump | safe }},
+    {% if image %}"image": "{{ site.url }}{{ image }}",{% else %}"image": "{{ site.url }}{{ site.defaultImage }}",{% endif %}
+    {% if github_link and github_link != '#' %}"codeRepository": "{{ github_link }}",{% endif %}
+    "author": {
+        "@type": "Person",
+        "name": "{{ site.author }}",
+        "url": "{{ site.url }}/"
+    }
+}
+</script>
+
