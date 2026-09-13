@@ -20,3 +20,29 @@ layout: base.njk
         </div>
     </section>
 </article>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ title | dump | safe }},
+    "description": {{ (description or "") | dump | safe }},
+    "image": "{% if image %}{{ site.url }}{{ image }}{% else %}{{ site.url }}{{ site.defaultImage }}{% endif %}",
+    {% if date %}"datePublished": "{{ date }}",{% endif %}
+    "author": {
+        "@type": "Person",
+        "name": "{{ site.author }}",
+        "url": "{{ site.url }}/"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "{{ site.author }}",
+        "url": "{{ site.url }}/"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ site.url }}{{ page.url }}"
+    }
+}
+</script>
+

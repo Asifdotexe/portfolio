@@ -4,20 +4,21 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>{{ title }} | Asif Sayyed Portfolio</title>
-        <meta
-            name="title"
-            content="Asif Sayyed | Data Scientist, Public Speaker & Tech Educator"
-        />
-        <meta
-            name="description"
-            content="Data Scientist at Marsh specializing in Python, Machine Learning, NLP, and Cyber Risk Analytics. Explore my projects and experience."
-        />
-        <meta
-            name="keywords"
-            content="Asif Sayyed, Data Scientist, Python Developer, Machine Learning Engineer, AI Portfolio, NLP, Deep Learning, Cyber Risk, Marsh, Mumbai, Data Science Portfolio"
-        />
-        <meta name="author" content="Asif Sayyed" />
+        {% set pageTitle = title ~ " | " ~ site.name if (title and title != "Home") else site.title %}
+        {% set pageDescription = description or subtitle or site.description %}
+        {% set pageImage = image or site.defaultImage %}
+        {% if pageImage and not (pageImage.startsWith('http://') or pageImage.startsWith('https://')) %}
+            {% set pageImageUrl = site.url ~ pageImage %}
+        {% else %}
+            {% set pageImageUrl = pageImage %}
+        {% endif %}
+        {% set pageUrl = site.url ~ page.url %}
+
+        <title>{{ pageTitle }}</title>
+        <meta name="title" content="{{ pageTitle }}" />
+        <meta name="description" content="{{ pageDescription }}" />
+        <meta name="keywords" content="{{ site.keywords }}" />
+        <meta name="author" content="{{ site.author }}" />
         <meta name="theme-color" content="#2b2b2c" />
         <meta
             name="robots"
@@ -25,46 +26,28 @@
         />
         <meta name="language" content="English" />
         <meta name="format-detection" content="telephone=no" />
-        <link rel="canonical" href="https://sayyedasif.com/" />
+        <link rel="canonical" href="{{ pageUrl }}" />
 
-        <!-- Google Search Console verification (replace YOUR_VERIFICATION_CODE after signing up at https://search.google.com/search-console) -->
+        <!-- Google Search Console verification -->
         <meta
             name="google-site-verification"
-            content="mZ4YTDxw_emCHo0t3exypc7baNm8gDdt_ci72uqK1aY"
+            content="{{ site.googleVerification }}"
         />
 
         <!-- Open Graph (used by LinkedIn, Facebook, Discord, Slack, etc.) -->
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://sayyedasif.com/" />
-        <meta
-            property="og:title"
-            content="Asif Sayyed | Data Scientist, Public Speaker & Tech Educator"
-        />
-        <meta
-            property="og:description"
-            content="Data Scientist at Marsh specializing in Python, Machine Learning, NLP, and Cyber Risk Analytics. Explore my projects and experience."
-        />
-        <meta
-            property="og:image"
-            content="https://sayyedasif.com/assets/images/og/portfolio-opengraph-index.webp"
-        />
-        <meta property="og:site_name" content="Asif Sayyed Portfolio" />
+        <meta property="og:type" content="{% if layout == 'blog.njk' or (tags and 'blogs' in tags) %}article{% else %}website{% endif %}" />
+        <meta property="og:url" content="{{ pageUrl }}" />
+        <meta property="og:title" content="{{ pageTitle }}" />
+        <meta property="og:description" content="{{ pageDescription }}" />
+        <meta property="og:image" content="{{ pageImageUrl }}" />
+        <meta property="og:site_name" content="{{ site.name }} Portfolio" />
         <meta property="og:locale" content="en_US" />
 
-        <!-- Twitter Card (also used by LinkedIn and other platforms for link previews) -->
+        <!-- Twitter Card -->
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-            name="twitter:title"
-            content="Asif Sayyed | Data Scientist, Public Speaker & Tech Educator"
-        />
-        <meta
-            name="twitter:description"
-            content="Data Scientist at Marsh specializing in Python, Machine Learning, NLP, and Cyber Risk Analytics. Explore my projects and experience."
-        />
-        <meta
-            name="twitter:image"
-            content="https://sayyedasif.com/assets/images/og/portfolio-opengraph-index.webp"
-        />
+        <meta name="twitter:title" content="{{ pageTitle }}" />
+        <meta name="twitter:description" content="{{ pageDescription }}" />
+        <meta name="twitter:image" content="{{ pageImageUrl }}" />
 
         <!-- favicon -->
         <link
@@ -210,7 +193,8 @@
             }
         </script>
 
-        <!-- Structured Data (JSON-LD) â€” ProfilePage -->
+        {% if page.url == '/' %}
+        <!-- Structured Data (JSON-LD) — ProfilePage -->
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
@@ -224,6 +208,7 @@
                 "dateModified": "2026-06-22T12:00:00+05:30"
             }
         </script>
+        {% endif %}
 
         <!-- Google Analytics (GA4) â€” https://analytics.google.com -->
         <script
