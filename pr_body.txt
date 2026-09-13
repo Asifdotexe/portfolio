@@ -1,4 +1,5 @@
 This PR updates the project data via the automated schedule.
 
 ### Changes:
-- **Asifdotexe/Theseus**: Activity updated to `2026-07-26T17:38:24Z`
+- **Asifdotexe/Theseus**: Activity updated to `2026-08-26T07:11:05Z`
+- **Asifdotexe/DORA**: Activity updated to `2026-08-16T08:05:29Z`
