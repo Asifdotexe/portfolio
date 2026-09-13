@@ -1,0 +1,69 @@
+/*-----------------------------------*\
+  #RESET
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+img,
+ion-icon,
+a,
+button,
+time,
+span {
+  display: block;
+}
+
+button {
+  font: inherit;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+  background: none;
+  font: inherit;
+}
+
+::selection {
+  background: var(--vibrant-green);
+  color: var(--smoky-black);
+}
+
+:focus {
+  outline-color: var(--vibrant-green);
+}
+
+html {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.title, .contact-title, .timeline-item span, .navbar-link {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: -0.02em;
+}
+
+body {
+  background: var(--smoky-black);
+  background-image: var(--bg-radial, radial-gradient(circle at top right, hsla(240, 5%, 15%, 1) 0%, var(--smoky-black) 50%));
+  background-attachment: fixed;
+}

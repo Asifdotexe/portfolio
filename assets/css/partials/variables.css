@@ -1,0 +1,134 @@
+/*-----------------------------------*\
+  #style.css - ENHANCED VERSION
+\*-----------------------------------*/
+
+/* copyright 2022 @codewithsadee */
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+
+  /* colors */
+
+  /* gradient */
+
+  --bg-gradient-onyx: linear-gradient(to bottom right,
+      hsl(240, 1%, 25%) 3%,
+      hsl(0, 0%, 19%) 97%);
+  --bg-gradient-jet: linear-gradient(to bottom right,
+      hsla(240, 1%, 18%, 0.251) 0%,
+      hsla(240, 2%, 11%, 0) 100%);
+  --bg-gradient-green-1: linear-gradient(to bottom right,
+      hsl(99, 76%, 56%) 0%,
+      hsla(99, 70%, 52%, 0) 50%);
+  --bg-gradient-green-2: linear-gradient(135deg,
+      hsla(99, 76%, 56%, 0.251) 0%,
+      hsla(99, 70%, 52%, 0) 59.86%), hsl(240, 2%, 13%);
+
+  --border-gradient-onyx: linear-gradient(to bottom right,
+      hsl(0, 0%, 25%) 0%,
+      hsla(0, 0%, 25%, 0) 50%);
+
+  --text-gradient-green: linear-gradient(to right,
+      hsl(99, 76%, 56%),
+      hsl(99, 70%, 52%));
+
+  /* solid */
+
+  --jet: hsl(0, 0%, 22%);
+  --onyx: hsl(240, 1%, 17%);
+  --eerie-black-1: hsl(240, 2%, 13%);
+  --eerie-black-2: hsl(240, 2%, 12%);
+  --smoky-black: hsl(0, 0%, 7%);
+  --white-1: hsl(0, 0%, 100%);
+  --white-2: hsl(0, 0%, 98%);
+  --vibrant-green: hsl(99, 76%, 56%);
+  --forest-glade: hsl(99, 70%, 52%);
+  --light-gray: hsl(0, 0%, 84%);
+  --light-gray-70: hsla(0, 0%, 84%, 0.7);
+  --bittersweet-shimmer: hsl(0, 43%, 51%);
+
+  /**
+   * typography
+   */
+
+  /* font-family */
+  --ff-poppins: 'Poppins', sans-serif;
+  --ff-mono: 'JetBrains Mono', monospace;
+
+  /* font-size */
+  --fs-1: 24px;
+  --fs-2: 18px;
+  --fs-3: 17px;
+  --fs-4: 16px;
+  --fs-5: 15px;
+  --fs-6: 14px;
+  --fs-7: 13px;
+  --fs-8: 11px;
+
+  /* font-weight */
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+
+  /**
+   * shadow
+   */
+
+  --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
+  --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.25);
+  --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.25);
+  --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.15);
+  --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.25);
+
+  /**
+   * transition
+   */
+
+  --transition-1: 0.25s ease;
+  --transition-2: 0.5s ease-in-out;
+
+}
+
+[data-theme="light"] {
+  --bg-overlay: hsla(0, 0%, 95%, 0.9);
+  --bg-tag: #e0e0e0;
+  --bg-tag-hover: #c0c0c0;
+  --bg-blockquote: hsla(0, 0%, 90%, 0.5);
+  --bg-navbar: hsla(0, 0%, 95%, 0.75);
+  --bg-card: hsla(0, 0%, 100%, 0.85);
+  --border-card: hsla(0, 0%, 80%, 0.5);
+  --bg-radial: radial-gradient(circle at top right, hsl(0, 0%, 90%) 0%, var(--smoky-black) 50%);
+  --bg-gradient-onyx: linear-gradient(to bottom right, hsl(0, 0%, 100%) 3%, hsl(0, 0%, 98%) 97%);
+  --bg-gradient-jet: linear-gradient(to bottom right, hsla(0, 0%, 90%, 0.5) 0%, hsla(0, 0%, 100%, 0) 100%);
+  --bg-gradient-green-1: linear-gradient(to bottom right, hsl(99, 76%, 40%) 0%, hsla(99, 70%, 35%, 0) 50%);
+  --bg-gradient-green-2: linear-gradient(135deg, hsla(99, 76%, 40%, 0.15) 0%, hsla(99, 70%, 35%, 0) 59.86%), hsl(0, 0%, 100%);
+  
+  --border-gradient-onyx: linear-gradient(to bottom right, hsl(0, 0%, 85%) 0%, hsla(0, 0%, 85%, 0) 50%);
+  
+  --text-gradient-green: linear-gradient(to right, hsl(99, 76%, 35%), hsl(99, 70%, 30%));
+
+  --jet: hsl(0, 0%, 88%);
+  --onyx: hsl(0, 0%, 95%);
+  --eerie-black-1: hsl(0, 0%, 100%);
+  --eerie-black-2: hsl(0, 0%, 98%);
+  --smoky-black: hsl(0, 0%, 95%);
+  
+  --white-1: hsl(0, 0%, 15%);
+  --white-2: hsl(0, 0%, 30%);
+  
+  --vibrant-green: hsl(99, 76%, 35%);
+  --forest-glade: hsl(99, 70%, 30%);
+  
+  --light-gray: hsl(0, 0%, 45%);
+  --light-gray-70: hsla(0, 0%, 45%, 0.7);
+
+  --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.04);
+  --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.04);
+  --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.04);
+  --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.05);
+  --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.06);
+}
