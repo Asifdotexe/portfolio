@@ -38,6 +38,9 @@ jobs:
       - name: Install dependencies
         run: npm ci || npm install
         
+      - name: Build assets (CSS & JS bundles)
+        run: python scripts/minify_assets.py
+
       - name: Build site
         run: npm run build
 
