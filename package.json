@@ -11,6 +11,7 @@
   },
   "scripts": {
     "start": "eleventy --serve",
+    "build:assets": "python scripts/minify_assets.py",
     "build": "eleventy"
   },
   "repository": {
