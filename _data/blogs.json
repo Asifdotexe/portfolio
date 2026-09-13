@@ -1,5 +1,17 @@
 [
     {
+        "slug": "practical-guide-to-reading-ai-benchmarking",
+        "title": "Beyond the Hype: A Practical Guide to AI Model Benchmarks in 2026",
+        "date": "2026-06-28",
+        "description": "A comprehensive developer guide to understanding AI model benchmarks, evaluation metrics like Pass@1 and Elo, and navigating benchmark saturation.",
+        "tags": [
+            "ai",
+            "benchmarking",
+            "llm",
+            "machine-learning"
+        ]
+    },
+    {
         "slug": "ship-of-theseus-codebase-entropy",
         "title": "Building the Ship of Theseus: Visualizing Codebase Entropy",
         "date": "2026-06-25",

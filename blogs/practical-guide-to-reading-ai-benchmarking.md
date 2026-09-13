@@ -1,4 +1,9 @@
-# Beyond the hype: A practical guide to AI model benchmarks in 2026
+---
+title: "Beyond the Hype: A Practical Guide to AI Model Benchmarks in 2026"
+date: "2026-06-28"
+description: "A comprehensive developer guide to understanding AI model benchmarks, evaluation metrics like Pass@1 and Elo, and navigating benchmark saturation."
+tags: ["ai", "benchmarking", "llm", "machine-learning"]
+---
 
 *Last updated: June 2026*
 

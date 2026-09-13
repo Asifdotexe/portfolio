@@ -1,0 +1,31 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for item in collections.all %}
+  {%- if item.url and not item.data.draft and item.url != '/404.html' and not ('llms' in item.url) %}
+  <url>
+    <loc>{{ site.url }}{{ item.url }}</loc>
+    {%- if item.data.date %}
+    <lastmod>{{ item.data.date | isoDate }}</lastmod>
+    {%- elif item.date %}
+    <lastmod>{{ item.date | isoDate }}</lastmod>
+    {%- endif %}
+    <changefreq>{% if item.url == '/' or item.url == '/blogs/' or item.url == '/projects/' %}weekly{% else %}monthly{% endif %}</changefreq>
+    <priority>{% if item.url == '/' %}1.0{% elif item.url == '/projects/' or item.url == '/blogs/' %}0.9{% elif '/blogs/' in item.url or '/projects/' in item.url %}0.8{% else %}0.7{% endif %}</priority>
+  </url>
+  {%- endif %}
+{%- endfor %}
+  <url>
+    <loc>{{ site.url }}/llms.txt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>{{ site.url }}/llms-full.txt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
