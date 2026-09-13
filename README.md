@@ -1,106 +1,150 @@
 # Asif Sayyed Portfolio
 
-This repository contains the source code for my personal portfolio. The site uses **Eleventy (11ty)**, so you can write content in Markdown while keeping a unified HTML layout.
-
-## Adding a New Project
-
-### 1. Create a Markdown File
-Create a new `.md` file inside the `projects/` directory (e.g., `projects/my-new-app.md`). 
-
-### 2. Add the Frontmatter
-At the very top of your file, add a YAML frontmatter block to define your project's metadata. 
-
-```markdown
----
-title: My Cool AI App
-subtitle: An AI application that does cool things
-permalink: /projects/my-cool-ai-app/
-badges: 
-  - Python
-  - NextJS
-  - OpenAI
-github_link: https://github.com/Asifdotexe/repo-name
-live_link: https://example.com
-doc_link: https://example.com/docs
-image: /assets/images/og-banner.webp
----
-```
-*(Note: You can omit `github_link`, `live_link`, or `doc_link` if you don't have them, and the buttons will automatically hide!)*
-
-### 3. Write the Content
-Write your project details below the frontmatter using standard Markdown. 
-
-**Recommended Structure for Portfolio Projects:**
-Instead of copying your GitHub README, tailor your portfolio page to highlight your engineering skills. Keep the focus on *why* and *how* you built it, rather than *how to use it*.
-- **The Problem:** What is this and why did you build it?
-- **Architecture:** High-level system design (Mermaid diagrams work great here).
-- **Challenges Overcome:** What went wrong and how did you engineer your way out of it?
-- **Source Code / Call to Action:** End the page with a link out to your GitHub repository for installation and quick-start instructions, so you don't have to duplicate them here.
-
-If you need a Mermaid diagram, use a standard markdown code block with the `mermaid` language identifier:
-```markdown
-    ```mermaid
-    flowchart TD
-        A[Start] --> B[End]
-    ```
-```
-Note: Ensure there are no empty lines inside the mermaid block to avoid markdown parser issues.
-
-### 4. Link the Project
-To make the project appear in the main "Projects" grid:
-1. Open `assets/data/projects.json`.
-2. Add a new JSON object for your project at the top of the array so it shows up first. 
-3. Set the `"url"` field to match your new project page (like `"/projects/my-cool-ai-app/"`). The UI uses this to route clicks to your Markdown page.
-
+Personal portfolio built with **Eleventy (11ty)**. Content is data-driven via JSON and Markdown templates.
 
 ---
 
-## Adding a Blog Post
+## 🗺️ Quick Cheat Sheet: Where to Edit
 
-The steps to add a blog post are mostly identical to adding a project.
-
-### 1. Create a Markdown File
-Create a new `.md` file inside the `blogs/` directory (e.g., `blogs/new-tech-post.md`).
-
-### 2. Add the Frontmatter
-Add the following block to the top of the file:
-```markdown
----
-title: "My New Tech Post: A Deep Dive"
-date: 2026-08-01
-tags: ["seo", "webdev", "ai"]
-permalink: /blogs/new-tech-post/
----
-```
-
-### 3. Write the Content
-Write the article using standard Markdown. Code blocks, headers, and lists will inherit the site's default styles.
-
-### 4. Link the Blog
-To add the blog to the main "Blogs" list:
-1. Open `blogs.html`.
-2. Add a new `<li>` entry into the `<ul class="pf-v6-c-simple-list__list">` that matches the existing entries.
-
+| What you want to change | File to edit | Notes |
+|---|---|---|
+| **Site Name, Bio SEO, Social Links, Canonical URL** | `_data/site.json` | Injected into `<head>`, OG tags, JSON-LD schemas, and footer |
+| **About Page (Intro Bio & Services)** | `index.html` | Work history & education auto-pull from JSON below |
+| **Work Experience** | `_data/experience.json` | Roles, company, dates, description |
+| **Education** | `_data/education.json` | Degrees, institutions, years |
+| **Projects (Grid Card)** | `_data/projects.json` | Title, category, description, tags, image, link |
+| **Projects (Detailed Case Study)** | `projects/<slug>.md` | Markdown with frontmatter (see guide below) |
+| **Blogs (List Entry)** | `_data/blogs.json` | Title, slug, date, tags |
+| **Blogs (Full Article)** | `blogs/<slug>.md` | Markdown with frontmatter; automatically added to RSS & sitemap |
+| **Certifications** | `_data/certifications.json` | Title, issuer, date, image |
+| **Events & Talks** | `_data/events.json` | Title, date, category, URL, image |
+| **Contact Page & Map** | `contact.html` | Google Maps iframe & Web3Forms form |
+| **CSS Styles** | `assets/css/partials/*.css` | Edit partial -> run `python scripts/minify_assets.py` |
+| **Client JavaScript** | `assets/js/script.js` | Edit script -> run `python scripts/minify_assets.py` |
 
 ---
 
-## Local Development & Deployment
+## 🚫 What NOT to Touch
 
-### Running Locally
-Start a local server with hot-reloading:
+| File / Folder | Why you should not edit directly |
+|---|---|
+| `_site/` | **Never touch.** Auto-generated build output. Any changes here will be wiped on `npm run build`. |
+| `assets/css/style.css`<br>`assets/css/style.min.css` | **Compiled bundles.** Edit source files inside `assets/css/partials/` instead, then run `python scripts/minify_assets.py`. |
+| `assets/js/script.min.js` | **Minified file.** Edit `assets/js/script.js` instead, then run `python scripts/minify_assets.py`. |
+| `sitemap.njk`<br>`feed.njk` | **Dynamic generators.** Generates `/sitemap.xml` and `/feed.xml` automatically from `_data/site.json` and Markdown collections. |
+| `_includes/` | **Shared layouts.** Contains base shell (`base.njk`), blog layout (`blog.njk`), and project layout (`project.njk`). Only touch when changing global layout structure or schema markup. |
+| `.eleventy.js` | **SSG engine config.** Handles pass-through copies and template filters. |
+
+---
+
+## 📝 How to Update Pages
+
+### 1. Adding a Project
+
+1. **Add detailed page**: Create `projects/my-new-app.md`:
+   ```markdown
+   ---
+   layout: project.njk
+   title: My Cool AI App
+   subtitle: An AI application that does cool things
+   permalink: /projects/my-cool-ai-app/
+   badges: 
+     - Python
+     - FastAPI
+   github_link: https://github.com/Asifdotexe/repo-name
+   live_link: https://example.com
+   doc_link: https://example.com/docs
+   image: /assets/images/project-banner.webp
+   ---
+
+   ## Problem Statement
+   ...
+
+   ## Architecture & Implementation
+   ...
+   ```
+2. **Add to grid**: Open `_data/projects.json` and add a new object to the top of the array:
+   ```json
+   {
+     "title": "My Cool AI App",
+     "category": "Machine Learning",
+     "description": "Short 1-line summary for card.",
+     "image": "./assets/images/project-banner.webp",
+     "url": "/projects/my-cool-ai-app/",
+     "tags": ["python", "ai"]
+   }
+   ```
+
+### 2. Adding a Blog Post
+
+1. **Add article markdown**: Create `blogs/my-new-post.md`:
+   ```markdown
+   ---
+   layout: blog.njk
+   title: "My New Article Title"
+   date: 2026-09-15
+   tags: ["ai", "python"]
+   permalink: /blogs/my-new-post/
+   description: "One-sentence summary for search engines and RSS."
+   image: /assets/images/blog-banner.webp
+   ---
+
+   Article content here...
+   ```
+2. **Register in list**: Open `_data/blogs.json` and add entry:
+   ```json
+   {
+     "title": "My New Article Title",
+     "slug": "my-new-post",
+     "date": "2026-09-15",
+     "tags": ["ai", "python"]
+   }
+   ```
+*(Feed at `/feed.xml` and `/sitemap.xml` update automatically on build).*
+
+### 3. Adding Experience or Education
+
+- Open `_data/experience.json` or `_data/education.json`.
+- Add new entry object to the array. `index.html` re-renders it automatically.
+
+### 4. Adding Certifications or Events
+
+- Open `_data/certifications.json` or `_data/events.json`.
+- Add new item. Grid updates automatically.
+
+### 5. Editing CSS / Styling
+
+1. Edit the relevant file in `assets/css/partials/`:
+   - `variables.css` (colors, tokens, light theme)
+   - `reset.css` (base HTML tags)
+   - `animations.css` (keyframes, tilt, typewriter)
+   - `layout.css` (main, sidebar, navbar, footer)
+   - `components.css` (cards, timeline, filter pills, contact inputs)
+   - `blog-post.css` (markdown typography, code highlights, tables)
+   - `responsive.css` (media query breakpoints)
+2. Run asset build:
+   ```bash
+   python scripts/minify_assets.py
+   ```
+
+---
+
+## 💻 Commands
+
+### Local Development
 ```bash
 npm start
 ```
-*This runs `eleventy --serve`. The site will be available at `http://localhost:8080`.*
+*Runs `eleventy --serve` at `http://localhost:8080` with hot-reload.*
 
-### Building for Production
-To build the static HTML files for deployment:
+### Production Build
 ```bash
 npm run build
 ```
-*This generates all files into the `_site/` directory.*
+*Compiles all templates, markdown, and feeds into `_site/`.*
 
-### Deployment (GitHub Pages, Cloudflare Pages, Vercel, etc.)
-When configuring your hosting provider:
-- **Build Command:** `npm run build`
-- **Output/Publish Directory:** `_site`
+### Re-bundle Assets (CSS/JS)
+```bash
+python scripts/minify_assets.py
+```
+*Rebuilds `style.css`, `style.min.css`, and `script.min.js`.*
