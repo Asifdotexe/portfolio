@@ -64,7 +64,7 @@ permalink: /projects/
                             <ul class="project-list" id="project-list">
                                 {% for project in projects %}
                                 <li class="project-item active fade-in-up" style="animation-delay: {{ loop.index0 * 0.05 }}s;" data-filter-item data-category="{{ project.category | default('tools') | lower }}">
-                                    <a href="{{ project.url }}" style="display: block; height: 100%;">
+                                    <a href="{{ project.url }}" target="_blank" rel="noopener noreferrer" style="display: block; height: 100%;">
                                         <figure class="project-img">
                                             <div class="project-item-icon-box">
                                                 <ion-icon name="eye-outline"></ion-icon>
@@ -74,13 +74,6 @@ permalink: /projects/
                                         <div class="project-info">
                                             <h3 class="project-title">{{ project.title }}</h3>
                                             <p class="project-category">{{ project.category_desc | default(project.category) }}</p>
-                                            {% if project.tags %}
-                                            <div class="project-tags">
-                                                {% for tag in project.tags %}
-                                                <span class="tag">{{ tag }}</span>
-                                                {% endfor %}
-                                            </div>
-                                            {% endif %}
                                         </div>
                                     </a>
                                 </li>

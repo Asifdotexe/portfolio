@@ -1,213 +1,110 @@
 [
   {
     "github": "Asifdotexe/yoink",
-    "url": "/projects/yoink/",
+    "url": "https://github.com/Asifdotexe/yoink",
     "image": "/assets/images/projects/yoink.webp",
     "alt": "Yoink",
     "title": "Yoink: LLM Codebase Packer",
     "category_desc": "Tools",
-    "category": "tools",
-    "tags": [
-      "ast-parsing",
-      "cli-tool",
-      "codebase-analysis",
-      "docker",
-      "fastapi",
-      "llm-optimization",
-      "pre-commit",
-      "pydantic",
-      "python",
-      "render-deployment",
-      "tokenization",
-      "typer"
-    ]
+    "category": "tools"
   },
   {
     "github": "Asifdotexe/Theseus",
-    "url": "/projects/Theseus/",
+    "url": "https://theseus.asifdotexe.workers.dev/",
     "image": "/assets/images/projects/theseus.webp",
     "alt": "Ship of Theseus",
     "title": "Ship of Theseus: Software Entropy Visualizer",
     "category_desc": "Analytics",
-    "category": "analytics",
-    "tags": [
-      "automation",
-      "codebase-analysis",
-      "d3js",
-      "data-visualization",
-      "git",
-      "git-history",
-      "github-actions",
-      "javascript",
-      "python",
-      "software-engineering"
-    ]
+    "category": "analytics"
   },
   {
     "github": "Asifdotexe/second-brain",
-    "url": "/projects/second-brain/",
+    "url": "https://github.com/Asifdotexe/second-brain",
     "image": "/assets/images/projects/second-brain.webp",
     "alt": "Second Brain",
     "title": "Second Brain",
     "category_desc": "Knowledge",
-    "category": "knowledge",
-    "tags": [
-      "blog",
-      "css",
-      "html",
-      "javascript",
-      "knowledge-bank",
-      "markdown",
-      "python"
-    ]
+    "category": "knowledge"
   },
   {
     "github": "Asifdotexe/LittleLogger",
-    "url": "/projects/littlelogger/",
+    "url": "https://github.com/Asifdotexe/LittleLogger",
     "image": "/assets/images/projects/little-logger.webp",
     "alt": "LittleLogger",
     "title": "LittleLogger",
     "category_desc": "Tools",
-    "category": "tools",
-    "tags": [
-      "developer-tools",
-      "logging",
-      "pypi",
-      "python",
-      "scikit-learn"
-    ]
+    "category": "tools"
   },
   {
     "github": "Asifdotexe/playground-repo",
-    "url": "/projects/python-vs-cython-benchmarking/",
+    "url": "https://github.com/Asifdotexe/playground-repo",
     "image": "/assets/images/projects/python-v-cython.webp",
     "alt": "Python vs Cython Benchmarking",
     "title": "Python vs Cython Benchmarking",
     "category_desc": "Knowledge",
-    "category": "knowledge",
-    "tags": [
-      "Python",
-      "Cython",
-      "NumPy",
-      "Seaborn",
-      "Matplotlib"
-    ]
+    "category": "knowledge"
   },
   {
     "github": "Asifdotexe/SERPENT",
-    "url": "/projects/serpent/",
+    "url": "https://github.com/Asifdotexe/SERPENT",
     "image": "/assets/images/projects/serpent.webp",
     "alt": "SERPENT",
     "title": "SERPENT: Code to flowchart application",
     "category_desc": "Tools",
-    "category": "tools",
-    "tags": [
-      "ast",
-      "code-documentation",
-      "code-to-flowchart",
-      "developer-tools",
-      "graphviz",
-      "python",
-      "streamlit"
-    ]
+    "category": "tools"
   },
   {
     "github": "Asifdotexe/QuickVU",
-    "url": "/projects/quickvu/",
+    "url": "https://github.com/Asifdotexe/QuickVU",
     "image": "/assets/images/projects/quickvu.webp",
     "alt": "QuickVU",
     "title": "QuickVU: No-code data tool",
     "category_desc": "Tools",
-    "category": "tools",
-    "tags": [
-      "automation",
-      "data-analysis",
-      "data-cleaning",
-      "data-visualization",
-      "python3",
-      "streamlit-application",
-      "toolkit"
-    ]
+    "category": "tools"
   },
   {
     "github": "Asifdotexe/DORA",
-    "url": "/projects/dora/",
+    "url": "https://github.com/Asifdotexe/DORA",
     "image": "/assets/images/projects/dora.webp",
     "alt": "DORA",
     "title": "DORA: Report Automator",
     "category_desc": "Tools",
-    "category": "tools",
-    "tags": [
-      "cli-tool",
-      "exploratory-analysis",
-      "html-report",
-      "pypi",
-      "python",
-      "streamlit"
-    ]
+    "category": "tools"
   },
   {
     "github": "Asifdotexe/RecommendationHaki",
-    "url": "/projects/recommendationhaki/",
+    "url": "https://github.com/Asifdotexe/RecommendationHaki",
     "image": "/assets/images/projects/recommendation-haki.webp",
     "alt": "RecommendationHaki",
     "title": "RecommendationHaki: Anime Recommendation Engine",
     "category_desc": "Models",
-    "category": "models",
-    "tags": [
-      "css",
-      "html",
-      "machine-learning",
-      "natural-language-procressing",
-      "python",
-      "recommendation-system",
-      "streamlit"
-    ]
+    "category": "models"
   },
   {
     "github": "Asifdotexe/Natural-LangWiz",
-    "url": "/projects/natural-langwiz/",
+    "url": "https://github.com/Asifdotexe/Natural-LangWiz",
     "image": "/assets/images/projects/natural-langwiz.webp",
     "alt": "Natural LangWiz",
     "title": "Natural LangWiz: NLP Learning Repository",
     "category_desc": "Knowledge",
-    "category": "knowledge",
-    "tags": [
-      "learning-repository",
-      "machine-learning",
-      "natural-language-preprocessing",
-      "python"
-    ]
+    "category": "knowledge"
   },
   {
     "github": "Asifdotexe/open-see-wee",
-    "url": "/projects/open-see-wee/",
+    "url": "https://github.com/Asifdotexe/open-see-wee",
     "image": "/assets/images/projects/open-cv.webp",
     "alt": "Open See Wee",
     "title": "Open See Wee: Computer Vision Learning Repository",
     "category_desc": "Knowledge",
-    "category": "knowledge",
-    "tags": [
-      "computer-vision",
-      "image-analysis",
-      "learning-repository",
-      "opencv",
-      "python"
-    ]
+    "category": "knowledge"
   },
   {
     "github": "Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews",
-    "url": "/projects/amazon-sentiment-analysis/",
+    "url": "https://github.com/Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews",
     "image": "/assets/images/projects/nlp-amazon-sentiment-scoring-model.webp",
     "alt": "Amazon Sentiment Analysis",
     "title": "Sentimental Scoring Model on Amazon Reviews",
     "category_desc": "Models",
-    "category": "models",
-    "tags": [
-      "data-analysis",
-      "data-visualization",
-      "natural-language-processing",
-      "sentiment-analysis"
-    ]
+    "category": "models"
   }
 ]
