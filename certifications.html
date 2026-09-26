@@ -13,6 +13,7 @@ permalink: /certifications/
                     </header>
                     <section class="certifications-grid" id="certifications-grid">
                         {% for cert in certifications %}
+                        {% if cert.display %}
                         <div class="certification-item fade-in-up" style="animation-delay: {{ loop.index0 * 0.05 }}s;">
                             <a href="{{ cert.url }}" target="_blank" rel="noopener noreferrer">
                                 <img src="{{ cert.image }}" alt="{{ cert.title }}" loading="lazy">
@@ -23,6 +24,7 @@ permalink: /certifications/
                                 <time class="certification-date">{{ cert.date }}</time>
                             </div>
                         </div>
+                        {% endif %}
                         {% endfor %}
                     </section>
                 </article>

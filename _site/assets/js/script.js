@@ -40,21 +40,6 @@ if (modalContainer && modalCloseBtn && overlay) {
   overlay.addEventListener("click", testimonialsModalFunc);
 }
 
-// Contact form validation
-const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
-if (form && formInputs.length > 0 && formBtn) {
-  formInputs.forEach(input => {
-    input.addEventListener("input", function () {
-      if (form.checkValidity()) {
-        formBtn.removeAttribute("disabled");
-      } else {
-        formBtn.setAttribute("disabled", "");
-      }
-    });
-  });
-}
 
 
 
@@ -276,19 +261,18 @@ document.addEventListener('DOMContentLoaded', () => {
       if (themeBtn) themeBtn.click();
     }
     
-    // Navigation (1-6)
+    // Navigation (1-5)
     if (!e.ctrlKey && !e.metaKey && !e.altKey) {
       const navLinks = [
         "/",               // 1: About
         "/projects/",      // 2: Projects
         "/certifications/",// 3: Certifications
         "/events/",        // 4: Events
-        "/blogs/",         // 5: Blogs
-        "/contact/"        // 6: Contact
+        "/blogs/"          // 5: Blogs
       ];
       
       const num = parseInt(e.key);
-      if (num >= 1 && num <= 6) {
+      if (num >= 1 && num <= 5) {
         window.location.href = navLinks[num - 1];
       }
     }
