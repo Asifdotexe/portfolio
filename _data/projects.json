@@ -1,213 +1,132 @@
 [
   {
-    "github": "Asifdotexe/yoink",
-    "url": "/projects/yoink/",
+    "title": "Yoink: LLM Codebase Packer",
     "image": "/assets/images/projects/yoink.webp",
     "alt": "Yoink",
-    "title": "Yoink: LLM Codebase Packer",
-    "category_desc": "Tools",
     "category": "tools",
-    "tags": [
-      "ast-parsing",
-      "cli-tool",
-      "codebase-analysis",
-      "docker",
-      "fastapi",
-      "llm-optimization",
-      "pre-commit",
-      "pydantic",
-      "python",
-      "render-deployment",
-      "tokenization",
-      "typer"
-    ]
+    "category_desc": "Tools",
+    "github": "Asifdotexe/yoink",
+    "is_private": false,
+    "deployment_url": "https://pypi.org/project/yoinky/"
   },
   {
-    "github": "Asifdotexe/Theseus",
-    "url": "/projects/Theseus/",
+    "title": "Doh: Nerdy conversation starter",
+    "image": "/assets/images/projects/doh.webp",
+    "alt": "Doh",
+    "category": "tools",
+    "category_desc": "Tools",
+    "github": "Asifdotexe/doh",
+    "is_private": false,
+    "deployment_url": "https://asifdotexe.github.io/doh/"
+  },
+  {
+    "title": "Ship of Theseus: Software Entropy Visualizer",
     "image": "/assets/images/projects/theseus.webp",
     "alt": "Ship of Theseus",
-    "title": "Ship of Theseus: Software Entropy Visualizer",
-    "category_desc": "Analytics",
     "category": "analytics",
-    "tags": [
-      "automation",
-      "codebase-analysis",
-      "d3js",
-      "data-visualization",
-      "git",
-      "git-history",
-      "github-actions",
-      "javascript",
-      "python",
-      "software-engineering"
-    ]
+    "category_desc": "Analytics",
+    "github": "Asifdotexe/Theseus",
+    "is_private": false,
+    "deployment_url": "https://theseus.asifdotexe.workers.dev/"
   },
   {
-    "github": "Asifdotexe/second-brain",
-    "url": "/projects/second-brain/",
+    "title": "Second Brain: Personal Knowledge Base",
     "image": "/assets/images/projects/second-brain.webp",
     "alt": "Second Brain",
-    "title": "Second Brain",
-    "category_desc": "Knowledge",
     "category": "knowledge",
-    "tags": [
-      "blog",
-      "css",
-      "html",
-      "javascript",
-      "knowledge-bank",
-      "markdown",
-      "python"
-    ]
+    "category_desc": "Knowledge",
+    "github": "Asifdotexe/second-brain",
+    "is_private": true,
+    "deployment_url": "https://second-brain.asifdotexe.workers.dev/"
   },
   {
-    "github": "Asifdotexe/LittleLogger",
-    "url": "/projects/littlelogger/",
+    "title": "LittleLogger: ML Tracking Decorator",
     "image": "/assets/images/projects/little-logger.webp",
     "alt": "LittleLogger",
-    "title": "LittleLogger",
-    "category_desc": "Tools",
     "category": "tools",
-    "tags": [
-      "developer-tools",
-      "logging",
-      "pypi",
-      "python",
-      "scikit-learn"
-    ]
+    "category_desc": "Tools",
+    "github": "Asifdotexe/LittleLogger",
+    "is_private": false,
+    "deployment_url": "https://pypi.org/project/littlelogger/"
   },
   {
-    "github": "Asifdotexe/playground-repo",
-    "url": "/projects/python-vs-cython-benchmarking/",
+    "title": "Python vs Cython Benchmarking",
     "image": "/assets/images/projects/python-v-cython.webp",
     "alt": "Python vs Cython Benchmarking",
-    "title": "Python vs Cython Benchmarking",
-    "category_desc": "Knowledge",
     "category": "knowledge",
-    "tags": [
-      "Python",
-      "Cython",
-      "NumPy",
-      "Seaborn",
-      "Matplotlib"
-    ]
+    "category_desc": "Knowledge",
+    "github": "Asifdotexe/playground-repo",
+    "is_private": false,
+    "deployment_url": "https://github.com/Asifdotexe/playground-repo/blob/main/code/issue-9-as-cpython-benchmark.ipynb"
   },
   {
-    "github": "Asifdotexe/SERPENT",
-    "url": "/projects/serpent/",
+    "title": "SERPENT: Code to flowchart application",
     "image": "/assets/images/projects/serpent.webp",
     "alt": "SERPENT",
-    "title": "SERPENT: Code to flowchart application",
-    "category_desc": "Tools",
     "category": "tools",
-    "tags": [
-      "ast",
-      "code-documentation",
-      "code-to-flowchart",
-      "developer-tools",
-      "graphviz",
-      "python",
-      "streamlit"
-    ]
+    "category_desc": "Tools",
+    "github": "Asifdotexe/SERPENT",
+    "is_private": false,
+    "deployment_url": "https://serpent.streamlit.app/"
   },
   {
-    "github": "Asifdotexe/QuickVU",
-    "url": "/projects/quickvu/",
+    "title": "QuickVU: No-code data tool",
     "image": "/assets/images/projects/quickvu.webp",
     "alt": "QuickVU",
-    "title": "QuickVU: No-code data tool",
-    "category_desc": "Tools",
     "category": "tools",
-    "tags": [
-      "automation",
-      "data-analysis",
-      "data-cleaning",
-      "data-visualization",
-      "python3",
-      "streamlit-application",
-      "toolkit"
-    ]
+    "category_desc": "Tools",
+    "github": "Asifdotexe/QuickVU",
+    "is_private": false,
+    "deployment_url": "https://quickvu.streamlit.app/"
   },
   {
-    "github": "Asifdotexe/DORA",
-    "url": "/projects/dora/",
+    "title": "DORA: EDA Report Automator",
     "image": "/assets/images/projects/dora.webp",
     "alt": "DORA",
-    "title": "DORA: Report Automator",
-    "category_desc": "Tools",
     "category": "tools",
-    "tags": [
-      "cli-tool",
-      "exploratory-analysis",
-      "html-report",
-      "pypi",
-      "python",
-      "streamlit"
-    ]
+    "category_desc": "Tools",
+    "github": "Asifdotexe/DORA",
+    "is_private": false,
+    "deployment_url": "https://asifdotexe.github.io/DORA/"
   },
   {
-    "github": "Asifdotexe/RecommendationHaki",
-    "url": "/projects/recommendationhaki/",
+    "title": "RecommendationHaki: Anime Recommendation Engine",
     "image": "/assets/images/projects/recommendation-haki.webp",
     "alt": "RecommendationHaki",
-    "title": "RecommendationHaki: Anime Recommendation Engine",
-    "category_desc": "Models",
     "category": "models",
-    "tags": [
-      "css",
-      "html",
-      "machine-learning",
-      "natural-language-procressing",
-      "python",
-      "recommendation-system",
-      "streamlit"
-    ]
+    "category_desc": "Models",
+    "github": "Asifdotexe/RecommendationHaki",
+    "is_private": false,
+    "deployment_url": "https://recommendation-haki.streamlit.app/"
   },
   {
-    "github": "Asifdotexe/Natural-LangWiz",
-    "url": "/projects/natural-langwiz/",
+    "title": "Natural LangWiz: NLP Learning Repository",
     "image": "/assets/images/projects/natural-langwiz.webp",
     "alt": "Natural LangWiz",
-    "title": "Natural LangWiz: NLP Learning Repository",
-    "category_desc": "Knowledge",
     "category": "knowledge",
-    "tags": [
-      "learning-repository",
-      "machine-learning",
-      "natural-language-preprocessing",
-      "python"
-    ]
+    "category_desc": "Knowledge",
+    "github": "Asifdotexe/Natural-LangWiz",
+    "is_private": false,
+    "deployment_url": null
   },
   {
-    "github": "Asifdotexe/open-see-wee",
-    "url": "/projects/open-see-wee/",
+    "title": "Open See Wee: Computer Vision Repository",
     "image": "/assets/images/projects/open-cv.webp",
     "alt": "Open See Wee",
-    "title": "Open See Wee: Computer Vision Learning Repository",
-    "category_desc": "Knowledge",
     "category": "knowledge",
-    "tags": [
-      "computer-vision",
-      "image-analysis",
-      "learning-repository",
-      "opencv",
-      "python"
-    ]
+    "category_desc": "Knowledge",
+    "github": "Asifdotexe/open-see-wee",
+    "is_private": false,
+    "deployment_url": null
   },
   {
-    "github": "Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews",
-    "url": "/projects/amazon-sentiment-analysis/",
+    "title": "Sentimental Scoring Model on Amazon Reviews",
     "image": "/assets/images/projects/nlp-amazon-sentiment-scoring-model.webp",
     "alt": "Amazon Sentiment Analysis",
-    "title": "Sentimental Scoring Model on Amazon Reviews",
-    "category_desc": "Models",
     "category": "models",
-    "tags": [
-      "data-analysis",
-      "data-visualization",
-      "natural-language-processing",
-      "sentiment-analysis"
-    ]
+    "category_desc": "Models",
+    "github": "Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews",
+    "is_private": false,
+    "deployment_url": null
   }
 ]

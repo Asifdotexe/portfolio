@@ -64,25 +64,76 @@ permalink: /projects/
                             <ul class="project-list" id="project-list">
                                 {% for project in projects %}
                                 <li class="project-item active fade-in-up" style="animation-delay: {{ loop.index0 * 0.05 }}s;" data-filter-item data-category="{{ project.category | default('tools') | lower }}">
-                                    <a href="{{ project.url }}" style="display: block; height: 100%;">
-                                        <figure class="project-img">
-                                            <div class="project-item-icon-box">
-                                                <ion-icon name="eye-outline"></ion-icon>
-                                            </div>
-                                            <img src="{{ project.image }}" alt="{{ project.alt | default(project.title) }}" loading="lazy" />
-                                        </figure>
-                                        <div class="project-info">
-                                            <h3 class="project-title">{{ project.title }}</h3>
-                                            <p class="project-category">{{ project.category_desc | default(project.category) }}</p>
-                                            {% if project.tags %}
-                                            <div class="project-tags">
-                                                {% for tag in project.tags %}
-                                                <span class="tag">{{ tag }}</span>
-                                                {% endfor %}
-                                            </div>
-                                            {% endif %}
+                                    <div class="project-card">
+                                        {% set primaryUrl = project.deployment_url if project.deployment_url else (('https://github.com/' + project.github) if not project.is_private else null) %}
+                                        
+                                        {% if primaryUrl %}
+                                        <a href="{{ primaryUrl }}" target="_blank" rel="noopener noreferrer" class="project-card-banner" aria-label="Visit {{ project.title }}">
+                                            <figure class="project-img">
+                                                <div class="project-item-icon-box" aria-hidden="true">
+                                                    <ion-icon name="open-outline"></ion-icon>
+                                                </div>
+                                                <img src="{{ project.image }}" alt="{{ project.alt | default(project.title) }}" loading="lazy" />
+                                            </figure>
+                                        </a>
+                                        {% else %}
+                                        <div class="project-card-banner">
+                                            <figure class="project-img">
+                                                <img src="{{ project.image }}" alt="{{ project.alt | default(project.title) }}" loading="lazy" />
+                                            </figure>
                                         </div>
-                                    </a>
+                                        {% endif %}
+
+                                        <div class="project-info">
+                                            <h3 class="project-title">
+                                                {% if primaryUrl %}
+                                                <a href="{{ primaryUrl }}" target="_blank" rel="noopener noreferrer">
+                                                    {{ project.title }}
+                                                </a>
+                                                {% else %}
+                                                {{ project.title }}
+                                                {% endif %}
+                                            </h3>
+
+                                            <div class="project-card-footer">
+                                                <div class="project-actions">
+                                                    <!-- GitHub Button -->
+                                                    {% if project.github and not project.is_private %}
+                                                    <a href="https://github.com/{{ project.github }}" target="_blank" rel="noopener noreferrer" class="project-action-btn active" title="GitHub Repository for {{ project.title }}" aria-label="GitHub Repository for {{ project.title }}">
+                                                        <ion-icon name="logo-github" aria-hidden="true"></ion-icon>
+                                                    </a>
+                                                    {% else %}
+                                                    <span class="project-action-btn disabled" title="Private Repository" aria-label="Private Repository" aria-disabled="true">
+                                                        <ion-icon name="logo-github" aria-hidden="true"></ion-icon>
+                                                    </span>
+                                                    {% endif %}
+
+                                                    <!-- Deployment Button -->
+                                                    {% if project.deployment_url %}
+                                                    <a href="{{ project.deployment_url }}" target="_blank" rel="noopener noreferrer" class="project-action-btn active" title="Live Deployment for {{ project.title }}" aria-label="Live Deployment for {{ project.title }}">
+                                                        <ion-icon name="globe-outline" aria-hidden="true"></ion-icon>
+                                                    </a>
+                                                    {% else %}
+                                                    <span class="project-action-btn disabled" title="No Live Deployment" aria-label="No Live Deployment" aria-disabled="true">
+                                                        <ion-icon name="globe-outline" aria-hidden="true"></ion-icon>
+                                                    </span>
+                                                    {% endif %}
+                                                </div>
+
+                                                <!-- Last Updated Badge -->
+                                                {% set updatedDate = last_updated[project.github] %}
+                                                <div class="project-updated-badge" title="{% if updatedDate %}Last updated: {{ updatedDate | projectDate }}{% else %}Recently updated{% endif %}">
+                                                    <span class="status-dot" aria-hidden="true"></span>
+                                                    <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+                                                    {% if updatedDate %}
+                                                    <time datetime="{{ updatedDate }}">{{ updatedDate | projectDate }}</time>
+                                                    {% else %}
+                                                    <span>Recently</span>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                                 {% endfor %}
                             </ul>

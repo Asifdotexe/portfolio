@@ -19,6 +19,14 @@ module.exports = function(eleventyConfig) {
     return isNaN(d.getTime()) ? new Date().toUTCString() : d.toUTCString();
   });
 
+  // Project last updated date filter
+  eleventyConfig.addFilter("projectDate", function(dateStr) {
+    if (!dateStr) return "Recently";
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return "Recently";
+    return d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+  });
+
   return {
     dir: {
       input: ".",
