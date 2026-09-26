@@ -1,110 +1,122 @@
 [
   {
-    "github": "Asifdotexe/yoink",
-    "url": "https://github.com/Asifdotexe/yoink",
+    "title": "Yoink: LLM Codebase Packer",
     "image": "/assets/images/projects/yoink.webp",
     "alt": "Yoink",
-    "title": "Yoink: LLM Codebase Packer",
+    "category": "tools",
     "category_desc": "Tools",
-    "category": "tools"
+    "github": "Asifdotexe/yoink",
+    "is_private": false,
+    "deployment_url": "https://pypi.org/project/yoinky/"
   },
   {
-    "github": "Asifdotexe/Theseus",
-    "url": "https://theseus.asifdotexe.workers.dev/",
+    "title": "Ship of Theseus: Software Entropy Visualizer",
     "image": "/assets/images/projects/theseus.webp",
     "alt": "Ship of Theseus",
-    "title": "Ship of Theseus: Software Entropy Visualizer",
+    "category": "analytics",
     "category_desc": "Analytics",
-    "category": "analytics"
+    "github": "Asifdotexe/Theseus",
+    "is_private": false,
+    "deployment_url": "https://theseus.asifdotexe.workers.dev/"
   },
   {
-    "github": "Asifdotexe/second-brain",
-    "url": "https://github.com/Asifdotexe/second-brain",
+    "title": "Second Brain",
     "image": "/assets/images/projects/second-brain.webp",
     "alt": "Second Brain",
-    "title": "Second Brain",
+    "category": "knowledge",
     "category_desc": "Knowledge",
-    "category": "knowledge"
+    "github": "Asifdotexe/second-brain",
+    "is_private": false,
+    "deployment_url": "https://second-brain.asifdotexe.workers.dev/"
   },
   {
-    "github": "Asifdotexe/LittleLogger",
-    "url": "https://github.com/Asifdotexe/LittleLogger",
+    "title": "LittleLogger",
     "image": "/assets/images/projects/little-logger.webp",
     "alt": "LittleLogger",
-    "title": "LittleLogger",
+    "category": "tools",
     "category_desc": "Tools",
-    "category": "tools"
+    "github": "Asifdotexe/LittleLogger",
+    "is_private": false,
+    "deployment_url": "https://pypi.org/project/littlelogger/"
   },
   {
-    "github": "Asifdotexe/playground-repo",
-    "url": "https://github.com/Asifdotexe/playground-repo",
+    "title": "Python vs Cython Benchmarking",
     "image": "/assets/images/projects/python-v-cython.webp",
     "alt": "Python vs Cython Benchmarking",
-    "title": "Python vs Cython Benchmarking",
+    "category": "knowledge",
     "category_desc": "Knowledge",
-    "category": "knowledge"
+    "github": "Asifdotexe/playground-repo",
+    "is_private": false,
+    "deployment_url": "https://github.com/Asifdotexe/playground-repo/blob/main/code/issue-9-as-cpython-benchmark.ipynb"
   },
   {
-    "github": "Asifdotexe/SERPENT",
-    "url": "https://github.com/Asifdotexe/SERPENT",
+    "title": "SERPENT: Code to flowchart application",
     "image": "/assets/images/projects/serpent.webp",
     "alt": "SERPENT",
-    "title": "SERPENT: Code to flowchart application",
+    "category": "tools",
     "category_desc": "Tools",
-    "category": "tools"
+    "github": "Asifdotexe/SERPENT",
+    "is_private": false,
+    "deployment_url": "https://serpent.streamlit.app/"
   },
   {
-    "github": "Asifdotexe/QuickVU",
-    "url": "https://github.com/Asifdotexe/QuickVU",
+    "title": "QuickVU: No-code data tool",
     "image": "/assets/images/projects/quickvu.webp",
     "alt": "QuickVU",
-    "title": "QuickVU: No-code data tool",
+    "category": "tools",
     "category_desc": "Tools",
-    "category": "tools"
+    "github": "Asifdotexe/QuickVU",
+    "is_private": false,
+    "deployment_url": "https://quickvu.streamlit.app/"
   },
   {
-    "github": "Asifdotexe/DORA",
-    "url": "https://github.com/Asifdotexe/DORA",
+    "title": "DORA: Report Automator",
     "image": "/assets/images/projects/dora.webp",
     "alt": "DORA",
-    "title": "DORA: Report Automator",
+    "category": "tools",
     "category_desc": "Tools",
-    "category": "tools"
+    "github": "Asifdotexe/DORA",
+    "is_private": false,
+    "deployment_url": "https://asifdotexe.github.io/DORA/"
   },
   {
-    "github": "Asifdotexe/RecommendationHaki",
-    "url": "https://github.com/Asifdotexe/RecommendationHaki",
+    "title": "RecommendationHaki: Anime Recommendation Engine",
     "image": "/assets/images/projects/recommendation-haki.webp",
     "alt": "RecommendationHaki",
-    "title": "RecommendationHaki: Anime Recommendation Engine",
+    "category": "models",
     "category_desc": "Models",
-    "category": "models"
+    "github": "Asifdotexe/RecommendationHaki",
+    "is_private": false,
+    "deployment_url": "https://recommendation-haki.streamlit.app/"
   },
   {
-    "github": "Asifdotexe/Natural-LangWiz",
-    "url": "https://github.com/Asifdotexe/Natural-LangWiz",
+    "title": "Natural LangWiz: NLP Learning Repository",
     "image": "/assets/images/projects/natural-langwiz.webp",
     "alt": "Natural LangWiz",
-    "title": "Natural LangWiz: NLP Learning Repository",
+    "category": "knowledge",
     "category_desc": "Knowledge",
-    "category": "knowledge"
+    "github": "Asifdotexe/Natural-LangWiz",
+    "is_private": false,
+    "deployment_url": null
   },
   {
-    "github": "Asifdotexe/open-see-wee",
-    "url": "https://github.com/Asifdotexe/open-see-wee",
+    "title": "Open See Wee: Computer Vision Learning Repository",
     "image": "/assets/images/projects/open-cv.webp",
     "alt": "Open See Wee",
-    "title": "Open See Wee: Computer Vision Learning Repository",
+    "category": "knowledge",
     "category_desc": "Knowledge",
-    "category": "knowledge"
+    "github": "Asifdotexe/open-see-wee",
+    "is_private": false,
+    "deployment_url": null
   },
   {
-    "github": "Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews",
-    "url": "https://github.com/Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews",
+    "title": "Sentimental Scoring Model on Amazon Reviews",
     "image": "/assets/images/projects/nlp-amazon-sentiment-scoring-model.webp",
     "alt": "Amazon Sentiment Analysis",
-    "title": "Sentimental Scoring Model on Amazon Reviews",
+    "category": "models",
     "category_desc": "Models",
-    "category": "models"
+    "github": "Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews",
+    "is_private": false,
+    "deployment_url": null
   }
 ]
