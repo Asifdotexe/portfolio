@@ -10,6 +10,16 @@
     "deployment_url": "https://pypi.org/project/yoinky/"
   },
   {
+    "title": "Doh: Nerdy conversation starter",
+    "image": "/assets/images/projects/doh.webp",
+    "alt": "Doh",
+    "category": "tools",
+    "category_desc": "Tools",
+    "github": "Asifdotexe/doh",
+    "is_private": false,
+    "deployment_url": "https://asifdotexe.github.io/doh/"
+  },
+  {
     "title": "Ship of Theseus: Software Entropy Visualizer",
     "image": "/assets/images/projects/theseus.webp",
     "alt": "Ship of Theseus",
@@ -26,7 +36,7 @@
     "category": "knowledge",
     "category_desc": "Knowledge",
     "github": "Asifdotexe/second-brain",
-    "is_private": false,
+    "is_private": true,
     "deployment_url": "https://second-brain.asifdotexe.workers.dev/"
   },
   {
