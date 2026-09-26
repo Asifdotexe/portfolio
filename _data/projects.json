@@ -20,7 +20,7 @@
     "deployment_url": "https://theseus.asifdotexe.workers.dev/"
   },
   {
-    "title": "Second Brain",
+    "title": "Second Brain: Personal Knowledge Base",
     "image": "/assets/images/projects/second-brain.webp",
     "alt": "Second Brain",
     "category": "knowledge",
@@ -30,7 +30,7 @@
     "deployment_url": "https://second-brain.asifdotexe.workers.dev/"
   },
   {
-    "title": "LittleLogger",
+    "title": "LittleLogger: ML Tracking Decorator",
     "image": "/assets/images/projects/little-logger.webp",
     "alt": "LittleLogger",
     "category": "tools",
@@ -70,7 +70,7 @@
     "deployment_url": "https://quickvu.streamlit.app/"
   },
   {
-    "title": "DORA: Report Automator",
+    "title": "DORA: EDA Report Automator",
     "image": "/assets/images/projects/dora.webp",
     "alt": "DORA",
     "category": "tools",
@@ -100,7 +100,7 @@
     "deployment_url": null
   },
   {
-    "title": "Open See Wee: Computer Vision Learning Repository",
+    "title": "Open See Wee: Computer Vision Repository",
     "image": "/assets/images/projects/open-cv.webp",
     "alt": "Open See Wee",
     "category": "knowledge",
