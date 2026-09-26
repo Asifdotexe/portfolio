@@ -1,5 +1,12 @@
 [
   {
+    "title": "Google Cybersecurity Specialization",
+    "issuer": "Google | Coursera",
+    "date": "26 September 2026",
+    "image": "/assets/images/certificates/google_cybersec.webp",
+    "url": "https://coursera.org/verify/professional-cert/QGW09B5IQ783"
+  },
+  {
     "title": "IBM Data Science Specialization",
     "issuer": "IBM | Coursera",
     "date": "26 November 2023",
