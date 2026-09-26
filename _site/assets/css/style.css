@@ -630,6 +630,9 @@ main {
   border-radius: 12px 12px 0 0;
   box-shadow: var(--shadow-2);
   z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar-list {
@@ -665,6 +668,74 @@ main {
   background: var(--eerie-black-2);
   border-color: var(--onyx);
   box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.2), inset 0 1px 0 hsla(0, 0%, 100%, 0.05);
+}
+
+/* Navbar Utility Actions (Theme Toggle & Divider) */
+.navbar-actions {
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-separator {
+  width: 1px;
+  height: 20px;
+  background: var(--jet);
+  flex-shrink: 0;
+}
+
+[data-theme="light"] .navbar-separator {
+  background: hsl(0, 0%, 88%);
+}
+
+.navbar-theme-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
+  color: var(--light-gray);
+  font-size: 16px;
+  cursor: pointer;
+  transition: color var(--transition-1), background var(--transition-1), border-color var(--transition-1), transform 0.15s ease, box-shadow var(--transition-1);
+  box-shadow: inset 0 1px 1px hsla(0, 0%, 100%, 0.04);
+  position: relative;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.navbar-theme-btn:hover {
+  color: var(--vibrant-green);
+  border-color: var(--vibrant-green);
+  background: var(--onyx);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px hsla(99, 76%, 56%, 0.15);
+}
+
+.navbar-theme-btn:active {
+  transform: translateY(0) scale(0.95);
+}
+
+.navbar-theme-btn:focus-visible {
+  outline: 2px solid var(--vibrant-green);
+  outline-offset: 2px;
+}
+
+[data-theme="light"] .navbar-theme-btn {
+  background: hsl(0, 0%, 96%);
+  border-color: hsl(0, 0%, 88%);
+  color: hsl(0, 0%, 40%);
+  box-shadow: none;
+}
+
+[data-theme="light"] .navbar-theme-btn:hover {
+  background: hsl(0, 0%, 92%);
+  border-color: var(--vibrant-green);
+  color: var(--vibrant-green);
+  box-shadow: 0 3px 8px hsla(99, 76%, 35%, 0.15);
 }
 
 /* CUSTOM FOOTER FIX FOR MOBILE NAVBAR */
@@ -1641,7 +1712,9 @@ main {
   .project-item.active,
   .project-card,
   .project-action-btn,
-  .tilt-effect {
+  .tilt-effect,
+  .navbar-theme-btn,
+  .theme-btn ion-icon {
     animation: none !important;
     transition: none !important;
     transform: none !important;
@@ -2894,10 +2967,12 @@ textarea.form-input::-webkit-resizer {
     right: 0;
     width: max-content;
     border-radius: 0 20px 0 20px;
-    padding: 6px;
+    padding: 6px 14px 6px 6px;
     background: var(--smoky-black);
     border: 1px solid var(--jet);
     box-shadow: inset 0 2px 6px hsla(0, 0%, 0%, 0.4);
+    display: flex;
+    align-items: center;
   }
 
   .navbar-list {
@@ -2907,6 +2982,13 @@ textarea.form-input::-webkit-resizer {
 
   .navbar-link {
     font-weight: var(--fw-500);
+  }
+
+  .navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 6px;
   }
 
   /* ABOUT */
@@ -2966,7 +3048,7 @@ textarea.form-input::-webkit-resizer {
   }
 
   .article-title {
-    max-width: calc(100% - 400px); /* Prevent overlap with absolute navbar */
+    max-width: calc(100% - 500px); /* Prevent overlap with absolute navbar */
   }
 
   /* MAIN */
@@ -3055,7 +3137,13 @@ textarea.form-input::-webkit-resizer {
 
 /* Theme Button Responsive Positioning */
 @media (max-width: 1023px) {
-  .navbar-theme-btn {
+  .navbar-actions {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sidebar-theme-btn {
     display: none !important;
   }
 }
