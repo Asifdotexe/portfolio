@@ -961,7 +961,9 @@
   .project-item.active,
   .project-card,
   .project-action-btn,
-  .tilt-effect {
+  .tilt-effect,
+  .navbar-theme-btn,
+  .theme-btn ion-icon {
     animation: none !important;
     transition: none !important;
     transform: none !important;
