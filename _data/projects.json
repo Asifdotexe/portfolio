@@ -7,7 +7,21 @@
     "category_desc": "Tools",
     "github": "Asifdotexe/yoink",
     "is_private": false,
-    "deployment_url": "https://pypi.org/project/yoinky/"
+    "deployment_url": "https://pypi.org/project/yoinky/",
+    "tags": [
+      "ast-parsing",
+      "cli-tool",
+      "codebase-analysis",
+      "docker",
+      "fastapi",
+      "llm-optimization",
+      "pre-commit",
+      "pydantic",
+      "python",
+      "render-deployment",
+      "tokenization",
+      "typer"
+    ]
   },
   {
     "title": "Doh: Nerdy conversation starter",
@@ -27,7 +41,19 @@
     "category_desc": "Analytics",
     "github": "Asifdotexe/Theseus",
     "is_private": false,
-    "deployment_url": "https://theseus.asifdotexe.workers.dev/"
+    "deployment_url": "https://theseus.asifdotexe.workers.dev/",
+    "tags": [
+      "automation",
+      "codebase-analysis",
+      "d3js",
+      "data-visualization",
+      "git",
+      "git-history",
+      "github-actions",
+      "javascript",
+      "python",
+      "software-engineering"
+    ]
   },
   {
     "title": "Second Brain: Personal Knowledge Base",
@@ -47,7 +73,14 @@
     "category_desc": "Tools",
     "github": "Asifdotexe/LittleLogger",
     "is_private": false,
-    "deployment_url": "https://pypi.org/project/littlelogger/"
+    "deployment_url": "https://pypi.org/project/littlelogger/",
+    "tags": [
+      "developer-tools",
+      "logging",
+      "pypi",
+      "python",
+      "scikit-learn"
+    ]
   },
   {
     "title": "Python vs Cython Benchmarking",
@@ -67,7 +100,16 @@
     "category_desc": "Tools",
     "github": "Asifdotexe/SERPENT",
     "is_private": false,
-    "deployment_url": "https://serpent.streamlit.app/"
+    "deployment_url": "https://serpent.streamlit.app/",
+    "tags": [
+      "ast",
+      "code-documentation",
+      "code-to-flowchart",
+      "developer-tools",
+      "graphviz",
+      "python",
+      "streamlit"
+    ]
   },
   {
     "title": "QuickVU: No-code data tool",
@@ -77,7 +119,16 @@
     "category_desc": "Tools",
     "github": "Asifdotexe/QuickVU",
     "is_private": false,
-    "deployment_url": "https://quickvu.streamlit.app/"
+    "deployment_url": "https://quickvu.streamlit.app/",
+    "tags": [
+      "automation",
+      "data-analysis",
+      "data-cleaning",
+      "data-visualization",
+      "python3",
+      "streamlit-application",
+      "toolkit"
+    ]
   },
   {
     "title": "DORA: EDA Report Automator",
@@ -87,7 +138,15 @@
     "category_desc": "Tools",
     "github": "Asifdotexe/DORA",
     "is_private": false,
-    "deployment_url": "https://asifdotexe.github.io/DORA/"
+    "deployment_url": "https://asifdotexe.github.io/DORA/",
+    "tags": [
+      "cli-tool",
+      "exploratory-analysis",
+      "html-report",
+      "pypi",
+      "python",
+      "streamlit"
+    ]
   },
   {
     "title": "RecommendationHaki: Anime Recommendation Engine",
@@ -97,7 +156,16 @@
     "category_desc": "Models",
     "github": "Asifdotexe/RecommendationHaki",
     "is_private": false,
-    "deployment_url": "https://recommendation-haki.streamlit.app/"
+    "deployment_url": "https://recommendation-haki.streamlit.app/",
+    "tags": [
+      "css",
+      "html",
+      "machine-learning",
+      "natural-language-procressing",
+      "python",
+      "recommendation-system",
+      "streamlit"
+    ]
   },
   {
     "title": "Natural LangWiz: NLP Learning Repository",
@@ -107,7 +175,13 @@
     "category_desc": "Knowledge",
     "github": "Asifdotexe/Natural-LangWiz",
     "is_private": false,
-    "deployment_url": null
+    "deployment_url": null,
+    "tags": [
+      "learning-repository",
+      "machine-learning",
+      "natural-language-preprocessing",
+      "python"
+    ]
   },
   {
     "title": "Open See Wee: Computer Vision Repository",
@@ -117,7 +191,14 @@
     "category_desc": "Knowledge",
     "github": "Asifdotexe/open-see-wee",
     "is_private": false,
-    "deployment_url": null
+    "deployment_url": null,
+    "tags": [
+      "computer-vision",
+      "image-analysis",
+      "learning-repository",
+      "opencv",
+      "python"
+    ]
   },
   {
     "title": "Sentimental Scoring Model on Amazon Reviews",
@@ -127,6 +208,12 @@
     "category_desc": "Models",
     "github": "Asifdotexe/nlp-sentimental-analysis-on-amazon-reviews",
     "is_private": false,
-    "deployment_url": null
+    "deployment_url": null,
+    "tags": [
+      "data-analysis",
+      "data-visualization",
+      "natural-language-processing",
+      "sentiment-analysis"
+    ]
   }
 ]
