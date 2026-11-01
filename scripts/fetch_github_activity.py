@@ -4,12 +4,14 @@ and updates the local 'last_updated.json' file.
 """
 
 from datetime import datetime
+import glob
 import json
 import os
+import re
 import requests
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROJECTS_SOURCE_PATH = os.path.join(BASE_DIR, '_data', 'projects.json')
+PROJECTS_DIR = os.path.join(BASE_DIR, 'projects')
 OUTPUT_PATH = os.path.join(BASE_DIR, '_data', 'last_updated.json')
 ACTIVITY_OUTPUT_PATH = os.path.join(BASE_DIR, '_data', 'github_activity.json')
 PR_BODY_PATH = os.path.join(BASE_DIR, 'pr_body.txt')
@@ -17,15 +19,12 @@ PR_BODY_PATH = os.path.join(BASE_DIR, 'pr_body.txt')
 
 def fetch_and_save_updates():
     """
-    Reads projects.json, fetches the last updated date for each GitHub repo,
+    Reads projects markdown files, fetches the last updated date for each GitHub repo,
     and saves the results to last_updated.json.
     """
     print("Starting project update process...")
-    try:
-        with open(PROJECTS_SOURCE_PATH, 'r', encoding='utf-8') as f:
-            projects = json.load(f)
-    except FileNotFoundError:
-        print(f"Error: The source file was not found at {PROJECTS_SOURCE_PATH}")
+    if not os.path.exists(PROJECTS_DIR):
+        print(f"Error: The projects directory was not found at {PROJECTS_DIR}")
         return
 
     try:
@@ -44,40 +43,59 @@ def fetch_and_save_updates():
         print("Fetching data from GitHub (authenticated)...")
     else:
         print("Fetching data from GitHub (unauthenticated)...")
-    for project in projects:
-        repo_path = project.get("github")
+
+    md_files = glob.glob(os.path.join(PROJECTS_DIR, '*.md'))
+    for md_path in md_files:
+        with open(md_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        m_github = re.search(r'^github:\s*["\']?([^"\'\r\n]+)["\']?', content, re.MULTILINE)
+        if not m_github:
+            continue
+        repo_path = m_github.group(1).strip()
         if not repo_path:
-            print(f"Skipping '{project.get('title')}' as it has no 'github' key.")
             continue
 
         api_url = f"https://api.github.com/repos/{repo_path}"
         try:
             response = requests.get(api_url, headers=headers)
-            # Raises an exception for bad status codes (4xx or 5xx)
             response.raise_for_status()
             repo_data = response.json()
-            
+
             # Update last_updated time
             new_pushed_at = repo_data.get('pushed_at')
             updated_data[repo_path] = new_pushed_at
-            
+
             old_pushed_at = old_data.get(repo_path)
             if old_pushed_at != new_pushed_at:
                 changes.append(f"- **{repo_path}**: Activity updated to `{new_pushed_at}`")
-            
-            # Update tags from topics
+
+            # Update tags from topics in markdown frontmatter
             topics = repo_data.get('topics', [])
             if topics:
-                old_tags = project.get('tags', [])
+                m_tags = re.search(r'^tags:\s*\n((?:\s*-\s*[^\r\n]+\r?\n?)+)', content, re.MULTILINE)
+                old_tags = []
+                if m_tags:
+                    old_tags = [t.strip().lstrip('- ').strip('\"\'') for t in m_tags.group(1).strip().splitlines() if t.strip()]
+
                 if set(topics) != set(old_tags):
-                    project['tags'] = topics
+                    new_tags_yaml = "tags:\n" + "\n".join(f"  - {t}" for t in topics) + "\n"
+                    if m_tags:
+                        new_content = re.sub(r'^tags:\s*\n(?:\s*-\s*[^\r\n]+\r?\n?)+', new_tags_yaml, content, flags=re.MULTILINE)
+                    else:
+                        parts = content.split('---', 2)
+                        if len(parts) >= 3:
+                            new_content = f"---{parts[1].rstrip()}\n{new_tags_yaml}---{parts[2]}"
+                        else:
+                            new_content = content
+                    with open(md_path, 'w', encoding='utf-8') as f:
+                        f.write(new_content)
                     changes.append(f"- **{repo_path}**: Tags updated to `{', '.join(topics)}`")
                     print(f"   -> Updated tags: {topics}")
-            
+
             print(f"Successfully fetched data for: {repo_path}")
 
         except requests.exceptions.HTTPError as e:
-            # This will catch rate-limiting errors (status 403)
             print(f"HTTP Error for {repo_path}: {e}")
             if e.response.status_code == 403:
                 print("   -> This may be a GitHub API rate limit error. Try again in an hour.")
@@ -92,27 +110,20 @@ def fetch_and_save_updates():
     except IOError as e:
         print(f"Error writing to output file: {e}")
 
-    # Write the updated projects data back to projects.json
-    try:
-        with open(PROJECTS_SOURCE_PATH, 'w', encoding='utf-8') as f:
-            json.dump(projects, f, indent=2)
-        print(f"Successfully updated projects file at: {PROJECTS_SOURCE_PATH}")
-    except IOError as e:
-        print(f"Error writing to projects file: {e}")
-
     # Generate PR Body
     body_content = "This PR updates the project data via the automated schedule.\n\n### Changes:\n"
     if changes:
         body_content += "\n".join(changes)
     else:
         body_content += "No projects had new activity or tag updates."
-        
+
     try:
         with open(PR_BODY_PATH, 'w', encoding='utf-8') as f:
             f.write(body_content)
         print(f"Successfully created PR body at: {PR_BODY_PATH}")
     except IOError as e:
         print(f"Error writing PR body: {e}")
+
 
 def fetch_latest_activity(headers):
     """

@@ -1,6 +1,6 @@
 # Asif Sayyed Portfolio
 
-Personal portfolio built with **Eleventy (11ty)**. Content is data-driven via JSON and Markdown templates.
+Personal portfolio built with **Eleventy (11ty)**. Content is data-driven via Markdown collections and JSON data files.
 
 ---
 
@@ -12,10 +12,8 @@ Personal portfolio built with **Eleventy (11ty)**. Content is data-driven via JS
 | **About Page (Intro Bio & Services)** | `index.html` | Work history & education auto-pull from JSON below |
 | **Work Experience** | `_data/experience.json` | Roles, company, dates, description |
 | **Education** | `_data/education.json` | Degrees, institutions, years |
-| **Projects (Grid Card)** | `_data/projects.json` | Title, category, description, tags, image, link |
-| **Projects (Detailed Case Study)** | `projects/<slug>.md` | Markdown with frontmatter (see guide below) |
-| **Blogs (List Entry)** | `_data/blogs.json` | Title, slug, date, tags |
-| **Blogs (Full Article)** | `blogs/<slug>.md` | Markdown with frontmatter; automatically added to RSS & sitemap |
+| **Projects (Grid Cards)** | `projects/<slug>.md` | Markdown frontmatter; automatically rendered on the projects grid |
+| **Blogs (Articles & Listing)** | `blogs/<slug>.md` | Markdown with frontmatter; automatically added to blog listing, RSS & sitemap |
 | **Certifications** | `_data/certifications.json` | Title, issuer, date, image |
 | **Events & Talks** | `_data/events.json` | Title, date, category, URL, image |
 | **Contact Page & Map** | `contact.html` | Google Maps iframe & Web3Forms form |
@@ -32,7 +30,7 @@ Personal portfolio built with **Eleventy (11ty)**. Content is data-driven via JS
 | `assets/css/style.css`<br>`assets/css/style.min.css` | **Compiled bundles.** Edit source files inside `assets/css/partials/` instead, then run `python scripts/minify_assets.py`. |
 | `assets/js/script.min.js` | **Minified file.** Edit `assets/js/script.js` instead, then run `python scripts/minify_assets.py`. |
 | `sitemap.njk`<br>`feed.njk` | **Dynamic generators.** Generates `/sitemap.xml` and `/feed.xml` automatically from `_data/site.json` and Markdown collections. |
-| `_includes/` | **Shared layouts.** Contains base shell (`base.njk`), blog layout (`blog.njk`), and project layout (`project.njk`). Only touch when changing global layout structure or schema markup. |
+| `_includes/` | **Shared layouts.** Contains base shell (`base.njk`) and blog layout (`blog.njk`). Only touch when changing global layout structure or schema markup. |
 | `.eleventy.js` | **SSG engine config.** Handles pass-through copies and template filters. |
 
 ---
@@ -41,66 +39,39 @@ Personal portfolio built with **Eleventy (11ty)**. Content is data-driven via JS
 
 ### 1. Adding a Project
 
-1. **Add detailed page**: Create `projects/my-new-app.md`:
-   ```markdown
-   ---
-   layout: project.njk
-   title: My Cool AI App
-   subtitle: An AI application that does cool things
-   permalink: /projects/my-cool-ai-app/
-   badges: 
-     - Python
-     - FastAPI
-   github_link: https://github.com/Asifdotexe/repo-name
-   live_link: https://example.com
-   doc_link: https://example.com/docs
-   image: /assets/images/project-banner.webp
-   ---
-
-   ## Problem Statement
-   ...
-
-   ## Architecture & Implementation
-   ...
-   ```
-2. **Add to grid**: Open `_data/projects.json` and add a new object to the top of the array:
-   ```json
-   {
-     "title": "My Cool AI App",
-     "category": "Machine Learning",
-     "description": "Short 1-line summary for card.",
-     "image": "./assets/images/project-banner.webp",
-     "url": "/projects/my-cool-ai-app/",
-     "tags": ["python", "ai"]
-   }
-   ```
+Create a new file `projects/<slug>.md`:
+```markdown
+---
+title: "My Cool AI App"
+image: "/assets/images/projects/my-cool-app.webp"
+alt: "My Cool AI App"
+category: "tools" # tools | models | analytics | knowledge
+category_desc: "Tools"
+github: "Asifdotexe/repo-name"
+is_private: false
+deployment_url: "https://example.com"
+date: "2026-11-01"
+tags:
+  - python
+  - fastapi
+---
+```
+*(The card appears automatically in `/projects/` on build. No JSON registration required).*
 
 ### 2. Adding a Blog Post
 
-1. **Add article markdown**: Create `blogs/my-new-post.md`:
-   ```markdown
-   ---
-   layout: blog.njk
-   title: "My New Article Title"
-   date: 2026-09-15
-   tags: ["ai", "python"]
-   permalink: /blogs/my-new-post/
-   description: "One-sentence summary for search engines and RSS."
-   image: /assets/images/blog-banner.webp
-   ---
+Create a new file `blogs/<slug>.md`:
+```markdown
+---
+title: "My New Article Title"
+date: "2026-11-01"
+tags: ["ai", "python"]
+description: "One-sentence summary for search engines and RSS."
+---
 
-   Article content here...
-   ```
-2. **Register in list**: Open `_data/blogs.json` and add entry:
-   ```json
-   {
-     "title": "My New Article Title",
-     "slug": "my-new-post",
-     "date": "2026-09-15",
-     "tags": ["ai", "python"]
-   }
-   ```
-*(Feed at `/feed.xml` and `/sitemap.xml` update automatically on build).*
+Article content here...
+```
+*(The article appears automatically on `/blogs/`, `/feed.xml`, and `/sitemap.xml` on build. No JSON registration required).*
 
 ### 3. Adding Experience or Education
 
@@ -141,10 +112,10 @@ npm start
 ```bash
 npm run build
 ```
-*Compiles all templates, markdown, and feeds into `_site/`.*
+*Compiles the static site into `_site/`.*
 
-### Re-bundle Assets (CSS/JS)
+### Assets Build (CSS/JS minification)
 ```bash
-python scripts/minify_assets.py
+npm run build:assets
 ```
-*Rebuilds `style.css`, `style.min.css`, and `script.min.js`.*
+*Runs `scripts/minify_assets.py` to bundle and minify CSS and JS.*

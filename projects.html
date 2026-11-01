@@ -62,7 +62,8 @@ permalink: /projects/
 
                         <div class="projects-grid">
                             <ul class="project-list" id="project-list">
-                                {% for project in projects %}
+                                {% for projectItem in collections.projects | reverse %}
+                                {% set project = projectItem.data %}
                                 <li class="project-item active fade-in-up" style="animation-delay: {{ loop.index0 * 0.05 }}s;" data-filter-item data-category="{{ project.category | default('tools') | lower }}">
                                     <div class="project-card">
                                         {% set primaryUrl = project.deployment_url if project.deployment_url else (('https://github.com/' + project.github) if not project.is_private else null) %}
