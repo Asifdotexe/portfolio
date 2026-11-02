@@ -216,37 +216,12 @@ document.addEventListener('DOMContentLoaded', () => {
     yearElement.textContent = new Date().getFullYear();
   }
 
-  // Theme Toggle Logic
-  const themeBtns = document.querySelectorAll("[data-theme-btn]");
-  if (themeBtns.length > 0) {
-    const applyTheme = (theme) => {
-      const isLight = theme === "light";
-      if (isLight) {
-        document.body.setAttribute("data-theme", "light");
-      } else {
-        document.body.removeAttribute("data-theme");
-      }
-      localStorage.setItem("theme", theme);
-      themeBtns.forEach(btn => btn.setAttribute("aria-pressed", isLight));
-      
-      document.querySelectorAll('.theme-aware-img').forEach(img => {
-        if (isLight && img.hasAttribute('data-light-src')) {
-          img.src = img.getAttribute('data-light-src');
-        } else if (!isLight && img.hasAttribute('data-dark-src')) {
-          img.src = img.getAttribute('data-dark-src');
-        }
-      });
-    };
-
-    const currentTheme = localStorage.getItem("theme") || "dark";
-    applyTheme(currentTheme);
-    
-    themeBtns.forEach(btn => {
-      btn.addEventListener("click", function () {
-        const isLight = document.body.getAttribute("data-theme") === "light";
-        applyTheme(isLight ? "dark" : "light");
-      });
-    });
+  // Ensure dark theme permanently
+  if (localStorage.getItem("theme")) {
+    localStorage.removeItem("theme");
+  }
+  if (document.body.hasAttribute("data-theme")) {
+    document.body.removeAttribute("data-theme");
   }
 
   // Keyboard Accelerators
@@ -254,12 +229,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const tag = e.target.tagName;
     const isEditable = e.target.isContentEditable;
     if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || tag === "BUTTON" || tag === "A" || isEditable) return;
-    
-    // Theme toggle (M)
-    if ((e.key === "m" || e.key === "M") && !e.ctrlKey && !e.metaKey) {
-      const themeBtn = document.querySelector("[data-theme-btn]");
-      if (themeBtn) themeBtn.click();
-    }
     
     // Navigation (1-5)
     if (!e.ctrlKey && !e.metaKey && !e.altKey) {

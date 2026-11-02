@@ -1,31 +1,31 @@
 """
-This script fetches the latest 'pushed_at' date from GitHub for each project
-and updates the local 'last_updated.json' file.
+This script fetches the latest 'pushed_at' date and release/tag versions from GitHub
+for each project and updates the local 'last_updated.json' and 'project_versions.json' files.
 """
 
 from datetime import datetime
+import glob
 import json
 import os
+import re
 import requests
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROJECTS_SOURCE_PATH = os.path.join(BASE_DIR, '_data', 'projects.json')
+PROJECTS_DIR = os.path.join(BASE_DIR, 'projects')
 OUTPUT_PATH = os.path.join(BASE_DIR, '_data', 'last_updated.json')
+VERSIONS_OUTPUT_PATH = os.path.join(BASE_DIR, '_data', 'project_versions.json')
 ACTIVITY_OUTPUT_PATH = os.path.join(BASE_DIR, '_data', 'github_activity.json')
 PR_BODY_PATH = os.path.join(BASE_DIR, 'pr_body.txt')
 
 
 def fetch_and_save_updates():
     """
-    Reads projects.json, fetches the last updated date for each GitHub repo,
-    and saves the results to last_updated.json.
+    Reads projects markdown files, fetches the last updated date and version for each GitHub repo,
+    and saves the results to last_updated.json and project_versions.json.
     """
     print("Starting project update process...")
-    try:
-        with open(PROJECTS_SOURCE_PATH, 'r', encoding='utf-8') as f:
-            projects = json.load(f)
-    except FileNotFoundError:
-        print(f"Error: The source file was not found at {PROJECTS_SOURCE_PATH}")
+    if not os.path.exists(PROJECTS_DIR):
+        print(f"Error: The projects directory was not found at {PROJECTS_DIR}")
         return
 
     try:
@@ -34,7 +34,14 @@ def fetch_and_save_updates():
     except FileNotFoundError:
         old_data = {}
 
-    updated_data = {}
+    try:
+        with open(VERSIONS_OUTPUT_PATH, 'r', encoding='utf-8') as f:
+            old_versions = json.load(f)
+    except FileNotFoundError:
+        old_versions = {}
+
+    updated_data = dict(old_data)
+    updated_versions = dict(old_versions)
     changes = []
     # Standard headers for GitHub API
     headers = {'Accept': 'application/vnd.github.v3+json'}
@@ -44,40 +51,64 @@ def fetch_and_save_updates():
         print("Fetching data from GitHub (authenticated)...")
     else:
         print("Fetching data from GitHub (unauthenticated)...")
-    for project in projects:
-        repo_path = project.get("github")
+
+    md_files = glob.glob(os.path.join(PROJECTS_DIR, '*.md'))
+    for md_path in md_files:
+        with open(md_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        m_github = re.search(r'^github:\s*["\']?([^"\'\r\n]+)["\']?', content, re.MULTILINE)
+        if not m_github:
+            continue
+        repo_path = m_github.group(1).strip()
         if not repo_path:
-            print(f"Skipping '{project.get('title')}' as it has no 'github' key.")
             continue
 
         api_url = f"https://api.github.com/repos/{repo_path}"
         try:
             response = requests.get(api_url, headers=headers)
-            # Raises an exception for bad status codes (4xx or 5xx)
             response.raise_for_status()
             repo_data = response.json()
-            
+
             # Update last_updated time
             new_pushed_at = repo_data.get('pushed_at')
             updated_data[repo_path] = new_pushed_at
-            
+
             old_pushed_at = old_data.get(repo_path)
             if old_pushed_at != new_pushed_at:
                 changes.append(f"- **{repo_path}**: Activity updated to `{new_pushed_at}`")
-            
-            # Update tags from topics
-            topics = repo_data.get('topics', [])
-            if topics:
-                old_tags = project.get('tags', [])
-                if set(topics) != set(old_tags):
-                    project['tags'] = topics
-                    changes.append(f"- **{repo_path}**: Tags updated to `{', '.join(topics)}`")
-                    print(f"   -> Updated tags: {topics}")
-            
+
+            # Fetch latest release or tag version
+            new_version = None
+            try:
+                rel_url = f"https://api.github.com/repos/{repo_path}/releases/latest"
+                rel_res = requests.get(rel_url, headers=headers)
+                if rel_res.status_code == 200:
+                    rel_data = rel_res.json()
+                    new_version = rel_data.get('tag_name') or rel_data.get('name')
+                elif rel_res.status_code == 404:
+                    tags_url = f"https://api.github.com/repos/{repo_path}/tags?per_page=1"
+                    tags_res = requests.get(tags_url, headers=headers)
+                    if tags_res.status_code == 200:
+                        tags_data = tags_res.json()
+                        if isinstance(tags_data, list) and len(tags_data) > 0:
+                            new_version = tags_data[0].get('name')
+            except requests.exceptions.RequestException as e:
+                print(f"   -> Warning: Could not fetch version for {repo_path}: {e}")
+
+            if new_version:
+                updated_versions[repo_path] = new_version
+                old_version = old_versions.get(repo_path)
+                if old_version != new_version:
+                    changes.append(f"- **{repo_path}**: Version updated to `{new_version}`")
+                    print(f"   -> Updated version: {new_version}")
+            elif repo_path in old_versions:
+                # Keep previously fetched version if not found due to transient issue
+                updated_versions[repo_path] = old_versions[repo_path]
+
             print(f"Successfully fetched data for: {repo_path}")
 
         except requests.exceptions.HTTPError as e:
-            # This will catch rate-limiting errors (status 403)
             print(f"HTTP Error for {repo_path}: {e}")
             if e.response.status_code == 403:
                 print("   -> This may be a GitHub API rate limit error. Try again in an hour.")
@@ -92,27 +123,28 @@ def fetch_and_save_updates():
     except IOError as e:
         print(f"Error writing to output file: {e}")
 
-    # Write the updated projects data back to projects.json
+    # Write the collected version data to the output file (project_versions.json)
     try:
-        with open(PROJECTS_SOURCE_PATH, 'w', encoding='utf-8') as f:
-            json.dump(projects, f, indent=2)
-        print(f"Successfully updated projects file at: {PROJECTS_SOURCE_PATH}")
+        with open(VERSIONS_OUTPUT_PATH, 'w', encoding='utf-8') as f:
+            json.dump(updated_versions, f, indent=2)
+        print(f"Successfully created the version file at: {VERSIONS_OUTPUT_PATH}")
     except IOError as e:
-        print(f"Error writing to projects file: {e}")
+        print(f"Error writing to version file: {e}")
 
     # Generate PR Body
     body_content = "This PR updates the project data via the automated schedule.\n\n### Changes:\n"
     if changes:
         body_content += "\n".join(changes)
     else:
-        body_content += "No projects had new activity or tag updates."
-        
+        body_content += "No projects had new activity or version updates."
+
     try:
         with open(PR_BODY_PATH, 'w', encoding='utf-8') as f:
             f.write(body_content)
         print(f"Successfully created PR body at: {PR_BODY_PATH}")
     except IOError as e:
         print(f"Error writing PR body: {e}")
+
 
 def fetch_latest_activity(headers):
     """
