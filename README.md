@@ -50,6 +50,8 @@ category_desc: "Tools"
 github: "Asifdotexe/repo-name"
 is_private: false
 deployment_url: "https://example.com"
+doc_link: "https://example.com/docs" # (Optional) book icon link
+journal_link: "https://example.com/blog" # (Optional) quill icon link
 date: "2026-11-01"
 tags:
   - python
