@@ -1,4 +1,5 @@
 This PR updates the project data via the automated schedule.
 
 ### Changes:
-No projects had new activity or version updates.
+- **Asifdotexe/doh**: Activity updated to `2026-11-05T04:41:52Z`
+- **Asifdotexe/doh**: Version updated to `v0.1.0`
